@@ -1,0 +1,191 @@
+<head>
+  <!-- 1. Link to Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<!-- 2. Link to daisyUI + Tailwind CSS -->
+<!-- This single file contains all the necessary daisyUI and Tailwind classes -->
+<link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- 3. Custom CSS for overrides (NO @apply needed) -->
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
+    /* Hero background color might need adjustment based on theme */
+    [data-theme="light"] .hero {
+        background-color: #f0f2ff;
+    }
+    [data-theme="dark"] .hero { /* Added dark mode for hero */
+        background-color: #2a323c; /* A dark color from the dark theme */
+    }
+    /* Global style for all buttons to have normal case text */
+    .btn {
+      text-transform: none;
+    }
+</style>
+
+</head>
+<body>
+<div data-theme="light" id="theme-wrapper">
+
+<!-- New Sticky Navbar -->
+<header class="sticky top-0 z-50">
+    <div class="navbar bg-neutral text-neutral-content">
+      <div class="navbar-start">
+        <div class="dropdown">
+          <label tabindex="0" class="btn btn-ghost lg:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+          </label>
+          <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-neutral rounded-box w-52">
+            <li><a href="#why-integrate">Why Integrate?</a></li>
+            <li><a href="#why-eka">Eka's Solution</a></li>
+            <li><a href="#workflow">Example Workflow</a></li>
+          </ul>
+        </div>
+        <a href="#" class="btn btn-ghost text-xl">
+          <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66d020ca1f763391c8076dd5_eka-logo-white.svg" alt="Eka Care Logo" class="h-8">
+        </a>
+      </div>
+      <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal px-1">
+          <li><a href="#why-integrate">Why Integrate?</a></li>
+          <li><a href="#why-eka">Eka's Solution</a></li>
+          <li><a href="#workflow">Example Workflow</a></li>
+        </ul>
+      </div>
+      <div class="navbar-end">
+        <!-- Theme Controller Dropdown -->
+        <div class="dropdown dropdown-end">
+            <div tabindex="0" role="button" class="btn btn-ghost">
+              Theme
+              <svg width="12px" height="12px" class="h-2 w-2 fill-current opacity-60 inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048"><path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path></svg>
+            </div>
+            <ul tabindex="0" class="dropdown-content z-[1] p-2 shadow-2xl bg-base-300 rounded-box w-52" data-choose-theme>
+              <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Light" value="light"/></li>
+              <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Dark" value="dark"/></li>
+              <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Cupcake" value="cupcake"/></li>
+              <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Dracula" value="dracula"/></li>
+              <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Synthwave" value="synthwave"/></li>
+            </ul>
+          </div>
+      </div>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<div class="hero min-h-[60vh]">
+  <div class="hero-content text-center">
+    <div class="max-w-2xl">
+      <h1 class="text-5xl font-bold">Eka ABDM Connect API</h1>
+      <p class="py-6 text-xl font-semibold text-primary">Simplify Your ABDM Integration—Go Live Faster</p>
+      <p>A single API suite to help you connect seamlessly with India’s Ayushman Bharat Digital Mission (ABDM).</p>
+      <!-- Corrected button class -->
+      <a href="#why-integrate" class="btn btn-primary">Start Integrating →</a>
+    </div>
+  </div>
+</div>
+
+<main class="container mx-auto px-4 py-16">
+    <!-- Section 1: Why Integrate with ABDM? -->
+    <section id="why-integrate" class="text-center mb-20 scroll-mt-20">
+        <h2 class="text-4xl font-bold mb-4">Why Integrate with ABDM?</h2>
+        <p class="max-w-3xl mx-auto mb-10">By integrating with ABDM, your platform can:</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="card bg-base-100 shadow-xl"><div class="card-body items-center text-center"><h3 class="card-title">Create ABHA IDs</h3><p>Help patients generate their Health IDs.</p></div></div>
+            <div class="card bg-base-100 shadow-xl"><div class="card-body items-center text-center"><h3 class="card-title">Manage Consent Digitally</h3><p>Let patients control their data sharing.</p></div></div>
+            <div class="card bg-base-100 shadow-xl"><div class="card-body items-center text-center"><h3 class="card-title">Exchange Records</h3><p>Support seamless record sharing.</p></div></div>
+            <div class="card bg-base-100 shadow-xl"><div class="card-body items-center text-center"><h3 class="card-title">Stay Compliant</h3><p>Future-proof your platform.</p></div></div>
+        </div>
+    </section>
+
+    <!-- Section 2 & 4 Combined: Why Eka is the Solution -->
+    <section id="why-eka" class="mb-20 scroll-mt-20">
+        <div class="text-center"><h2 class="text-4xl font-bold mb-4">The Smart Way to Integrate</h2><p class="max-w-3xl mx-auto mb-10">Eka’s all-in-one API handles the complexity for you.</p></div>
+        <div class="flex flex-wrap lg:flex-nowrap gap-8">
+            <div class="flex-1">
+                <h3 class="text-2xl font-bold mb-4 text-center">Direct Integration Challenges</h3>
+                <div class="overflow-x-auto"><table class="table w-full"><thead><tr><th>Challenge</th><th>Impact</th></tr></thead><tbody><tr><th>Complex Tech Stack</th><td>Months of development</td></tr><tr class="hover"><th>Certification Process</th><td>Lengthy audits</td></tr><tr><th>Security & Privacy</th><td>High responsibility</td></tr><tr class="hover"><th>Long Development Time</th><td>6-12 months to go live</td></tr><tr><th>Infrastructure</th><td>Continuous maintenance</td></tr></tbody></table></div>
+            </div>
+            <div class="flex-1">
+                <h3 class="text-2xl font-bold mb-4 text-center">Eka’s Solution</h3>
+                <div class="overflow-x-auto"><table class="table w-full table-zebra"><thead><tr><th>Feature</th><th>Benefit</th></tr></thead><tbody><tr><th>All-in-One API</th><td>One connection, all modules</td></tr><tr class="hover"><th>Pre-Certified</th><td>No extra audits for you</td></tr><tr><th>Simple REST APIs</th><td>Go live in days</td></tr><tr class="hover"><th>Managed Infrastructure</th><td>We handle the updates</td></tr><tr><th>Expert Support</th><td>Onboarding help step-by-step</td></tr></tbody></table></div>
+            </div>
+        </div>
+        <div class="text-center mt-10 space-x-4">
+             <!-- Corrected button classes -->
+             <a href="#docs" class="btn btn-primary">View API Docs →</a>
+             <a href="#demo" class="btn btn-outline btn-primary">Book a Demo →</a>
+        </div>
+    </section>
+    
+    <!-- Workflow Image Section -->
+    <section id="workflow" class="text-center mb-20 scroll-mt-20">
+        <h2 class="text-4xl font-bold mb-4">Example Workflow</h2>
+        <div class="mockup-browser border bg-base-300"><div class="mockup-browser-toolbar"><div class="input">https://api.eka.care</div></div><div class="flex justify-center px-4 py-16 bg-base-200"><p>Your workflow diagram image can be placed here.</p></div></div>
+    </section>
+</main>
+
+<!-- Sticky Footer CTA -->
+<footer class="footer footer-center p-10 bg-neutral text-neutral-content sticky bottom-0">
+  <aside><p class="text-3xl font-bold">Ready to integrate with ABDM?</p><p>Join the healthcare ecosystem of the future with Eka’s ABDM Connect API.</p></aside>
+  <nav>
+    <div class="grid grid-flow-col gap-4">
+      <!-- Corrected button classes -->
+      <a class="btn btn-primary">Get Started Now →</a>
+      <a class="btn btn-outline btn-primary">Book a Demo →</a>
+    </div>
+  </nav>
+</footer>
+
+</div>
+<script>
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+         if (targetId === '#') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return;
+        }
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// DaisyUI theme switcher persistence logic
+(function() {
+    const themeWrapper = document.getElementById('theme-wrapper');
+    const themeDropdown = document.querySelector('[data-choose-theme]');
+    if (!themeWrapper || !themeDropdown) return;
+
+    const applyTheme = () => {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        themeWrapper.setAttribute('data-theme', savedTheme);
+        const currentOption = document.querySelector(`input.theme-controller[value="${savedTheme}"]`);
+        if (currentOption) {
+            currentOption.checked = true;
+        }
+    };
+
+    themeDropdown.addEventListener('click', (e) => {
+        if (e.target.matches('.theme-controller')) {
+            const selectedTheme = e.target.value;
+            themeWrapper.setAttribute('data-theme', selectedTheme);
+            localStorage.setItem('theme', selectedTheme);
+        }
+    });
+    
+    // Apply saved theme on page load
+    document.addEventListener('DOMContentLoaded', applyTheme);
+})();
+</script>
+
+</body>

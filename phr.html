@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eka PHR - Your AI-Powered Health App</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .btn {
+            text-transform: none;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .hero-bg-phr {
+             background: linear-gradient(135deg, #e0f7fa 0%, #ffffff 100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-white">
+
+       <!-- Header -->
+        <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+            <div class="container mx-auto navbar px-4">
+                <div class="navbar-start">
+                    <div class="dropdown">
+                        <label tabindex="0" class="btn btn-ghost lg:hidden" aria-label="Open menu">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+                        </label>
+                        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                            <li><details><summary>Product suite</summary><ul class="p-2"><li><a href="emr.html">Eka EMR</a></li><li><a href="scribe.html">Eka Scribe</a></li><li><a href="phr.html">Eka PHR</a></li></ul></details></li>
+                            <li><details><summary>Solutions</summary><ul class="p-2"><li><a>Health AI</a></li><li><a>Assessment</a></li></ul></details></li>
+                            <li><a>Pricing</a></li>
+                        </ul>
+                    </div>
+                    <a href="index.html" class="btn btn-ghost text-xl p-0 h-auto" aria-label="Homepage">
+                        <img src="https://assets-global.website-files.com/64d0bd8b475d468c8b1aa632/64d0be0d38102353229b48c0_logo.svg" alt="Eka.care Prioritize Health" class="h-10">
+                    </a>
+                </div>
+                <div class="navbar-center hidden lg:flex">
+                    <ul class="menu menu-horizontal px-1 font-medium">
+                        <li><details><summary>Product suite</summary><ul class="p-2 bg-base-100 shadow rounded-box w-48 z-10"><li><a href="emr.html">Eka EMR</a></li><li><a href="scribe.html">Eka Scribe</a></li><li><a href="phr.html">Eka PHR</a></li></ul></details></li>
+                        <li><details><summary>Solutions</summary><ul class="p-2 bg-base-100 shadow rounded-box w-48 z-10"><li><a>Health AI</a></li><li><a>Assessment</a></li></ul></details></li>
+                        <li><a>Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="navbar-end space-x-2">
+                    <a class="btn bg-gray-100 hover:bg-gray-200 border-none rounded-full px-6 hidden sm:inline-flex">Log in</a>
+                    <a class="btn btn-primary rounded-full px-6">Download App</a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Hero Section -->
+            <section class="hero-bg-phr py-20">
+                <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+                    <div class="text-center md:text-left">
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">Discover a healthier you!</h1>
+                        <p class="text-lg md:text-xl mt-6 max-w-xl mx-auto md:mx-0 text-gray-700">With an AI-powered health app that helps you organise medical records, track body vitals, and learn more about you with personalised health insights.</p>
+                        <div class="mt-10 flex flex-wrap gap-4 justify-center md:justify-start">
+                            <a href="#"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66d020d01f763391c8077266_Playstore%20Icons.svg" alt="Download on the App Store" class="h-12"></a>
+                            <a href="#"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66d020d01f763391c8077281_Google%20Play%20Badge%20Logo%201.svg" alt="Get it on Google Play" class="h-12"></a>
+                        </div>
+                        <div class="flex items-center gap-2 mt-4 justify-center md:justify-start">
+                            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66d020cb1f763391c8076e61_App%20rating.svg" alt="5 star rating" class="h-5">
+                            <span class="text-gray-600 font-medium">4.8 Stars</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-center">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66da9ca161deced1048e9bb3_homepage-curves-with-lines.svg" alt="Eka Care app on a phone" class="max-w-sm w-full">
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Features Section -->
+            <section class="py-20">
+                <div class="container mx-auto px-4 space-y-24">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div><h2 class="text-4xl font-bold">Understand your health deeply with AI</h2><p class="text-lg text-gray-600 mt-4">Get personalized responses and insights on your health data. Learn personalized health tips and compare your health to others in your demographic.</p><a href="#" class="btn btn-primary btn-outline rounded-full mt-6">Learn More</a></div>
+                        <div class="bg-gray-100 p-8 rounded-2xl"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/670cf9f850df3b0ef049eb6b_Pattern%20-%20For%20LEFT%20side%20image%20-%20V0.2.svg" alt="AI Health Insights" class="w-full"></div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="order-2 md:order-1"><h2 class="text-4xl font-bold">Organize all your health data at one place</h2><p class="text-lg text-gray-600 mt-4">Bring all your health records from different places, automatically turn them into digital files, and easily find them using search, filtering, and labels.</p><a href="#" class="btn btn-primary btn-outline rounded-full mt-6">Learn More</a></div>
+                         <div class="order-1 md:order-2 bg-gray-100 p-8 rounded-2xl"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66d020cc1f763391c8076ffa_Vectors-Wrapper.svg" alt="Organized Health Data" class="w-full"></div>
+                    </div>
+                     <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div><h2 class="text-4xl font-bold">Digitize your health with ABHA</h2><p class="text-lg text-gray-600 mt-4">With your ABHA ID, you can book doctor visits quickly and easily. No more waiting in long lines! Join over 65 Crore Indians on the digital health network.</p><a href="#" class="btn btn-primary rounded-full mt-6">Make your ABHA ID now</a></div>
+                        <div class="bg-gray-100 p-8 rounded-2xl"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66d020cc1f763391c8076feb_Vectors-Wrapper.svg" alt="ABHA ID creation" class="w-full"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials Carousel Section -->
+            <section class="py-20 bg-gray-50">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-4xl font-bold text-center mb-12">What our users say</h2>
+                    <div class="carousel rounded-box w-full space-x-4">
+                        <div class="carousel-item card w-80 bg-base-100 shadow-xl p-6"><p>"This app has made my life so hassle free. I can just upload all the health records of my family at one place. It converts it into a smart report that makes it so simple to interpret."</p><div class="mt-4 font-bold">Nidhi G, Delhi</div></div> 
+                        <div class="carousel-item card w-80 bg-base-100 shadow-xl p-6"><p>"This is a one stop for all your medical self help needs. They have consultations with doctors 24X7, self diagnosis of your health by AI. Just love the simplicity and the friendly interface."</p><div class="mt-4 font-bold">Sagar K, Hyderabad</div></div> 
+                        <div class="carousel-item card w-80 bg-base-100 shadow-xl p-6"><p>"The app shows my ABHA number and lets me use government health services too. I told all my family about it. Now everyone in my family uses ABHA with Eka Care app."</p><div class="mt-4 font-bold">Dhrama M, Delhi</div></div> 
+                        <div class="carousel-item card w-80 bg-base-100 shadow-xl p-6"><p>"Highly useful app for someone with existing disease and needs to manage their medical reports. Lab reports are stored smartly."</p><div class="mt-4 font-bold">Shivani J, Bangalore</div></div>
+                        <div class="carousel-item card w-80 bg-base-100 shadow-xl p-6"><p>"I just tried the Eka Care app for fun. But then I started checking my heart rate on it. Now I know more about my heart."</p><div class="mt-4 font-bold">Jay S, Hyderabad</div></div> 
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final CTA Section -->
+            <section class="py-20">
+                <div class="container mx-auto px-4 text-center">
+                    <h2 class="text-4xl font-bold">Prioritize Your Health</h2>
+                    <p class="text-lg text-gray-600 mt-4">Start your journey towards a healthier future today!</p>
+                    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-8">
+                        <div>
+                            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66d6bcef846246cb6d6ed624_QRCodeEKA.svg" alt="QR Code to download Eka Care App" class="w-40 h-40">
+                            <p class="mt-2 font-semibold">Scan QR to download</p>
+                        </div>
+                        <div class="flex flex-col gap-4">
+                             <a href="#"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66d020d01f763391c8077266_Playstore%20Icons.svg" alt="Download on the App Store" class="h-16"></a>
+                            <a href="#"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66d020d01f763391c8077281_Google%20Play%20Badge%20Logo%201.svg" alt="Get it on Google Play" class="h-16"></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="bg-blue-700 text-blue-100">
+            <div class="container mx-auto px-4 pt-16 pb-8">
+                 <div class="mt-12 pt-8 border-t border-blue-600 flex flex-col sm:flex-row justify-between items-center text-sm">
+                    <p class="order-2 sm:order-1 mt-4 sm:mt-0">Copyright © 2022 eka.care</p>
+                    <div class="flex space-x-4 order-1 sm:order-2">
+                        <a href="#" aria-label="Instagram"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.012 3.584-.07 4.85c-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.012-3.584.07-4.85c.148-3.225 1.664-4.771 4.919-4.919 1.266-.057 1.644-.069 4.85-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98C23.986 15.667 24 15.259 24 12s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98C15.667.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg></a>
+                        <a href="#" aria-label="LinkedIn"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

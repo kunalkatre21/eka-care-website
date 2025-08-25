@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eka Scribe - AI Clinical Documentation for Doctors</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #000000;
+        }
+        .btn {
+            text-transform: none;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .hero-glow {
+            background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(29, 78, 216, 0.15), rgba(0,0,0,0));
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-black text-white">
+
+        <!-- Header -->
+        <header class="bg-black/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+            <div class="container mx-auto navbar px-4">
+                <div class="navbar-start">
+                    <div class="dropdown">
+                        <label tabindex="0" class="btn btn-ghost lg:hidden" aria-label="Open menu">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+                        </label>
+                        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                            <li><details><summary>Product suite</summary><ul class="p-2"><li><a href="emr.html">Eka EMR</a></li><li><a href="scribe.html">Eka Scribe</a></li><li><a href="phr.html">Eka PHR</a></li></ul></details></li>
+                            <li><details><summary>Solutions</summary><ul class="p-2"><li><a>Health AI</a></li><li><a>Assessment</a></li></ul></details></li>
+                            <li><a>Pricing</a></li>
+                        </ul>
+                    </div>
+                    <a href="index.html" class="btn btn-ghost text-xl p-0 h-auto" aria-label="Homepage">
+                        <img src="https://assets-global.website-files.com/64d0bd8b475d468c8b1aa632/64d0be0d38102353229b48c0_logo.svg" alt="Eka.care Prioritize Health" class="h-10">
+                    </a>
+                </div>
+                <div class="navbar-center hidden lg:flex">
+                    <ul class="menu menu-horizontal px-1 font-medium">
+                        <li><details><summary>Product suite</summary><ul class="p-2 bg-base-100 shadow rounded-box w-48 z-10"><li><a href="emr.html">Eka EMR</a></li><li><a href="scribe.html">Eka Scribe</a></li><li><a href="phr.html">Eka PHR</a></li></ul></details></li>
+                        <li><details><summary>Solutions</summary><ul class="p-2 bg-base-100 shadow rounded-box w-48 z-10"><li><a>Health AI</a></li><li><a>Assessment</a></li></ul></details></li>
+                        <li><a>Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="navbar-end space-x-2">
+                    <a class="btn bg-gray-800 hover:bg-gray-700 border-none rounded-full px-6 hidden sm:inline-flex">Log in</a>
+                    <a class="btn btn-primary rounded-full px-6">Try For Free</a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Hero Section -->
+            <section class="hero-glow pt-24 pb-20">
+                <div class="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
+                    <div class="text-center md:text-left">
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
+                            <span class="text-blue-500">AI-Powered</span> Clinical Documentation Platform for Doctors
+                        </h1>
+                        <p class="text-lg md:text-xl mt-6 max-w-2xl mx-auto md:mx-0 text-gray-400">Record or upload consultations. Get structured notes, prescriptions & clinical summaries instantly.</p>
+                        <div class="mt-10 flex flex-wrap gap-4 justify-center md:justify-start">
+                            <a class="btn btn-outline border-white text-white rounded-full px-8">Book A Demo</a>
+                            <a class="btn btn-primary rounded-full px-8">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                                Try For Free
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hidden md:block bg-gray-800/50 rounded-3xl min-h-[300px] aspect-square"></div>
+                </div>
+            </section>
+
+            <!-- How it Works Section -->
+            <section class="py-20">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-4xl font-bold text-center mb-16">How Eka Scribe Works</h2>
+                    <div class="relative max-w-4xl mx-auto">
+                        <div class="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-0.5 bg-gray-800 hidden md:block"></div>
+                        <div class="grid md:grid-cols-2 gap-16 items-center">
+                            <div class="space-y-12">
+                                <div class="flex items-start gap-4"><div class="flex-shrink-0 mt-1 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center font-bold">1</div><div><h3 class="text-xl font-semibold">Record / Upload Consultation</h3><p class="text-gray-400 mt-1">Use our in-app voice recorder or upload an audio file.</p></div></div>
+                                <div class="flex items-start gap-4"><div class="flex-shrink-0 mt-1 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center font-bold">2</div><div><h3 class="text-xl font-semibold">Scribe AI Transcribes & Understands</h3><p class="text-gray-400 mt-1">Our AI processes the audio, identifying key medical terms and context.</p></div></div>
+                                <div class="flex items-start gap-4"><div class="flex-shrink-0 mt-1 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center font-bold">3</div><div><h3 class="text-xl font-semibold">Instant Notes, Summaries & Rx</h3><p class="text-gray-400 mt-1">Get structured, accurate clinical documentation in seconds.</p></div></div>
+                            </div>
+                            <div><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66f00ac132470ab751b3a32c_scribeworks.webp" alt="Eka Scribe app interface showing voice recording and transcription" class="rounded-2xl shadow-2xl shadow-blue-900/20"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Benefits Section -->
+            <section class="py-20 text-center container mx-auto px-4">
+                 <h2 class="text-4xl md:text-5xl font-bold">Doctors Save Over <span class="text-blue-500">12 Hours</span> Weekly With Eka Scribe</h2>
+                 <p class="text-xl text-gray-400 mt-4">Reduce documentation time by 80% and improve focus during consultations.</p>
+                 <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-gray-900/70 p-6 rounded-2xl border border-gray-800"><h3 class="font-semibold text-lg">Real-Time Dictation Mode</h3><p class="text-gray-400 mt-2">Dictate notes on the go with live transcription, optimized for Indian medical accents.</p></div>
+                    <div class="bg-gray-900/70 p-6 rounded-2xl border border-gray-800"><h3 class="font-semibold text-lg">Consultation Mode</h3><p class="text-gray-400 mt-2">Auto-captures and organizes patient interaction during live consultations.</p></div>
+                    <div class="bg-gray-900/70 p-6 rounded-2xl border border-gray-800"><h3 class="font-semibold text-lg">One Click Save to Any EMR</h3><p class="text-gray-400 mt-2">Push AI-generated notes, vitals, and more directly into your EMR — instantly.</p></div>
+                    <div class="bg-gray-900/70 p-6 rounded-2xl border border-gray-800"><h3 class="font-semibold text-lg">Multilingual Voice Capture</h3><p class="text-gray-400 mt-2">Seamlessly transcribe patient conversations in Indian languages with medical-grade accuracy.</p></div>
+                 </div>
+            </section>
+
+             <!-- Testimonial Section -->
+            <section class="py-20">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-4xl font-bold text-center mb-12">Real Impact Delivered by Eka Scribe</h2>
+                    <div class="max-w-4xl mx-auto bg-gray-900/50 rounded-3xl p-8 md:p-12 border border-gray-800">
+                        <div class="grid md:grid-cols-3 gap-8 items-center">
+                            <div class="md:col-span-2">
+                                <div class="flex mb-4">
+                                    <span class="text-yellow-400">★★★★★</span>
+                                </div>
+                                <blockquote class="text-xl font-medium text-gray-200">“Eka Scribe has completely changed how I document my patient consultations — it’s hands-free, accurate, and incredibly fast. It saves me over 12 hours every week... It's like having a silent, intelligent assistant who never misses a detail.”</blockquote>
+                                <div class="mt-6">
+                                    <p class="font-bold">Dr. Neelesh Kapoor</p>
+                                    <p class="text-gray-400">Senior Consultant Physician & Diabetologist, Noida, India</p>
+                                </div>
+                            </div>
+                            <div class="flex justify-center">
+                                <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66f00ac1a61320387532389d_neelesh.webp" alt="Dr. Neelesh Kapoor" class="w-48 h-48 rounded-full object-cover border-4 border-gray-700">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Integration Section -->
+            <section class="py-20 text-center container mx-auto px-4">
+                 <h2 class="text-4xl font-bold">Seamless Integration With Your Workflow</h2>
+                 <p class="text-xl text-blue-400 mt-2">Eka Scribe Is Compatible With Your Clinic’s Tools & Platforms</p>
+                 <div class="mt-12 flex justify-center flex-wrap gap-4">
+                    <div class="w-20 h-20 bg-gray-800 rounded-2xl flex items-center justify-center"><p class="text-gray-500 text-sm">EMR 1</p></div>
+                    <div class="w-20 h-20 bg-gray-800 rounded-2xl flex items-center justify-center"><p class="text-gray-500 text-sm">EMR 2</p></div>
+                    <div class="w-20 h-20 bg-gray-800 rounded-2xl flex items-center justify-center"><p class="text-gray-500 text-sm">Platform 1</p></div>
+                    <div class="w-20 h-20 bg-gray-800 rounded-2xl flex items-center justify-center"><p class="text-gray-500 text-sm">Platform 2</p></div>
+                    <div class="w-20 h-20 bg-gray-800 rounded-2xl flex items-center justify-center"><p class="text-gray-500 text-sm">Tool 1</p></div>
+                    <div class="w-20 h-20 bg-gray-800 rounded-2xl flex items-center justify-center"><p class="text-gray-500 text-sm">Tool 2</p></div>
+                    <div class="w-20 h-20 bg-gray-800 rounded-2xl flex items-center justify-center"><p class="text-gray-500 text-sm">Tool 3</p></div>
+                 </div>
+            </section>
+            
+             <!-- FAQ Section -->
+            <section class="py-20">
+                <div class="container mx-auto px-4 max-w-4xl">
+                    <h2 class="text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+                    <div class="space-y-4">
+                        <div class="collapse collapse-plus bg-gray-900/70 border border-gray-800 rounded-xl">
+                            <input type="radio" name="my-accordion-3" checked="checked" /> 
+                            <div class="collapse-title text-xl font-medium">What is Eka Scribe?</div>
+                            <div class="collapse-content"><p class="text-gray-400">Eka Scribe is an AI-powered medical scribe that records doctor-patient conversations and auto-generates summaries, clinical notes, prescriptions, and structured EMR entries — directly into the Eka.care platform.</p></div>
+                        </div>
+                        <div class="collapse collapse-plus bg-gray-900/70 border border-gray-800 rounded-xl">
+                            <input type="radio" name="my-accordion-3" /> 
+                            <div class="collapse-title text-xl font-medium">Is Eka Scribe HIPAA-Compliant?</div>
+                            <div class="collapse-content"><p class="text-gray-400">Yes, Eka Scribe is designed with the highest standards of security and privacy, adhering to HIPAA guidelines to ensure all patient data is protected.</p></div>
+                        </div>
+                        <div class="collapse collapse-plus bg-gray-900/70 border border-gray-800 rounded-xl">
+                            <input type="radio" name="my-accordion-3" /> 
+                            <div class="collapse-title text-xl font-medium">Can I use Eka Scribe during in-person or teleconsultations?</div>
+                            <div class="collapse-content"><p class="text-gray-400">Absolutely. Eka Scribe is built for flexibility and works seamlessly for both in-person consultations and remote teleconsultations, capturing audio from any environment.</p></div>
+                        </div>
+                         <div class="collapse collapse-plus bg-gray-900/70 border border-gray-800 rounded-xl">
+                            <input type="radio" name="my-accordion-3" /> 
+                            <div class="collapse-title text-xl font-medium">How much time can Eka Scribe actually save me?</div>
+                            <div class="collapse-content"><p class="text-gray-400">Our users report saving over 12 hours per week on average. By automating clinical documentation, Eka Scribe reduces administrative work by up to 80%, freeing you to focus on your patients.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="bg-black border-t border-gray-900">
+            <div class="container mx-auto p-8 flex flex-col sm:flex-row justify-between items-center text-sm text-gray-400">
+                <p class="order-2 sm:order-1 mt-4 sm:mt-0">Copyright © 2025 eka.care</p>
+                <div class="flex space-x-4 order-1 sm:order-2">
+                    <a href="#" aria-label="Instagram" class="hover:text-white">Instagram</a>
+                    <a href="#" aria-label="LinkedIn" class="hover:text-white">LinkedIn</a>
+                    <a href="#" aria-label="Facebook" class="hover:text-white">Facebook</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
