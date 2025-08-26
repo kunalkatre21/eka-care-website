@@ -348,93 +348,71 @@
         </header>
 
         <main>
-            <!-- Hero Section with Floating UI Cards -->
+            <!-- Hero Section -->
             <section class="hero min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden" aria-labelledby="hero-heading" role="banner">
                 <div class="hero-content text-center relative z-20">
                     <div class="max-w-4xl">
                         <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/67037eba125260b47d235ad2_trusted-by-over-40k-doctors.webp" alt="Trusted by over 40,000 doctors" class="mx-auto h-12 mb-6">
                         <h1 id="hero-heading" class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-gray-500 mb-6">
-                            <span class="text-gray-900">AI-Powered</span> Practice Management
+                            <span class="text-gray-900">Generative AI Solutions</span> for Healthcare
                         </h1>
                         <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-12" role="complementary" aria-describedby="hero-description">
-                            Transform your clinic with our comprehensive EMR platform. Streamline patient care, enhance diagnostics, and boost operational efficiency with cutting-edge AI technology.
+                            Revolutionize healthcare with Our Gen AI solutions – improving patient care, diagnostics, and operational efficiency.
                         </p>
-                        <button class="btn btn-primary rounded-full px-8 py-4 text-lg border-none shadow-lg hover:shadow-xl transition-all duration-300" aria-label="Get started with Eka EMR">
-                            Get started - free for 30 days
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+                            <a href="https://calendly.com/eka-care-session/experience-eka-doc-tool?month=2024-06" class="btn btn-primary rounded-full px-8 py-4 text-lg border-none shadow-lg hover:shadow-xl transition-all duration-300">
+                                Book a demo
                             <i class="fas fa-arrow-right ml-2" aria-hidden="true"></i>
-                        </button>
+                            </a>
+                            <a href="#" class="btn bg-gray-100 hover:bg-gray-200 border-none rounded-full px-6 py-4 text-lg">
+                                Download App
+                            </a>
                     </div>
+                        <div class="flex justify-center">
+                            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66e7f5abbab401b4de52bc49_doc-home-new.webp" alt="App store and Play store" class="h-12">
                 </div>
+                        </div>
+                                            </div>
 
                 <!-- Floating UI Cards Container -->
                 <div class="floating-cards-container absolute inset-0 pointer-events-none z-10" role="presentation" aria-hidden="true">
-                    <!-- Eka EMR Dashboard Card (Top Right) -->
+                    <!-- AI Documentation Card (Top Right) -->
                     <div class="floating-card floating-card-1 absolute" style="top: 15%; right: 8%; width: 320px;" tabindex="-1">
-                        <div class="card bg-base-100 shadow-2xl border border-gray-100/50" role="article" aria-label="EMR Dashboard Demo">
+                        <div class="card bg-base-100 shadow-2xl border border-gray-100/50" role="article" aria-label="AI Documentation Demo">
                             <div class="card-body p-6">
                                 <header class="flex items-center justify-between mb-4">
                                     <div class="flex items-center gap-3">
-                                        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center" role="img" aria-label="EMR icon">
-                                            <i class="fas fa-file-medical-alt text-white text-sm" aria-hidden="true"></i>
+                                        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center" role="img" aria-label="AI icon">
+                                            <i class="fas fa-brain text-white text-sm" aria-hidden="true"></i>
                                         </div>
-                                        <span class="font-semibold text-gray-800">Patient Dashboard</span>
+                                        <span class="font-semibold text-gray-800">AI Documentation</span>
                                     </div>
-                                    <div class="text-xs text-blue-600 font-medium">Eka EMR</div>
+                                    <div class="text-xs text-blue-600 font-medium">Eka Scribe</div>
                                 </header>
-                                <div class="space-y-3" role="list" aria-label="Patient vitals">
-                                    <div class="flex items-center justify-between" role="listitem">
-                                        <span class="text-sm text-gray-600">Heart Rate</span>
-                                        <span class="text-sm font-semibold text-red-600">78 BPM</span>
-                                    </div>
-                                    <div class="flex items-center justify-between" role="listitem">
-                                        <span class="text-sm text-gray-600">Blood Pressure</span>
-                                        <span class="text-sm font-semibold text-green-600">120/80</span>
-                                    </div>
-                                    <div class="flex items-center justify-between" role="listitem">
-                                        <span class="text-sm text-gray-600">Weight</span>
-                                        <span class="text-sm font-semibold text-blue-600">75 kg</span>
-                                    </div>
-                                    <div class="mt-4 p-3 bg-green-50 rounded-xl" role="status" aria-live="polite">
-                                        <div class="text-xs text-green-700 font-medium">Health Score: 85/100</div>
-                                        <div class="text-xs text-green-600 mt-1">All vitals normal</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- AI Scribe Card (Left Side) -->
-                    <div class="floating-card floating-card-2 absolute" style="top: 25%; left: 5%; width: 360px;">
-                        <div class="card bg-base-100 shadow-2xl border border-gray-100/50">
-                            <div class="card-body p-6">
-                                <div class="flex items-center justify-between mb-4">
-                                    <h3 class="card-title text-lg font-bold text-gray-800">AI-Powered Documentation</h3>
-                                    <div class="text-xs text-red-600 font-medium">Eka Scribe</div>
-                                </div>
-                                <div class="space-y-4">
+                                <div class="space-y-3" role="list" aria-label="AI features">
                                     <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
                                         <div class="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center animate-pulse">
                                             <i class="fas fa-microphone text-white"></i>
                                         </div>
                                         <div>
-                                            <div class="font-semibold text-gray-800">Recording Active</div>
-                                            <div class="text-xs text-gray-600">Transcribing in real-time</div>
+                                            <div class="font-semibold text-gray-800">Voice-to-Text Active</div>
+                                            <div class="text-xs text-gray-600">Real-time transcription</div>
                                         </div>
                                         <div class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">
-                                            Live
+                                            AI
                                         </div>
                                     </div>
                                     <div class="bg-gray-50 p-4 rounded-xl mb-4">
                                         <div class="text-sm text-gray-700 mb-2">
-                                            "Patient presents with chronic back pain..."
+                                            "Patient presents with acute symptoms..."
                                         </div>
                                         <div class="flex items-center gap-2">
                                             <div class="flex gap-1">
-                                                <div class="w-2 h-2 bg-red-500 rounded-full animate-bounce"></div>
-                                                <div class="w-2 h-2 bg-red-500 rounded-full animate-bounce" style="animation-delay: 0.1s;"></div>
-                                                <div class="w-2 h-2 bg-red-500 rounded-full animate-bounce" style="animation-delay: 0.2s;"></div>
+                                                <div class="w-2 h-2 bg-blue-500 rounded-full animate-bounce"></div>
+                                                <div class="w-2 h-2 bg-blue-500 rounded-full animate-bounce" style="animation-delay: 0.1s;"></div>
+                                                <div class="w-2 h-2 bg-blue-500 rounded-full animate-bounce" style="animation-delay: 0.2s;"></div>
                                             </div>
-                                            <span class="text-xs text-gray-500">Auto-generating Rx</span>
+                                            <span class="text-xs text-gray-500">AI generating Rx</span>
                                         </div>
                                     </div>
                                 </div>
@@ -442,18 +420,58 @@
                         </div>
                     </div>
 
-                    <!-- Analytics Card (Right Side, Lower) -->
+                    <!-- Patient Dashboard Card (Left Side) -->
+                    <div class="floating-card floating-card-2 absolute" style="top: 25%; left: 5%; width: 360px;">
+                        <div class="card bg-base-100 shadow-2xl border border-gray-100/50">
+                            <div class="card-body p-6">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h3 class="card-title text-lg font-bold text-gray-800">Smart Patient Dashboard</h3>
+                                    <div class="text-xs text-purple-600 font-medium">Eka EMR</div>
+                                </div>
+                                <div class="space-y-4">
+                                    <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
+                                        <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-chart-line text-white"></i>
+                                        </div>
+                                        <div>
+                                            <div class="font-semibold text-gray-800">Health Analytics</div>
+                                            <div class="text-xs text-gray-600">AI-powered insights</div>
+                                        </div>
+                                        <div class="ml-auto text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full">
+                                            Live
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div class="bg-green-50 p-3 rounded-xl text-center">
+                                            <div class="text-lg font-bold text-green-600">85/100</div>
+                                            <div class="text-xs text-green-700">Health Score</div>
+                                        </div>
+                                        <div class="bg-blue-50 p-3 rounded-xl text-center">
+                                            <div class="text-lg font-bold text-blue-600">120/80</div>
+                                            <div class="text-xs text-blue-700">Blood Pressure</div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4 p-3 bg-indigo-50 rounded-xl" role="status" aria-live="polite">
+                                        <div class="text-xs text-indigo-700 font-medium">AI Analysis: Vitals stable</div>
+                                        <div class="text-xs text-indigo-600 mt-1">No immediate concerns detected</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Practice Analytics Card (Right Side, Lower) -->
                     <div class="floating-card floating-card-3 absolute" style="top: 55%; right: 12%; width: 300px;">
                         <div class="card bg-base-100 shadow-2xl border border-gray-100/50">
                             <div class="card-body p-6">
                                 <div class="flex items-center justify-between mb-4">
                                     <div class="flex items-center gap-2">
                                         <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
-                                            <i class="fas fa-chart-line text-white text-sm"></i>
+                                            <i class="fas fa-chart-bar text-white text-sm"></i>
                                         </div>
-                                        <span class="text-sm font-medium text-gray-700">Practice Analytics</span>
+                                        <span class="text-sm font-medium text-gray-700">AI Practice Analytics</span>
                                     </div>
-                                    <div class="text-xs text-green-600 font-medium">Live Data</div>
+                                    <div class="text-xs text-green-600 font-medium">Real-time</div>
                                 </div>
                                 <div class="bg-gray-50 p-4 rounded-xl mb-4">
                                     <div class="text-sm text-gray-700 mb-2">
@@ -462,7 +480,7 @@
                                     <div class="grid grid-cols-2 gap-4">
                                         <div class="text-center">
                                             <div class="text-lg font-bold text-blue-600">24</div>
-                                            <div class="text-xs text-gray-500">Patients</div>
+                                            <div class="text-xs text-gray-500">Patients Seen</div>
                                         </div>
                                         <div class="text-center">
                                             <div class="text-lg font-bold text-green-600">₹12K</div>
@@ -471,8 +489,8 @@
                                     </div>
                                 </div>
                                 <div class="text-xs text-gray-600 flex items-center justify-between">
-                                    <span>Updated 2 min ago</span>
-                                    <span class="text-green-600">+15% vs yesterday</span>
+                                    <span>AI prediction: +15% tomorrow</span>
+                                    <span class="text-green-600">↗ 8% vs last week</span>
                                 </div>
                             </div>
                         </div>
@@ -483,8 +501,8 @@
                         <div class="card bg-base-100 shadow-2xl border border-gray-100/50">
                             <div class="card-body p-6">
                                 <div class="flex items-center justify-between mb-4">
-                                    <h3 class="card-title text-lg font-bold text-gray-800">Patient Portal</h3>
-                                    <div class="text-xs text-gray-600 font-medium">Eka PHR</div>
+                                    <h3 class="card-title text-lg font-bold text-gray-800">Smart Patient Portal</h3>
+                                    <div class="text-xs text-indigo-600 font-medium">Eka PHR</div>
                                 </div>
                                 <div class="space-y-3">
                                     <div class="flex items-center justify-between">
@@ -492,14 +510,17 @@
                                         <span class="text-sm font-bold text-blue-600">1,250</span>
                                     </div>
                                     <div class="flex items-center justify-between">
-                                        <span class="text-sm text-gray-600">Messages Today</span>
+                                        <span class="text-sm text-gray-600">AI Appointments Today</span>
                                         <span class="text-sm font-bold text-green-600">45</span>
                                     </div>
                                     <div class="bg-gray-50 p-3 rounded-xl">
                                         <code class="text-xs text-gray-700">
                                             Patient engagement: 94%<br>
-                                            <span class="text-green-600">↑ 8% from last month</span>
+                                            <span class="text-green-600">AI-driven ↑ 8% this month</span>
                                         </code>
+                                    </div>
+                                    <div class="mt-3 p-2 bg-blue-50 rounded-lg">
+                                        <div class="text-xs text-blue-700 font-medium">AI Reminder: Follow-up for 12 patients</div>
                                     </div>
                                 </div>
                             </div>
@@ -507,120 +528,98 @@
                     </div>
                 </div>
 
-                <!-- Trust indicators at bottom -->
-                <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 w-full max-w-6xl">
-                    <p class="text-sm text-gray-500 mb-6 text-center">Trusted by leading healthcare organizations nationwide</p>
-
-                    <!-- Auto-scrolling logos with gradient fade -->
-                    <div class="relative w-full overflow-hidden">
-                        <!-- Gradient fade edges -->
-                        <div class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-gray-50 via-gray-50/80 to-transparent z-10 pointer-events-none"></div>
-                        <div class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-gray-50 via-gray-50/80 to-transparent z-10 pointer-events-none"></div>
-
-                        <!-- Scrolling container -->
-                        <div class="logo-scroll-container flex items-center gap-20 py-4">
-                            <!-- First set of logos -->
-                            <div class="flex items-center gap-20 logo-track">
-                                <div class="tooltip tooltip-bottom flex-shrink-0" data-tip="Medanta">
-                                    <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a409a682bd3dc48a9f09_medanta.webp" alt="Medanta" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy">
+                <!-- Trust Badges -->
+                <div class="absolute bottom-32 left-1/2 transform -translate-x-1/2 z-10">
+                    <div class="flex justify-center items-center flex-wrap gap-x-8 gap-y-6">
+                        <div class="flex items-center gap-3">
+                            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66e3fe01990a89075ec76def_t-05.webp" alt="Google Partner" class="h-10">
+                            <span class="font-medium text-gray-700">Google Partner</span>
                                 </div>
-                                <div class="tooltip tooltip-bottom flex-shrink-0" data-tip="AWS">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy">
-                                </div>
-                                <div class="tooltip tooltip-bottom flex-shrink-0" data-tip="Samsung">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy">
-                                </div>
-                                <div class="tooltip tooltip-bottom flex-shrink-0" data-tip="NHA">
-                                    <img src="https://ehealth.eletsonline.com/wp-content/uploads/2021/11/National-Health-Authority-NHA.jpg" alt="NHA" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy">
-                                </div>
-                                <div class="tooltip tooltip-bottom flex-shrink-0" data-tip="HealthLand">
-                                    <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a4094eb16d20c1eb7829_healthland.webp" alt="HealthLand" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy">
-                                </div>
-                                <div class="tooltip tooltip-bottom flex-shrink-0" data-tip="Gynoveda">
-                                    <img src="https://gynoveda-production.s3.ap-south-1.amazonaws.com/logos/logo-black-front.png" alt="Gynoveda" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy">
-                                </div>
-                                <div class="tooltip tooltip-bottom flex-shrink-0" data-tip="Idrishti">
-                                    <img src="https://media.licdn.com/dms/image/v2/C560BAQGko0Gq_cwm9Q/company-logo_200_200/company-logo_200_200/0/1640072327484?e=2147483647&v=beta&t=FrtvNM2dcQwIBC7JgvzsxHRDb7_rtURT3PmVAXx7teE" alt="Idrishti" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy">
-                                </div>
-                                <div class="tooltip tooltip-bottom flex-shrink-0" data-tip="Metropolis">
-                                    <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a4099129dbee28c888a7_metropolis.webp" alt="Metropolis" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy">
-                                </div>
-                            </div>
-
-                            <!-- Duplicate set for seamless loop -->
-                            <div class="flex items-center gap-20 logo-track">
-                                <div class="tooltip tooltip-bottom flex-shrink-0" data-tip="Medanta">
-                                    <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a409a682bd3dc48a9f09_medanta.webp" alt="Medanta" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy">
-                                </div>
-                                <div class="tooltip tooltip-bottom flex-shrink-0" data-tip="AWS">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy">
-                                </div>
-                                <div class="tooltip tooltip-bottom flex-shrink-0" data-tip="Samsung">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy">
-                                </div>
-                                <div class="tooltip tooltip-bottom flex-shrink-0" data-tip="NHA">
-                                    <img src="https://ehealth.eletsonline.com/wp-content/uploads/2021/11/National-Health-Authority-NHA.jpg" alt="NHA" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy">
-                                </div>
-                                <div class="tooltip tooltip-bottom flex-shrink-0" data-tip="HealthLand">
-                                    <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a4094eb16d20c1eb7829_healthland.webp" alt="HealthLand" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy">
-                                </div>
-                                <div class="tooltip tooltip-bottom flex-shrink-0" data-tip="Gynoveda">
-                                    <img src="https://gynoveda-production.s3.ap-south-1.amazonaws.com/logos/logo-black-front.png" alt="Gynoveda" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy">
-                                </div>
-                                <div class="tooltip tooltip-bottom flex-shrink-0" data-tip="Idrishti">
-                                    <img src="https://media.licdn.com/dms/image/v2/C560BAQGko0Gq_cwm9Q/company-logo_200_200/company-logo_200_200/0/1640072327484?e=2147483647&v=beta&t=FrtvNM2dcQwIBC7JgvzsxHRDb7_rtURT3PmVAXx7teE" alt="Idrishti" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy">
-                                </div>
-                                <div class="tooltip tooltip-bottom flex-shrink-0" data-tip="Metropolis">
-                                    <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a4099129dbee28c888a7_metropolis.webp" alt="Metropolis" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy">
-                                </div>
-                            </div>
+                        <div class="flex items-center gap-3">
+                            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66d020cc1f763391c8076fbd_Frame%201618873312.svg" alt="ABDM Complaint" class="h-10">
+                            <span class="font-medium text-gray-700">ABDM Complaint</span>
+                                        </div>
+                        <div class="flex items-center gap-3">
+                            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66d020cc1f763391c8076fe1_Frame%201618873313.svg" alt="AWS Secured" class="h-10">
+                            <span class="font-medium text-gray-700">AWS Secured</span>
+                                        </div>
+                        <div class="flex items-center gap-3">
+                            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66e3fe017e91da4e2048d896_t-02.webp" alt="FHIR Compliant" class="h-10">
+                            <span class="font-medium text-gray-700">FHIR Compliant</span>
+                                        </div>
+                        <div class="flex items-center gap-3">
+                            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66e3fe016d37a4f1946a543f_t-01.webp" alt="NHA Approved" class="h-10">
+                            <span class="font-medium text-gray-700">NHA Approved</span>
+                                    </div>
                         </div>
+                    </div>
+
+
+            </section>
+
+            <!-- Gen AI Solutions Section -->
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl font-bold mb-4">GEN AI</h2>
+                        <h3 class="text-3xl font-bold mb-4">Discover Innovative Generative AI Solutions for Healthcare</h3>
+                        <a href="https://www.eka.care/s/for-doctors/docassist" class="btn btn-primary rounded-full">Learn More</a>
+                </div>
+
+                    <!-- AI Solutions Tabs -->
+                    <div class="tabs tabs-boxed grid-cols-2 sm:grid-cols-4 max-w-4xl mx-auto mb-12 bg-gray-200">
+                        <a role="tab" class="tab !rounded-full tab-active">DocAssist Summary</a>
+                        <a role="tab" class="tab !rounded-full">DocAssist Chat</a>
+                        <a role="tab" class="tab !rounded-full">Simplified Digital Prescriptions</a>
+                        <a role="tab" class="tab !rounded-full">Voice-2-Rx</a>
+                            </div>
+
+                    <!-- AI Solutions Showcase -->
+                    <div class="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+                        <div>
+                            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6762abc1835ae317c27330ce_doc-assist-ai.webp" alt="DocAssist AI Summary" class="rounded-2xl shadow-2xl">
+                                </div>
+                        <div>
+                            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6762abc141c1ab38317f1b3a_doc-assist-chat-ai.webp" alt="DocAssist Chat AI" class="rounded-2xl shadow-2xl">
+                                </div>
+                        <div>
+                            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6762abc1137786052e00269b_digital-prescription-ai.webp" alt="Simplified Digital Prescriptions AI" class="rounded-2xl shadow-2xl">
+                                </div>
+                        <div>
+                            <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6762abc1c29046f1923b3d23_voice2rx-ai.webp" alt="Voice-2-Rx AI" class="rounded-2xl shadow-2xl">
+                                </div>
                     </div>
                 </div>
             </section>
             
-            <!-- Trust Badges Section -->
-            <section class="py-12 bg-white">
-                <div class="container mx-auto px-4">
-                    <div class="flex justify-center items-center flex-wrap gap-x-8 gap-y-6">
-                        <div class="flex items-center gap-3"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66e3fe01990a89075ec76def_t-05.webp" alt="Google Partner" class="h-10"><span class="font-medium text-gray-700">Google Partner</span></div>
-                        <div class="flex items-center gap-3"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66d020cc1f763391c8076fbd_Frame%201618873312.svg" alt="ABDM Complaint" class="h-10"><span class="font-medium text-gray-700">ABDM Complaint</span></div>
-                        <div class="flex items-center gap-3"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66d020cc1f763391c8076fe1_Frame%201618873313.svg" alt="AWS Secured" class="h-10"><span class="font-medium text-gray-700">AWS Secured</span></div>
-                        <div class="flex items-center gap-3"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66e3fe017e91da4e2048d896_t-02.webp" alt="FHIR Compliant" class="h-10"><span class="font-medium text-gray-700">FHIR Compliant</span></div>
-                        <div class="flex items-center gap-3"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66e3fe016d37a4f1946a543f_t-01.webp" alt="NHA Approved" class="h-10"><span class="font-medium text-gray-700">NHA Approved</span></div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Features Section -->
+            <!-- EKA DOC Section -->
             <section class="py-20 bg-gray-50">
                 <div class="container mx-auto px-4">
-                    <div class="text-center">
-                        <h2 class="text-4xl font-bold">360° Practice Management Tool</h2>
-                        <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">Everything you need in one powerful, AI-driven platform. From prescriptions to patient engagement, we've got you covered.</p>
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl font-bold mb-4">EKA DOC</h2>
+                        <h3 class="text-3xl font-bold mb-4">360° Practice Management tool</h3>
                     </div>
                     
-                    <!-- Enhanced Features Tabs -->
-                    <div role="tablist" class="tabs tabs-boxed grid-cols-2 sm:grid-cols-4 max-w-4xl mx-auto mt-12 bg-gray-200">
-                        <a role="tab" class="tab !rounded-full tab-active" aria-label="Digital Prescription features">Digital Prescription</a>
-                        <a role="tab" class="tab !rounded-full" aria-label="Clinic Management features">Clinic Management</a>
-                        <a role="tab" class="tab !rounded-full" aria-label="Patient Engagement features">Patient Engagement</a>
-                        <a role="tab" class="tab !rounded-full" aria-label="Practice Analytics features">Practice Analytics</a>
+                    <!-- Features Tabs -->
+                    <div class="tabs tabs-boxed grid-cols-2 sm:grid-cols-4 max-w-4xl mx-auto mb-12 bg-gray-200">
+                        <a role="tab" class="tab !rounded-full tab-active">Digital Prescription</a>
+                        <a role="tab" class="tab !rounded-full">Clinic Management</a>
+                        <a role="tab" class="tab !rounded-full">Patient Engagement</a>
+                        <a role="tab" class="tab !rounded-full">Practice Analytics</a>
                     </div>
 
-                    <div class="mt-12">
-                        <!-- Enhanced Features Grid -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            <!-- Digital Prescription Feature -->
-                            <div class="card bg-base-100 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    <!-- Features Content -->
+                    <div class="space-y-8">
+                        <!-- Digital Prescription -->
+                        <div class="card bg-white shadow-lg">
                                 <div class="card-body p-8">
                                     <div class="flex items-center gap-3 mb-4">
                                         <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center">
                                             <i class="fas fa-prescription text-white text-xl"></i>
                                         </div>
-                                        <h3 class="card-title text-xl">Smart Digital Prescriptions</h3>
+                                    <h3 class="card-title text-xl">Write and share smart digital prescriptions, fast.</h3>
                                     </div>
-                                    <p class="text-gray-600 mb-4">Write and share smart digital prescriptions, fast. Customized for every speciality with SNOMED CT and ICD 10 codes.</p>
+                                <p class="text-gray-600 mb-4">Customized prescription pad for every speciality with SNOMED CT and ICD 10 codes.</p>
                                     <div class="space-y-2">
                                         <div class="flex items-center gap-2">
                                             <i class="fas fa-check text-green-500 text-sm"></i>
@@ -635,17 +634,18 @@
                                             <span class="text-sm text-gray-600">Brand your printed Rx your way</span>
                                         </div>
                                     </div>
+                                <a href="https://calendly.com/eka-care-session/experience-eka-doc-tool?month=2024-06" class="btn btn-primary btn-sm rounded-full mt-4">Try now</a>
                                 </div>
                             </div>
 
-                            <!-- Clinic Management Feature -->
-                            <div class="card bg-base-100 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+                        <!-- Clinic Management -->
+                        <div class="card bg-white shadow-lg">
                                 <div class="card-body p-8">
                                     <div class="flex items-center gap-3 mb-4">
                                         <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center">
                                             <i class="fas fa-hospital text-white text-xl"></i>
                                         </div>
-                                        <h3 class="card-title text-xl">Effective Clinic Management</h3>
+                                    <h3 class="card-title text-xl">Manage your clinic effectively & successfully</h3>
                                     </div>
                                     <p class="text-gray-600 mb-4">Manage walk-ins & appointments in a single queue, get automated follow-up reminders, and easily manage billings.</p>
                                     <div class="space-y-2">
@@ -662,17 +662,18 @@
                                             <span class="text-sm text-gray-600">Easily manage billings & due payments</span>
                                         </div>
                                     </div>
+                                <a href="https://calendly.com/eka-care-session/experience-eka-doc-tool?month=2024-06" class="btn btn-primary btn-sm rounded-full mt-4">Try now</a>
                                 </div>
                             </div>
 
-                            <!-- Patient Engagement Feature -->
-                            <div class="card bg-base-100 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+                        <!-- Patient Engagement -->
+                        <div class="card bg-white shadow-lg">
                                 <div class="card-body p-8">
                                     <div class="flex items-center gap-3 mb-4">
                                         <div class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center">
                                             <i class="fas fa-users text-white text-xl"></i>
                                         </div>
-                                        <h3 class="card-title text-xl">Constant Patient Engagement</h3>
+                                    <h3 class="card-title text-xl">Stay connected with your patients, always.</h3>
                                     </div>
                                     <p class="text-gray-600 mb-4">Send automated reminders, share digital prescriptions, and broadcast important updates to your patients.</p>
                                     <div class="space-y-2">
@@ -689,19 +690,20 @@
                                             <span class="text-sm text-gray-600">Broadcast important updates to your patients</span>
                                         </div>
                                     </div>
+                                <a href="https://calendly.com/eka-care-session/experience-eka-doc-tool?month=2024-06" class="btn btn-primary btn-sm rounded-full mt-4">Try now</a>
                                 </div>
                             </div>
 
-                            <!-- Practice Analytics Feature -->
-                            <div class="card bg-base-100 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+                        <!-- Practice Analytics -->
+                        <div class="card bg-white shadow-lg">
                                 <div class="card-body p-8">
                                     <div class="flex items-center gap-3 mb-4">
                                         <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center">
                                             <i class="fas fa-chart-line text-white text-xl"></i>
                                         </div>
-                                        <h3 class="card-title text-xl">Comprehensive Analytics</h3>
+                                    <h3 class="card-title text-xl">Get comprehensive analytics for your practice</h3>
                                     </div>
-                                    <p class="text-gray-600 mb-4">Get comprehensive analytics for your practice. Analyse patient trends, real-time revenue, and treatment efficacy.</p>
+                                <p class="text-gray-600 mb-4">Analyse patient trends, real-time revenue, and treatment efficacy.</p>
                                     <div class="space-y-2">
                                         <div class="flex items-center gap-2">
                                             <i class="fas fa-check text-green-500 text-sm"></i>
@@ -716,86 +718,371 @@
                                             <span class="text-sm text-gray-600">Understand treatment efficacy</span>
                                         </div>
                                     </div>
+                                <a href="https://calendly.com/eka-care-session/experience-eka-doc-tool?month=2024-06" class="btn btn-primary btn-sm rounded-full mt-4">Try now</a>
                                 </div>
+                            </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- EKA DOC Integrations Section -->
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl font-bold">EKA DOC</h2>
+                        <h3 class="text-3xl font-bold mt-4">All the apps that you need, ready to use in Eka</h3>
+                        <p class="text-lg text-gray-600 mt-4">Explore all integrations and build exactly what you need.</p>
+                        <div class="flex gap-4 justify-center mt-8">
+                            <a href="https://www.eka.care/s/for-doctors/integrations" class="btn btn-primary btn-outline rounded-full">Learn More</a>
+                            <a href="https://www.eka.care/s/for-doctors/integrations-browse" class="btn btn-primary rounded-full">Browse Integrations</a>
+                                        </div>
+                                    </div>
+
+                    <div class="flex justify-center flex-wrap gap-4 items-center max-w-4xl mx-auto">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5b84dde5dad87bc22b_gmb.png" class="h-12" alt="GMB">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5c8ed30b96afa399ec_zoom.png" class="h-12" alt="Zoom">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68787c20d8904e9eccbe9dea_ABHA.png" class="h-12" alt="ABHA">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5c1e9cb49ecafe99a3_agora.png" class="h-12" alt="Agora">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5c63ed1b9b495bfe95_evital.png" class="h-12" alt="eVital">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5cda2a9c942a39ab4f_100ms.png" class="h-12" alt="100ms">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5be3e8c1b73cacb120_gmeet.png" class="h-12" alt="Google Meet">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5b80ba120fb0b8de18_flabs.png" class="h-12" alt="Flabs">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5cf347b1712ac7fe0d_image%20164.png" class="h-12" alt="Image 164">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5cf347b1712ac7fe1a_orange.png" class="h-12" alt="Orange">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5c9be87076a46923b4_metropolis.png" class="h-12" alt="Metropolis">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5c2d2562ae0aba3137_whatsapp.png" class="h-12" alt="WhatsApp">
+                                        </div>
+                                        </div>
+            </section>
+
+            <!-- Revenue Opportunities Section -->
+            <section class="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl font-bold">Unlock new revenue opportunities</h2>
+                        <p class="text-lg text-gray-600 mt-4">Earn through Clinic Commerce and Government Incentives</p>
+                                        </div>
+
+                    <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                        <!-- Clinic Commerce -->
+                        <div class="bg-white rounded-3xl p-8 shadow-lg">
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="w-16 h-16 bg-green-500 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-shopping-cart text-white text-2xl"></i>
+                                    </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold">Earn through Clinic Commerce</h3>
+                                    <p class="text-gray-600">Provide Medicines & Lab Tests to your Patient's Doorstep</p>
+                                </div>
+                            </div>
+                            <div class="bg-gray-50 rounded-2xl p-6 mb-6">
+                                <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66e3e7d63a1a6d3469551a6a_earn-clinic.webp" alt="Clinic commerce earnings" class="w-full rounded-xl">
+                            </div>
+                            <p class="text-sm text-gray-600 mb-6">Typically, doctors can make around ₹12,000 extra each month through clinic commerce.</p>
+                            <a href="https://calendly.com/eka-care-session/experience-eka-doc-tool?month=2024-06" class="btn btn-primary rounded-full w-full">Book a Demo</a>
                             </div>
 
-                            <!-- AI-Powered Features -->
-                            <div class="card bg-base-100 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
-                                <div class="card-body p-8">
-                                    <div class="flex items-center gap-3 mb-4">
-                                        <div class="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center">
-                                            <i class="fas fa-brain text-white text-xl"></i>
+                        <!-- Government Incentives -->
+                        <div class="bg-white rounded-3xl p-8 shadow-lg">
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="w-16 h-16 bg-blue-500 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-landmark text-white text-2xl"></i>
                                         </div>
-                                        <h3 class="card-title text-xl">AI-Powered Intelligence</h3>
+                                <div>
+                                    <h3 class="text-2xl font-bold">Earn through Govt Incentives</h3>
+                                    <p class="text-gray-600">Join Ayushman Bharat Digital Mission and earn DHIS incentives</p>
                                     </div>
-                                    <p class="text-gray-600 mb-4">Leverage cutting-edge AI for better diagnosis, automated documentation, and smart insights.</p>
-                                    <div class="space-y-2">
-                                        <div class="flex items-center gap-2">
-                                            <i class="fas fa-check text-green-500 text-sm"></i>
-                                            <span class="text-sm text-gray-600">AI-assisted diagnosis and recommendations</span>
                                         </div>
-                                        <div class="flex items-center gap-2">
-                                            <i class="fas fa-check text-green-500 text-sm"></i>
-                                            <span class="text-sm text-gray-600">Automated clinical documentation</span>
+                            <div class="bg-gray-50 rounded-2xl p-6 mb-6">
+                                <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6703882fab169dba41e1c1c4_earn-incen.webp" alt="Government incentives earnings" class="w-full rounded-xl">
                                         </div>
-                                        <div class="flex items-center gap-2">
-                                            <i class="fas fa-check text-green-500 text-sm"></i>
-                                            <span class="text-sm text-gray-600">Smart patient risk assessment</span>
+                            <p class="text-sm text-gray-600 mb-6">Doctors using Eka have collectively earned over ₹50 Lakhs through the DHIS initiative.</p>
+                            <div class="flex gap-4">
+                                <a href="https://calendly.com/eka-care-session/experience-eka-doc-tool?month=2024-06" class="btn btn-primary rounded-full flex-1">Book a Demo</a>
+                                <a href="tel:+911800111663" class="btn btn-primary btn-outline rounded-full flex-1">Call Toll Free</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+            </section>
 
-                            <!-- Integration Feature -->
-                            <div class="card bg-base-100 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
-                                <div class="card-body p-8">
-                                    <div class="flex items-center gap-3 mb-4">
-                                        <div class="w-12 h-12 bg-indigo-500 rounded-xl flex items-center justify-center">
-                                            <i class="fas fa-plug text-white text-xl"></i>
-                                        </div>
-                                        <h3 class="card-title text-xl">Seamless Integrations</h3>
-                                    </div>
-                                    <p class="text-gray-600 mb-4">Connect with your favorite tools and systems. From WhatsApp to lab systems, we've got all integrations ready.</p>
-                                    <div class="space-y-2">
-                                        <div class="flex items-center gap-2">
-                                            <i class="fas fa-check text-green-500 text-sm"></i>
-                                            <span class="text-sm text-gray-600">WhatsApp, Zoom, Google Meet integration</span>
-                                        </div>
-                                        <div class="flex items-center gap-2">
-                                            <i class="fas fa-check text-green-500 text-sm"></i>
-                                            <span class="text-sm text-gray-600">ABHA and ABDM compliant</span>
-                                        </div>
-                                        <div class="flex items-center gap-2">
-                                            <i class="fas fa-check text-green-500 text-sm"></i>
-                                            <span class="text-sm text-gray-600">Lab and pharmacy integrations</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+            <!-- Personalized Healthcare Forms Section -->
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl font-bold">Personalized Healthcare Forms at Your Fingertips</h2>
+                        <p class="text-lg text-gray-600 mt-4">Design custom intake forms, questionnaires, and staff surveys that perfectly match your practice's needs.</p>
+                        <a href="https://www.eka.care/practice-management/plan-pricing" class="btn btn-primary rounded-full mt-8">Start now at ₹16,999/year</a>
                         </div>
+                </div>
+            </section>
 
-                        <!-- Call to Action -->
-                        <div class="text-center mt-12">
-                            <a href="#" class="btn btn-primary rounded-full px-8 py-4 text-lg">Start Your Free Trial</a>
-                            <p class="text-sm text-gray-500 mt-2">No credit card required • 30 days free</p>
+            <!-- Learn about DHIS Section -->
+            <section class="py-20 bg-gray-50">
+                <div class="container mx-auto px-4">
+                    <div class="text-center">
+                        <h2 class="text-4xl font-bold mb-8">Learn about DHIS</h2>
+                        <p class="text-lg text-gray-600 mb-8">Call our toll free number 1800-111-663 to get a comprehensive explanation of the scheme and clear any remaining doubts</p>
+                        <div class="flex gap-4 justify-center">
+                            <a href="tel:+911800111663" class="btn btn-primary rounded-full">Call Toll Free Number</a>
+                            <a href="https://product.eka.care/s/for-doctors/dhis-web" class="btn btn-primary btn-outline rounded-full">Create Your HPR</a>
                         </div>
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66e3e7d64ae4dc8026d5c70a_DHIS.webp" alt="DHIS" class="w-full max-w-4xl mx-auto mt-12 rounded-2xl">
                     </div>
                 </div>
             </section>
             
-            <!-- Integrations Section -->
-            <section class="py-20 text-center container mx-auto px-4">
-                 <h2 class="text-4xl font-bold">All the apps that you need, ready to use in Eka</h2>
-                 <p class="text-lg text-gray-600 mt-4">Explore all integrations and build exactly what you need.</p>
-                 <div class="mt-12 flex justify-center flex-wrap gap-4 items-center max-w-4xl mx-auto">
-                    <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5b84dde5dad87bc22b_gmb.png" class="h-12" alt="GMB">
-                    <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5c8ed30b96afa399ec_zoom.png" class="h-12" alt="Zoom">
-                    <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68787c20d8904e9eccbe9dea_ABHA.png" class="h-12" alt="ABHA">
-                    <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5c2d2562ae0aba3137_whatsapp.png" class="h-12" alt="WhatsApp">
-                    <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5be3e8c1b73cacb120_gmeet.png" class="h-12" alt="Google Meet">
-                    <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5c9be87076a46923b4_metropolis.png" class="h-12" alt="Metropolis">
+            <!-- Security Section -->
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl font-bold">Manage your practice securely with built in layers of privacy and protection</h2>
+                        <a href="https://calendly.com/eka-care-session/experience-eka-doc-tool?month=2024-06" class="btn btn-primary rounded-full mt-8">Book a Demo</a>
                  </div>
-                 <a href="#" class="btn btn-primary btn-outline mt-8 rounded-full">Browse Integrations</a>
+                    <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66e3e7d6355f9c89eb1fb5a9_banner-lock.webp" alt="Security features" class="w-full max-w-6xl mx-auto rounded-2xl">
+                </div>
+            </section>
+
+            <!-- Everything you need Section -->
+            <section class="py-20 bg-gray-50">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-4xl font-bold text-center mb-12">Everything you need in one practice management tool</h2>
+
+                    <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66e3e91498556dad5e4d95fe_image%2014.webp" alt="Order lab test for patients at home delivery" class="rounded-2xl shadow-2xl">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66e3e9140484f4971e5243d8_image%2013.webp" alt="Symptom autosuggest on EMR" class="rounded-2xl shadow-2xl">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66e3e914b1331eb92c638626_image%2012.webp" alt="History of the appointment from booking to billed" class="rounded-2xl shadow-2xl">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66e3e9149ee0fc3395ec9b2a_image%2011.webp" alt="Global search option on Eka Care EMR" class="rounded-2xl shadow-2xl">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66e3e9143e6519c024416564_image%2010.webp" alt="Customization options for Digital Prescription" class="rounded-2xl shadow-2xl">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66e3e914722332e5e3bc2648_image%2009.webp" alt="Migration of data from other EMRs" class="rounded-2xl shadow-2xl">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66e3e9159443290e331c6db1_image%2008.webp" alt="Magic box for patient history" class="rounded-2xl shadow-2xl">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66e3e9153c8f8eea6a5d0789_image%2007.webp" alt="Staff restrictions settings" class="rounded-2xl shadow-2xl">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66e3e914355f9c89eb20f1ff_image%2006.webp" alt="Smart lab reports" class="rounded-2xl shadow-2xl">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66e3e9144eae8e05a3e1dc68_image%2005.webp" alt="Video call capability for tele-consultations" class="rounded-2xl shadow-2xl">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66e3e9152f5e99b6520ac3da_image%2003.webp" alt="WhatsApp messages and prescription sharing" class="rounded-2xl shadow-2xl">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66e3e914c77b48f5c04f2fa2_image%2002.webp" alt="Manage billing and pending payments" class="rounded-2xl shadow-2xl">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66e3e9143fc7ab4336a3e8fc_image%2001.webp" alt="Detailed reports of appointments and revenue" class="rounded-2xl shadow-2xl">
+                    </div>
+
+                    <!-- Feature Tabs -->
+                    <div class="tabs tabs-boxed grid-cols-2 sm:grid-cols-7 max-w-6xl mx-auto mt-12 bg-gray-200">
+                        <a role="tab" class="tab !rounded-full">Order lab test</a>
+                        <a role="tab" class="tab !rounded-full">Contextual Autosuggest</a>
+                        <a role="tab" class="tab !rounded-full">Appointment Activity History</a>
+                        <a role="tab" class="tab !rounded-full">Global Patient Search</a>
+                        <a role="tab" class="tab !rounded-full">Printed Rx customisation</a>
+                        <a role="tab" class="tab !rounded-full">Migration of data</a>
+                        <a role="tab" class="tab !rounded-full">Magic Box</a>
+                        <a role="tab" class="tab !rounded-full">Staff restrictions</a>
+                        <a role="tab" class="tab !rounded-full">Smart Lab Reports</a>
+                        <a role="tab" class="tab !rounded-full">Message configurations</a>
+                        <a role="tab" class="tab !rounded-full">Teleconsultations</a>
+                        <a role="tab" class="tab !rounded-full">Follow up reminders</a>
+                        <a role="tab" class="tab !rounded-full">Manage Due Payments</a>
+                        <a role="tab" class="tab !rounded-full">Detailed Reports</a>
+                    </div>
+                </div>
+            </section>
+            
+
+
+            <!-- Testimonials Section -->
+            <section class="py-20 bg-gray-50">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-4xl font-bold text-center mb-12">Loved by Doctors Across the Country</h2>
+                    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                        <div class="card bg-base-100 shadow-xl p-6">
+                            <div class="flex items-center gap-4 mb-4">
+                                <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/667e86877ef9541e5075e8a5_Frame%201000003999.webp" class="w-16 h-16 rounded-full" alt="Dr Arvind Kinger">
+                                <div>
+                                    <p class="font-bold">Dr Arvind Kinger</p>
+                                    <p class="text-sm text-gray-500">ENT Specialist</p>
+                                </div>
+                            </div>
+                            <blockquote>"Very nice app. It has made things very smooth in my clinic. The patients are also very happy to have the prescription and regular reminders on their mobile."</blockquote>
+                        </div>
+                        <div class="card bg-base-100 shadow-xl p-6">
+                            <div class="flex items-center gap-4 mb-4">
+                                <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/667e86877c7b16d5fbbc6990_Frame%201000004008.webp" class="w-16 h-16 rounded-full" alt="Dr. Srinivas">
+                                <div>
+                                    <p class="font-bold">Dr. Srinivas</p>
+                                    <p class="text-sm text-gray-500">Gastroenterologist</p>
+                                </div>
+                            </div>
+                            <blockquote>"Eka.care has helped me to view my patient's complete medical history in a glance. Features like single page Rx, has helped me to bring down my prescription writing time drastically."</blockquote>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Our Partners Section -->
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-center text-3xl font-bold mb-12">Our Partners</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a409b431b1439b1652b3_pratham%20hospital%20mysore.webp" alt="Pratham Hospital Mysore" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a4097087aee2c10473bb_sardardham%20hospital%2C%20ahmedabad.webp" alt="Sardardham Hospital, Ahmedabad" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a409a682bd3dc48a9f09_medanta.webp" alt="Medanta" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a4094eb16d20c1eb7829_healthland.webp" alt="HealthLand" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a4097ea3912fb5bcfcdb_smilestation.webp" alt="SmileStation" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a409e9233d427f636a4a_vaayu.webp" alt="Vaayu" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a409f3e4aa35f7405ad3_shruta%20eye%20care.webp" alt="Shruta Eye Care" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a4099129dbee28c888a7_metropolis.webp" alt="Metropolis" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a409efce973a78422ab4_mittal%20nursing%20home.webp" alt="Mittal Nursing Home" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a409566afdb5d7d77245_mittal%20hospital.webp" alt="Mittal Hospital" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a4090689ad4303ace0b2_b%20lal%20hospital.webp" alt="B Lal Hospital" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                </div>
+            </section>
+
+            <!-- The Eka Promise Section -->
+            <section class="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
+                <div class="container mx-auto px-4">
+                    <div class="text-center max-w-4xl mx-auto">
+                        <h2 class="text-4xl font-bold mb-8">The Eka Promise</h2>
+                        <p class="text-xl text-gray-700 mb-8">100% refund if you're not satisfied with our practice management tool within the first 2 weeks</p>
+                        <a href="https://www.eka.care/practice-management/plan-pricing" class="btn btn-primary rounded-full">explore pricing</a>
+                    </div>
+                    <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/667e8d6aa22838248a8c91c5_Group%2040536.webp" alt="Eka Promise" class="w-full max-w-4xl mx-auto mt-12 rounded-2xl">
+                </div>
+            </section>
+
+            <!-- Multi-doctor Management Section -->
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl font-bold">Managing multiple doctors? We've got you covered</h2>
+                        <p class="text-lg text-gray-600 mt-4">Get a dedicated front-desk software and solutions catered specially for your needs</p>
+                        <a href="https://calendly.com/eka-care-session/experience-eka-doc-tool?month=2024-06" class="btn btn-primary rounded-full mt-8">Book a Demo</a>
+                    </div>
+                    <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66e2d2c35a1621ce1e5e225f_Manage%20multiple%20docs.png" alt="Multi-doctor management" class="w-full max-w-6xl mx-auto rounded-2xl">
+                </div>
+            </section>
+
+            <!-- Experience the power Section -->
+            <section class="py-20 bg-gray-50">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl font-bold">Experience the unmatched power of our practice management tool</h2>
+                        <p class="text-lg text-gray-600 mt-4">Eka Doc</p>
+                        <p class="text-lg text-gray-600">Other EMR</p>
+                    </div>
+
+                    <!-- Comparison Table -->
+                    <div class="overflow-x-auto max-w-6xl mx-auto">
+                        <table class="table table-zebra w-full">
+                            <thead>
+                                <tr>
+                                    <th class="text-left">Feature</th>
+                                    <th class="text-center">Eka Doc</th>
+                                    <th class="text-center">Other EMR</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Clinic Management</td>
+                                    <td class="text-center text-green-600 font-bold">✓</td>
+                                    <td class="text-center text-gray-400">✗</td>
+                                </tr>
+                                <tr>
+                                    <td>Multiple doctor management</td>
+                                    <td class="text-center text-green-600 font-bold">✓</td>
+                                    <td class="text-center text-gray-400">✗</td>
+                                </tr>
+                                <tr>
+                                    <td>Billing & Due Payments</td>
+                                    <td class="text-center text-green-600 font-bold">✓</td>
+                                    <td class="text-center text-gray-400">✗</td>
+                                </tr>
+                                <tr>
+                                    <td>Daily practice report</td>
+                                    <td class="text-center text-green-600 font-bold">✓</td>
+                                    <td class="text-center text-gray-400">✗</td>
+                                </tr>
+                                <tr>
+                                    <td>Staff restrictions</td>
+                                    <td class="text-center text-green-600 font-bold">✓</td>
+                                    <td class="text-center text-gray-400">✗</td>
+                                </tr>
+                                <tr>
+                                    <td>Digital Prescriptions</td>
+                                    <td class="text-center text-green-600 font-bold">✓</td>
+                                    <td class="text-center text-gray-400">✗</td>
+                                </tr>
+                                <tr>
+                                    <td>Customised prescription for every speciality</td>
+                                    <td class="text-center text-green-600 font-bold">✓</td>
+                                    <td class="text-center text-gray-400">✗</td>
+                                </tr>
+                                <tr>
+                                    <td>Contextual autosuggest</td>
+                                    <td class="text-center text-green-600 font-bold">✓</td>
+                                    <td class="text-center text-gray-400">✗</td>
+                                </tr>
+                                <tr>
+                                    <td>Template Creation</td>
+                                    <td class="text-center text-green-600 font-bold">✓</td>
+                                    <td class="text-center text-gray-400">✗</td>
+                                </tr>
+                                <tr>
+                                    <td>Medical Calculators</td>
+                                    <td class="text-center text-green-600 font-bold">✓</td>
+                                    <td class="text-center text-gray-400">✗</td>
+                                </tr>
+                                <tr>
+                                    <td>Speciality specific features (Dental charts, vaccination charts)</td>
+                                    <td class="text-center text-green-600 font-bold">✓</td>
+                                    <td class="text-center text-gray-400">✗</td>
+                                </tr>
+                                <tr>
+                                    <td>Patient Engagement</td>
+                                    <td class="text-center text-green-600 font-bold">✓</td>
+                                    <td class="text-center text-gray-400">✗</td>
+                                </tr>
+                                <tr>
+                                    <td>Branded Communication</td>
+                                    <td class="text-center text-green-600 font-bold">✓</td>
+                                    <td class="text-center text-gray-400">✗</td>
+                                </tr>
+                                <tr>
+                                    <td>Patient App</td>
+                                    <td class="text-center text-green-600 font-bold">✓</td>
+                                    <td class="text-center text-gray-400">✗</td>
+                                </tr>
+                                <tr>
+                                    <td>Message configurations</td>
+                                    <td class="text-center text-green-600 font-bold">✓</td>
+                                    <td class="text-center text-gray-400">✗</td>
+                                </tr>
+                                <tr>
+                                    <td>Online Presence</td>
+                                    <td class="text-center text-green-600 font-bold">✓</td>
+                                    <td class="text-center text-gray-400">✗</td>
+                                </tr>
+                                <tr>
+                                    <td>Personal Website</td>
+                                    <td class="text-center text-green-600 font-bold">✓</td>
+                                    <td class="text-center text-gray-400">✗</td>
+                                </tr>
+                                <tr>
+                                    <td>Analytics</td>
+                                    <td class="text-center text-green-600 font-bold">✓</td>
+                                    <td class="text-center text-gray-400">✗</td>
+                                </tr>
+                                <tr>
+                                    <td>Practise Analystics</td>
+                                    <td class="text-center text-green-600 font-bold">✓</td>
+                                    <td class="text-center text-gray-400">✗</td>
+                                </tr>
+                                <tr>
+                                    <td>Revenue Anayltics</td>
+                                    <td class="text-center text-green-600 font-bold">✓</td>
+                                    <td class="text-center text-gray-400">✗</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </section>
 
             <!-- Statistics Section -->
@@ -880,14 +1167,125 @@
                 </div>
             </section>
             
+            <!-- Migration Section -->
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl font-bold">Using some other EMR? No problem!</h2>
+                        <p class="text-lg text-gray-600 mt-4">With eka, seamlessly transfer all your patient data from other EMRs as well as integrate your pharmacy and get lab support.</p>
+                        <a href="https://calendly.com/eka-care-session/experience-eka-doc-tool?month=2024-06" class="btn btn-primary rounded-full mt-8">Book a Demo</a>
+                    </div>
+                    <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66e3e7d6033b6111b54bf4e2_other-emr.webp" alt="Migration from other EMRs" class="w-full max-w-4xl mx-auto rounded-2xl">
+                </div>
+            </section>
+
+            <!-- Support Section -->
+            <section class="py-20 bg-gray-50">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl font-bold">EkaDoc, for those who take care of everyone.</h2>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                        <!-- Get support for every problem -->
+                        <div class="card bg-white shadow-lg">
+                            <div class="card-body p-8 text-center">
+                                <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6675719a4a32b30b4aa52e6a_Frame%201000003770.webp" alt="Get support for every problem" class="w-full rounded-2xl mb-6">
+                                <h3 class="text-xl font-bold mb-4">Get support for every problem, instantly!</h3>
+                                <p class="text-gray-600 mb-6">We're here to solve all your queries from 11 AM to 9 PM daily</p>
+                                <a href="https://calendly.com/eka-care-session/experience-eka-doc-tool?month=2024-06" class="btn btn-primary rounded-full">Book a Demo</a>
+                            </div>
+                        </div>
+
+                        <!-- Get a dedicated success manager -->
+                        <div class="card bg-white shadow-lg">
+                            <div class="card-body p-8 text-center">
+                                <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6675719af5674853e52cf9ba_Frame%201000003860.webp" alt="Get a dedicated success manager" class="w-full rounded-2xl mb-6">
+                                <h3 class="text-xl font-bold mb-4">Get a dedicated success manager</h3>
+                                <p class="text-gray-600 mb-6">We're here to solve all your queries from 11 AM to 9 PM daily</p>
+                                <a href="https://calendly.com/eka-care-session/experience-eka-doc-tool?month=2024-06" class="btn btn-primary rounded-full">Book a Demo</a>
+                            </div>
+                        </div>
+
+                        <!-- Get personalised, comprehensive training -->
+                        <div class="card bg-white shadow-lg">
+                            <div class="card-body p-8 text-center">
+                                <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6675719af62487447840e393_Frame%201000003844.webp" alt="Get personalised, comprehensive training" class="w-full rounded-2xl mb-6">
+                                <h3 class="text-xl font-bold mb-4">Get personalised, comprehensive training</h3>
+                                <p class="text-gray-600 mb-6">Personalised training for you and your staff</p>
+                                <a href="https://calendly.com/eka-care-session/experience-eka-doc-tool?month=2024-06" class="btn btn-primary rounded-full">Book a Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Still have doubts Section -->
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl font-bold">Still have some doubts?</h2>
+                        <p class="text-lg text-gray-600 mt-4">Book a demo and our representative will give you a comprehensive demo of our product and clear any remaining doubts</p>
+                        <a href="https://calendly.com/eka-care-session/experience-eka-doc-tool?month=2024-06" class="btn btn-primary rounded-full mt-8">explore pricing</a>
+                    </div>
+                    <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66e3e7d65c3ef03d79ff1e7c_support.webp" alt="Support team" class="w-full max-w-6xl mx-auto rounded-2xl">
+                </div>
+            </section>
+            
             <!-- FAQ Section -->
             <section class="py-20">
                 <div class="container mx-auto px-4 max-w-4xl">
                     <h2 class="text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+                    <p class="text-center text-lg text-gray-600 mb-12">Find Answers to Your Most Common Questions Here</p>
+
                     <div class="space-y-4">
-                        <div class="collapse collapse-plus bg-gray-50 rounded-xl"><input type="radio" name="faq" checked="checked" /><div class="collapse-title text-xl font-medium">What is EMR and EHR?</div><div class="collapse-content"><p class="text-gray-600">EMR is an Electronic Medical Record (a digital version of a patient's chart from one practice), while EHR is an Electronic Health Record (a more comprehensive report of a patient's overall health).</p></div></div>
-                        <div class="collapse collapse-plus bg-gray-50 rounded-xl"><input type="radio" name="faq" /><div class="collapse-title text-xl font-medium">Why are doctors choosing Eka.care EMR?</div><div class="collapse-content"><p class="text-gray-600">Eka.care is a comprehensive, secure, and dependable clinic management platform. Features like AI assistance, WhatsApp integration, and customizable prescription pads help doctors save time and offer better care.</p></div></div>
-                        <div class="collapse collapse-plus bg-gray-50 rounded-xl"><input type="radio" name="faq" /><div class="collapse-title text-xl font-medium">How is patient data secured?</div><div class="collapse-content"><p class="text-gray-600">All data is protected by encryption and we are FHIR compliant. OTP authentication ensures the doctor has complete control, and we sign a non-disclosure agreement (NDA) with all doctors.</p></div></div>
+                        <div class="collapse collapse-plus bg-gray-50 rounded-xl">
+                            <input type="radio" name="faq" checked="checked" />
+                            <div class="collapse-title text-xl font-medium">What is the full form of EMR and EHR in healthcare?</div>
+                            <div class="collapse-content">
+                                <p class="text-gray-600">EMR is an Electronic Medical Record and EHR is an Electronic Health Record.</p>
+                            </div>
+                        </div>
+
+                        <div class="collapse collapse-plus bg-gray-50 rounded-xl">
+                            <input type="radio" name="faq" />
+                            <div class="collapse-title text-xl font-medium">What is EHR?</div>
+                            <div class="collapse-content">
+                                <p class="text-gray-600">EHR (Electronic Health Record) is a digital record of an individual's health information. An Electronic Health Record contains all the information about the patient's past medical history, vital signs, progress notes, diagnoses, medications, immunization dates, allergies, lab data, and imaging reports. The digital record can also contain other relevant information, such as insurance details and demographic data.</p>
+                            </div>
+                        </div>
+
+                        <div class="collapse collapse-plus bg-gray-50 rounded-xl">
+                            <input type="radio" name="faq" />
+                            <div class="collapse-title text-xl font-medium">What is EMR?</div>
+                            <div class="collapse-content">
+                                <p class="text-gray-600">EMRs (Electronic Medical Records) are digital versions of prescriptions or paper charts used during a patient's consultation. An EMR contains a patient's treatment and medical history in one place.</p>
+                            </div>
+                        </div>
+
+                        <div class="collapse collapse-plus bg-gray-50 rounded-xl">
+                            <input type="radio" name="faq" />
+                            <div class="collapse-title text-xl font-medium">Why are doctors opting for eka.care- EHR software, for patient and clinic management?</div>
+                            <div class="collapse-content">
+                                <p class="text-gray-600">EMR stands for Electronic Medical Record. Fundamentally, EMR allows caregivers to see a large number of patients, helping them organize and manage their records efficiently. Eka.care is a comprehensive clinic management platform that enables doctors to manage their practice and build long-term relationships with their patients. It is secure and dependable. Features like WhatsApp integration and self-assessment help doctors save time and offer better care. The Eka.care prescription pad can be customized according to each doctor's specialization, making it a preferred choice for many practitioners. Medical Record and EHR refer to Electronic Health Records.</p>
+                            </div>
+                        </div>
+
+                        <div class="collapse collapse-plus bg-gray-50 rounded-xl">
+                            <input type="radio" name="faq" />
+                            <div class="collapse-title text-xl font-medium">What kind of data securities, Eka care uses to secure patients data?</div>
+                            <div class="collapse-content">
+                                <p class="text-gray-600">All data is protected by encryption. We are FHIR compliant. The login-based One-Time Password (OTP) authentication system ensures that the doctor has complete control over their account. Eka.care signs a non-disclosure agreement (NDA) with all its doctors to prohibit data sharing.</p>
+                            </div>
+                        </div>
+
+                        <div class="collapse collapse-plus bg-gray-50 rounded-xl">
+                            <input type="radio" name="faq" />
+                            <div class="collapse-title text-xl font-medium">What are the minimum system requirements to run Eka care EMR software?</div>
+                            <div class="collapse-content">
+                                <p class="text-gray-600">Eka Care EMR software does not require any specific system; the Eka.care app for doctors is available for download from the iOS and Android stores. The platform works across devices—smartphones, desktops, laptops, or tablets.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -977,6 +1375,21 @@
                             <p class="text-sm text-gray-600 mb-6">Doctors using Eka have collectively earned over ₹50 Lakhs through the DHIS initiative.</p>
                             <a href="#" class="btn btn-primary rounded-full w-full">Learn More</a>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Latest Updates Section -->
+            <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+                <div class="container mx-auto px-4 text-center">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-3xl p-8 max-w-4xl mx-auto">
+                        <div class="flex items-center justify-center gap-3 mb-6">
+                            <i class="fas fa-bullhorn text-3xl text-yellow-300"></i>
+                            <span class="text-sm font-bold uppercase tracking-wider">LATEST UPDATES</span>
+                        </div>
+                        <h2 class="text-3xl font-bold mb-4">Revolutionise Your Clinic with AI ! 🚀</h2>
+                        <p class="text-lg mb-8 text-blue-100">Missing out on effortless patient insights? Click now and supercharge your clinic!</p>
+                        <a href="https://www.eka.care/s/for-doctors#" class="btn bg-white text-blue-600 rounded-full px-8 py-4 text-lg font-bold hover:bg-gray-100">Check it out now</a>
                     </div>
                 </div>
             </section>

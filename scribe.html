@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,15 +32,15 @@
             display: block;
         }
         .hero-glow {
-            background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(29, 78, 216, 0.15), rgba(0,0,0,0));
+            background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(29, 78, 216, 0.15), rgba(249, 250, 251, 0));
         }
     </style>
 </head>
 <body>
-    <div class="bg-black text-white">
+    <div class="bg-white text-gray-900">
 
         <!-- Header -->
-        <header class="bg-black/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
             <div class="container mx-auto navbar px-4">
                 <div class="navbar-start">
                     <div class="dropdown">
@@ -65,44 +65,242 @@
                     </ul>
                 </div>
                 <div class="navbar-end space-x-2">
-                    <a class="btn bg-gray-800 hover:bg-gray-700 border-none rounded-full px-6 hidden sm:inline-flex">Log in</a>
-                    <a class="btn btn-primary rounded-full px-6">Try For Free</a>
+                    <a href="#" class="btn bg-gray-100 hover:bg-gray-200 border-none rounded-full px-6 hidden sm:inline-flex" aria-label="Log in to your account">Log in</a>
+                    <a href="#" class="btn bg-gray-900 hover:bg-gray-800 text-white rounded-full px-6 border-none" aria-label="Get started with Eka Care">Get started</a>
                 </div>
             </div>
         </header>
 
         <main>
             <!-- Hero Section -->
-            <section class="hero-glow pt-24 pb-20">
-                <div class="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
-                    <div class="text-center md:text-left">
-                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
-                            <span class="text-blue-500">AI-Powered</span> Clinical Documentation Platform for Doctors
+            <section class="hero min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden" aria-labelledby="hero-heading" role="banner">
+                <div class="hero-content text-center relative z-20">
+                    <div class="max-w-4xl">
+                        <h1 id="hero-heading" class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-gray-500 mb-6">
+                            <span class="text-gray-900">AI-Powered</span> Clinical Documentation Platform for Doctors
                         </h1>
-                        <p class="text-lg md:text-xl mt-6 max-w-2xl mx-auto md:mx-0 text-gray-400">Record or upload consultations. Get structured notes, prescriptions & clinical summaries instantly.</p>
-                        <div class="mt-10 flex flex-wrap gap-4 justify-center md:justify-start">
-                            <a class="btn btn-outline border-white text-white rounded-full px-8">Book A Demo</a>
-                            <a class="btn btn-primary rounded-full px-8">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
-                                Try For Free
-                            </a>
+                        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-12" role="complementary" aria-describedby="hero-description">
+                            Record or upload consultations. Get structured notes, prescriptions & clinical summaries instantly.
+                        </p>
+                        <button class="btn bg-gray-900 hover:bg-blue-700 text-white rounded-full px-8 py-4 text-lg border-none shadow-lg hover:shadow-xl transition-all duration-300" aria-label="Get started with Eka Care">
+                            Get started
+                            <i class="fas fa-arrow-right ml-2" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Floating UI Cards -->
+                <div class="floating-cards-container absolute inset-0 pointer-events-none z-10" role="presentation" aria-hidden="true">
+                    <!-- Voice Recording Card (Top Right) -->
+                    <div class="floating-card absolute" style="top: 15%; right: 8%; width: 320px;" tabindex="-1">
+                        <div class="card bg-base-100 shadow-2xl border border-gray-100/50" role="article" aria-label="Voice recording interface demo">
+                            <div class="card-body p-6">
+                                <header class="flex items-center justify-between mb-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center animate-pulse" role="img" aria-label="Recording indicator">
+                                            <i class="fas fa-microphone text-white text-sm" aria-hidden="true"></i>
+                                        </div>
+                                        <span class="font-semibold text-gray-800">Recording Active</span>
+                                    </div>
+                                    <div class="text-xs text-red-600 font-medium">Eka Scribe</div>
+                                </header>
+                                <div class="space-y-3" role="list" aria-label="Recording details">
+                                    <div class="flex items-center justify-between" role="listitem">
+                                        <span class="text-sm text-gray-600">Duration</span>
+                                        <span class="text-sm font-semibold text-red-600">02:45</span>
+                                    </div>
+                                    <div class="flex items-center justify-between" role="listitem">
+                                        <span class="text-sm text-gray-600">Quality</span>
+                                        <span class="text-sm font-semibold text-green-600">High</span>
+                                    </div>
+                                    <div class="mt-4 p-3 bg-blue-50 rounded-xl" role="status" aria-live="polite">
+                                        <div class="text-xs text-blue-700 font-medium">Patient: Sarah Johnson</div>
+                                        <div class="text-xs text-blue-600 mt-1">Consultation in progress...</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="hidden md:block bg-gray-800/50 rounded-3xl min-h-[300px] aspect-square"></div>
+
+                    <!-- Transcription Progress Card (Left Side) -->
+                    <div class="floating-card absolute" style="top: 25%; left: 5%; width: 360px;">
+                        <div class="card bg-base-100 shadow-2xl border border-gray-100/50">
+                            <div class="card-body p-6">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h3 class="card-title text-lg font-bold text-gray-800">AI Transcription</h3>
+                                    <div class="text-xs text-blue-600 font-medium">Processing</div>
+                                </div>
+                                <div class="space-y-4">
+                                    <div class="bg-gray-50 p-4 rounded-xl">
+                                        <div class="text-sm text-gray-700 mb-2">
+                                            "Patient reports chest pain for 3 days, shortness of breath..."
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <div class="flex gap-1">
+                                                <div class="w-2 h-2 bg-blue-500 rounded-full animate-bounce"></div>
+                                                <div class="w-2 h-2 bg-blue-500 rounded-full animate-bounce" style="animation-delay: 0.1s;"></div>
+                                                <div class="w-2 h-2 bg-blue-500 rounded-full animate-bounce" style="animation-delay: 0.2s;"></div>
+                                            </div>
+                                            <span class="text-xs text-gray-500">Analyzing medical terms</span>
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div class="text-center p-3 bg-green-50 rounded-xl">
+                                            <div class="text-lg font-bold text-green-600">95%</div>
+                                            <div class="text-xs text-green-700">Accuracy</div>
+                                        </div>
+                                        <div class="text-center p-3 bg-blue-50 rounded-xl">
+                                            <div class="text-lg font-bold text-blue-600">15s</div>
+                                            <div class="text-xs text-blue-700">Processing</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Clinical Notes Card (Right Side, Lower) -->
+                    <div class="floating-card absolute" style="top: 55%; right: 12%; width: 300px;">
+                        <div class="card bg-base-100 shadow-2xl border border-gray-100/50">
+                            <div class="card-body p-6">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-check text-white text-sm"></i>
+                                        </div>
+                                        <span class="text-sm font-medium text-gray-700">Notes Generated</span>
+                                    </div>
+                                    <div class="text-xs text-green-600 font-medium">Complete</div>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-xl mb-4">
+                                    <div class="text-sm text-gray-700 space-y-2">
+                                        <div><strong>Chief Complaint:</strong> Chest pain × 3 days</div>
+                                        <div><strong>Vitals:</strong> BP 140/90, HR 88, O2 98%</div>
+                                        <div><strong>Assessment:</strong> Suspected angina</div>
+                                        <div><strong>Plan:</strong> ECG, cardiac enzymes, cardiology consult</div>
+                                    </div>
+                                </div>
+                                <div class="text-xs text-gray-600 flex items-center justify-between">
+                                    <span>Saved to EMR</span>
+                                    <span class="text-green-600">✓ Auto-synced</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Time Savings Card (Bottom Left) -->
+                    <div class="floating-card absolute" style="top: 65%; left: 8%; width: 350px;">
+                        <div class="card bg-base-100 shadow-2xl border border-gray-100/50">
+                            <div class="card-body p-6">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h3 class="card-title text-lg font-bold text-gray-800">Time Saved Today</h3>
+                                    <div class="text-xs text-gray-600 font-medium">Dashboard</div>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm text-gray-600">Documentation Time</span>
+                                        <span class="text-sm font-bold text-green-600">-2.5 hours</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm text-gray-600">Patients Processed</span>
+                                        <span class="text-sm font-bold text-blue-600">8/12</span>
+                                    </div>
+                                    <div class="bg-green-50 p-3 rounded-xl">
+                                        <div class="text-xs text-green-700 font-medium text-center">
+                                            🎉 12 hours saved this week!
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-center">
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div class="bg-blue-500 h-2 rounded-full" style="width: 67%;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="text-xs text-gray-500 text-center">67% of daily goal reached</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prescription Card (Top Left) -->
+                    <div class="floating-card absolute" style="top: 8%; left: 15%; width: 280px;">
+                        <div class="card bg-base-100 shadow-2xl border border-gray-100/50">
+                            <div class="card-body p-5">
+                                <div class="text-center mb-4">
+                                    <div class="text-sm text-gray-600 mb-2">Prescription Ready</div>
+                                    <div class="bg-blue-50 p-3 rounded-xl">
+                                        <div class="font-mono text-xs text-blue-700 space-y-1">
+                                            <div>Amoxicillin 500mg</div>
+                                            <div>3x daily × 7 days</div>
+                                            <div>Paracetamol 500mg PRN</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center text-xs text-gray-600">
+                                    <span>Digital Rx</span>
+                                    <span class="text-green-600">✓ Shareable</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Integration Status Card (Bottom Right) -->
+                    <div class="floating-card absolute" style="bottom: 15%; right: 5%; width: 300px;">
+                        <div class="card bg-base-100 shadow-2xl border border-gray-100/50">
+                            <div class="card-body p-5">
+                                <div class="text-center">
+                                    <div class="text-lg font-bold text-gray-800 mb-2">EMR Integration</div>
+                                    <div class="text-sm text-gray-600 mb-4">Connected & Syncing</div>
+                                    <div class="space-y-2 text-xs text-gray-500">
+                                        <div class="flex justify-between">
+                                            <span>Eka EMR</span>
+                                            <span class="text-green-600">✓ Active</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span>Apollo Hospitals</span>
+                                            <span class="text-green-600">✓ Active</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span>Medanta</span>
+                                            <span class="text-yellow-600">⟳ Pending</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-actions justify-center mt-4">
+                                        <button class="btn w-full bg-blue-500 text-white rounded-xl text-sm font-medium hover:bg-blue-600">
+                                            <i class="fas fa-plus mr-1"></i>
+                                            Add Integration
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Success Notification Card -->
+                    <div class="floating-card absolute" style="bottom: 25%; right: 25%; width: 200px;">
+                        <div class="card bg-green-100 shadow-xl border border-green-200">
+                            <div class="card-body p-4 text-center">
+                                <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                                    <i class="fas fa-check text-white"></i>
+                                </div>
+                                <h3 class="card-title text-sm font-bold text-green-800">Success!</h3>
+                                <p class="text-sm text-green-700">Notes saved to EMR</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <!-- How it Works Section -->
-            <section class="py-20">
+            <section class="py-20 bg-white">
                 <div class="container mx-auto px-4">
-                    <h2 class="text-4xl font-bold text-center mb-16">How Eka Scribe Works</h2>
+                    <h2 class="text-4xl font-bold text-center mb-16 text-gray-900">How Eka Scribe Works</h2>
                     <div class="relative max-w-4xl mx-auto">
-                        <div class="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-0.5 bg-gray-800 hidden md:block"></div>
+                        <div class="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-0.5 bg-gray-200 hidden md:block"></div>
                         <div class="grid md:grid-cols-2 gap-16 items-center">
                             <div class="space-y-12">
-                                <div class="flex items-start gap-4"><div class="flex-shrink-0 mt-1 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center font-bold">1</div><div><h3 class="text-xl font-semibold">Record / Upload Consultation</h3><p class="text-gray-400 mt-1">Use our in-app voice recorder or upload an audio file.</p></div></div>
-                                <div class="flex items-start gap-4"><div class="flex-shrink-0 mt-1 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center font-bold">2</div><div><h3 class="text-xl font-semibold">Scribe AI Transcribes & Understands</h3><p class="text-gray-400 mt-1">Our AI processes the audio, identifying key medical terms and context.</p></div></div>
-                                <div class="flex items-start gap-4"><div class="flex-shrink-0 mt-1 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center font-bold">3</div><div><h3 class="text-xl font-semibold">Instant Notes, Summaries & Rx</h3><p class="text-gray-400 mt-1">Get structured, accurate clinical documentation in seconds.</p></div></div>
+                                <div class="flex items-start gap-4"><div class="flex-shrink-0 mt-1 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center font-bold text-white">1</div><div><h3 class="text-xl font-semibold text-gray-900">Record / Upload Consultation</h3><p class="text-gray-600 mt-1">Use our in-app voice recorder or upload an audio file.</p></div></div>
+                                <div class="flex items-start gap-4"><div class="flex-shrink-0 mt-1 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center font-bold text-white">2</div><div><h3 class="text-xl font-semibold text-gray-900">Scribe AI Transcribes & Understands</h3><p class="text-gray-600 mt-1">Our AI processes the audio, identifying key medical terms and context.</p></div></div>
+                                <div class="flex items-start gap-4"><div class="flex-shrink-0 mt-1 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center font-bold text-white">3</div><div><h3 class="text-xl font-semibold text-gray-900">Instant Notes, Summaries & Rx</h3><p class="text-gray-600 mt-1">Get structured, accurate clinical documentation in seconds.</p></div></div>
                             </div>
                             <div><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66f00ac132470ab751b3a32c_scribeworks.webp" alt="Eka Scribe app interface showing voice recording and transcription" class="rounded-2xl shadow-2xl shadow-blue-900/20"></div>
                         </div>
@@ -111,35 +309,35 @@
             </section>
             
             <!-- Benefits Section -->
-            <section class="py-20 text-center container mx-auto px-4">
-                 <h2 class="text-4xl md:text-5xl font-bold">Doctors Save Over <span class="text-blue-500">12 Hours</span> Weekly With Eka Scribe</h2>
-                 <p class="text-xl text-gray-400 mt-4">Reduce documentation time by 80% and improve focus during consultations.</p>
+            <section class="py-20 text-center container mx-auto px-4 bg-gray-50">
+                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900">Doctors Save Over <span class="text-blue-600">12 Hours</span> Weekly With Eka Scribe</h2>
+                 <p class="text-xl text-gray-600 mt-4">Reduce documentation time by 80% and improve focus during consultations.</p>
                  <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="bg-gray-900/70 p-6 rounded-2xl border border-gray-800"><h3 class="font-semibold text-lg">Real-Time Dictation Mode</h3><p class="text-gray-400 mt-2">Dictate notes on the go with live transcription, optimized for Indian medical accents.</p></div>
-                    <div class="bg-gray-900/70 p-6 rounded-2xl border border-gray-800"><h3 class="font-semibold text-lg">Consultation Mode</h3><p class="text-gray-400 mt-2">Auto-captures and organizes patient interaction during live consultations.</p></div>
-                    <div class="bg-gray-900/70 p-6 rounded-2xl border border-gray-800"><h3 class="font-semibold text-lg">One Click Save to Any EMR</h3><p class="text-gray-400 mt-2">Push AI-generated notes, vitals, and more directly into your EMR — instantly.</p></div>
-                    <div class="bg-gray-900/70 p-6 rounded-2xl border border-gray-800"><h3 class="font-semibold text-lg">Multilingual Voice Capture</h3><p class="text-gray-400 mt-2">Seamlessly transcribe patient conversations in Indian languages with medical-grade accuracy.</p></div>
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm"><h3 class="font-semibold text-lg text-gray-900">Real-Time Dictation Mode</h3><p class="text-gray-600 mt-2">Dictate notes on the go with live transcription, optimized for Indian medical accents.</p></div>
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm"><h3 class="font-semibold text-lg text-gray-900">Consultation Mode</h3><p class="text-gray-600 mt-2">Auto-captures and organizes patient interaction during live consultations.</p></div>
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm"><h3 class="font-semibold text-lg text-gray-900">One Click Save to Any EMR</h3><p class="text-gray-600 mt-2">Push AI-generated notes, vitals, and more directly into your EMR — instantly.</p></div>
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm"><h3 class="font-semibold text-lg text-gray-900">Multilingual Voice Capture</h3><p class="text-gray-600 mt-2">Seamlessly transcribe patient conversations in Indian languages with medical-grade accuracy.</p></div>
                  </div>
             </section>
 
              <!-- Testimonial Section -->
-            <section class="py-20">
+            <section class="py-20 bg-white">
                 <div class="container mx-auto px-4">
-                    <h2 class="text-4xl font-bold text-center mb-12">Real Impact Delivered by Eka Scribe</h2>
-                    <div class="max-w-4xl mx-auto bg-gray-900/50 rounded-3xl p-8 md:p-12 border border-gray-800">
+                    <h2 class="text-4xl font-bold text-center mb-12 text-gray-900">Real Impact Delivered by Eka Scribe</h2>
+                    <div class="max-w-4xl mx-auto bg-gray-50 rounded-3xl p-8 md:p-12 border border-gray-100">
                         <div class="grid md:grid-cols-3 gap-8 items-center">
                             <div class="md:col-span-2">
                                 <div class="flex mb-4">
                                     <span class="text-yellow-400">★★★★★</span>
                                 </div>
-                                <blockquote class="text-xl font-medium text-gray-200">“Eka Scribe has completely changed how I document my patient consultations — it’s hands-free, accurate, and incredibly fast. It saves me over 12 hours every week... It's like having a silent, intelligent assistant who never misses a detail.”</blockquote>
+                                <blockquote class="text-xl font-medium text-gray-800">“Eka Scribe has completely changed how I document my patient consultations — it’s hands-free, accurate, and incredibly fast. It saves me over 12 hours every week... It's like having a silent, intelligent assistant who never misses a detail.”</blockquote>
                                 <div class="mt-6">
-                                    <p class="font-bold">Dr. Neelesh Kapoor</p>
-                                    <p class="text-gray-400">Senior Consultant Physician & Diabetologist, Noida, India</p>
+                                    <p class="font-bold text-gray-900">Dr. Neelesh Kapoor</p>
+                                    <p class="text-gray-600">Senior Consultant Physician & Diabetologist, Noida, India</p>
                                 </div>
                             </div>
                             <div class="flex justify-center">
-                                <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66f00ac1a61320387532389d_neelesh.webp" alt="Dr. Neelesh Kapoor" class="w-48 h-48 rounded-full object-cover border-4 border-gray-700">
+                                <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66f00ac1a61320387532389d_neelesh.webp" alt="Dr. Neelesh Kapoor" class="w-48 h-48 rounded-full object-cover border-4 border-gray-200">
                             </div>
                         </div>
                     </div>
@@ -147,44 +345,44 @@
             </section>
             
             <!-- Integration Section -->
-            <section class="py-20 text-center container mx-auto px-4">
-                 <h2 class="text-4xl font-bold">Seamless Integration With Your Workflow</h2>
-                 <p class="text-xl text-blue-400 mt-2">Eka Scribe Is Compatible With Your Clinic’s Tools & Platforms</p>
+            <section class="py-20 text-center container mx-auto px-4 bg-gray-50">
+                 <h2 class="text-4xl font-bold text-gray-900">Seamless Integration With Your Workflow</h2>
+                 <p class="text-xl text-blue-600 mt-2">Eka Scribe Is Compatible With Your Clinic's Tools & Platforms</p>
                  <div class="mt-12 flex justify-center flex-wrap gap-4">
-                    <div class="w-20 h-20 bg-gray-800 rounded-2xl flex items-center justify-center"><p class="text-gray-500 text-sm">EMR 1</p></div>
-                    <div class="w-20 h-20 bg-gray-800 rounded-2xl flex items-center justify-center"><p class="text-gray-500 text-sm">EMR 2</p></div>
-                    <div class="w-20 h-20 bg-gray-800 rounded-2xl flex items-center justify-center"><p class="text-gray-500 text-sm">Platform 1</p></div>
-                    <div class="w-20 h-20 bg-gray-800 rounded-2xl flex items-center justify-center"><p class="text-gray-500 text-sm">Platform 2</p></div>
-                    <div class="w-20 h-20 bg-gray-800 rounded-2xl flex items-center justify-center"><p class="text-gray-500 text-sm">Tool 1</p></div>
-                    <div class="w-20 h-20 bg-gray-800 rounded-2xl flex items-center justify-center"><p class="text-gray-500 text-sm">Tool 2</p></div>
-                    <div class="w-20 h-20 bg-gray-800 rounded-2xl flex items-center justify-center"><p class="text-gray-500 text-sm">Tool 3</p></div>
+                    <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center border border-gray-100"><p class="text-gray-600 text-sm">EMR 1</p></div>
+                    <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center border border-gray-100"><p class="text-gray-600 text-sm">EMR 2</p></div>
+                    <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center border border-gray-100"><p class="text-gray-600 text-sm">Platform 1</p></div>
+                    <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center border border-gray-100"><p class="text-gray-600 text-sm">Platform 2</p></div>
+                    <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center border border-gray-100"><p class="text-gray-600 text-sm">Tool 1</p></div>
+                    <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center border border-gray-100"><p class="text-gray-600 text-sm">Tool 2</p></div>
+                    <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center border border-gray-100"><p class="text-gray-600 text-sm">Tool 3</p></div>
                  </div>
             </section>
             
              <!-- FAQ Section -->
-            <section class="py-20">
+            <section class="py-20 bg-white">
                 <div class="container mx-auto px-4 max-w-4xl">
-                    <h2 class="text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+                    <h2 class="text-4xl font-bold text-center mb-12 text-gray-900">Frequently Asked Questions</h2>
                     <div class="space-y-4">
-                        <div class="collapse collapse-plus bg-gray-900/70 border border-gray-800 rounded-xl">
-                            <input type="radio" name="my-accordion-3" checked="checked" /> 
-                            <div class="collapse-title text-xl font-medium">What is Eka Scribe?</div>
-                            <div class="collapse-content"><p class="text-gray-400">Eka Scribe is an AI-powered medical scribe that records doctor-patient conversations and auto-generates summaries, clinical notes, prescriptions, and structured EMR entries — directly into the Eka.care platform.</p></div>
+                        <div class="collapse collapse-plus bg-gray-50 border border-gray-100 rounded-xl">
+                            <input type="radio" name="my-accordion-3" checked="checked" />
+                            <div class="collapse-title text-xl font-medium text-gray-900">What is Eka Scribe?</div>
+                            <div class="collapse-content"><p class="text-gray-600">Eka Scribe is an AI-powered medical scribe that records doctor-patient conversations and auto-generates summaries, clinical notes, prescriptions, and structured EMR entries — directly into the Eka.care platform.</p></div>
                         </div>
-                        <div class="collapse collapse-plus bg-gray-900/70 border border-gray-800 rounded-xl">
-                            <input type="radio" name="my-accordion-3" /> 
-                            <div class="collapse-title text-xl font-medium">Is Eka Scribe HIPAA-Compliant?</div>
-                            <div class="collapse-content"><p class="text-gray-400">Yes, Eka Scribe is designed with the highest standards of security and privacy, adhering to HIPAA guidelines to ensure all patient data is protected.</p></div>
+                        <div class="collapse collapse-plus bg-gray-50 border border-gray-100 rounded-xl">
+                            <input type="radio" name="my-accordion-3" />
+                            <div class="collapse-title text-xl font-medium text-gray-900">Is Eka Scribe HIPAA-Compliant?</div>
+                            <div class="collapse-content"><p class="text-gray-600">Yes, Eka Scribe is designed with the highest standards of security and privacy, adhering to HIPAA guidelines to ensure all patient data is protected.</p></div>
                         </div>
-                        <div class="collapse collapse-plus bg-gray-900/70 border border-gray-800 rounded-xl">
-                            <input type="radio" name="my-accordion-3" /> 
-                            <div class="collapse-title text-xl font-medium">Can I use Eka Scribe during in-person or teleconsultations?</div>
-                            <div class="collapse-content"><p class="text-gray-400">Absolutely. Eka Scribe is built for flexibility and works seamlessly for both in-person consultations and remote teleconsultations, capturing audio from any environment.</p></div>
+                        <div class="collapse collapse-plus bg-gray-50 border border-gray-100 rounded-xl">
+                            <input type="radio" name="my-accordion-3" />
+                            <div class="collapse-title text-xl font-medium text-gray-900">Can I use Eka Scribe during in-person or teleconsultations?</div>
+                            <div class="collapse-content"><p class="text-gray-600">Absolutely. Eka Scribe is built for flexibility and works seamlessly for both in-person consultations and remote teleconsultations, capturing audio from any environment.</p></div>
                         </div>
-                         <div class="collapse collapse-plus bg-gray-900/70 border border-gray-800 rounded-xl">
-                            <input type="radio" name="my-accordion-3" /> 
-                            <div class="collapse-title text-xl font-medium">How much time can Eka Scribe actually save me?</div>
-                            <div class="collapse-content"><p class="text-gray-400">Our users report saving over 12 hours per week on average. By automating clinical documentation, Eka Scribe reduces administrative work by up to 80%, freeing you to focus on your patients.</p></div>
+                         <div class="collapse collapse-plus bg-gray-50 border border-gray-100 rounded-xl">
+                            <input type="radio" name="my-accordion-3" />
+                            <div class="collapse-title text-xl font-medium text-gray-900">How much time can Eka Scribe actually save me?</div>
+                            <div class="collapse-content"><p class="text-gray-600">Our users report saving over 12 hours per week on average. By automating clinical documentation, Eka Scribe reduces administrative work by up to 80%, freeing you to focus on your patients.</p></div>
                         </div>
                     </div>
                 </div>
@@ -192,45 +390,48 @@
         </main>
         
         <!-- Footer -->
-        <footer class="footer sm:footer-horizontal bg-base-200 text-base-content p-10">
+        <footer class="footer sm:footer-horizontal bg-gray-900 text-white p-10">
             <nav>
-                <h6 class="footer-title">Cowin</h6>
-                <a class="link link-hover">Book Vaccination Slot</a>
-                <a class="link link-hover">Download Vaccination Certificate</a>
-                <a class="link link-hover">Change Mobile Number</a>
-                <a class="link link-hover">Add Passport Details</a>
+                <h6 class="footer-title">Product Suite</h6>
+                <a href="emr.html" class="link link-hover">Eka EMR</a>
+                <a href="scribe.html" class="link link-hover">Eka Scribe</a>
+                <a href="phr.html" class="link link-hover">Eka PHR</a>
             </nav>
             <nav>
-                <h6 class="footer-title">Products</h6>
-                <a class="link link-hover">For Doctors</a>
-                <a class="link link-hover">For patients</a>
-                <a class="link link-hover">GMB For Doctors</a>
-                <a class="link link-hover">EMR For Neurologist</a>
+                <h6 class="footer-title">Solutions</h6>
+                <a class="link link-hover">Health AI</a>
+                <a class="link link-hover">Assessment</a>
+                <a class="link link-hover">Medical Document Parsing</a>
+                <a class="link link-hover">Doctor Tool</a>
             </nav>
             <nav>
-                <h6 class="footer-title">About</h6>
-                <a class="link link-hover">Home</a>
+                <h6 class="footer-title">Specialities</h6>
+                <a href="https://www.eka.care/s/for-doctors/neurologists" target="_blank" class="link link-hover">Neurologists</a>
+                <a href="https://www.eka.care/s/for-doctors/dentists" target="_blank" class="link link-hover">Dentists</a>
+                <a href="https://www.eka.care/s/for-doctors/pediatricians" target="_blank" class="link link-hover">Pediatricians</a>
+                <a href="https://www.eka.care/s/for-doctors/ophthalmologists" target="_blank" class="link link-hover">Ophthalmologists</a>
+            </nav>
+            <nav>
+                <h6 class="footer-title">Company</h6>
+                <a href="index.html" class="link link-hover">Home</a>
+                <a class="link link-hover">About</a>
                 <a class="link link-hover">Team</a>
-                <a class="link link-hover">Eka Stories</a>
                 <a class="link link-hover">Careers</a>
+                <a class="link link-hover">Blogs</a>
+                <a class="link link-hover">Pricing</a>
             </nav>
             <nav>
-                <h6 class="footer-title">ABHA</h6>
-                <a class="link link-hover">Create ABHA</a>
-                <a class="link link-hover">About ABDM</a>
-                <a class="link link-hover">About PMJAY</a>
-            </nav>
-            <nav>
-                <h6 class="footer-title">Privacy</h6>
+                <h6 class="footer-title">Support & Legal</h6>
                 <a class="link link-hover">Terms & Conditions</a>
-                <a class="link link-hover">Privacy policy</a>
-                <a class="link link-hover">Google API Disclosure</a>
+                <a class="link link-hover">Privacy Policy</a>
                 <a class="link link-hover">Security</a>
+                <a class="link link-hover">Contact Us</a>
+                <a class="link link-hover">Help Center</a>
             </nav>
         </footer>
-        <footer class="footer bg-base-200 text-base-content border-base-300 border-t px-10 py-4">
+        <footer class="footer bg-gray-900 text-white border-gray-700 border-t px-10 py-4">
             <aside class="grid-flow-col items-center">
-                <img src="https://assets-global.website-files.com/64b5332225f385c345a053c2/6620c322c398383a158f0067_eka-care-white-logo.svg" alt="Eka Care" class="h-8" loading="lazy">
+                <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68ad4ddd03888c7fc6b9b036_eka-black-logo.svg" alt="Eka Care" class="h-8 brightness-0 invert">
                 <p>
                     Eka Care
                     <br />
@@ -239,17 +440,17 @@
             </aside>
             <nav class="md:place-self-center md:justify-self-end">
                 <div class="grid grid-flow-col gap-4">
-                    <a href="#" class="hover:text-primary transition-colors">
-                        <i class="fab fa-instagram text-xl"></i>
+                    <a href="https://www.instagram.com/ekacarehq/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-instagram w-5 h-5"></i>
                     </a>
-                    <a href="#" class="hover:text-primary transition-colors">
-                        <i class="fab fa-linkedin text-xl"></i>
+                    <a href="https://in.linkedin.com/company/ekacare" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-linkedin w-5 h-5"></i>
                     </a>
-                    <a href="#" class="hover:text-primary transition-colors">
-                        <i class="fab fa-facebook text-xl"></i>
+                    <a href="https://www.facebook.com/ekacareHQ" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-facebook w-5 h-5"></i>
                     </a>
-                    <a href="#" class="hover:text-primary transition-colors">
-                        <i class="fab fa-youtube text-xl"></i>
+                    <a href="https://twitter.com/ekacareHQ" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-twitter w-5 h-5"></i>
                     </a>
                 </div>
             </nav>
