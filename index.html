@@ -18,7 +18,11 @@
     <!-- Replace YOUR_KIT_CODE with your actual FontAwesome Premium kit code -->
     <script src="https://kit.fontawesome.com/e4f2af7764.js" crossorigin="anonymous"></script>
     
-    <!-- 4. Custom CSS for overrides -->
+    <!-- 4. GSAP Library for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- 5. Custom CSS for overrides -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -34,6 +38,193 @@
         /* Ensure dropdown opens on hover for desktop */
         .dropdown:hover .dropdown-content {
             display: block;
+        }
+
+        .tabs-boxed .tab {
+        border-radius: 9999px !important;
+        }
+
+        /* Floating Cards Styles */
+        .floating-cards-container {
+            perspective: 1000px;
+        }
+
+        .floating-card {
+            transform-style: preserve-3d;
+            transition: all 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+            animation: floatAnimation 6s ease-in-out infinite;
+        }
+
+        /* Individual card transforms for depth and positioning */
+        .floating-card-1 {
+            transform: perspective(1000px) rotateY(-8deg) rotateX(5deg) translateZ(50px);
+            animation-delay: 0s;
+        }
+
+        .floating-card-2 {
+            transform: perspective(1000px) rotateY(12deg) rotateX(-3deg) translateZ(30px);
+            animation-delay: 1s;
+        }
+
+        .floating-card-3 {
+            transform: perspective(1000px) rotateY(-5deg) rotateX(8deg) translateZ(40px);
+            animation-delay: 2s;
+        }
+
+        .floating-card-4 {
+            transform: perspective(1000px) rotateY(15deg) rotateX(-5deg) translateZ(20px);
+            animation-delay: 3s;
+        }
+
+        .floating-card-5 {
+            transform: perspective(1000px) rotateY(-10deg) rotateX(3deg) translateZ(60px);
+            animation-delay: 4s;
+        }
+
+        .floating-card-6 {
+            transform: perspective(1000px) rotateY(8deg) rotateX(-2deg) translateZ(35px);
+            animation-delay: 5s;
+        }
+
+        .floating-card-7 {
+            transform: perspective(1000px) rotateY(-3deg) rotateX(6deg) translateZ(45px);
+            animation-delay: 2.5s;
+        }
+
+        /* Hover effects */
+        .floating-card:hover {
+            transform: perspective(1000px) rotateY(0deg) rotateX(0deg) translateZ(80px) scale(1.05);
+            animation-play-state: paused;
+        }
+
+        .floating-card-1:hover {
+            transform: perspective(1000px) rotateY(-4deg) rotateX(2deg) translateZ(80px) scale(1.05);
+        }
+
+        .floating-card-2:hover {
+            transform: perspective(1000px) rotateY(6deg) rotateX(-1deg) translateZ(80px) scale(1.05);
+        }
+
+        .floating-card-3:hover {
+            transform: perspective(1000px) rotateY(-2deg) rotateX(4deg) translateZ(80px) scale(1.05);
+        }
+
+        .floating-card-4:hover {
+            transform: perspective(1000px) rotateY(8deg) rotateX(-2deg) translateZ(80px) scale(1.05);
+        }
+
+        .floating-card-5:hover {
+            transform: perspective(1000px) rotateY(-5deg) rotateX(1deg) translateZ(80px) scale(1.05);
+        }
+
+        .floating-card-6:hover {
+            transform: perspective(1000px) rotateY(4deg) rotateX(-1deg) translateZ(80px) scale(1.05);
+        }
+
+        .floating-card-7:hover {
+            transform: perspective(1000px) rotateY(-1deg) rotateX(3deg) translateZ(80px) scale(1.05);
+        }
+
+        /* Floating animation keyframes */
+        @keyframes floatAnimation {
+            0%, 100% {
+                transform: translateY(0px) translateX(0px);
+            }
+            25% {
+                transform: translateY(-10px) translateX(5px);
+            }
+            50% {
+                transform: translateY(-5px) translateX(-3px);
+            }
+            75% {
+                transform: translateY(-15px) translateX(2px);
+            }
+        }
+
+        /* Card shadow enhancements */
+        .floating-card > div {
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(255, 255, 255, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .floating-card:hover > div {
+            box-shadow: 
+                0 35px 70px -12px rgba(0, 0, 0, 0.2),
+                0 0 0 1px rgba(255, 255, 255, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        /* Background enhancement */
+        .hero.min-h-screen::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .floating-card {
+                animation: none;
+                position: relative !important;
+                transform: none !important;
+                margin: 1rem;
+                width: auto !important;
+            }
+            
+            .floating-card:hover {
+                transform: scale(1.02) !important;
+            }
+
+            .floating-cards-container {
+                position: relative;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 1rem;
+                margin-top: 2rem;
+                max-width: 1200px;
+                margin-left: auto;
+                margin-right: auto;
+                padding: 0 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .floating-cards-container {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+            
+            .floating-card {
+                margin: 0.5rem 0;
+            }
+        }
+
+        /* Subtle entrance animation for content */
+        .hero-content {
+            animation: heroFadeIn 1.5s ease-out;
+        }
+
+        @keyframes heroFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 <link rel="stylesheet" href="/index.css">
@@ -89,7 +280,7 @@
                     </div>
                     <!-- Logo -->
                     <a href="index.html" class="btn btn-ghost text-xl p-0 h-auto" aria-label="Homepage">
-                        <img src="https://assets-global.website-files.com/64d0bd8b475d468c8b1aa632/64d0be0d38102353229b48c0_logo.svg" alt="Eka.care Prioritize Health" class="h-10">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68ad4ddd03888c7fc6b9b036_eka-black-logo.svg" alt="Eka.care Prioritize Health" class="h-10">
                     </a>
                 </div>
                 <div class="navbar-center hidden lg:flex">
@@ -141,22 +332,227 @@
         </header>
 
         <main>
-            <!-- Hero Section -->
-            <section class="text-center pt-20 pb-16 bg-white">
-                <div class="container mx-auto px-4">
-                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">AI Stack for Modern Healthcare</h1>
-                    <p class="text-lg md:text-xl mt-6 max-w-4xl mx-auto text-gray-600">Build, scale and personalise healthcare solutions across apps, clinics, hospitals and systems, on a platform powered end-to-end with Gen-AI and structured health data.</p>
-                    <div class="mt-12 flex justify-center items-center flex-wrap gap-x-8 gap-y-4">
-                        <img src="https://assets-global.website-files.com/64b5332225f385c345a053c2/64b5332225f385c345a053de_medanta-logo.svg" alt="Medanta" class="h-6 opacity-70" loading="lazy">
-                        <img src="https://assets-global.website-files.com/64b5332225f385c345a053c2/64b5332225f385c345a053e1_aws-logo.svg" alt="AWS" class="h-8 opacity-70" loading="lazy">
-                        <img src="https://assets-global.website-files.com/64b5332225f385c345a053c2/64b5332225f385c345a053df_samsung-logo.svg" alt="Samsung" class="h-6 opacity-70" loading="lazy">
-                        <img src="https://assets-global.website-files.com/64b5332225f385c345a053c2/64b5332225f385c345a053e0_nha-logo.svg" alt="National Health Authority" class="h-10 opacity-70" loading="lazy">
-                        <img src="https://assets-global.website-files.com/64b5332225f385c345a053c2/64b5332225f385c345a053dc_healthland-logo.svg" alt="HealthLand" class="h-10 opacity-70" loading="lazy">
-                        <img src="https://assets-global.website-files.com/64b5332225f385c345a053c2/64b5332225f385c345a053dd_gynoveda-logo.svg" alt="Gynoveda" class="h-8 opacity-70" loading="lazy">
-                        <img src="https://assets-global.website-files.com/64b5332225f385c345a053c2/64b5332225f385c345a053db_idrishti-logo.svg" alt="idrishti" class="h-8 opacity-70" loading="lazy">
+            <!-- Hero Section with Floating UI Cards -->
+            <div class="hero min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
+                <div class="hero-content text-center relative z-10">
+                    <div class="max-w-4xl">
+                        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-gray-900 mb-6">
+                            Seamless Experience<br>
+                            <span class="text-blue-600 underline decoration-blue-600/30">with Healthcare AI</span>
+                        </h1>
+                        <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-12">
+                            Our advanced technology and secure systems provide a safe and reliable way to manage healthcare, allowing you to benefit from reduced processing times and improved efficiency.
+                        </p>
+                        <button class="btn bg-blue-600 hover:bg-blue-700 text-white rounded-full px-8 py-4 text-lg border-none shadow-lg hover:shadow-xl transition-all duration-300">
+                            Get started
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
                     </div>
                 </div>
-            </section>
+
+                <!-- Floating UI Cards -->
+                <div class="floating-cards-container absolute inset-0 pointer-events-none">
+                    <!-- Eka PHR Card (Top Right) -->
+                    <div class="floating-card floating-card-1 absolute" style="top: 15%; right: 8%; width: 320px;">
+                        <div class="bg-white rounded-3xl p-6 shadow-2xl border border-gray-100/50">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-user text-white text-sm"></i>
+                                    </div>
+                                    <span class="font-semibold text-gray-800">Mike</span>
+                                </div>
+                                <div class="text-xs text-gray-500">Eka PHR</div>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm text-gray-600">Heart Rate</span>
+                                    <span class="text-sm font-semibold text-red-600">78 BPM</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm text-gray-600">Blood Pressure</span>
+                                    <span class="text-sm font-semibold text-green-600">120/80</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm text-gray-600">Weight</span>
+                                    <span class="text-sm font-semibold text-blue-600">75 kg</span>
+                                </div>
+                                <div class="mt-4 p-3 bg-green-50 rounded-xl">
+                                    <div class="text-xs text-green-700 font-medium">Health Score: 85/100</div>
+                                    <div class="text-xs text-green-600 mt-1">All vitals normal</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Eka EMR Card (Left Side) -->
+                    <div class="floating-card floating-card-2 absolute" style="top: 25%; left: 5%; width: 360px;">
+                        <div class="bg-white rounded-3xl p-6 shadow-2xl border border-gray-100/50">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-lg font-bold text-gray-800">Patient Dashboard</h3>
+                                <div class="text-xs text-blue-600 font-medium">Eka EMR</div>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
+                                    <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-user-injured text-white"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-gray-800">Sarah Johnson</div>
+                                        <div class="text-xs text-gray-600">Last visit: 2 days ago</div>
+                                    </div>
+                                    <div class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">
+                                        Active
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
+                                    <div class="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-user-injured text-white"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-gray-800">David Chen</div>
+                                        <div class="text-xs text-gray-600">Next appointment: Today 3PM</div>
+                                    </div>
+                                    <div class="ml-auto text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">
+                                        Pending
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Eka Scribe Card (Right Side, Lower) -->
+                    <div class="floating-card floating-card-3 absolute" style="top: 55%; right: 12%; width: 300px;">
+                        <div class="bg-white rounded-3xl p-6 shadow-2xl border border-gray-100/50">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center animate-pulse">
+                                        <i class="fas fa-microphone text-white text-sm"></i>
+                                    </div>
+                                    <span class="text-sm font-medium text-gray-700">Recording...</span>
+                                </div>
+                                <div class="text-xs text-red-600 font-medium">Eka Scribe</div>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-xl mb-4">
+                                <div class="text-sm text-gray-700 mb-2">
+                                    "Patient presents with chronic back pain..."
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <div class="flex gap-1">
+                                        <div class="w-2 h-2 bg-red-500 rounded-full animate-bounce"></div>
+                                        <div class="w-2 h-2 bg-red-500 rounded-full animate-bounce" style="animation-delay: 0.1s;"></div>
+                                        <div class="w-2 h-2 bg-red-500 rounded-full animate-bounce" style="animation-delay: 0.2s;"></div>
+                                    </div>
+                                    <span class="text-xs text-gray-500">Transcribing</span>
+                                </div>
+                            </div>
+                            <div class="text-xs text-gray-600 flex items-center justify-between">
+                                <span>00:15</span>
+                                <span>Auto-generate Rx</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dev Portal Card (Bottom Left) -->
+                    <div class="floating-card floating-card-4 absolute" style="top: 65%; left: 8%; width: 350px;">
+                        <div class="bg-white rounded-3xl p-6 shadow-2xl border border-gray-100/50">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-lg font-bold text-gray-800">Developer Portal</h3>
+                                <div class="text-xs text-gray-600 font-medium">API Dashboard</div>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm text-gray-600">API Calls Today</span>
+                                    <span class="text-sm font-bold text-blue-600">2.5K</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm text-gray-600">Response Time</span>
+                                    <span class="text-sm font-bold text-green-600">45ms</span>
+                                </div>
+                                <div class="bg-gray-50 p-3 rounded-xl">
+                                    <code class="text-xs text-gray-700">
+                                        GET /api/v1/patients<br>
+                                        <span class="text-green-600">200 OK</span> - 12ms
+                                    </code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bank Selection Card (Top Left) -->
+                    <div class="floating-card floating-card-5 absolute" style="top: 8%; left: 15%; width: 280px;">
+                        <div class="bg-white rounded-3xl p-5 shadow-2xl border border-gray-100/50">
+                            <div class="text-center mb-4">
+                                <div class="text-sm text-gray-600 mb-2">Select your bank</div>
+                                <div class="flex justify-center gap-3">
+                                    <div class="w-12 h-8 bg-blue-600 rounded flex items-center justify-center">
+                                        <span class="text-white text-xs font-bold">R</span>
+                                    </div>
+                                    <div class="w-12 h-8 bg-red-600 rounded flex items-center justify-center">
+                                        <span class="text-white text-xs font-bold">A</span>
+                                    </div>
+                                    <div class="w-12 h-8 bg-blue-800 rounded flex items-center justify-center">
+                                        <span class="text-white text-xs">citi</span>
+                                    </div>
+                                    <div class="w-12 h-8 bg-red-500 rounded flex items-center justify-center">
+                                        <span class="text-white text-xs">XX</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Authorization Card (Bottom Right) -->
+                    <div class="floating-card floating-card-6 absolute" style="bottom: 15%; right: 5%; width: 300px;">
+                        <div class="bg-white rounded-3xl p-5 shadow-2xl border border-gray-100/50">
+                            <div class="text-center">
+                                <div class="text-lg font-bold text-gray-800 mb-2">₹75.00</div>
+                                <div class="text-sm text-gray-600 mb-4">Authorize payment</div>
+                                <div class="space-y-2 text-xs text-gray-500">
+                                    <div>Amount: ₹75.00</div>
+                                    <div>Recipient: HealthcareStore</div>
+                                    <div>Sort code: 95-70-41</div>
+                                    <div>Account number: 12566391</div>
+                                </div>
+                                <button class="w-full bg-gray-900 text-white py-3 rounded-xl mt-4 text-sm font-medium flex items-center justify-center gap-2">
+                                    <i class="fas fa-check"></i>
+                                    CONFIRM
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Success Transaction Card -->
+                    <div class="floating-card floating-card-7 absolute" style="bottom: 25%; right: 25%; width: 200px;">
+                        <div class="bg-purple-100 rounded-2xl p-4 text-center shadow-xl border border-purple-200">
+                            <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                                <i class="fas fa-check text-white"></i>
+                            </div>
+                            <div class="text-sm font-bold text-purple-800">Successful</div>
+                            <div class="text-sm text-purple-700">Transaction</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trust indicators at bottom -->
+                <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+                    <p class="text-sm text-gray-500 mb-4 text-center">Trusted by 100K+ healthcare providers</p>
+                    <div class="flex items-center justify-center gap-8">
+                        <div class="flex items-center gap-2 text-gray-600">
+                            <i class="fas fa-hospital text-blue-600"></i>
+                            <span class="text-sm">2,500+ Clinics</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-gray-600">
+                            <i class="fas fa-user-md text-green-600"></i>
+                            <span class="text-sm">100K+ Doctors</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-gray-600">
+                            <i class="fas fa-users text-purple-600"></i>
+                            <span class="text-sm">30M+ Patients</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!-- Product Cards Section -->
             <section class="py-16 bg-white">
@@ -174,51 +570,571 @@
             <section class="py-16 bg-white"><div class="container mx-auto px-4"><div class="bg-gray-100 aspect-video rounded-3xl flex items-center justify-center"><p class="text-gray-500 font-medium">Platform DEMO VIDEO</p></div></div></section>
 
             <!-- 'Built for Innovator' Section -->
-            <section class="py-16 bg-white"><div class="container mx-auto px-4"><h2 class="text-4xl md:text-5xl font-bold text-center">Built for Every Healthcare Innovator.</h2><div class="mt-8 flex justify-center items-center gap-2 flex-wrap"><a class="btn bg-blue-600 hover:bg-blue-700 text-white border-blue-600 rounded-full">Doctors</a><a class="btn btn-ghost rounded-full border border-gray-300">Clinics/hospitals</a><a class="btn btn-ghost rounded-full border border-gray-300">Labs</a><a class="btn btn-ghost rounded-full border border-gray-300">Health start-ups</a></div><div class="bg-gray-50 rounded-3xl mt-12 p-8 md:p-12 grid md:grid-cols-2 gap-12 items-center"><div class="max-w-md"><h3 class="text-xl font-semibold mb-6">Run your practice with AI-powered tools. Let Eka handle prescriptions, records, appointments, payments, and more, so you can focus on patient care.</h3><div class="space-y-6"><div><h4 class="font-bold border-l-2 border-blue-500 pl-3">Prescribe in seconds, not minutes</h4><p class="text-gray-600 mt-1 pl-4">Use voice or text to generate accurate, shareable prescriptions using Eka Doc and Eka Scribe.</p></div><div><h4 class="font-bold text-gray-400 pl-3">Manage patients, track every visit</h4></div><div><h4 class="font-bold text-gray-400 pl-3">Bring your patient data with you</h4></div><div><h4 class="font-bold text-gray-400 pl-3">Offer better care, beyond the clinic</h4></div></div></div><div class="bg-gray-200 h-96 rounded-2xl w-full hidden md:block"></div></div></div></section>
+            <section class="py-16 bg-transparent">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-4xl md:text-5xl font-bold text-center">Built for Every Healthcare Innovator.</h2>
+                    
+                    <!-- Tabs -->
+                    <div class="flex justify-center mt-12">
+                        <div class="tabs tabs-lift tabs-lg tabs-boxed bg-transparent">
+                            <input type="radio" name="healthcare_tabs" class="tab w-full tabs-lift font-semibold text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-300 rounded-full" aria-label="Doctors" checked="checked" />
+                            <div class="tab-content bg-transparent border-none p-0 mt-8">
+                                <!-- Doctors Tab -->
+                                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 md:p-12 grid md:grid-cols-2 gap-12 items-center shadow-sm border border-blue-100">
+                                    <div class="max-w-md">
+                                        <h3 class="text-xl font-semibold mb-6 text-gray-800">Run your practice with AI-powered tools. Let Eka handle prescriptions, records, appointments, payments, and more, so you can focus on patient care.</h3>
+                                        <div class="space-y-6">
+                                            <div>
+                                                <h4 class="font-bold border-l-4 border-blue-500 pl-4 text-blue-700">Prescribe in seconds, not minutes</h4>
+                                                <p class="text-gray-600 mt-2 pl-4">Use voice or text to generate accurate, shareable prescriptions using Eka Doc and Eka Scribe.</p>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-gray-500 pl-4 hover:text-gray-700 transition-colors cursor-pointer">Manage patients, track every visit</h4>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-gray-500 pl-4 hover:text-gray-700 transition-colors cursor-pointer">Bring your patient data with you</h4>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-gray-500 pl-4 hover:text-gray-700 transition-colors cursor-pointer">Offer better care, beyond the clinic</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="bg-gradient-to-br from-blue-100 to-indigo-100 h-96 rounded-2xl w-full hidden md:block flex items-center justify-center">
+                                        <i class="fas fa-user-md text-6xl text-blue-400"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <input type="radio" name="healthcare_tabs" class="tab w-full tabs-lift font-semibold text-gray-600 hover:text-green-600 hover:bg-green-50 transition-all duration-300 rounded-full" aria-label="Clinics/hospitals" />
+                            <div class="tab-content bg-transparent border-none p-0 mt-8">
+                                <!-- Clinics/hospitals Tab -->
+                                <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl p-8 md:p-12 grid md:grid-cols-2 gap-12 items-center shadow-sm border border-green-100">
+                                    <div class="max-w-md">
+                                        <h3 class="text-xl font-semibold mb-6 text-gray-800">Streamline your healthcare facility with comprehensive AI solutions. Manage operations, patient care, and administrative tasks efficiently.</h3>
+                                        <div class="space-y-6">
+                                            <div>
+                                                <h4 class="font-bold border-l-4 border-green-500 pl-4 text-green-700">Centralized patient management</h4>
+                                                <p class="text-gray-600 mt-2 pl-4">Complete EMR system with appointment scheduling, billing, and patient history tracking.</p>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-gray-500 pl-4 hover:text-gray-700 transition-colors cursor-pointer">Automated administrative workflows</h4>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-gray-500 pl-4 hover:text-gray-700 transition-colors cursor-pointer">Multi-location support</h4>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-gray-500 pl-4 hover:text-gray-700 transition-colors cursor-pointer">Integrated payment processing</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="bg-gradient-to-br from-green-100 to-emerald-100 h-96 rounded-2xl w-full hidden md:block flex items-center justify-center">
+                                        <i class="fas fa-hospital text-6xl text-green-400"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <input type="radio" name="healthcare_tabs" class="tab w-full tabs-lift font-semibold text-gray-600 hover:text-purple-600 hover:bg-purple-50 transition-all duration-300 rounded-xl rounded-full" aria-label="Labs" />
+                            <div class="tab-content bg-transparent border-none p-0 mt-8">
+                                <!-- Labs Tab -->
+                                <div class="bg-gradient-to-br from-purple-50 to-violet-50 rounded-3xl p-8 md:p-12 grid md:grid-cols-2 gap-12 items-center shadow-sm border border-purple-100">
+                                    <div class="max-w-md">
+                                        <h3 class="text-xl font-semibold mb-6 text-gray-800">Optimize laboratory operations with intelligent sample tracking, result management, and seamless integration with healthcare providers.</h3>
+                                        <div class="space-y-6">
+                                            <div>
+                                                <h4 class="font-bold border-l-4 border-purple-500 pl-4 text-purple-700">Smart sample tracking</h4>
+                                                <p class="text-gray-600 mt-2 pl-4">Automated tracking from collection to result delivery with real-time status updates.</p>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-gray-500 pl-4 hover:text-gray-700 transition-colors cursor-pointer">Automated result processing</h4>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-gray-500 pl-4 hover:text-gray-700 transition-colors cursor-pointer">Direct integration with EMR systems</h4>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-gray-500 pl-4 hover:text-gray-700 transition-colors cursor-pointer">Quality control automation</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="bg-gradient-to-br from-purple-100 to-violet-100 h-96 rounded-2xl w-full hidden md:block flex items-center justify-center">
+                                        <i class="fas fa-flask text-6xl text-purple-400"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <input type="radio" name="healthcare_tabs" class="tab w-full tabs-lift font-semibold text-gray-600 hover:text-orange-600 hover:bg-orange-50 transition-all duration-300 rounded-xl whitespace-nowrap rounded-full" aria-label="Health start-ups" />
+                            <div class="tab-content bg-transparent border-none p-0 mt-8">
+                                <!-- Health start-ups Tab -->
+                                <div class="bg-gradient-to-br from-orange-50 to-amber-50 rounded-3xl p-8 md:p-12 grid md:grid-cols-2 gap-12 items-center shadow-sm border border-orange-100">
+                                    <div class="max-w-md">
+                                        <h3 class="text-xl font-semibold mb-6 text-gray-800">Accelerate your health tech startup with our comprehensive API platform. Build innovative solutions faster with pre-built healthcare integrations.</h3>
+                                        <div class="space-y-6">
+                                            <div>
+                                                <h4 class="font-bold border-l-4 border-orange-500 pl-4 text-orange-700">Rapid prototyping & development</h4>
+                                                <p class="text-gray-600 mt-2 pl-4">Access to healthcare APIs, AI models, and data infrastructure to build your MVP quickly.</p>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-gray-500 pl-4 hover:text-gray-700 transition-colors cursor-pointer">Scalable infrastructure</h4>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-gray-500 pl-4 hover:text-gray-700 transition-colors cursor-pointer">Compliance-ready solutions</h4>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-gray-500 pl-4 hover:text-gray-700 transition-colors cursor-pointer">Expert support & guidance</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="bg-gradient-to-br from-orange-100 to-amber-100 h-96 rounded-2xl w-full hidden md:block flex items-center justify-center">
+                                        <i class="fas fa-rocket text-6xl text-orange-400"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
             
             <!-- Best Health Outcomes Section -->
-            <section class="py-16 bg-white"><div class="container mx-auto px-4"><h2 class="text-4xl md:text-5xl font-bold text-center">Best Health Outcomes driven by Eka</h2><div class="bg-gray-50 p-8 md:p-12 rounded-3xl mt-12"><div class="grid md:grid-cols-3 gap-8 items-center"><div class="md:col-span-2"><h4>Dr. Neelesh Kapoor</h4><p class="text-sm text-gray-500">Senior Consultant Physician & Diabetologist, Noida, India</p><blockquote class="text-2xl md:text-3xl font-medium mt-4">“Eka Doc has transformed my practice, enhancing efficiency, improving patient experience, and enabling research.”</blockquote><a href="#" class="inline-block mt-4 font-semibold text-blue-600 hover:underline">Read full story →</a></div><div class="bg-gray-200 aspect-square rounded-2xl flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" /></svg></div></div><hr class="my-12 border-gray-200"><div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"><div class="text-center"><img src="https://assets-global.website-files.com/64b5332225f385c345a053c2/64b5332225f385c345a053dc_healthland-logo.svg" alt="HealthLand" class="h-10 mx-auto" loading="lazy"><p class="mt-4 text-gray-600">Streamlined appointments with 100% increase in follow-up rate and 50% faster retrieval of patient history.</p><a href="#" class="inline-block mt-2 font-semibold text-blue-600 hover:underline">Read full story →</a></div><div class="text-center"><img src="https://assets-global.website-files.com/64b5332225f385c345a053c2/64b5332225f385c345a053dc_healthland-logo.svg" alt="HealthLand" class="h-10 mx-auto" loading="lazy"><p class="mt-4 text-gray-600">Streamlined appointments with 100% increase in follow-up rate and 50% faster retrieval of patient history.</p<a href="#" class="inline-block mt-2 font-semibold text-blue-600 hover:underline">Read full story →</a></div><div class="text-center"><img src="https://assets-global.website-files.com/64b5332225f385c345a053c2/64b5332225f385c345a053dc_healthland-logo.svg" alt="HealthLand" class="h-10 mx-auto" loading="lazy"><p class="mt-4 text-gray-600">Streamlined appointments with 100% increase in follow-up rate and 50% faster retrieval of patient history.</p><a href="#" class="inline-block mt-2 font-semibold text-blue-600 hover:underline">Read full story →</a></div></div></div></div></section>
+            <section class="py-16 bg-white">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-4xl md:text-5xl font-bold text-center">Best Health Outcomes driven by Eka</h2>
+                    <div class="bg-gray-50 p-8 md:p-12 rounded-3xl mt-12">
+                        <div class="grid md:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <h4 class="text-xl font-semibold">Dr. Neelesh Kapoor</h4>
+                                <p class="text-sm text-gray-500 mb-4">Senior Consultant Physician & Diabetologist, Noida, India</p>
+                                <blockquote class="text-2xl md:text-3xl font-medium mb-6">"Eka Doc has transformed my practice, enhancing efficiency, improving patient experience, and enabling research."</blockquote>
+                                <a href="#" class="inline-block font-semibold text-blue-600 hover:underline">Read full story →</a>
+                            </div>
+                            <div class="bg-gray-200 aspect-video rounded-2xl flex items-center justify-center overflow-hidden">
+                                <video class="w-full h-full object-cover" controls poster="https://via.placeholder.com/600x400/2563eb/ffffff?text=Eka+Demo+Video">
+                                    <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        <hr class="my-12 border-gray-200">
+                        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <div class="text-center">
+                                <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a4094eb16d20c1eb7829_healthland.webp" alt="HealthLand" class="h-12 mx-auto mb-4" loading="lazy">
+                                <p class="text-gray-600">Streamlined appointments with 100% increase in follow-up rate and 50% faster retrieval of patient history.</p>
+                                <a href="#" class="inline-block mt-2 font-semibold text-blue-600 hover:underline">Read full story →</a>
+                            </div>
+                            <div class="text-center">
+                                <img src="https://gynoveda-production.s3.ap-south-1.amazonaws.com/logos/logo-black-front.png" alt="Gynoveda" class="h-12 mx-auto mb-4" loading="lazy">
+                                <p class="text-gray-600">Enhanced patient engagement with 75% improvement in appointment adherence and personalized care delivery.</p>
+                                <a href="#" class="inline-block mt-2 font-semibold text-blue-600 hover:underline">Read full story →</a>
+                            </div>
+                            <div class="text-center">
+                                <img src="https://media.licdn.com/dms/image/v2/C560BAQGko0Gq_cwm9Q/company-logo_200_200/company-logo_200_200/0/1640072327484?e=2147483647&v=beta&t=FrtvNM2dcQwIBC7JgvzsxHRDb7_rtURT3PmVAXx7teE" alt="Idrishti" class="h-12 mx-auto mb-4" loading="lazy">
+                                <p class="text-gray-600">AI-powered diagnostics with 90% accuracy improvement and 60% reduction in diagnosis time.</p>
+                                <a href="#" class="inline-block mt-2 font-semibold text-blue-600 hover:underline">Read full story →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <!-- Stats Bar -->
-            <section class="py-16 bg-white"><div class="container mx-auto px-4"><div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"><div class="font-semibold"><span class="block text-2xl md:text-3xl font-bold">30M+</span><span class="text-gray-500">digital health records</span></div><div class="font-semibold"><span class="block text-2xl md:text-3xl font-bold">100k+</span><span class="text-gray-500">active healthcare providers</span></div><div class="font-semibold"><span class="block text-2xl md:text-3xl font-bold">2,500</span><span class="text-gray-500">connected clinics</span></div><div class="font-semibold"><span class="block text-2xl md:text-3xl font-bold">50</span><span class="text-gray-500">enterprise integrations</span></div></div></div></section>
+            <section class="py-16 bg-white">
+                <div class="container mx-auto px-4">
+                    <div class="stats shadow w-full">
+                        <div class="stat">
+                            <div class="stat-title">Digital Health Records</div>
+                            <div class="stat-value text-primary">30M+</div>
+                            <div class="stat-desc">Secure and accessible</div>
+                        </div>
+                        
+                        <div class="stat">
+                            <div class="stat-title">Active Healthcare Providers</div>
+                            <div class="stat-value text-secondary">100k+</div>
+                            <div class="stat-desc">Trusted by professionals</div>
+                        </div>
+                        
+                        <div class="stat">
+                            <div class="stat-title">Connected Clinics</div>
+                            <div class="stat-value">2,500</div>
+                            <div class="stat-desc">Nationwide network</div>
+                        </div>
+                        
+                        <div class="stat">
+                            <div class="stat-title">Enterprise Integrations</div>
+                            <div class="stat-value">50</div>
+                            <div class="stat-desc">Seamless connectivity</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <!-- 'One Platform' Section -->
             <section class="py-16 bg-white"><div class="container mx-auto px-4"><h2 class="text-4xl md:text-5xl font-bold text-center">One Platform,<br>Infinite Healthcare Possibilities</h2><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12"><div class="bg-gray-50 p-8 rounded-3xl flex flex-col"><div class="flex items-center gap-2 mb-4"><i class="fas fa-clipboard-list text-blue-600 text-xl"></i><span class="font-medium text-gray-600">Health Assessment</span></div><h3 class="text-2xl font-bold">Smarter forms. Sharper diagnosis.</h3><p class="text-gray-600 mt-2 mb-6 flex-grow">Automatically adapt questions to patient inputs for more accurate clinical assessments.</p><div class="bg-gray-200 h-40 rounded-2xl w-full mt-auto mb-6"></div><a class="btn bg-gray-900 hover:bg-gray-800 text-white rounded-full self-start">Learn more</a></div><div class="bg-gray-50 p-8 rounded-3xl flex flex-col"><div class="flex items-center gap-2 mb-4"><i class="fas fa-file-medical text-blue-600 text-xl"></i><span class="font-medium text-gray-600">Medical Records</span></div><h3 class="text-2xl font-bold">Organised records. Instant insights.</h3><p class="text-gray-600 mt-2 mb-6 flex-grow">Store, search, and extract insights from records, track trends, history, and vitals with ease.</p><div class="bg-gray-200 h-40 rounded-2xl w-full mt-auto mb-6"></div><a class="btn bg-gray-900 hover:bg-gray-800 text-white rounded-full self-start">Learn more</a></div><div class="bg-gray-50 p-8 rounded-3xl flex flex-col"><div class="flex items-center gap-2 mb-4"><i class="fas fa-microphone-alt text-blue-600 text-xl"></i><span class="font-medium text-gray-600">Eka Scribe</span></div><h3 class="text-2xl font-bold">From voice to Rx in seconds.</h3><p class="text-gray-600 mt-2 mb-6 flex-grow">Dictate, transcribe, and auto-structure prescriptions and clinical notes, hands-free within seconds.</p><div class="bg-gray-200 h-40 rounded-2xl w-full mt-auto mb-6"></div><a class="btn bg-gray-900 hover:bg-gray-800 text-white rounded-full self-start">Learn more</a></div></div><div class="bg-gray-50 p-8 rounded-3xl mt-8 flex flex-col"><div class="flex items-center gap-2 mb-4"><i class="fas fa-link text-green-600 text-xl"></i><span class="font-medium text-gray-600">ABDM Integration</span></div><h3 class="text-2xl font-bold">ABHA built-in. Health records, unified.</h3><p class="text-gray-600 mt-2 mb-6">Create, link, and fetch ABHA records effortlessly, powering continuity of care across India's digital health network.</p><div class="bg-gray-200 h-40 rounded-2xl w-full mt-auto mb-6"></div><a class="btn bg-gray-900 hover:bg-gray-800 text-white rounded-full self-start">Learn more</a></div></div></section>
 
             <!-- Apps Section -->
-            <section class="py-16 bg-white"><div class="container mx-auto px-4 text-center"><h2 class="text-4xl md:text-5xl font-bold">All the apps that you need,<br>ready to use in Eka</h2><p class="text-lg text-gray-600 max-w-3xl mx-auto mt-4">Explore all integrations and build exactly what you need.</p><a class="btn bg-gray-900 hover:bg-gray-800 text-white rounded-full mt-6">Browse integrations</a><div class="mt-12 grid grid-cols-4 sm:grid-cols-5 md:grid-cols-7 gap-4 justify-items-center max-w-3xl mx-auto"><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Zoom_Communications_Logo.svg/2560px-Zoom_Communications_Logo.svg.png" alt="Zoom" class="h-8" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Google_Meet_icon_%282020%29.svg/2491px-Google_Meet_icon_%282020%29.svg.png" alt="Google Meet" class="h-8" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://img.icons8.com/color/480/google-my-business.png" alt="Google My Business" class="h-10" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/2044px-WhatsApp.svg.png" alt="WhatsApp" class="h-10" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://www.vectorlogo.zone/logos/viber/viber-icon.svg" alt="Viber" class="h-10" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://orange.com/favicon.ico" alt="Orange" class="h-10" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://www.servier.com/wp-content/uploads/2021/11/logo_servier_digital_rgb-1.svg" alt="Servier" class="h-10" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Google_Calendar_icon_%282020%29.svg/2048px-Google_Calendar_icon_%282020%29.svg.png" alt="Google Calendar" class="h-9" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://www.getvisitapp.com/assets/images/visit-logo-1.png" alt="Visit" class="h-10" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://getveris.com/build/images/logo/veris-logo.svg" alt="Veris" class="h-8" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://www.ekincare.com/img/logo-dark-1.png" alt="EkinCare" class="h-8" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://www.practo.com/practo_search.png" alt="Practo" class="h-8" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://www.tataindication.com/images/logo.png" alt="Tata Indicom" class="h-10" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://docfyn.com/wp-content/uploads/2022/07/docfyn-logo-full-retina.png" alt="Docfyn" class="h-8" loading="lazy"></div></div></div></section>
+            <section class="py-16 bg-white"><div class="container mx-auto px-4 text-center"><h2 class="text-4xl md:text-5xl font-bold">All the apps that you need,<br>ready to use in Eka</h2><p class="text-lg text-gray-600 max-w-3xl mx-auto mt-4">Explore all integrations and build exactly what you need.</p><a class="btn bg-gray-900 hover:bg-gray-800 text-white rounded-full mt-6">Browse integrations</a><div class="mt-12 grid grid-cols-4 sm:grid-cols-5 md:grid-cols-7 gap-4 justify-items-center max-w-3xl mx-auto"><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5c8ed30b96afa399ec_zoom.png" alt="Zoom" class="h-8" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5be3e8c1b73cacb120_gmeet.png" alt="Google Meet" class="h-8" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5b84dde5dad87bc22b_gmb.png" alt="Google My Business" class="h-10" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5c2d2562ae0aba3137_whatsapp.png" alt="WhatsApp" class="h-10" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5cf347b1712ac7fe0d_image%20164.png" alt="Viber" class="h-10" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5cf347b1712ac7fe1a_orange.png" alt="Orange" class="h-10" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5c1e9cb49ecafe99a3_agora.png" alt="Agora" class="h-10" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5c63ed1b9b495bfe95_evital.png" alt="Evital" class="h-9" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5cda2a9c942a39ab4f_100ms.png" alt="100ms" class="h-10" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5b80ba120fb0b8de18_flabs.png" alt="Flabs" class="h-8" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5c9be87076a46923b4_metropolis.png" alt="Metropolis" class="h-8" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68787c20d8904e9eccbe9dea_ABHA.png" alt="ABHA" class="h-8" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a4099129dbee28c888a7_metropolis.webp" alt="Metropolis" class="h-10" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a409efce973a78422ab4_mittal%20nursing%20home.webp" alt="Mittal Nursing Home" class="h-8" loading="lazy"></div></div></div></section>
         
         </main>
 
         <!-- Footer -->
-        <footer class="bg-blue-700 text-blue-100">
-            <div class="container mx-auto px-4 pt-16 pb-8">
-                <div class="flex flex-col md:flex-row justify-between gap-12">
-                    <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-8 flex-grow">
-                        <div class="space-y-3"><h4 class="font-bold text-white">Cowin</h4><ul class="space-y-2"><li><a href="#" class="hover:text-white">Book Vaccination Slot</a></li><li><a href="#" class="hover:text-white">Download Vaccination Certificate</a></li><li><a href="#" class="hover:text-white">Change Mobile Number</a></li><li><a href="#" class="hover:text-white">Add Passport Details</a></li></ul></div>
-                        <div class="space-y-3"><h4 class="font-bold text-white">Products</h4><ul class="space-y-2"><li><a href="#" class="hover:text-white">For Doctors</a></li><li><a href="#" class="hover:text-white">For patients</a></li><li><a href="#" class="hover:text-white">GMB For Doctors</a></li><li><a href="#" class="hover:text-white">EMR For Neurologist</a></li></ul></div>
-                        <div class="space-y-3"><h4 class="font-bold text-white">About</h4><ul class="space-y-2"><li><a href="#" class="hover:text-white">Home</a></li><li><a href="#" class="hover:text-white">Team</a></li><li><a href="#" class="hover:text-white">Eka Stories</a></li><li><a href="#" class="hover:text-white">Careers</a></li></ul></div>
-                        <div class="space-y-3"><h4 class="font-bold text-white">ABHA</h4><ul class="space-y-2"><li><a href="#" class="hover:text-white">Create ABHA</a></li><li><a href="#" class="hover:text-white">About ABDM</a></li><li><a href="#" class="hover:text-white">About PMJAY</a></li></ul></div>
-                        <div class="space-y-3"><h4 class="font-bold text-white">Privacy</h4><ul class="space-y-2"><li><a href="#" class="hover:text-white">Terms & Conditions</a></li><li><a href="#" class="hover:text-white">Privacy policy</a></li><li><a href="#" class="hover:text-white">Google API Disclosure</a></li><li><a href="#" class="hover:text-white">Security</a></li></ul></div>
-                    </div>
-                    <div class="flex-shrink-0 text-center md:text-left">
-                        <a href="#"><img src="https://assets-global.website-files.com/64b5332225f385c345a053c2/6620c322c398383a158f0067_eka-care-white-logo.svg" alt="Eka Care" class="h-10 mx-auto md:mx-0" loading="lazy"></a>
-                        <p class="mt-2 text-sm">Prioritize Health</p>
-                        <img src="https://assets-global.website-files.com/64b5332225f385c345a053c2/64b5332225f385c345a0544f_footer-art.svg" alt="Healthcare illustration" class="mt-4 hidden md:block" loading="lazy">
-                    </div>
+        <footer class="footer sm:footer-horizontal bg-base-200 text-base-content p-10">
+            <nav>
+                <h6 class="footer-title">Cowin</h6>
+                <a class="link link-hover">Book Vaccination Slot</a>
+                <a class="link link-hover">Download Vaccination Certificate</a>
+                <a class="link link-hover">Change Mobile Number</a>
+                <a class="link link-hover">Add Passport Details</a>
+            </nav>
+            <nav>
+                <h6 class="footer-title">Products</h6>
+                <a class="link link-hover">For Doctors</a>
+                <a class="link link-hover">For patients</a>
+                <a class="link link-hover">GMB For Doctors</a>
+                <a class="link link-hover">EMR For Neurologist</a>
+            </nav>
+            <nav>
+                <h6 class="footer-title">About</h6>
+                <a class="link link-hover">Home</a>
+                <a class="link link-hover">Team</a>
+                <a class="link link-hover">Eka Stories</a>
+                <a class="link link-hover">Careers</a>
+            </nav>
+            <nav>
+                <h6 class="footer-title">ABHA</h6>
+                <a class="link link-hover">Create ABHA</a>
+                <a class="link link-hover">About ABDM</a>
+                <a class="link link-hover">About PMJAY</a>
+            </nav>
+            <nav>
+                <h6 class="footer-title">Privacy</h6>
+                <a class="link link-hover">Terms & Conditions</a>
+                <a class="link link-hover">Privacy policy</a>
+                <a class="link link-hover">Google API Disclosure</a>
+                <a class="link link-hover">Security</a>
+            </nav>
+        </footer>
+        <footer class="footer bg-base-200 text-base-content border-base-300 border-t px-10 py-4">
+            <aside class="grid-flow-col items-center">
+                <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68ad4ddd03888c7fc6b9b036_eka-black-logo.svg" alt="Eka Care" class="h-8" loading="lazy">
+            </aside>
+            <nav class="md:place-self-center md:justify-self-end">
+                <div class="grid grid-flow-col gap-4">
+                    <a href="https://www.instagram.com/ekacarehq/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
+                        <i class="fab fa-instagram w-6 h-6"></i>
+                    </a>
+                    <a href="https://in.linkedin.com/company/ekacare" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn">
+                        <i class="fab fa-linkedin w-6 h-6"></i>
+                    </a>
+                    <a href="https://www.facebook.com/ekacareHQ" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook">
+                        <i class="fab fa-facebook w-6 h-6"></i>
+                    </a>
+                    <a href="https://twitter.com/ekacareHQ" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Twitter">
+                        <i class="fab fa-twitter w-6 h-6"></i>
+                    </a>
                 </div>
-                <div class="mt-12 pt-8 border-t border-blue-600 flex flex-col sm:flex-row justify-between items-center text-sm">
-                    <p class="order-2 sm:order-1 mt-4 sm:mt-0">Copyright © 2022 eka.care</p>
-                    <div class="flex space-x-4 order-1 sm:order-2">
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram w-6 h-6"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin w-6 h-6"></i></a>
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook w-6 h-6"></i></a>
-                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube w-6 h-6"></i></a>
-                    </div>
-                </div>
-            </div>
+            </nav>
         </footer>
     </div>
+
+    <!-- GSAP Animations Script -->
+    <script>
+        // Initialize GSAP and ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Create master timeline for card entrance animations
+            const tl = gsap.timeline();
+            
+            // Initial state - make cards invisible and positioned for entrance
+            gsap.set('.floating-card', {
+                opacity: 0,
+                scale: 0.8,
+                y: 100,
+                rotationY: 45,
+                transformOrigin: 'center center'
+            });
+
+            // Animate cards in with staggered timing
+            tl.to('.floating-card', {
+                duration: 1.2,
+                opacity: 1,
+                scale: 1,
+                y: 0,
+                rotationY: 0,
+                ease: 'back.out(1.7)',
+                stagger: {
+                    amount: 2.5,
+                    from: 'random'
+                }
+            }, 0.5);
+
+            // Add subtle continuous floating animation
+            gsap.to('.floating-card-1', {
+                y: -15,
+                x: 5,
+                rotation: 2,
+                duration: 4,
+                repeat: -1,
+                yoyo: true,
+                ease: 'sine.inOut'
+            });
+
+            gsap.to('.floating-card-2', {
+                y: -20,
+                x: -8,
+                rotation: -1,
+                duration: 5,
+                repeat: -1,
+                yoyo: true,
+                ease: 'sine.inOut',
+                delay: 1
+            });
+
+            gsap.to('.floating-card-3', {
+                y: -12,
+                x: 3,
+                rotation: 1.5,
+                duration: 4.5,
+                repeat: -1,
+                yoyo: true,
+                ease: 'sine.inOut',
+                delay: 2
+            });
+
+            gsap.to('.floating-card-4', {
+                y: -18,
+                x: -5,
+                rotation: -2,
+                duration: 3.8,
+                repeat: -1,
+                yoyo: true,
+                ease: 'sine.inOut',
+                delay: 3
+            });
+
+            gsap.to('.floating-card-5', {
+                y: -10,
+                x: 7,
+                rotation: 1,
+                duration: 4.2,
+                repeat: -1,
+                yoyo: true,
+                ease: 'sine.inOut',
+                delay: 0.5
+            });
+
+            gsap.to('.floating-card-6', {
+                y: -16,
+                x: -3,
+                rotation: -1.5,
+                duration: 5.2,
+                repeat: -1,
+                yoyo: true,
+                ease: 'sine.inOut',
+                delay: 1.5
+            });
+
+            gsap.to('.floating-card-7', {
+                y: -14,
+                x: 4,
+                rotation: 2.5,
+                duration: 3.5,
+                repeat: -1,
+                yoyo: true,
+                ease: 'sine.inOut',
+                delay: 2.5
+            });
+
+            // Enhanced hover interactions
+            document.querySelectorAll('.floating-card').forEach((card, index) => {
+                const cardInner = card.querySelector('div');
+                
+                card.addEventListener('mouseenter', function() {
+                    gsap.to(this, {
+                        duration: 0.4,
+                        scale: 1.08,
+                        z: 100,
+                        rotationY: 0,
+                        rotationX: 0,
+                        ease: 'power2.out'
+                    });
+                    
+                    gsap.to(cardInner, {
+                        duration: 0.4,
+                        boxShadow: '0 40px 80px -12px rgba(0, 0, 0, 0.25)',
+                        ease: 'power2.out'
+                    });
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    gsap.to(this, {
+                        duration: 0.6,
+                        scale: 1,
+                        z: 0,
+                        ease: 'power2.out'
+                    });
+                    
+                    gsap.to(cardInner, {
+                        duration: 0.6,
+                        boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.15)',
+                        ease: 'power2.out'
+                    });
+                });
+
+                // Add slight mouse follow effect
+                card.addEventListener('mousemove', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    
+                    gsap.to(this, {
+                        duration: 0.3,
+                        rotationY: x / 10,
+                        rotationX: -y / 10,
+                        ease: 'power2.out'
+                    });
+                });
+            });
+
+            // Parallax scroll effect for floating cards
+            ScrollTrigger.batch('.floating-card', {
+                onEnter: (elements) => {
+                    gsap.from(elements, {
+                        opacity: 0,
+                        y: 100,
+                        stagger: 0.15,
+                        duration: 1,
+                        ease: 'power3.out'
+                    });
+                },
+                onLeave: (elements) => {
+                    gsap.to(elements, {
+                        opacity: 0.3,
+                        scale: 0.95,
+                        stagger: 0.15,
+                        duration: 0.5,
+                        ease: 'power3.out'
+                    });
+                },
+                onEnterBack: (elements) => {
+                    gsap.to(elements, {
+                        opacity: 1,
+                        scale: 1,
+                        stagger: 0.15,
+                        duration: 0.5,
+                        ease: 'power3.out'
+                    });
+                }
+            });
+
+            // Create background particles effect
+            function createParticles() {
+                const particlesContainer = document.querySelector('.floating-cards-container');
+                if (!particlesContainer) return;
+
+                for (let i = 0; i < 15; i++) {
+                    const particle = document.createElement('div');
+                    particle.style.cssText = `
+                        position: absolute;
+                        width: 4px;
+                        height: 4px;
+                        background: rgba(59, 130, 246, 0.3);
+                        border-radius: 50%;
+                        pointer-events: none;
+                        top: ${Math.random() * 100}%;
+                        left: ${Math.random() * 100}%;
+                    `;
+                    particlesContainer.appendChild(particle);
+                    
+                    // Animate particle
+                    gsap.to(particle, {
+                        y: -300,
+                        x: Math.random() * 200 - 100,
+                        opacity: 0,
+                        duration: Math.random() * 10 + 10,
+                        repeat: -1,
+                        ease: 'none',
+                        delay: Math.random() * 5
+                    });
+                }
+            }
+
+            // Initialize particles only on desktop
+            if (window.innerWidth > 1024) {
+                createParticles();
+            }
+
+            // Animate hero text
+            gsap.from('.hero-content h1', {
+                duration: 1.5,
+                y: 50,
+                opacity: 0,
+                ease: 'power3.out',
+                delay: 0.3
+            });
+
+            gsap.from('.hero-content p', {
+                duration: 1.5,
+                y: 30,
+                opacity: 0,
+                ease: 'power3.out',
+                delay: 0.6
+            });
+
+            gsap.from('.hero-content button', {
+                duration: 1.5,
+                y: 30,
+                opacity: 0,
+                scale: 0.9,
+                ease: 'back.out(1.7)',
+                delay: 0.9
+            });
+
+            // Enhanced button hover effect
+            const ctaButton = document.querySelector('.hero-content button');
+            if (ctaButton) {
+                ctaButton.addEventListener('mouseenter', function() {
+                    gsap.to(this, {
+                        duration: 0.3,
+                        scale: 1.05,
+                        y: -2,
+                        ease: 'power2.out'
+                    });
+                });
+                
+                ctaButton.addEventListener('mouseleave', function() {
+                    gsap.to(this, {
+                        duration: 0.3,
+                        scale: 1,
+                        y: 0,
+                        ease: 'power2.out'
+                    });
+                });
+            }
+
+            // Mouse cursor enhancement
+            document.addEventListener('mousemove', function(e) {
+                const cards = document.querySelectorAll('.floating-card');
+                const mouseX = e.clientX / window.innerWidth;
+                const mouseY = e.clientY / window.innerHeight;
+                
+                cards.forEach((card, index) => {
+                    const speed = 0.5 + (index * 0.1);
+                    const x = (mouseX - 0.5) * speed * 20;
+                    const y = (mouseY - 0.5) * speed * 20;
+                    
+                    gsap.to(card, {
+                        duration: 2,
+                        x: x,
+                        y: y,
+                        ease: 'power2.out'
+                    });
+                });
+            });
+
+            console.log('🚀 Floating UI Cards with GSAP animations loaded successfully!');
+        });
+    </script>
+
 <script type="module" src="/index.tsx"></script>
 </body>
 </html>
