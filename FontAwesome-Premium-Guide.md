@@ -63,15 +63,53 @@ The FontAwesome Premium kit is already integrated in your `index.html` file:
 
 ### With Styling
 ```html
-<!-- Colored icon -->
-<i class="fas fa-heartbeat text-red-500 text-2xl"></i>
+<!-- Colored icon with FA sizing -->
+<i class="fas fa-heartbeat fa-2x text-red-500"></i>
 
 <!-- With background -->
-<i class="fas fa-stethoscope bg-blue-100 p-2 rounded-lg text-blue-600"></i>
+<i class="fas fa-stethoscope fa-lg bg-blue-100 p-2 rounded-lg text-blue-600"></i>
 
 <!-- Animated -->
 <i class="fas fa-spinner fa-spin"></i>
 ```
+
+## FontAwesome Sizing Classes
+
+**IMPORTANT**: Always use FontAwesome sizing classes instead of Tailwind text sizing for icons.
+
+### Available Sizes
+- **fa-xs**: Extra small (0.75em)
+- **fa-sm**: Small (0.875em)
+- **fa-1x**: Normal (1em) - default
+- **fa-lg**: Large (1.333em)
+- **fa-xl**: Extra large (1.5em)
+- **fa-2x**: 2x size (2em)
+- **fa-3x**: 3x size (3em)
+- **fa-4x**: 4x size (4em)
+- **fa-5x**: 5x size (5em)
+- **fa-6x**: 6x size (6em)
+- **fa-7x**: 7x size (7em)
+- **fa-8x**: 8x size (8em)
+- **fa-9x**: 9x size (9em)
+- **fa-10x**: 10x size (10em)
+
+### Proper Usage Examples
+```html
+<!-- ✅ Correct: FontAwesome sizing -->
+<i class="fas fa-heartbeat fa-lg text-red-500"></i>
+<i class="fas fa-stethoscope fa-2x text-blue-600"></i>
+<i class="fas fa-user-md fa-xl text-green-600"></i>
+
+<!-- ❌ Incorrect: Tailwind text sizing -->
+<i class="fas fa-heartbeat text-lg text-red-500"></i>
+<i class="fas fa-stethoscope text-2xl text-blue-600"></i>
+```
+
+### Why Use FontAwesome Sizing?
+- **Proportional scaling**: Icons scale proportionally and maintain their designed proportions
+- **Consistency**: All FontAwesome icons use the same sizing scale
+- **Better rendering**: FontAwesome sizing is optimized for icon display
+- **Avoid conflicts**: Prevents issues with text sizing affecting icon appearance
 
 ## Healthcare-Specific Icons Available
 
@@ -145,20 +183,27 @@ You can customize duotone colors with CSS:
 - Stick to either solid (`fas`) or regular (`far`) for main UI elements
 - Use duotone (`fad`) for featured sections
 
-### 2. Accessibility
+### 2. FontAwesome Sizing (CRITICAL)
+- **ALWAYS use FontAwesome sizing classes** (`fa-lg`, `fa-xl`, `fa-2x`, etc.)
+- **NEVER use Tailwind text sizing** (`text-lg`, `text-xl`, `text-2xl`) on icons
+- FontAwesome sizing ensures proportional scaling and consistent appearance
+- Use the sizing scale provided above for all icon size modifications
+
+### 3. Accessibility
 - Always include `aria-label` for icons without text
 - Use semantic icons that match their function
 - Ensure sufficient color contrast
 
-### 3. Performance
+### 4. Performance
 - FontAwesome Premium loads only the icons you use
 - Icons are cached for better performance
 - No need to download icon files
 
-### 4. Responsive Design
-- Icons scale with text size
-- Use responsive classes like `text-sm md:text-lg`
-- Consider icon size on mobile devices
+### 5. Responsive Design
+- Use FontAwesome sizing classes for consistent icon scaling
+- For responsive icons, use Tailwind responsive prefixes with FA classes: `fa-lg md:fa-2x lg:fa-3x`
+- Consider icon size hierarchy on mobile devices
+- Test icon readability across different screen sizes
 
 ## Common Use Cases for Your Website
 

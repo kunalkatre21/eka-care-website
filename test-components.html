@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component System Test - Eka Care</title>
+
+    <!-- External Libraries -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/e4f2af7764.js" crossorigin="anonymous"></script>
+
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="components/shared-styles.css">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .test-section {
+            padding: 2rem;
+            margin: 1rem 0;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+        }
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        .status-success { background: #dcfce7; color: #166534; }
+        .status-error { background: #fef2f2; color: #991b1b; }
+        .status-loading { background: #fef3c7; color: #92400e; }
+    </style>
+</head>
+<body>
+    <!-- Header Component Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Test Content -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl font-bold text-gray-900 mb-8">Component System Test</h1>
+
+            <!-- Status Section -->
+            <div class="test-section">
+                <h2 class="text-2xl font-semibold mb-4">System Status</h2>
+                <div class="space-y-2">
+                    <div id="component-loader-status" class="status-indicator status-loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <span>Loading Component Loader...</span>
+                    </div>
+                    <div id="header-status" class="status-indicator status-loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <span>Loading Header Component...</span>
+                    </div>
+                    <div id="footer-status" class="status-indicator status-loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <span>Loading Footer Component...</span>
+                    </div>
+                    <div id="css-status" class="status-indicator status-loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <span>Loading Shared CSS...</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Test Cards Section -->
+            <div class="test-section">
+                <h2 class="text-2xl font-semibold mb-4">Component Tests</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="card bg-base-100 shadow-lg">
+                        <div class="card-body">
+                            <h3 class="card-title">Header Test</h3>
+                            <p>Test if the navigation header loads correctly with all menu items and styling.</p>
+                            <div class="card-actions justify-end">
+                                <button class="btn btn-primary" onclick="testHeader()">Test Header</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card bg-base-100 shadow-lg">
+                        <div class="card-body">
+                            <h3 class="card-title">Footer Test</h3>
+                            <p>Test if the footer loads correctly with all links and social media icons.</p>
+                            <div class="card-actions justify-end">
+                                <button class="btn btn-primary" onclick="testFooter()">Test Footer</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card bg-base-100 shadow-lg">
+                        <div class="card-body">
+                            <h3 class="card-title">CSS Test</h3>
+                            <p>Test if shared CSS styles are properly applied.</p>
+                            <div class="card-actions justify-end">
+                                <button class="btn btn-primary" onclick="testCSS()">Test CSS</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card bg-base-100 shadow-lg">
+                        <div class="card-body">
+                            <h3 class="card-title">Performance Test</h3>
+                            <p>Test component loading performance and caching.</p>
+                            <div class="card-actions justify-end">
+                                <button class="btn btn-primary" onclick="testPerformance()">Test Performance</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floating Cards Test -->
+            <div class="test-section">
+                <h2 class="text-2xl font-semibold mb-4">Floating Cards Test</h2>
+                <div class="floating-cards-container" style="height: 400px; position: relative; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); border-radius: 8px;">
+                    <div class="floating-card floating-card-1" style="position: absolute; top: 20%; left: 10%; width: 200px;">
+                        <div class="card bg-base-100 shadow-lg">
+                            <div class="card-body p-4">
+                                <h4 class="font-semibold">Test Card 1</h4>
+                                <p class="text-sm">3D floating effect</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="floating-card floating-card-2" style="position: absolute; top: 30%; right: 15%; width: 180px;">
+                        <div class="card bg-base-100 shadow-lg">
+                            <div class="card-body p-4">
+                                <h4 class="font-semibold">Test Card 2</h4>
+                                <p class="text-sm">Perspective transform</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Debug Information -->
+            <div class="test-section">
+                <h2 class="text-2xl font-semibold mb-4">Debug Information</h2>
+                <div id="debug-info" class="text-sm text-gray-600">
+                    <p>Loading debug information...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Component Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Simple Component Loader System -->
+    <script src="components/simple-loader.js"></script>
+
+    <!-- Test Scripts -->
+    <script>
+        let testResults = {
+            componentLoader: false,
+            header: false,
+            footer: false,
+            css: false
+        };
+
+        // Initialize component system
+        document.addEventListener('DOMContentLoaded', async function() {
+            console.log('🚀 Starting Component System Test...');
+
+            // Update status
+            updateStatus('component-loader-status', 'success', 'Simple Component Loader initialized');
+
+            try {
+                // Load components
+                await simpleComponentLoader.loadMultiple([
+                    {
+                        name: 'header',
+                        element: document.getElementById('header-placeholder'),
+                        variables: { PAGE_TITLE: 'Component System Test' }
+                    },
+                    {
+                        name: 'footer',
+                        element: document.getElementById('footer-placeholder')
+                    }
+                ]);
+
+                updateStatus('header-status', 'success', 'Header component loaded');
+                updateStatus('footer-status', 'success', 'Footer component loaded');
+                testResults.header = true;
+                testResults.footer = true;
+
+            } catch (error) {
+                console.error('❌ Component loading failed:', error);
+                updateStatus('header-status', 'error', 'Header failed to load');
+                updateStatus('footer-status', 'error', 'Footer failed to load');
+            }
+
+            // Test CSS
+            testCSS();
+
+            // Update debug info
+            updateDebugInfo();
+
+            console.log('✅ Component System Test Complete');
+        });
+
+        function updateStatus(elementId, status, message) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.className = `status-indicator status-${status}`;
+                element.innerHTML = `
+                    <i class="fas fa-${status === 'success' ? 'check-circle' : status === 'error' ? 'times-circle' : 'spinner fa-spin'}"></i>
+                    <span>${message}</span>
+                `;
+            }
+        }
+
+        function testHeader() {
+            const header = document.querySelector('header');
+            if (header) {
+                alert('✅ Header found! Navigation and logo are present.');
+            } else {
+                alert('❌ Header not found! Component may have failed to load.');
+            }
+        }
+
+        function testFooter() {
+            const footer = document.querySelector('footer');
+            if (footer) {
+                alert('✅ Footer found! Links and social media icons are present.');
+            } else {
+                alert('❌ Footer not found! Component may have failed to load.');
+            }
+        }
+
+        function testCSS() {
+            const testCard = document.querySelector('.floating-card');
+            if (testCard) {
+                const computedStyle = window.getComputedStyle(testCard);
+                const hasTransform = computedStyle.transform !== 'none';
+                const hasTransition = computedStyle.transition !== 'all 0s ease 0s';
+
+                if (hasTransform && hasTransition) {
+                    updateStatus('css-status', 'success', 'CSS styles applied correctly');
+                    testResults.css = true;
+                    alert('✅ CSS Test Passed! Floating card styles are working.');
+                } else {
+                    updateStatus('css-status', 'error', 'CSS styles not applied');
+                    alert('❌ CSS Test Failed! Styles may not be loading correctly.');
+                }
+            }
+        }
+
+        function testPerformance() {
+            console.time('Performance Test');
+            const startTime = performance.now();
+
+            // Test component loading
+            Promise.all([
+                simpleComponentLoader.loadComponent('header', document.createElement('div')),
+                simpleComponentLoader.loadComponent('footer', document.createElement('div'))
+            ]).then(() => {
+                const endTime = performance.now();
+                console.timeEnd('Performance Test');
+
+                const loadTime = endTime - startTime;
+                const status = simpleComponentLoader.getStatus();
+                alert(`⏱️ Performance Test Complete!\nLoad time: ${loadTime.toFixed(2)}ms\nAvailable components: ${status.availableComponents.length}\nLoaded components: ${status.loadedComponents.length}`);
+            });
+        }
+
+        function updateDebugInfo() {
+            const status = simpleComponentLoader.getStatus();
+            const debugInfo = document.getElementById('debug-info');
+
+            debugInfo.innerHTML = `
+                <h3 class="font-semibold mb-2">Simple Component Loader Status:</h3>
+                <ul class="space-y-1">
+                    <li><strong>Initialized:</strong> ${status.initialized ? '✅' : '❌'}</li>
+                    <li><strong>Available Components:</strong> ${status.availableComponents.length}</li>
+                    <li><strong>Loaded Components:</strong> ${status.loadedComponents.length}</li>
+                    <li><strong>Available:</strong> ${status.availableComponents.join(', ')}</li>
+                </ul>
+
+                <h3 class="font-semibold mt-4 mb-2">Test Results:</h3>
+                <ul class="space-y-1">
+                    <li><strong>Header:</strong> ${testResults.header ? '✅' : '❌'}</li>
+                    <li><strong>Footer:</strong> ${testResults.footer ? '✅' : '❌'}</li>
+                    <li><strong>CSS:</strong> ${testResults.css ? '✅' : '❌'}</li>
+                </ul>
+
+                <h3 class="font-semibold mt-4 mb-2">Browser Info:</h3>
+                <p><strong>Protocol:</strong> ${window.location.protocol}</p>
+                <p><strong>User Agent:</strong> ${navigator.userAgent}</p>
+                <p><strong>Viewport:</strong> ${window.innerWidth}x${window.innerHeight}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

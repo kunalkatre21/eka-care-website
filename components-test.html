@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component Test Page - Healthcare AI Platform</title>
+
+    <!-- External Libraries -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/e4f2af7764.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="components/shared-styles.css">
+</head>
+<body>
+    <!-- Header Component Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+
+        <!-- Demo: Using CTA Component -->
+        <section class="py-16 bg-gradient-to-br from-blue-500 to-purple-600 text-white">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-4xl font-bold mb-6">CTA Component Demo</h2>
+                <p class="text-xl mb-8 opacity-90 max-w-2xl mx-auto">This section demonstrates the reusable CTA component.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#" class="btn btn-neutral btn-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                        Get Started Now
+                        <i class="fas fa-arrow-right ml-2" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="btn btn-outline btn-neutral btn-lg">
+                        Watch Demo
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo: Using Feature Grid Component -->
+        <section class="feature-grid py-16 bg-white" role="region" aria-labelledby="features-heading">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 id="features-heading" class="text-4xl font-bold mb-4">Feature Grid Component Demo</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Reusable 3-column feature grid with consistent styling.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="feature-card p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-white border border-blue-100">
+                        <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fas fa-heart text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Patient Management</h3>
+                        <p class="text-gray-600 mb-4">Comprehensive patient records with AI-powered health insights and automated data entry.</p>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li>• Digital health records</li>
+                            <li>• Appointment scheduling</li>
+                            <li>• Patient portal access</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card p-8 rounded-2xl bg-gradient-to-br from-green-50 to-white border border-green-100">
+                        <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fas fa-chart-line text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Analytics & Reporting</h3>
+                        <p class="text-gray-600 mb-4">Real-time analytics and automated reporting to optimize your practice performance.</p>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li>• Practice analytics</li>
+                            <li>• Revenue tracking</li>
+                            <li>• Compliance reports</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card p-8 rounded-2xl bg-gradient-to-br from-purple-50 to-white border border-purple-100">
+                        <div class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fas fa-mobile-alt text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Mobile Access</h3>
+                        <p class="text-gray-600 mb-4">Access your data anywhere with our mobile app and web-based platform.</p>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li>• Mobile app access</li>
+                            <li>• Cloud synchronization</li>
+                            <li>• Offline capability</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo: Using Testimonial Component -->
+        <section class="testimonial py-20 bg-white" role="region" aria-labelledby="testimonial-heading">
+            <div class="container mx-auto px-4">
+                <h2 id="testimonial-heading" class="text-4xl font-bold text-center mb-12 text-gray-900">Testimonial Component Demo</h2>
+                <div class="max-w-4xl mx-auto bg-gray-50 rounded-3xl p-8 md:p-12 border border-gray-100">
+                    <div class="grid md:grid-cols-3 gap-8 items-center">
+                        <div class="md:col-span-2">
+                            <div class="flex mb-4">
+                                <span class="text-yellow-400">★★★★★</span>
+                            </div>
+                            <blockquote class="text-xl font-medium text-gray-800">"This platform has completely transformed how we handle patient data and clinical workflows. The AI features are incredible."</blockquote>
+                            <div class="mt-6">
+                                <p class="font-bold text-gray-900">Dr. Sarah Johnson</p>
+                                <p class="text-gray-600">Chief Medical Officer, Healthcare Plus</p>
+                            </div>
+                        </div>
+                        <div class="flex justify-center">
+                            <div class="w-48 h-48 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-user-md text-white text-4xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo: Using FAQ Component -->
+        <section class="faq py-20 bg-gray-50" role="region" aria-labelledby="faq-heading">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <h2 id="faq-heading" class="text-4xl font-bold text-center mb-12 text-gray-900">FAQ Component Demo</h2>
+                <div class="space-y-4">
+                    <div class="collapse collapse-plus bg-white border border-gray-100 rounded-xl">
+                        <input type="radio" name="demo-accordion" checked="checked" />
+                        <div class="collapse-title text-xl font-medium text-gray-900">What is this platform?</div>
+                        <div class="collapse-content"><p class="text-gray-600">This is a comprehensive healthcare platform that combines AI-powered tools with modern practice management solutions.</p></div>
+                    </div>
+                    <div class="collapse collapse-plus bg-white border border-gray-100 rounded-xl">
+                        <input type="radio" name="demo-accordion" />
+                        <div class="collapse-title text-xl font-medium text-gray-900">Is it HIPAA compliant?</div>
+                        <div class="collapse-content"><p class="text-gray-600">Yes, we adhere to the highest standards of security and privacy, including HIPAA compliance to ensure all patient data is protected.</p></div>
+                    </div>
+                    <div class="collapse collapse-plus bg-white border border-gray-100 rounded-xl">
+                        <input type="radio" name="demo-accordion" />
+                        <div class="collapse-title text-xl font-medium text-gray-900">How much time can it save?</div>
+                        <div class="collapse-content"><p class="text-gray-600">Users typically save 10-15 hours per week on administrative tasks, allowing more focus on patient care.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo: Using Floating Cards -->
+        <section class="relative py-32 bg-gradient-to-br from-gray-50 to-blue-50 overflow-hidden">
+            <div class="container mx-auto px-4 text-center relative z-20">
+                <h2 class="text-4xl font-bold mb-6">Floating Cards Demo</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-12">Interactive floating cards that demonstrate features dynamically.</p>
+            </div>
+
+            <!-- Floating Cards Demo -->
+            <div class="floating-cards-container absolute inset-0 pointer-events-none z-10" role="presentation" aria-hidden="true">
+                <!-- Demo Card: Top Right -->
+                <div class="floating-card floating-card-1 absolute" style="top: 15%; right: 8%; width: 320px;" tabindex="-1">
+                    <div class="card bg-base-100 shadow-2xl border border-gray-100/50" role="article" aria-label="Demo dashboard">
+                        <div class="card-body p-6">
+                            <header class="flex items-center justify-between mb-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center" role="img" aria-label="AI icon">
+                                        <i class="fas fa-brain text-white text-sm" aria-hidden="true"></i>
+                                    </div>
+                                    <span class="font-semibold text-gray-800">AI Dashboard</span>
+                                </div>
+                                <div class="text-xs text-blue-600 font-medium">Live Demo</div>
+                            </header>
+                            <div class="space-y-3" role="list" aria-label="Demo metrics">
+                                <div class="flex items-center justify-between" role="listitem">
+                                    <span class="text-sm text-gray-600">Active Users</span>
+                                    <span class="text-sm font-semibold text-blue-600">1,247</span>
+                                </div>
+                                <div class="flex items-center justify-between" role="listitem">
+                                    <span class="text-sm text-gray-600">Response Time</span>
+                                    <span class="text-sm font-semibold text-green-600">45ms</span>
+                                </div>
+                                <div class="flex items-center justify-between" role="listitem">
+                                    <span class="text-sm text-gray-600">Accuracy</span>
+                                    <span class="text-sm font-semibold text-green-600">98.5%</span>
+                                </div>
+                                <div class="mt-4 p-3 bg-blue-50 rounded-xl" role="status" aria-live="polite">
+                                    <div class="text-xs text-blue-700 font-medium">All systems operational</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analytics Card: Left Side -->
+                <div class="floating-card floating-card-2 absolute" style="top: 25%; left: 5%; width: 360px;">
+                    <div class="card bg-base-100 shadow-2xl border border-gray-100/50">
+                        <div class="card-body p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="card-title text-lg font-bold text-gray-800">Analytics Overview</h3>
+                                <div class="text-xs text-purple-600 font-medium">Real-time</div>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
+                                    <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-chart-line text-white"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-gray-800">Performance Metrics</div>
+                                        <div class="text-xs text-gray-600">Updated every 5 minutes</div>
+                                    </div>
+                                    <div class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">
+                                        +12%
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="bg-green-50 p-3 rounded-xl text-center">
+                                        <div class="text-lg font-bold text-green-600">99.9%</div>
+                                        <div class="text-xs text-green-700">Uptime</div>
+                                    </div>
+                                    <div class="bg-blue-50 p-3 rounded-xl text-center">
+                                        <div class="text-lg font-bold text-blue-600">2.1M</div>
+                                        <div class="text-xs text-blue-700">Requests</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features Card: Bottom Right -->
+                <div class="floating-card floating-card-3 absolute" style="top: 55%; right: 12%; width: 340px;">
+                    <div class="card bg-base-100 shadow-2xl border border-gray-100/50">
+                        <div class="card-body p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="card-title text-lg font-bold text-gray-800">Key Features</h3>
+                                <div class="text-xs text-green-600 font-medium">Active</div>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-check text-white text-sm"></i>
+                                    </div>
+                                    <span class="text-sm text-gray-700">AI-Powered Analytics</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-check text-white text-sm"></i>
+                                    </div>
+                                    <span class="text-sm text-gray-700">Real-time Monitoring</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-check text-white text-sm"></i>
+                                    </div>
+                                    <span class="text-sm text-gray-700">Automated Insights</span>
+                                </div>
+                                <div class="mt-4 p-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl text-white text-center">
+                                    <div class="text-lg font-bold">15+</div>
+                                    <div class="text-xs opacity-90">Integrated Tools</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Simple Component Loader -->
+    <script src="components/simple-loader.js"></script>
+
+    <!-- Page Initialization -->
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            console.log('🚀 Loading Component Test Page...');
+
+            // Load header and footer components
+            await simpleComponentLoader.loadMultiple([
+                {
+                    name: 'header',
+                    element: document.getElementById('header-placeholder')
+                },
+                {
+                    name: 'footer',
+                    element: document.getElementById('footer-placeholder')
+                }
+            ]);
+
+            console.log('✅ Component Test Page loaded successfully');
+
+            // Load page-specific scripts
+            const animationScript = document.createElement('script');
+            animationScript.src = 'animations.js';
+            document.body.appendChild(animationScript);
+
+            console.log('🎯 Component Test Page initialization complete');
+        });
+    </script>
+
+    <!-- FontAwesome Check -->
+    <script>
+        setTimeout(() => {
+            if (typeof FontAwesome !== 'undefined') {
+                console.log('✅ FontAwesome connected');
+            } else {
+                console.log('❌ FontAwesome not loaded');
+            }
+        }, 1500);
+    </script>
+</body>
+</html>

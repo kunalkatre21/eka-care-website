@@ -59,22 +59,45 @@
 - **Version**: FontAwesome Premium Kit
 - **Usage**: Semantic icon classes with proper accessibility
 - **Kit**: `https://kit.fontawesome.com/e4f2af7764.js`
+- **Sizing**: Use FontAwesome sizing classes instead of Tailwind text sizing
+
+#### FontAwesome Sizing Classes
+- **fa-xs**: Extra small (0.75em)
+- **fa-sm**: Small (0.875em)
+- **fa-1x**: Normal (1em) - default
+- **fa-lg**: Large (1.333em)
+- **fa-xl**: Extra large (1.5em)
+- **fa-2x**: 2x size (2em)
+- **fa-3x**: 3x size (3em)
+- **fa-4x**: 4x size (4em)
+- **fa-5x**: 5x size (5em)
+- **fa-6x**: 6x size (6em)
+- **fa-7x**: 7x size (7em)
+- **fa-8x**: 8x size (8em)
+- **fa-9x**: 9x size (9em)
+- **fa-10x**: 10x size (10em)
 
 #### Icon Usage Patterns
 ```html
-<!-- Standard icons -->
-<i class="fas fa-hospital text-blue-600"></i>
-<i class="fas fa-user-md text-green-600"></i>
-<i class="fas fa-microphone text-red-500"></i>
+<!-- Standard icons with FA sizing -->
+<i class="fas fa-hospital fa-lg text-blue-600"></i>
+<i class="fas fa-user-md fa-xl text-green-600"></i>
+<i class="fas fa-microphone fa-2x text-red-500"></i>
 
 <!-- Interactive icons -->
 <button class="btn" aria-label="Menu">
-  <i class="fas fa-bars h-5 w-5"></i>
+  <i class="fas fa-bars fa-lg"></i>
 </button>
 
 <!-- Status indicators -->
-<i class="fas fa-check text-green-500" aria-hidden="true"></i>
+<i class="fas fa-check fa-sm text-green-500" aria-hidden="true"></i>
 ```
+
+#### Icon Sizing Best Practices
+- **DO NOT use Tailwind text sizing** (`text-lg`, `text-xl`, etc.) on FontAwesome icons
+- Use FontAwesome sizing classes (`fa-lg`, `fa-xl`, `fa-2x`, etc.) for consistent scaling
+- FontAwesome sizing scales proportionally and maintains icon consistency
+- Combine with Tailwind colors (`text-blue-600`) and spacing as needed
 
 ### Animation Framework - GSAP
 - **Primary Animation Library**: GSAP 3.12.2 with ScrollTrigger

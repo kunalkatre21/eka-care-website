@@ -1,0 +1,52 @@
+<!-- Floating Cards Container Component -->
+<div class="floating-cards-container absolute inset-0 pointer-events-none z-10" role="presentation" aria-hidden="true">
+    <!-- Card 1: Top Right -->
+    <div class="floating-card floating-card-1 absolute" style="top: 15%; right: 8%; width: 320px;" tabindex="-1">
+        <div class="card bg-base-100 shadow-2xl border border-gray-100/50" role="article" aria-label="{{CARD1_LABEL}}">
+            <div class="card-body p-6">
+                <header class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-{{CARD1_ICON_BG}}-500 rounded-full flex items-center justify-center" role="img" aria-label="{{CARD1_ICON_LABEL}}">
+                            <i class="fas fa-{{CARD1_ICON}} text-white text-sm" aria-hidden="true"></i>
+                        </div>
+                        <span class="font-semibold text-gray-800">{{CARD1_TITLE}}</span>
+                    </div>
+                    <div class="text-xs text-{{CARD1_BADGE_COLOR}}-600 font-medium">{{CARD1_BADGE}}</div>
+                </header>
+                <div class="space-y-3" role="list" aria-label="{{CARD1_CONTENT_LABEL}}">
+                    {{CARD1_CONTENT}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 2: Left Side -->
+    <div class="floating-card floating-card-2 absolute" style="top: 25%; left: 5%; width: 360px;">
+        <div class="card bg-base-100 shadow-2xl border border-gray-100/50">
+            <div class="card-body p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="card-title text-lg font-bold text-gray-800">{{CARD2_TITLE}}</h3>
+                    <div class="text-xs text-{{CARD2_BADGE_COLOR}}-600 font-medium">{{CARD2_BADGE}}</div>
+                </div>
+                <div class="space-y-4">
+                    {{CARD2_CONTENT}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 3: Bottom Right -->
+    <div class="floating-card floating-card-3 absolute" style="top: 55%; right: 12%; width: 340px;">
+        <div class="card bg-base-100 shadow-2xl border border-gray-100/50">
+            <div class="card-body p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="card-title text-lg font-bold text-gray-800">{{CARD3_TITLE}}</h3>
+                    <div class="text-xs text-{{CARD3_BADGE_COLOR}}-600 font-medium">{{CARD3_BADGE}}</div>
+                </div>
+                <div class="space-y-3">
+                    {{CARD3_CONTENT}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

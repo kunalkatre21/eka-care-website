@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eka EMR - AI-Powered Practice Management for Doctors</title>
+
+    <!-- External Libraries -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/e4f2af7764.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="components/shared-styles.css">
+
+    <!-- EMR-Specific Styles -->
+    <style>
+        .emr-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .emr-feature-card {
+            background: linear-gradient(145deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+        }
+        .emr-stats {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Component Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <!-- Hero Section -->
+        <section class="hero min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden" aria-labelledby="hero-heading" role="banner">
+            <div class="hero-content text-center relative z-20">
+                <div class="max-w-4xl">
+                    <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/67037eba125260b47d235ad2_trusted-by-over-40k-doctors.webp" alt="Trusted by over 40,000 doctors" class="mx-auto h-12 mb-6">
+                    <h1 id="hero-heading" class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-gray-500 mb-6">
+                        <span class="text-gray-900">AI-Powered Practice</span> Management
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-12" role="complementary" aria-describedby="hero-description">
+                        Streamline your healthcare practice with intelligent EMR solutions that automate documentation, enhance patient care, and boost operational efficiency.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+                        <a href="https://calendly.com/eka-care-session/experience-eka-doc-tool?month=2024-06" class="btn btn-primary rounded-full px-8 py-4 text-lg border-none shadow-lg hover:shadow-xl transition-all duration-300">
+                            Book a demo
+                            <i class="fas fa-arrow-right ml-2" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="btn bg-gray-100 hover:bg-gray-200 border-none rounded-full px-6 py-4 text-lg">
+                            Download App
+                        </a>
+                    </div>
+                    <div class="flex justify-center">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/66e7f5abbab401b4de52bc49_doc-home-new.webp" alt="App store and Play store" class="h-12">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floating UI Cards Container -->
+            <div class="floating-cards-container absolute inset-0 pointer-events-none z-10" role="presentation" aria-hidden="true">
+                <!-- AI Documentation Card (Top Right) -->
+                <div class="floating-card floating-card-1 absolute" style="top: 15%; right: 8%; width: 320px;" tabindex="-1">
+                    <div class="card bg-base-100 shadow-2xl border border-gray-100/50" role="article" aria-label="AI Documentation Demo">
+                        <div class="card-body p-6">
+                            <header class="flex items-center justify-between mb-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center" role="img" aria-label="AI icon">
+                                        <i class="fas fa-brain text-white text-sm" aria-hidden="true"></i>
+                                    </div>
+                                    <span class="font-semibold text-gray-800">AI Documentation</span>
+                                </div>
+                                <div class="text-xs text-blue-600 font-medium">Eka Scribe</div>
+                            </header>
+                            <div class="space-y-3" role="list" aria-label="AI features">
+                                <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
+                                    <div class="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center animate-pulse">
+                                        <i class="fas fa-microphone text-white"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-gray-800">Voice-to-Text Active</div>
+                                        <div class="text-xs text-gray-600">Real-time transcription</div>
+                                    </div>
+                                    <div class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">
+                                        AI
+                                    </div>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-xl mb-4">
+                                    <div class="text-sm text-gray-700 mb-2">
+                                        "Patient presents with acute symptoms..."
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="flex gap-1">
+                                            <div class="w-2 h-2 bg-blue-500 rounded-full animate-bounce"></div>
+                                            <div class="w-2 h-2 bg-blue-500 rounded-full animate-bounce" style="animation-delay: 0.1s;"></div>
+                                            <div class="w-2 h-2 bg-blue-500 rounded-full animate-bounce" style="animation-delay: 0.2s;"></div>
+                                        </div>
+                                        <span class="text-xs text-gray-500">AI generating Rx</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Patient Dashboard Card (Left Side) -->
+                <div class="floating-card floating-card-2 absolute" style="top: 25%; left: 5%; width: 360px;">
+                    <div class="card bg-base-100 shadow-2xl border border-gray-100/50">
+                        <div class="card-body p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="card-title text-lg font-bold text-gray-800">Smart Patient Dashboard</h3>
+                                <div class="text-xs text-purple-600 font-medium">Eka EMR</div>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
+                                    <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-chart-line text-white"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-gray-800">Health Analytics</div>
+                                        <div class="text-xs text-gray-600">AI-powered insights</div>
+                                    </div>
+                                    <div class="ml-auto text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full">
+                                        Live
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="bg-green-50 p-3 rounded-xl text-center">
+                                        <div class="text-lg font-bold text-green-600">85/100</div>
+                                        <div class="text-xs text-green-700">Health Score</div>
+                                    </div>
+                                    <div class="bg-blue-50 p-3 rounded-xl text-center">
+                                        <div class="text-lg font-bold text-blue-600">24/7</div>
+                                        <div class="text-xs text-blue-700">Monitoring</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EMR Features Card (Bottom Right) -->
+                <div class="floating-card floating-card-3 absolute" style="top: 60%; right: 10%; width: 340px;">
+                    <div class="card bg-base-100 shadow-2xl border border-gray-100/50">
+                        <div class="card-body p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="card-title text-lg font-bold text-gray-800">EMR Features</h3>
+                                <div class="text-xs text-green-600 font-medium">Integrated</div>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-check text-white text-sm"></i>
+                                    </div>
+                                    <span class="text-sm text-gray-700">Smart Patient Records</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-check text-white text-sm"></i>
+                                    </div>
+                                    <span class="text-sm text-gray-700">Appointment Scheduling</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-check text-white text-sm"></i>
+                                    </div>
+                                    <span class="text-sm text-gray-700">Billing & Insurance</span>
+                                </div>
+                                <div class="mt-4 p-3 emr-stats rounded-xl text-white text-center">
+                                    <div class="text-lg font-bold">40K+</div>
+                                    <div class="text-xs opacity-90">Doctors Trust Eka</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EMR-Specific Content Sections -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-4">Complete EMR Solution</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Everything you need to run a modern healthcare practice, powered by AI and designed for efficiency.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="emr-feature-card p-8 rounded-2xl">
+                        <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fas fa-user-md text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Patient Management</h3>
+                        <p class="text-gray-600 mb-4">
+                            Comprehensive patient records with AI-powered health insights and automated data entry.
+                        </p>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li>• Digital health records</li>
+                            <li>• Appointment scheduling</li>
+                            <li>• Patient portal access</li>
+                        </ul>
+                    </div>
+
+                    <div class="emr-feature-card p-8 rounded-2xl">
+                        <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fas fa-chart-line text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Analytics & Reporting</h3>
+                        <p class="text-gray-600 mb-4">
+                            Real-time analytics and automated reporting to optimize your practice performance.
+                        </p>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li>• Practice analytics</li>
+                            <li>• Revenue tracking</li>
+                            <li>• Compliance reports</li>
+                        </ul>
+                    </div>
+
+                    <div class="emr-feature-card p-8 rounded-2xl">
+                        <div class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fas fa-mobile-alt text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Mobile Access</h3>
+                        <p class="text-gray-600 mb-4">
+                            Access your EMR anywhere with our mobile app and web-based platform.
+                        </p>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li>• Mobile app access</li>
+                            <li>• Cloud synchronization</li>
+                            <li>• Offline capability</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-16 emr-gradient text-white">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-4xl font-bold mb-6">Ready to Transform Your Practice?</h2>
+                <p class="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+                    Join thousands of healthcare providers who have modernized their practice with Eka EMR.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#" class="btn bg-white text-purple-600 hover:bg-gray-100 rounded-full px-8 py-4 text-lg border-none shadow-lg">
+                        Start Free Trial
+                    </a>
+                    <a href="#" class="btn bg-transparent border-2 border-white text-white hover:bg-white hover:text-purple-600 rounded-full px-8 py-4 text-lg">
+                        Schedule Demo
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Simple Component Loader -->
+    <script src="components/simple-loader.js"></script>
+
+    <!-- Page Initialization -->
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            console.log('🚀 Loading EMR page components...');
+
+            // Load header and footer components
+            await simpleComponentLoader.loadMultiple([
+                {
+                    name: 'header',
+                    element: document.getElementById('header-placeholder')
+                },
+                {
+                    name: 'footer',
+                    element: document.getElementById('footer-placeholder')
+                }
+            ]);
+
+            console.log('✅ EMR page components loaded successfully');
+
+            // Load page-specific scripts
+            const animationScript = document.createElement('script');
+            animationScript.src = 'animations.js';
+            document.body.appendChild(animationScript);
+
+            console.log('🎯 EMR page initialization complete');
+        });
+    </script>
+
+    <!-- FontAwesome Check -->
+    <script>
+        setTimeout(() => {
+            if (typeof FontAwesome !== 'undefined') {
+                console.log('✅ FontAwesome connected');
+            } else {
+                console.log('❌ FontAwesome not loaded');
+            }
+        }, 1500);
+    </script>
+</body>
+</html>

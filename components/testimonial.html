@@ -1,0 +1,23 @@
+<!-- Testimonial Component -->
+<section class="testimonial py-20 bg-white" role="region" aria-labelledby="testimonial-heading">
+    <div class="container mx-auto px-4">
+        <h2 id="testimonial-heading" class="text-4xl font-bold text-center mb-12 text-gray-900">{{SECTION_TITLE}}</h2>
+        <div class="max-w-4xl mx-auto bg-gray-50 rounded-3xl p-8 md:p-12 border border-gray-100">
+            <div class="grid md:grid-cols-3 gap-8 items-center">
+                <div class="md:col-span-2">
+                    <div class="flex mb-4">
+                        <span class="text-yellow-400">{{STAR_RATING}}</span>
+                    </div>
+                    <blockquote class="text-xl font-medium text-gray-800">{{QUOTE}}</blockquote>
+                    <div class="mt-6">
+                        <p class="font-bold text-gray-900">{{PERSON_NAME}}</p>
+                        <p class="text-gray-600">{{PERSON_TITLE}}</p>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <img src="{{PERSON_IMAGE}}" alt="{{PERSON_NAME}}" class="w-48 h-48 rounded-full object-cover border-4 border-gray-200">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

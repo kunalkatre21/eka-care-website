@@ -40,30 +40,96 @@
     <div class="bg-white text-gray-900">
 
         <!-- Header -->
-        <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50" role="banner">
             <div class="container mx-auto navbar px-4">
                 <div class="navbar-start">
-                    <div class="dropdown">
-                        <label tabindex="0" class="btn btn-ghost lg:hidden" aria-label="Open menu">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+                    <!-- Mobile dropdown -->
+                    <div class="dropdown" role="navigation" aria-label="Mobile navigation">
+                        <label tabindex="0" class="btn btn-ghost lg:hidden" aria-label="Open mobile menu" aria-expanded="false" aria-haspopup="true">
+                            <i class="fas fa-bars h-5 w-5" aria-hidden="true"></i>
                         </label>
-                        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><details><summary>Product suite</summary><ul class="p-2"><li><a href="emr.html">Eka EMR</a></li><li><a href="scribe.html">Eka Scribe</a></li><li><a href="phr.html">Eka PHR</a></li></ul></details></li>
-                            <li><details><summary>Solutions</summary><ul class="p-2"><li><a>Health AI</a></li><li><a>Assessment</a></li></ul></details></li>
-                            <li><a>Pricing</a></li>
+                        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52" role="menu" aria-label="Mobile menu items">
+                            <li>
+                                <details>
+                                    <summary aria-label="Product suite menu" aria-expanded="false">Product suite</summary>
+                                    <ul class="p-2" role="menu">
+                                        <li role="menuitem"><a href="emr.html" aria-label="Electronic Medical Records system">Eka EMR</a></li>
+                                        <li role="menuitem"><a href="scribe.html" aria-label="AI-powered medical scribe">Eka Scribe</a></li>
+                                        <li role="menuitem"><a href="phr.html" aria-label="Personal Health Records platform">Eka PHR</a></li>
+                                    </ul>
+                                </details>
+                            </li>
+                            <li>
+                                <details>
+                                    <summary aria-label="Solutions menu" aria-expanded="false">Solutions</summary>
+                                    <ul class="p-2" role="menu">
+                                        <li role="menuitem"><a href="#" aria-label="Artificial Intelligence healthcare solutions">Health AI</a></li>
+                                        <li role="menuitem"><a href="#" aria-label="Health assessment tools">Assessment</a></li>
+                                        <li role="menuitem"><a href="#" aria-label="Medical documentation assistant">EkaScribe</a></li>
+                                        <li role="menuitem"><a href="#" aria-label="Medical document parsing service">Medical Document Parsing</a></li>
+                                        <li role="menuitem"><a href="#" aria-label="Doctor productivity tools">Doctor Tool</a></li>
+                                        <li role="menuitem"><a href="#" aria-label="Ayushman Bharat Digital Mission integration">ABDM Connect</a></li>
+                                        <li role="menuitem"><a href="#" aria-label="Medical knowledge database">Medical Knowledge Base</a></li>
+                                        <li role="menuitem"><a href="#" aria-label="Medical records management">Medical Records</a></li>
+                                        <li role="menuitem"><a href="#" aria-label="Patient mobile application">User App</a></li>
+                                        <li role="menuitem"><a href="#" aria-label="Health assessment quiz">Health Quiz</a></li>
+                                        <li role="menuitem"><a href="#" aria-label="Medication search and information">Medication Search</a></li>
+                                        <li role="menuitem"><a href="#" aria-label="Appointment scheduling system">Appointments Management</a></li>
+                                        <li role="menuitem"><a href="#" aria-label="Patient management applications">Patient Management Apps</a></li>
+                                    </ul>
+                                </details>
+                            </li>
+                            <li role="menuitem"><a href="#" aria-label="View pricing information">Pricing</a></li>
+                            <li role="menuitem"><a href="#" aria-label="Read our blog posts">Blogs</a></li>
+                            <li role="menuitem"><a href="#" aria-label="Request a product demonstration">Request a demo</a></li>
                         </ul>
                     </div>
+                    <!-- Logo -->
                     <a href="index.html" class="btn btn-ghost text-xl p-0 h-auto" aria-label="Homepage">
-                        <img src="https://assets-global.website-files.com/64d0bd8b475d468c8b1aa632/64d0be0d38102353229b48c0_logo.svg" alt="Eka.care Prioritize Health" class="h-10">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68ad4ddd03888c7fc6b9b036_eka-black-logo.svg" alt="Eka.care Prioritize Health" class="h-10">
                     </a>
                 </div>
-                <div class="navbar-center hidden lg:flex">
+                <nav class="navbar-center hidden lg:flex" role="navigation" aria-label="Main navigation">
                     <ul class="menu menu-horizontal px-1 font-medium">
-                        <li><details><summary>Product suite</summary><ul class="p-2 bg-base-100 shadow rounded-box w-48 z-10"><li><a href="emr.html">Eka EMR</a></li><li><a href="scribe.html">Eka Scribe</a></li><li><a href="phr.html">Eka PHR</a></li></ul></details></li>
-                        <li><details><summary>Solutions</summary><ul class="p-2 bg-base-100 shadow rounded-box w-48 z-10"><li><a>Health AI</a></li><li><a>Assessment</a></li></ul></details></li>
-                        <li><a>Pricing</a></li>
+                        <li>
+                            <details role="menu" aria-label="Product suite navigation">
+                                <summary aria-label="Product suite menu" aria-expanded="false" aria-haspopup="true">Product suite</summary>
+                                <ul class="p-2 bg-base-100 shadow rounded-box w-48 z-10" role="menu">
+                                    <li role="menuitem"><a href="emr.html" aria-label="Electronic Medical Records system">Eka EMR</a></li>
+                                    <li role="menuitem"><a href="scribe.html" aria-label="AI-powered medical scribe">Eka Scribe</a></li>
+                                    <li role="menuitem"><a href="phr.html" aria-label="Personal Health Records platform">Eka PHR</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li>
+                             <details role="menu" aria-label="Solutions navigation">
+                                <summary aria-label="Solutions menu" aria-expanded="false" aria-haspopup="true">Solutions</summary>
+                                <ul class="p-2 bg-base-100 shadow rounded-box w-64 z-10 menu" role="menu">
+                                    <li role="presentation"><h2 class="menu-title text-gray-400">Health AI</h2></li>
+                                    <li role="menuitem"><a href="#" aria-label="Health assessment tools">Assessment</a></li>
+                                    <li role="menuitem"><a href="#" aria-label="Medical documentation assistant">EkaScribe</a></li>
+                                    <li class="my-1 h-px bg-gray-100" role="separator" aria-hidden="true"></li>
+                                    <li role="presentation"><h2 class="menu-title text-gray-400">General tools</h2></li>
+                                    <li role="menuitem"><a href="#" aria-label="Medical document parsing service">Medical Document Parsing</a></li>
+                                    <li role="menuitem"><a href="#" aria-label="Doctor productivity tools">Doctor Tool</a></li>
+                                    <li role="menuitem"><a href="#" aria-label="Ayushman Bharat Digital Mission integration">ABDM Connect</a></li>
+                                    <li role="menuitem"><a href="#" aria-label="Medical knowledge database">Medical Knowledge Base</a></li>
+                                    <li role="menuitem"><a href="#" aria-label="Medical records management">Medical Records</a></li>
+                                    <li role="menuitem"><a href="#" aria-label="Patient mobile application">User App</a></li>
+                                    <li class="my-1 h-px bg-gray-100" role="separator" aria-hidden="true"></li>
+                                    <li role="presentation"><h2 class="menu-title text-gray-400">Examples</h2></li>
+                                    <li role="menuitem"><a href="#" aria-label="Health assessment quiz">Health Quiz</a></li>
+                                    <li role="menuitem"><a href="#" aria-label="Medication search and information">Medication Search</a></li>
+                                    <li role="menuitem"><a href="#" aria-label="Appointment scheduling system">Appointments Management</a></li>
+                                    <li role="menuitem"><a href="#" aria-label="Patient management applications">Patient Management Apps</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li role="menuitem"><a href="#" aria-label="View pricing information">Pricing</a></li>
+                        <li role="menuitem"><a href="#" aria-label="Read our blog posts">Blogs</a></li>
+                        <li role="menuitem"><a href="#" aria-label="Request a product demonstration">Request a demo</a></li>
                     </ul>
-                </div>
+                </nav>
                 <div class="navbar-end space-x-2">
                     <a href="#" class="btn bg-gray-100 hover:bg-gray-200 border-none rounded-full px-6 hidden sm:inline-flex" aria-label="Log in to your account">Log in</a>
                     <a href="#" class="btn bg-gray-900 hover:bg-gray-800 text-white rounded-full px-6 border-none" aria-label="Get started with Eka Care">Get started</a>
@@ -390,70 +456,104 @@
         </main>
         
         <!-- Footer -->
-        <footer class="footer sm:footer-horizontal bg-gray-900 text-white p-10">
-            <nav>
-                <h6 class="footer-title">Product Suite</h6>
-                <a href="emr.html" class="link link-hover">Eka EMR</a>
-                <a href="scribe.html" class="link link-hover">Eka Scribe</a>
-                <a href="phr.html" class="link link-hover">Eka PHR</a>
-            </nav>
-            <nav>
-                <h6 class="footer-title">Solutions</h6>
-                <a class="link link-hover">Health AI</a>
-                <a class="link link-hover">Assessment</a>
-                <a class="link link-hover">Medical Document Parsing</a>
-                <a class="link link-hover">Doctor Tool</a>
-            </nav>
-            <nav>
-                <h6 class="footer-title">Specialities</h6>
-                <a href="https://www.eka.care/s/for-doctors/neurologists" target="_blank" class="link link-hover">Neurologists</a>
-                <a href="https://www.eka.care/s/for-doctors/dentists" target="_blank" class="link link-hover">Dentists</a>
-                <a href="https://www.eka.care/s/for-doctors/pediatricians" target="_blank" class="link link-hover">Pediatricians</a>
-                <a href="https://www.eka.care/s/for-doctors/ophthalmologists" target="_blank" class="link link-hover">Ophthalmologists</a>
-            </nav>
-            <nav>
-                <h6 class="footer-title">Company</h6>
-                <a href="index.html" class="link link-hover">Home</a>
-                <a class="link link-hover">About</a>
-                <a class="link link-hover">Team</a>
-                <a class="link link-hover">Careers</a>
-                <a class="link link-hover">Blogs</a>
-                <a class="link link-hover">Pricing</a>
-            </nav>
-            <nav>
-                <h6 class="footer-title">Support & Legal</h6>
-                <a class="link link-hover">Terms & Conditions</a>
-                <a class="link link-hover">Privacy Policy</a>
-                <a class="link link-hover">Security</a>
-                <a class="link link-hover">Contact Us</a>
-                <a class="link link-hover">Help Center</a>
-            </nav>
-        </footer>
-        <footer class="footer bg-gray-900 text-white border-gray-700 border-t px-10 py-4">
-            <aside class="grid-flow-col items-center">
-                <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68ad4ddd03888c7fc6b9b036_eka-black-logo.svg" alt="Eka Care" class="h-8 brightness-0 invert">
-                <p>
-                    Eka Care
-                    <br />
-                    Prioritize Health
-                </p>
-            </aside>
-            <nav class="md:place-self-center md:justify-self-end">
-                <div class="grid grid-flow-col gap-4">
-                    <a href="https://www.instagram.com/ekacarehq/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-instagram w-5 h-5"></i>
-                    </a>
-                    <a href="https://in.linkedin.com/company/ekacare" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-linkedin w-5 h-5"></i>
-                    </a>
-                    <a href="https://www.facebook.com/ekacareHQ" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-facebook w-5 h-5"></i>
-                    </a>
-                    <a href="https://twitter.com/ekacareHQ" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-twitter w-5 h-5"></i>
-                    </a>
+        <footer class="bg-gray-900 text-white">
+            <div class="container mx-auto px-4 py-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+                    <!-- Product Suite Section -->
+                    <div class="space-y-4">
+                        <h6 class="text-lg font-semibold text-white">Product Suite</h6>
+                        <div class="space-y-2">
+                            <a href="emr.html" class="block text-gray-300 hover:text-white transition-colors">Eka EMR</a>
+                            <a href="scribe.html" class="block text-gray-300 hover:text-white transition-colors">Eka Scribe</a>
+                            <a href="phr.html" class="block text-gray-300 hover:text-white transition-colors">Eka PHR</a>
+                        </div>
+                    </div>
+
+                    <!-- Solutions Section -->
+                    <div class="space-y-4">
+                        <h6 class="text-lg font-semibold text-white">Solutions</h6>
+                        <div class="space-y-2">
+                            <h6 class="text-sm font-medium text-gray-400 uppercase tracking-wide">Health AI</h6>
+                            <a class="block text-gray-300 hover:text-white transition-colors ml-2">Assessment</a>
+                            <a class="block text-gray-300 hover:text-white transition-colors ml-2">EkaScribe</a>
+
+                            <h6 class="text-sm font-medium text-gray-400 uppercase tracking-wide mt-4">General tools</h6>
+                            <a class="block text-gray-300 hover:text-white transition-colors ml-2">Medical Document Parsing</a>
+                            <a class="block text-gray-300 hover:text-white transition-colors ml-2">Doctor Tool</a>
+                            <a class="block text-gray-300 hover:text-white transition-colors ml-2">ABDM Connect</a>
+                            <a class="block text-gray-300 hover:text-white transition-colors ml-2">Medical Knowledge Base</a>
+                            <a class="block text-gray-300 hover:text-white transition-colors ml-2">Medical Records</a>
+                            <a class="block text-gray-300 hover:text-white transition-colors ml-2">User App</a>
+
+                            <h6 class="text-sm font-medium text-gray-400 uppercase tracking-wide mt-4">Examples</h6>
+                            <a class="block text-gray-300 hover:text-white transition-colors ml-2">Health Quiz</a>
+                            <a class="block text-gray-300 hover:text-white transition-colors ml-2">Medication Search</a>
+                            <a class="block text-gray-300 hover:text-white transition-colors ml-2">Appointments Management</a>
+                            <a class="block text-gray-300 hover:text-white transition-colors ml-2">Patient Management Apps</a>
+                        </div>
+                    </div>
+
+                    <!-- Specialities Section -->
+                    <div class="space-y-4">
+                        <h6 class="text-lg font-semibold text-white">Specialities</h6>
+                        <div class="space-y-2">
+                            <a href="https://www.eka.care/s/for-doctors/neurologists" target="_blank" class="block text-gray-300 hover:text-white transition-colors">Neurologists</a>
+                            <a href="https://www.eka.care/s/for-doctors/dentists" target="_blank" class="block text-gray-300 hover:text-white transition-colors">Dentists</a>
+                            <a href="https://www.eka.care/s/for-doctors/pediatricians" target="_blank" class="block text-gray-300 hover:text-white transition-colors">Pediatricians</a>
+                            <a href="https://www.eka.care/s/for-doctors/ophthalmologists" target="_blank" class="block text-gray-300 hover:text-white transition-colors">Ophthalmologists</a>
+                            <a href="https://www.eka.care/s/for-doctors/cardiologists" target="_blank" class="block text-gray-300 hover:text-white transition-colors">Cardiologists</a>
+                        </div>
+                    </div>
+
+                    <!-- Company Section -->
+                    <div class="space-y-4">
+                        <h6 class="text-lg font-semibold text-white">Company</h6>
+                        <div class="space-y-2">
+                            <a href="index.html" class="block text-gray-300 hover:text-white transition-colors">Home</a>
+                            <a class="block text-gray-300 hover:text-white transition-colors">About</a>
+                            <a class="block text-gray-300 hover:text-white transition-colors">Team</a>
+                            <a class="block text-gray-300 hover:text-white transition-colors">Careers</a>
+                            <a class="block text-gray-300 hover:text-white transition-colors">Blogs</a>
+                            <a class="block text-gray-300 hover:text-white transition-colors">Pricing</a>
+                            <a class="block text-gray-300 hover:text-white transition-colors">Request a demo</a>
+                        </div>
+                    </div>
+
+                    <!-- Support & Legal Section -->
+                    <div class="space-y-4">
+                        <h6 class="text-lg font-semibold text-white">Support & Legal</h6>
+                        <div class="space-y-2">
+                            <a class="block text-gray-300 hover:text-white transition-colors">Terms & Conditions</a>
+                            <a class="block text-gray-300 hover:text-white transition-colors">Privacy Policy</a>
+                            <a class="block text-gray-300 hover:text-white transition-colors">Security</a>
+                            <a class="block text-gray-300 hover:text-white transition-colors">Contact Us</a>
+                            <a class="block text-gray-300 hover:text-white transition-colors">Help Center</a>
+                        </div>
+                    </div>
                 </div>
-            </nav>
+
+                <!-- Footer Bottom -->
+                <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                    <div class="flex items-center space-x-4 mb-4 md:mb-0">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68ad4ddd03888c7fc6b9b036_eka-black-logo.svg" alt="Eka Care" class="h-8 brightness-0 invert">
+                        <p class="text-gray-400">© 2024 Eka Care. All rights reserved.</p>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/ekacarehq/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram w-5 h-5"></i>
+                        </a>
+                        <a href="https://in.linkedin.com/company/ekacare" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin w-5 h-5"></i>
+                        </a>
+                        <a href="https://www.facebook.com/ekacareHQ" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook w-5 h-5"></i>
+                        </a>
+                        <a href="https://twitter.com/ekacareHQ" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </footer>
     </div>
 </body>
