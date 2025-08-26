@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eka 2025 Creative Experiment</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- DaisyUI + Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome Premium Kit -->
+    <script src="https://kit.fontawesome.com/e4f2af7764.js" crossorigin="anonymous"></script>
+
+    <!-- GSAP Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        :root {
+            --experiment-primary: blue;
+            --experiment-secondary: green;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, h5, h6, .text-2xl, .text-3xl, .text-4xl, .text-5xl, .text-6xl {
+            font-family: 'Figtree', sans-serif;
+        }
+
+        .hero-story, .features-story, .journey-story {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+        }
+
+        .morphing-icon {
+            transition: all 0.3s ease;
+        }
+
+        .adaptive-card {
+            transition: all 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+
+        .nav-liquid {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            padding: 8px 16px;
+            border-radius: 0px;
+        }
+
+        .logo-liquid {
+            transition: all 0.1s ease;
+        }
+
+        .vitals-trigger, .feature-trigger, .button-symphony {
+            cursor: pointer;
+        }
+
+        .theme-switch {
+            cursor: pointer;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .theme-switch:hover {
+            transform: scale(1.05);
+        }
+
+        .experiment-controls {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            z-index: 1000;
+            max-width: 300px;
+        }
+
+        .experiment-log {
+            background: rgba(0,0,0,0.9);
+            color: #00ff00;
+            font-family: monospace;
+            font-size: 11px;
+            padding: 10px;
+            border-radius: 5px;
+            max-height: 200px;
+            overflow-y: auto;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="navbar bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <div class="navbar-start">
+            <div class="logo-liquid">
+                <img src="https://assets-global.website-files.com/64d0bd8b475d468c8b1aa632/64d0be0d38102353229b48c0_logo.svg"
+                     alt="Eka.care" class="h-10">
+            </div>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1 font-medium">
+                <li class="nav-liquid">
+                    <i class="fas fa-brain mr-2"></i>
+                    <span>AI Features</span>
+                </li>
+                <li class="nav-liquid">
+                    <i class="fas fa-chart-line mr-2"></i>
+                    <span>Analytics</span>
+                </li>
+                <li class="nav-liquid">
+                    <i class="fas fa-users mr-2"></i>
+                    <span>Patients</span>
+                </li>
+            </ul>
+        </div>
+        <div class="navbar-end space-x-2">
+            <div class="flex space-x-2">
+                <button class="theme-switch btn btn-sm" data-theme="healthcare">Healthcare</button>
+                <button class="theme-switch btn btn-sm" data-theme="analytics">Analytics</button>
+                <button class="theme-switch btn btn-sm" data-theme="enterprise">Enterprise</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Experiment Controls -->
+    <div class="experiment-controls">
+        <div class="mb-3">
+            <strong>🧪 2025 Experiment Controls</strong>
+        </div>
+        <div class="space-y-2">
+            <button class="btn btn-xs btn-primary" onclick="resetExperiment()">Reset</button>
+            <button class="btn btn-xs btn-secondary" onclick="toggleAnimations()">Pause/Resume</button>
+            <button class="btn btn-xs btn-accent" onclick="clearLog()">Clear Log</button>
+        </div>
+        <div class="mt-3">
+            <div class="experiment-log" id="experiment-log">
+                Experiment log will appear here...
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section - Cinematic Storytelling -->
+    <section class="hero-story bg-gradient-to-br from-blue-50 to-green-50">
+        <div class="container mx-auto text-center">
+            <h1 class="hero-title text-6xl font-bold mb-6">
+                <span class="text-blue-600">AI-Powered</span> Healthcare 2025
+            </h1>
+            <p class="hero-subtitle text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                Experience the future of healthcare with our advanced animation systems and creative interactions.
+            </p>
+            <button class="hero-cta btn btn-primary btn-lg rounded-full px-8 py-4">
+                Start Experiment
+            </button>
+        </div>
+    </section>
+
+    <!-- FontAwesome Morphing Experiment -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">🎭 FontAwesome Morphing Icons</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+
+                <!-- Shield to Brain Morph -->
+                <div class="adaptive-card card bg-base-100 shadow-lg p-8 text-center" data-card-type="healthcare">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i id="shield-brain-icon" class="fas fa-shield-alt morphing-icon text-blue-600"
+                           data-morph-sequence="shield-to-brain"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Security → AI</h3>
+                    <p class="text-gray-600">Watch the icon morph from security to artificial intelligence</p>
+                </div>
+
+                <!-- User Journey Morph -->
+                <div class="adaptive-card card bg-base-100 shadow-lg p-8 text-center" data-card-type="analytics">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-user morphing-icon text-purple-600"
+                           data-morph-sequence="user-journey"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Patient Journey</h3>
+                    <p class="text-gray-600">Follow the complete patient workflow through icon transitions</p>
+                </div>
+
+                <!-- Health Ecosystem Morph -->
+                <div class="adaptive-card card bg-base-100 shadow-lg p-8 text-center" data-card-type="enterprise">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-hospital morphing-icon text-green-600"
+                           data-morph-sequence="health-ecosystem"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Health Network</h3>
+                    <p class="text-gray-600">See how healthcare components interconnect</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Adaptive Components Experiment -->
+    <section class="features-story py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">🎪 Adaptive Component Theater</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Vitals Symphony -->
+                <div class="vitals-trigger adaptive-card card bg-base-100 shadow-lg p-8" data-card-type="healthcare">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="vital-1 w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-heartbeat text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <div class="vital-2 font-bold">Heart Rate</div>
+                            <div class="vital-3 text-sm text-gray-500">78 BPM</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">Hover to trigger micro-interaction symphony</p>
+                </div>
+
+                <!-- Feature Card -->
+                <div class="feature-trigger adaptive-card card bg-base-100 shadow-lg p-8" data-card-type="analytics">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="feature-icon w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-chart-line text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <div class="feature-text font-bold">Analytics</div>
+                            <div class="text-sm text-gray-500">Real-time insights</div>
+                        </div>
+                    </div>
+                    <button class="feature-cta btn btn-primary btn-sm">Explore</button>
+                </div>
+
+                <!-- Enterprise Card -->
+                <div class="adaptive-card card bg-base-100 shadow-lg p-8" data-card-type="enterprise">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-gray-700 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-building text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <div class="font-bold">Enterprise</div>
+                            <div class="text-sm text-gray-500">Large scale solutions</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">Theme adapts based on scroll position</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Storytelling Experiment -->
+    <section class="journey-story py-20 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-12">🎬 Cinematic Journey</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="step-1 card bg-base-100 shadow-lg p-8">
+                        <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-user text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Consultation</h3>
+                        <p class="text-gray-600">Patient meets healthcare provider</p>
+                    </div>
+
+                    <div class="step-2 card bg-base-100 shadow-lg p-8">
+                        <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-stethoscope text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Diagnosis</h3>
+                        <p class="text-gray-600">AI-assisted diagnosis and recommendations</p>
+                    </div>
+
+                    <div class="step-3 card bg-base-100 shadow-lg p-8">
+                        <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-chart-line text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Analytics</h3>
+                        <p class="text-gray-600">Track treatment efficacy and outcomes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section with Symphony -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6">Ready to Experience the Future?</h2>
+            <p class="text-xl mb-8 opacity-90">These are just some of the 2025 creative approaches we're experimenting with.</p>
+            <button class="button-symphony btn btn-light btn-lg rounded-full px-8 py-4">
+                <i class="button-icon fas fa-rocket mr-2"></i>
+                <span class="button-text">Apply to Main Site</span>
+                <div class="button-bg absolute inset-0 bg-white opacity-0 rounded-full"></div>
+            </button>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="experiment-2025.js"></script>
+    <script>
+        // Experiment controls
+        function resetExperiment() {
+            location.reload();
+        }
+
+        function toggleAnimations() {
+            // This would need to be implemented in the main experiment class
+            console.log('Toggle animations clicked');
+        }
+
+        function clearLog() {
+            const logEl = document.getElementById('experiment-log');
+            if (logEl) logEl.innerHTML = 'Log cleared...';
+        }
+
+        // Add some initial log entries
+        setTimeout(() => {
+            const event = new CustomEvent('experiment-ready');
+            document.dispatchEvent(event);
+        }, 1000);
+    </script>
+</body>
+</html>

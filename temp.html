@@ -1,0 +1,625 @@
+
+>     <script src="animations.js"></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+                  console.log('🎴 Initializing floating cards...');
+  
+                  const tl = gsap.timeline();
+  
+                  // Initial state - optimized for performance with conditional complexity
+                  gsap.set('.floating-card', {
+                      opacity: 0,
+                      scale: 0.8,
+                      y: 80,
+                      rotationY: this.isLowEndDevice ? 0 : 30,
+                      transformOrigin: 'center bottom',
+                      force3D: !this.isLowEndDevice
+                  });
+  
+                  // Staggered entrance with optimized easing
+                  tl.to('.floating-card', {
+                      duration: 1.0,
+                      opacity: 1,
+                      scale: 1,
+                      y: 0,
+                      rotationY: 0,
+                      ease: 'power3.out',
+                      stagger: {
+                          amount: 1.8,
+                          from: 'random',
+                          ease: 'power2.inOut'
+                      }
+                  }, 0.3);
+  
+                  // Optimized continuous floating animations with natural variation and performance considerations
+                  const createFloatingAnimation = (selector, config) => {
+                      // Reduce animation complexity for low-end devices
+                      const reducedConfig = this.isLowEndDevice ? {
+                          ...config,
+                          rotation: (config.rotation || 0) * 0.5, // Reduce rotation
+                          duration: (config.duration || 4) * 1.5, // Slower animations
+                      } : config;
+  
+                      const animation = gsap.to(selector, {
+                          y: reducedConfig.y || -12,
+                          x: reducedConfig.x || 0,
+                          rotation: reducedConfig.rotation || 1,
+                          duration: reducedConfig.duration || 4.5,
+                          repeat: -1,
+                          yoyo: true,
+                          ease: 'sine.inOut',
+                          delay: reducedConfig.delay || 0,
+                          force3D: !this.isLowEndDevice,
+                          // Performance optimization: Use transform properties only
+                          transformOrigin: 'center center'
+                      });
+  
+                      this.animations.set(selector, animation);
+                      return animation;
+                  };
+  
+                  // Apply optimized floating animations with natural timing and performance monitoring
+                  const floatingAnimations = [
+                      createFloatingAnimation('.floating-card-1', { y: -12, x: 4, rotation: 1.5, duration: 4.8, delay: 0 }),
+                      createFloatingAnimation('.floating-card-2', { y: -16, x: -6, rotation: -1.2, duration: 5.2, delay: 0.8 }),
+                      createFloatingAnimation('.floating-card-3', { y: -10, x: 3, rotation: 1.8, duration: 4.3, delay: 1.6 }),
+                      createFloatingAnimation('.floating-card-4', { y: -14, x: -4, rotation: -1.8, duration: 4.1, delay: 2.4 }),
+                      createFloatingAnimation('.floating-card-5', { y: -8, x: 5, rotation: 1.2, duration: 4.6, delay: 0.4 }),
+                      createFloatingAnimation('.floating-card-6', { y: -18, x: -2, rotation: -1.5, duration: 5.4, delay: 1.2 }),
+                      createFloatingAnimation('.floating-card-7', { y: -11, x: 3, rotation: 2.1, duration: 3.9, delay: 2.8 })
+                  ];
+  
+                  console.log('✅ Floating cards initialized successfully');
+              }
+  
+              // Optimized hover interactions with performance enhancements
+              const hoverAnimations = new Map();
+              const floatingCards = document.querySelectorAll('.floating-card');
+  
+              floatingCards.forEach((card, index) => {
+                  const cardInner = card.querySelector('.card');
+                  let isHovering = false;
+  
+                  const enterAnimation = () => {
+                      if (isHovering) return;
+                      isHovering = true;
+  
+                      gsap.to(card, {
+                          duration: 0.35,
+                          scale: 1.06,
+                          z: 80,
+                          rotationY: 0,
+                          rotationX: 0,
+                          ease: 'power2.out',
+                          force3D: true
+                      });
+  
+                      gsap.to(cardInner, {
+                          duration: 0.35,
+                          boxShadow: '0 35px 70px -12px rgba(0, 0, 0, 0.2)',
+                          ease: 'power2.out'
+                      });
+                  };
+  
+                  const leaveAnimation = () => {
+                      isHovering = false;
+  
+                      gsap.to(card, {
+                          duration: 0.5,
+                          scale: 1,
+                          z: 0,
+                          ease: 'power2.out',
+                          force3D: true
+                      });
+  
+                      gsap.to(cardInner, {
+                          duration: 0.5,
+                          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.15)',
+                          ease: 'power2.out'
+                      });
+                  };
+  
+                  // Enhanced mouse follow with advanced 3D parallax effects
+                  let mouseRAF;
+                  const handleMouseMove = (e) => {
+                      if (!isHovering || isLowEndDevice) return; // Skip on low-end devices
+  
+                      cancelAnimationFrame(mouseRAF);
+                      mouseRAF = requestAnimationFrame(() => {
+                          const rect = card.getBoundingClientRect();
+                          const centerX = rect.left + rect.width / 2;
+                          const centerY = rect.top + rect.height / 2;
+  
+                          // Calculate rotation based on mouse position relative to card center
+                          const x = (e.clientX - centerX) / 15; // Adjust sensitivity
+                          const y = (e.clientY - centerY) / 15;
+  
+                          // Add subtle floating movement
+                          const floatX = Math.sin(Date.now() * 0.001) * 2;
+                          const floatY = Math.cos(Date.now() * 0.001) * 2;
+  
+                          gsap.to(card, {
+                              duration: 0.6,
+                              rotationY: x,
+                              rotationX: -y,
+                              x: floatX,
+                              y: floatY,
+                              ease: 'power2.out',
+                              force3D: true,
+                              overwrite: 'auto'
+                          });
+  
+                          // Add subtle glow effect based on mouse proximity
+                          const distance = Math.sqrt(x * x + y * y);
+                          const glowIntensity = Math.max(0, 1 - distance / 20);
+  
+                          gsap.to(card.querySelector('.card'), {
+                              duration: 0.3,
+                              boxShadow: `0 25px 50px -12px rgba(0, 0, 0, ${0.15 + glowIntensity * 0.1})`,
+                              ease: 'power2.out'
+                          });
+                      });
+                  };
+  
+                  card.addEventListener('mouseenter', enterAnimation);
+                  card.addEventListener('mouseleave', leaveAnimation);
+                  card.addEventListener('mousemove', handleMouseMove);
+  
+                  // Store animations for potential cleanup
+                  hoverAnimations.set(card, { enterAnimation, leaveAnimation });
+              });
+  
+              // Optimized scroll-based animations with performance considerations and batch processing
+              const scrollTriggerBatch = ScrollTrigger.batch('.floating-card', {
+                  start: 'top 85%',
+                  end: 'bottom 15%',
+                  onEnter: (elements) => {
+                      // Use RAF for better performance
+                      requestAnimationFrame(() => {
+                          gsap.fromTo(elements, {
+                              opacity: 0.7,
+                              y: isLowEndDevice ? 20 : 50, // Reduced movement on low-end devices
+                              scale: 0.95
+                          }, {
+                              opacity: 1,
+                              y: 0,
+                              scale: 1,
+                              duration: isLowEndDevice ? 0.6 : 0.8, // Faster on low-end devices
+                              ease: 'power3.out',
+                              stagger: isLowEndDevice ? 0.05 : 0.1, // Reduced stagger on low-end devices
+                              force3D: !isLowEndDevice,
+                              overwrite: 'auto'
+                          });
+                      });
+                  },
+                  onLeave: (elements) => {
+                      requestAnimationFrame(() => {
+                          gsap.to(elements, {
+                              opacity: 0.6,
+                              scale: 0.98,
+                              duration: 0.4,
+                              ease: 'power2.out',
+                              stagger: 0.05,
+                              force3D: !isLowEndDevice,
+                              overwrite: 'auto'
+                          });
+                      });
+                  },
+                  onEnterBack: (elements) => {
+                      requestAnimationFrame(() => {
+                          gsap.to(elements, {
+                              opacity: 1,
+                              scale: 1,
+                              duration: 0.6,
+                              ease: 'power2.out',
+                              stagger: 0.08,
+                              force3D: !isLowEndDevice,
+                              overwrite: 'auto'
+                          });
+                      });
+                  }
+              });
+  
+              // Create background particles effect
+              function createParticles() {
+                  const particlesContainer = document.querySelector('.floating-cards-container');
+                  if (!particlesContainer) return;
+  
+                  for (let i = 0; i < 15; i++) {
+                      const particle = document.createElement('div');
+                      particle.style.cssText = `
+                          position: absolute;
+                          width: 4px;
+                          height: 4px;
+                          background: rgba(59, 130, 246, 0.3);
+                          border-radius: 50%;
+                          pointer-events: none;
+                          top: ${Math.random() * 100}%;
+                          left: ${Math.random() * 100}%;
+                      `;
+                      particlesContainer.appendChild(particle);
+                      
+                      // Animate particle
+                      gsap.to(particle, {
+                          y: -300,
+                          x: Math.random() * 200 - 100,
+                          opacity: 0,
+                          duration: Math.random() * 10 + 10,
+                          repeat: -1,
+                          ease: 'none',
+                          delay: Math.random() * 5
+                      });
+                  }
+              }
+  
+              // Initialize particles only on desktop
+              if (window.innerWidth > 1024) {
+                  createParticles();
+              }
+  
+              // GSAP Logo Auto-Scroller Animation
+              const initLogoScroller = () => {
+                  const logoTracks = document.querySelectorAll('.logo-track');
+                  const logoContainer = document.querySelector('.logo-scroll-container');
+                  
+                  if (logoTracks.length === 0) return;
+                  
+                  // Create GSAP timeline for logo scrolling
+                  const logoTimeline = gsap.timeline({ repeat: -1 });
+                  
+                  // Animate each logo track
+                  logoTracks.forEach((track, index) => {
+                      logoTimeline.to(track, {
+                          x: '-100%',
+                          duration: 30,
+                          ease: 'none'
+                      }, 0); // Start all at the same time
+                  });
+                  
+                  // Add subtle floating animation to individual logos
+                  gsap.to('.logo-track img', {
+                      y: -8,
+                      duration: 3,
+                      ease: 'sine.inOut',
+                      repeat: -1,
+                      yoyo: true,
+                      stagger: {
+                          amount: 2,
+                          from: 'random'
+                      }
+                  });
+                  
+                  // Enhanced hover interactions for logos
+                  document.querySelectorAll('.tooltip').forEach(tooltip => {
+                      const img = tooltip.querySelector('img');
+                      
+                      tooltip.addEventListener('mouseenter', () => {
+                          gsap.to(img, {
+                              scale: 1.15,
+                              duration: 0.3,
+                              ease: 'back.out(1.7)'
+                          });
+                          
+                          // Pause scrolling on hover
+                          logoTimeline.pause();
+                      });
+                      
+                      tooltip.addEventListener('mouseleave', () => {
+                          gsap.to(img, {
+                              scale: 1,
+                              duration: 0.3,
+                              ease: 'power2.out'
+                          });
+                          
+                          // Resume scrolling
+                          logoTimeline.resume();
+                      });
+                  });
+                  
+                  // Responsive animation speed
+                  const updateScrollSpeed = () => {
+                      const isMobile = window.innerWidth <= 768;
+                      logoTimeline.timeScale(isMobile ? 1.5 : 1);
+                  };
+                  
+                  updateScrollSpeed();
+                  window.addEventListener('resize', updateScrollSpeed);
+                  
+                  console.log('🎯 GSAP Logo Auto-Scroller initialized successfully!');
+              };
+              
+              // Initialize logo scroller
+              initLogoScroller();
+  
+              // Enhanced Statistics Counter Animation
+              const initStatsCounter = () => {
+                  const statsSection = document.querySelector('[aria-labelledby="stats-heading"]');
+                  if (!statsSection) return;
+  
+                  const statElements = statsSection.querySelectorAll('.stat');
+                  let hasAnimated = false;
+  
+                  const animateCounters = () => {
+                      if (hasAnimated) return;
+                      hasAnimated = true;
+  
+                      statElements.forEach((stat, index) => {
+                          const counterElement = stat.querySelector('[data-counter]');
+                          const targetValue = parseInt(stat.getAttribute('data-target'));
+  
+                          if (!counterElement || isNaN(targetValue)) return;
+  
+                          // Calculate animation duration based on target value
+                          const duration = Math.min(targetValue / 1000, 3); // Max 3 seconds
+  
+                          // Use GSAP to animate the counter
+                          gsap.fromTo(counterElement,
+                              { innerText: 0 },
+                              {
+                                  innerText: targetValue,
+                                  duration: duration,
+                                  ease: 'power2.out',
+                                  snap: { innerText: 1 }, // Snap to whole numbers
+                                  delay: index * 0.2, // Stagger animations
+                                  onUpdate: function() {
+                                      // Format large numbers with commas and suffixes
+                                      const currentValue = Math.floor(this.targets()[0].innerText);
+                                      let formattedValue = currentValue.toLocaleString();
+  
+                                      if (currentValue >= 1000000) {
+                                          formattedValue = (currentValue / 1000000).toFixed(1) + 'M';
+                                      } else if (currentValue >= 1000) {
+                                          formattedValue = (currentValue / 1000).toFixed(0) + 'k';
+                                      }
+  
+                                      this.targets()[0].innerText = formattedValue;
+                                  }
+                              }
+                          );
+  
+                          // Animate the stat figure icon
+                          const statFigure = stat.querySelector('.stat-figure');
+                          if (statFigure) {
+                              gsap.fromTo(statFigure,
+                                  {
+                                      scale: 0,
+                                      rotation: -180,
+                                      opacity: 0
+                                  },
+                                  {
+                                      scale: 1,
+                                      rotation: 0,
+                                      opacity: 1,
+                                      duration: 0.8,
+                                      ease: 'back.out(1.7)',
+                                      delay: index * 0.2
+                                  }
+                              );
+                          }
+                      });
+  
+                      // Animate trust indicators
+                      const trustIndicators = document.querySelectorAll('.grid.md\\:grid-cols-3 > div');
+                      gsap.fromTo(trustIndicators,
+                          {
+                              y: 50,
+                              opacity: 0,
+                              scale: 0.8
+                          },
+                          {
+                              y: 0,
+                              opacity: 1,
+                              scale: 1,
+                              duration: 0.8,
+                              ease: 'power3.out',
+                              stagger: 0.2,
+                              delay: 1
+                          }
+                      );
+  
+                      console.log('📊 Statistics counters animated successfully!');
+                  };
+  
+                  // Use Intersection Observer for better performance
+                  const observer = new IntersectionObserver((entries) => {
+                      entries.forEach(entry => {
+                          if (entry.isIntersecting) {
+                              animateCounters();
+                              observer.unobserve(entry.target);
+                          }
+                      });
+                  }, {
+                      threshold: 0.3,
+                      rootMargin: '0px 0px -100px 0px'
+                  });
+  
+                  observer.observe(statsSection);
+              };
+  
+              // Initialize stats counter
+              initStatsCounter();
+  
+              // Animate hero text
+              gsap.from('.hero-content h1', {
+                  duration: 1.5,
+                  y: 50,
+                  opacity: 0,
+                  ease: 'power3.out',
+                  delay: 0.3
+              });
+  
+              gsap.from('.hero-content p', {
+                  duration: 1.5,
+                  y: 30,
+                  opacity: 0,
+                  ease: 'power3.out',
+                  delay: 0.6
+              });
+  
+              // Ensure CTA button is visible and properly animated
+              gsap.set('.hero-content button', {
+                  opacity: 1,
+                  visibility: 'visible'
+              });
+              
+              gsap.from('.hero-content button', {
+                  duration: 1.5,
+                  y: 30,
+                  opacity: 0,
+                  scale: 0.9,
+                  ease: 'back.out(1.7)',
+                  delay: 0.9
+              });
+  
+              // Enhanced button hover effect
+              const ctaButton = document.querySelector('.hero-content button');
+              if (ctaButton) {
+                  ctaButton.addEventListener('mouseenter', function() {
+                      gsap.to(this, {
+                          duration: 0.3,
+                          scale: 1.05,
+                          y: -2,
+                          ease: 'power2.out'
+                      });
+                  });
+                  
+                  ctaButton.addEventListener('mouseleave', function() {
+                      gsap.to(this, {
+                          duration: 0.3,
+                          scale: 1,
+                          y: 0,
+                          ease: 'power2.out'
+                      });
+                  });
+              }
+  
+              // Optimized mouse cursor enhancement with reduced motion support
+              let mouseMoveRAF;
+              const handleMouseMove = (e) => {
+                  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  
+                  cancelAnimationFrame(mouseMoveRAF);
+                  mouseMoveRAF = requestAnimationFrame(() => {
+                      const cards = document.querySelectorAll('.floating-card');
+                      const mouseX = e.clientX / window.innerWidth;
+                      const mouseY = e.clientY / window.innerHeight;
+  
+                      cards.forEach((card, index) => {
+                          const speed = 0.3 + (index * 0.08);
+                          const x = (mouseX - 0.5) * speed * 15;
+                          const y = (mouseY - 0.5) * speed * 15;
+  
+                          gsap.to(card, {
+                              duration: 1.5,
+                              x: x,
+                              y: y,
+                              ease: 'power1.out',
+                              force3D: true
+                          });
+                      });
+                  });
+              };
+  
+              // Throttle mouse movements for better performance
+              let mouseThrottle;
+              document.addEventListener('mousemove', function(e) {
+                  clearTimeout(mouseThrottle);
+                  mouseThrottle = setTimeout(() => handleMouseMove(e), 32); // ~30fps
+              });
+  
+              // Performance optimizations for mobile
+              const isMobile = window.innerWidth <= 768;
+              if (isMobile) {
+                  // Reduce animation complexity on mobile
+                  gsap.set('.floating-card', { force3D: false });
+                  console.log('📱 Mobile optimizations applied');
+              }
+  
+              // Enhanced cleanup function for memory management and performance
+              const cleanup = () => {
+                  // Clear hover animations
+                  hoverAnimations.forEach((animation, card) => {
+                      card.removeEventListener('mouseenter', animation.enterAnimation);
+                      card.removeEventListener('mouseleave', animation.leaveAnimation);
+                      card.removeEventListener('mousemove', animation.handleMouseMove);
+                  });
+                  hoverAnimations.clear();
+  
+                  // Kill floating animations
+                  floatingAnimations.forEach(animation => {
+                      if (animation) animation.kill();
+                  });
+  
+                  // Kill scroll triggers
+                  if (scrollTriggerBatch) {
+                      scrollTriggerBatch.forEach(trigger => trigger.kill());
+                  }
+                  ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+  
+                  // Cancel RAF and timeouts
+                  if (animationFrame) cancelAnimationFrame(animationFrame);
+                  if (mouseMoveRAF) cancelAnimationFrame(mouseMoveRAF);
+                  if (mouseThrottle) clearTimeout(mouseThrottle);
+  
+                  // Clear particle animations
+                  const particles = document.querySelectorAll('.floating-cards-container > div:not(.floating-card)');
+                  particles.forEach(particle => {
+                      gsap.killTweensOf(particle);
+                      particle.remove();
+                  });
+  
+                  console.log('🧹 Performance cleanup completed');
+              };
+  
+              // Add cleanup on page unload and visibility change
+              window.addEventListener('beforeunload', cleanup);
+              document.addEventListener('visibilitychange', () => {
+                  if (document.hidden) {
+                      // Pause animations when page is hidden
+                      gsap.globalTimeline.pause();
+                  } else {
+                      // Resume when page becomes visible
+                      gsap.globalTimeline.resume();
+                  }
+              });
+  
+              // Performance monitoring
+              let frameCount = 0;
+              let lastTime = performance.now();
+              const monitorPerformance = () => {
+                  frameCount++;
+                  const currentTime = performance.now();
+                  if (currentTime - lastTime >= 1000) {
+                      console.log(`📊 Performance: ${frameCount} FPS`);
+                      frameCount = 0;
+                      lastTime = currentTime;
+                  }
+                  if (!isLowEndDevice) {
+                      requestAnimationFrame(monitorPerformance);
+                  }
+              };
+  
+              if (!isLowEndDevice) {
+                  monitorPerformance();
+              }
+  
+  
+  
+      </script>
+  </body>
+  </html>
+

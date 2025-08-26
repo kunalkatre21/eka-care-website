@@ -1,0 +1,261 @@
+# Cursor Rules for Healthcare AI Platform
+
+## Tech Stack & Framework Standards
+
+### Core Technologies
+- **HTML5**: Semantic markup with accessibility in mind
+- **CSS3**: Modern features with fallbacks for older browsers
+- **JavaScript ES6+**: Modern syntax and features
+- **Responsive Design**: Mobile-first approach
+
+### UI Framework - DaisyUI + Tailwind CSS
+- **Version**: DaisyUI 4.12.2 with Tailwind CSS
+- **CDN**: `https://cdn.jsdelivr.net/npm/daisyui@4.12.2/dist/full.min.css`
+- **Philosophy**: Utility-first CSS with semantic component classes
+
+#### DaisyUI Component Usage
+```html
+<!-- Buttons -->
+<button class="btn btn-primary">Primary Action</button>
+<button class="btn btn-ghost">Secondary Action</button>
+
+<!-- Cards -->
+<div class="card bg-base-100 shadow-xl">
+  <div class="card-body">
+    <h2 class="card-title">Card Title</h2>
+    <p>Card content</p>
+    <div class="card-actions justify-end">
+      <button class="btn btn-primary">Action</button>
+    </div>
+  </div>
+</div>
+
+<!-- Navigation -->
+<div class="navbar bg-base-100">
+  <div class="navbar-start">...</div>
+  <div class="navbar-center">...</div>
+  <div class="navbar-end">...</div>
+</div>
+```
+
+#### Tailwind CSS Patterns
+- **Spacing**: Use consistent spacing scale (`gap-4`, `p-6`, `m-8`)
+- **Colors**: Leverage semantic color system (`text-primary`, `bg-secondary`)
+- **Responsive**: Mobile-first breakpoints (`sm:`, `md:`, `lg:`, `xl:`)
+- **Flexbox/Grid**: Modern layout systems (`flex`, `grid`, `items-center`)
+
+### Typography - Google Fonts
+- **Primary Font**: Inter (body text, UI elements)
+- **Secondary Font**: Figtree (headings, titles)
+- **CDN**: Google Fonts with preconnect optimization
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+```
+
+### Icons - FontAwesome Premium
+- **Version**: FontAwesome Premium Kit
+- **Usage**: Semantic icon classes with proper accessibility
+- **Kit**: `https://kit.fontawesome.com/e4f2af7764.js`
+
+#### Icon Usage Patterns
+```html
+<!-- Standard icons -->
+<i class="fas fa-hospital text-blue-600"></i>
+<i class="fas fa-user-md text-green-600"></i>
+<i class="fas fa-microphone text-red-500"></i>
+
+<!-- Interactive icons -->
+<button class="btn" aria-label="Menu">
+  <i class="fas fa-bars h-5 w-5"></i>
+</button>
+
+<!-- Status indicators -->
+<i class="fas fa-check text-green-500" aria-hidden="true"></i>
+```
+
+### Animation Framework - GSAP
+- **Primary Animation Library**: GSAP 3.12.2 with ScrollTrigger
+- **CDN Links**: 
+  - Main: `https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js`
+  - ScrollTrigger: `https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js`
+
+#### GSAP Animation Patterns
+```javascript
+// Timeline-based animations
+const tl = gsap.timeline({ repeat: -1 });
+tl.to(element, { duration: 2, x: 100 })
+  .to(element, { duration: 1, y: 50 }, "-=0.5");
+
+// Stagger animations
+gsap.to('.elements', {
+    y: -20,
+    duration: 1,
+    stagger: { amount: 1.5, from: 'random' }
+});
+
+// Hover interactions
+element.addEventListener('mouseenter', () => {
+    gsap.to(element, {
+        scale: 1.1,
+        duration: 0.3,
+        ease: 'back.out(1.7)'
+    });
+});
+
+// ScrollTrigger integration
+ScrollTrigger.batch('.elements', {
+    onEnter: (elements) => {
+        gsap.from(elements, {
+            opacity: 0,
+            y: 100,
+            stagger: 0.15
+        });
+    }
+});
+```
+
+#### GSAP Best Practices
+- **Easing**: `back.out(1.7)` for entrances, `power2.out` for smooth transitions
+- **Performance**: Use `transform` properties, avoid layout-affecting changes
+- **Organization**: Group animations in named functions with console.log debugging
+- **Responsive**: Use `timeScale()` for device-specific speeds
+
+## Healthcare UI/UX Guidelines
+
+### Color Palette
+- **Primary**: Blue tones for trust and professionalism
+- **Secondary**: Green for health and wellness
+- **Accent**: Purple for innovation and technology
+- **Neutral**: Gray scale for text and backgrounds
+- **Status**: Red for alerts, Yellow for warnings, Green for success
+
+### Component Patterns
+
+#### Floating Cards
+- Use 3D transforms with perspective for depth
+- Implement subtle floating animations
+- Add mouse-follow parallax effects
+- Include hover pause functionality
+
+#### Trust Indicators
+- Animate statistics with counting effects
+- Use staggered entrance animations
+- Display healthcare certifications and partnerships
+- Maintain professional aesthetic
+
+#### Logo Scrollers
+- Create seamless infinite loops with GSAP
+- Implement hover-to-pause functionality
+- Use responsive speed scaling
+- Add individual logo floating effects
+
+### Accessibility Standards
+- **ARIA Labels**: Proper labeling for screen readers
+- **Keyboard Navigation**: Full keyboard accessibility
+- **Color Contrast**: WCAG 2.1 AA compliance
+- **Semantic HTML**: Proper heading hierarchy and landmark roles
+
+```html
+<!-- Accessible button -->
+<button class="btn" aria-label="Open navigation menu">
+  <i class="fas fa-bars" aria-hidden="true"></i>
+</button>
+
+<!-- Accessible form -->
+<label for="email" class="label">Email Address</label>
+<input type="email" id="email" class="input input-bordered" required>
+```
+
+## Code Organization & Structure
+
+### File Structure
+```
+project/
+├── index.html (main page)
+├── .cursorrules (this file)
+├── resources/ (documentation and assets)
+└── [other pages].html
+```
+
+### HTML Structure
+- Use semantic HTML5 elements
+- Include proper meta tags for SEO and responsive design
+- Load CSS in `<head>`, JavaScript before `</body>`
+- Use DaisyUI data attributes for theme switching
+
+### CSS Organization
+- Inline `<style>` for page-specific customizations
+- Utility-first approach with Tailwind classes
+- Custom CSS only when DaisyUI/Tailwind insufficient
+- Responsive design with mobile-first breakpoints
+
+### JavaScript Patterns
+- Wrap code in `DOMContentLoaded` event listener
+- Use modern ES6+ features (const/let, arrow functions, destructuring)
+- Implement proper error handling and null checks
+- Add descriptive console.log messages for debugging
+
+```javascript
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize GSAP
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // Animation functions
+    const initFloatingCards = () => {
+        // Implementation
+        console.log('✅ Floating cards initialized');
+    };
+    
+    const initLogoScroller = () => {
+        // Implementation
+        console.log('✅ Logo scroller initialized');
+    };
+    
+    // Initialize components
+    initFloatingCards();
+    initLogoScroller();
+});
+```
+
+## Performance & Optimization
+
+### Loading Strategy
+- Use CDN links for external libraries
+- Implement lazy loading for images
+- Preconnect to external domains
+- Optimize font loading with `display=swap`
+
+### Animation Performance
+- Use `will-change: transform` for animated elements
+- Prefer GSAP over CSS animations for complex sequences
+- Implement reduced motion preferences
+- Test on mobile devices for smooth performance
+
+### Responsive Design
+- Mobile-first approach with progressive enhancement
+- Use appropriate breakpoints (sm: 640px, md: 768px, lg: 1024px, xl: 1280px)
+- Optimize animations for different screen sizes
+- Consider touch interactions on mobile devices
+
+## Debugging & Development
+
+### Console Logging
+- Use descriptive success messages for component initialization
+- Include error handling with meaningful error messages
+- Use consistent emoji prefixes for visual scanning
+- Remove console.logs in production builds
+
+### Browser Support
+- Target modern browsers (Chrome 90+, Firefox 88+, Safari 14+)
+- Implement graceful degradation for older browsers
+- Test across different devices and screen sizes
+- Use appropriate polyfills when necessary
+
+### Code Quality
+- Use consistent indentation (2 or 4 spaces)
+- Add comments for complex logic
+- Use meaningful variable and function names
+- Implement proper error boundaries
