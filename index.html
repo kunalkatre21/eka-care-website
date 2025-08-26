@@ -1108,79 +1108,18 @@
     <!-- GSAP Animations Script -->
     <script src="animations.js"></script>
 
-    <!-- FontAwesome Debug Script -->
+    <!-- FontAwesome Quick Check -->
     <script>
-        // Debug FontAwesome loading
-        console.log('🔍 FontAwesome Debug: Starting...');
-
-        // Check if FontAwesome is loaded
-        function checkFontAwesome() {
+        // Quick FontAwesome connection check
+        setTimeout(() => {
             if (typeof FontAwesome !== 'undefined') {
-                console.log('✅ FontAwesome is loaded:', FontAwesome);
-                
-                // Check specific icons
-                const testIcons = [
-                    'fas fa-shield-check',
-                    'fas fa-file-medical-alt', 
-                    'fas fa-stethoscope',
-                    'fas fa-clinic-medical'
-                ];
-                
-                testIcons.forEach(iconClass => {
-                    const icon = document.querySelector(`.${iconClass.replace(' ', '.')}`);
-                    if (icon) {
-                        console.log(`✅ Icon found: ${iconClass} -`, icon);
-                        console.log('   Computed style:', window.getComputedStyle(icon));
-                    } else {
-                        console.log(`❌ Icon not found: ${iconClass}`);
-                    }
-                });
+                console.log('✅ FontAwesome connected');
             } else {
                 console.log('❌ FontAwesome not loaded');
-                
-                // Try to reload FontAwesome
-                const script = document.createElement('script');
-                script.src = 'https://kit.fontawesome.com/e4f2af7764.js';
-                script.crossOrigin = 'anonymous';
-                script.onload = function() {
-                    console.log('🔄 FontAwesome reloaded successfully');
-                    setTimeout(checkFontAwesome, 1000);
-                };
-                script.onerror = function() {
-                    console.log('❌ FontAwesome reload failed');
-                };
-                document.head.appendChild(script);
             }
-        }
-
-        // Wait for DOM and then check
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', function() {
-                setTimeout(checkFontAwesome, 1000);
-            });
-        } else {
-            setTimeout(checkFontAwesome, 1000);
-        }
-
-        // Check network requests
-        const originalFetch = window.fetch;
-        window.fetch = function(...args) {
-            if (args[0] && args[0].includes('fontawesome')) {
-                console.log('🌐 FontAwesome request:', args[0]);
-            }
-            return originalFetch.apply(this, args);
-        };
+        }, 1500);
     </script>
 
-    <!-- Simple FontAwesome Verification -->
-    <script>
-        setTimeout(() => {
-            const icons = document.querySelectorAll('.fas.fa-shield-check, .fas.fa-file-medical-alt, .fas.fa-stethoscope, .fas.fa-clinic-medical');
-            console.log('🔍 Found', icons.length, 'Pro icons');
-            icons.forEach(icon => {
-                console.log('Icon:', icon.className, 'Visible:', icon.offsetWidth > 0);
-            });
-        }, 2000);
-    </script>
+
 </body>
 </html>
