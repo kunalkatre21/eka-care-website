@@ -7,20 +7,68 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
+.pnpm-debug.log*
+
+# Build outputs
 dist
 dist-ssr
+build
 *.local
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
 .idea
+*.swp
+*.swo
+*~
+
+# OS generated files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
 
+# Project specific exclusions
+resources/
+assets/downloads/
+temp/
+tmp/
+.cache/
+*.tmp
+*.temp
+
+# Development and documentation files
+*.md.bak
+*.txt.bak
+scrape-*.md
+*-attempt.png
+*-before-revamp.png
+*-wireframe.png
+
+# Config files
 .config/
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Package manager files
+package-lock.json.bak
+yarn.lock.bak
+
+# Browser cache and temp files
+*.crdownload
+*.part
