@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Borders Demo - Eka Healthcare</title>
+
+    <!-- DaisyUI + Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Premium -->
+    <script src="https://kit.fontawesome.com/e4f2af7764.js" crossorigin="anonymous"></script>
+
+    <!-- GSAP for advanced animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <!-- Shared Styles (includes animated border styles) -->
+    <link rel="stylesheet" href="shared-styles.css">
+</head>
+<body class="bg-base-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-base-content mb-4" style="font-family: 'Figtree', sans-serif;">
+                Animated Borders Demo
+            </h1>
+            <p class="text-lg text-base-content/70 max-w-2xl mx-auto">
+                Showcase of animated border effects for Eka Healthcare components.
+                These styles can be applied to any element using the provided CSS classes.
+            </p>
+        </div>
+
+        <!-- Demo Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Gradient Border -->
+            <div class="animated-border-gradient p-6 bg-base-100">
+                <div class="text-center">
+                    <i class="fas fa-magic fa-2x text-blue-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Gradient Border</h3>
+                    <p class="text-base-content/70">Rotating gradient border with healthcare color scheme</p>
+                    <div class="mt-4">
+                        <button class="btn btn-primary btn-sm">Learn More</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Glowing Border -->
+            <div class="animated-border-glow p-6 bg-base-100">
+                <div class="text-center">
+                    <i class="fas fa-sun fa-2x text-yellow-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Glowing Border</h3>
+                    <p class="text-base-content/70">Animated glowing effect with blur for premium feel</p>
+                    <div class="mt-4">
+                        <button class="btn btn-secondary btn-sm">Get Started</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pulse Border -->
+            <div class="animated-border-pulse p-6 bg-base-100">
+                <div class="text-center">
+                    <i class="fas fa-heartbeat fa-2x text-red-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Pulse Border</h3>
+                    <p class="text-base-content/70">Heartbeat-style pulsing animation for medical themes</p>
+                    <div class="mt-4">
+                        <button class="btn btn-accent btn-sm">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Glimmer Border -->
+            <div class="animated-border-glimmer p-6 bg-base-100">
+                <div class="text-center">
+                    <i class="fas fa-sparkles fa-2x text-purple-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Glimmer Border</h3>
+                    <p class="text-base-content/70">Subtle rotating glimmer effect around the border</p>
+                    <div class="mt-4">
+                        <button class="btn btn-neutral btn-sm">Explore</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SVG Stroke Border -->
+            <div class="animated-border-svg p-6 bg-base-100 relative">
+                <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                    <rect rx="12" ry="12" class="border-path" width="100%" height="100%" />
+                </svg>
+                <div class="text-center relative z-10">
+                    <i class="fas fa-draw-polygon fa-2x text-green-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">SVG Stroke</h3>
+                    <p class="text-base-content/70">Animated SVG stroke drawing effect</p>
+                    <div class="mt-4">
+                        <button class="btn btn-success btn-sm">View Demo</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rotating Border -->
+            <div class="animated-border-rotating p-6 bg-base-100">
+                <div class="text-center">
+                    <i class="fas fa-sync-alt fa-2x text-cyan-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Rotating Border</h3>
+                    <p class="text-base-content/70">Continuous rotation with conic gradient</p>
+                    <div class="mt-4">
+                        <button class="btn btn-info btn-sm">Try It</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Usage Instructions -->
+        <div class="mt-16 bg-base-200 rounded-lg p-8">
+            <h2 class="text-2xl font-bold mb-6 text-center">How to Use</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Basic Usage</h3>
+                    <div class="bg-base-100 rounded p-4 font-mono text-sm">
+                        <pre><code>&lt;div class="animated-border-gradient"&gt;
+    &lt;!-- Your content here --&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Available Classes</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><code class="bg-base-100 px-2 py-1 rounded">.animated-border-gradient</code> - Rotating gradient</li>
+                        <li><code class="bg-base-100 px-2 py-1 rounded">.animated-border-glow</code> - Glowing effect</li>
+                        <li><code class="bg-base-100 px-2 py-1 rounded">.animated-border-pulse</code> - Pulse animation</li>
+                        <li><code class="bg-base-100 px-2 py-1 rounded">.animated-border-glimmer</code> - Rotating glimmer</li>
+                        <li><code class="bg-base-100 px-2 py-1 rounded">.animated-border-svg</code> - SVG stroke</li>
+                        <li><code class="bg-base-100 px-2 py-1 rounded">.animated-border-rotating</code> - Conic rotation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-6">
+                <h3 class="text-lg font-semibold mb-4">Advanced Usage with DaisyUI</h3>
+                <div class="bg-base-100 rounded p-4 font-mono text-sm">
+                    <pre><code>&lt;div class="card animated-border-gradient shadow-xl"&gt;
+    &lt;div class="card-body"&gt;
+        &lt;h2 class="card-title"&gt;Healthcare Feature&lt;/h2&gt;
+        &lt;p&gt;Enhanced with animated borders&lt;/p&gt;
+        &lt;div class="card-actions justify-end"&gt;
+            &lt;button class="btn btn-primary"&gt;Action&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="mt-6">
+                <h3 class="text-lg font-semibold mb-4">Customization</h3>
+                <p class="text-base-content/70 mb-4">
+                    All animations respect the <code>prefers-reduced-motion</code> media query for accessibility.
+                    Colors are optimized for healthcare applications with blue, green, and purple themes.
+                </p>
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle"></i>
+                    <span>These styles are included in <code>shared-styles.css</code> and can be used across all healthcare components.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance Notes -->
+        <div class="mt-8 bg-base-200 rounded-lg p-6">
+            <h3 class="text-lg font-semibold mb-4">Performance & Accessibility</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <h4 class="font-medium mb-2">✅ Performance Optimized</h4>
+                    <ul class="text-sm text-base-content/70 space-y-1">
+                        <li>• Uses <code>will-change: transform</code></li>
+                        <li>• CSS-only animations (no JavaScript)</li>
+                        <li>• Efficient keyframe animations</li>
+                        <li>• Hardware acceleration ready</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-2">♿ Accessibility Ready</h4>
+                    <ul class="text-sm text-base-content/70 space-y-1">
+                        <li>• Respects reduced motion preferences</li>
+                        <li>• Semantic HTML structure</li>
+                        <li>• High contrast colors</li>
+                        <li>• Keyboard navigation friendly</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Initialize GSAP (if needed for additional animations) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Register GSAP plugins if needed
+            // gsap.registerPlugin(ScrollTrigger);
+
+            console.log('✅ Animated Borders Demo initialized');
+        });
+    </script>
+</body>
+</html>

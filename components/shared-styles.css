@@ -22,10 +22,6 @@ h1, h2, h3, h4, h5, h6, .text-2xl, .text-3xl, .text-4xl, .text-5xl, .text-6xl {
     display: block;
 }
 
-/* Tab Styles */
-.tabs-boxed .tab {
-    border-radius: 9999px !important;
-}
 
 /* Enhanced Floating Cards Styles - Advanced 3D System */
 .floating-cards-container {
@@ -62,31 +58,31 @@ h1, h2, h3, h4, h5, h6, .text-2xl, .text-3xl, .text-4xl, .text-5xl, .text-6xl {
 
 /* Enhanced individual card transforms with advanced depth layering */
 .floating-card-1 {
-    transform: perspective(1500px) rotateY(-8deg) rotateX(5deg) translateZ(60px) scale(0.95);
+    transform: perspective(1500px) rotateY(-8deg) rotateX(5deg) translateZ(60px) scale(0.75);
 }
 
 .floating-card-2 {
-    transform: perspective(1500px) rotateY(12deg) rotateX(-3deg) translateZ(40px) scale(0.92);
+    transform: perspective(1500px) rotateY(12deg) rotateX(-3deg) translateZ(40px) scale(0.75);
 }
 
 .floating-card-3 {
-    transform: perspective(1500px) rotateY(-5deg) rotateX(8deg) translateZ(50px) scale(0.94);
+    transform: perspective(1500px) rotateY(-5deg) rotateX(8deg) translateZ(50px) scale(0.75);
 }
 
 .floating-card-4 {
-    transform: perspective(1500px) rotateY(15deg) rotateX(-5deg) translateZ(25px) scale(0.90);
+    transform: perspective(1500px) rotateY(15deg) rotateX(-5deg) translateZ(25px) scale(0.75);
 }
 
 .floating-card-5 {
-    transform: perspective(1500px) rotateY(-10deg) rotateX(4deg) translateZ(70px) scale(0.96);
+    transform: perspective(1500px) rotateY(-10deg) rotateX(4deg) translateZ(70px) scale(0.75);
 }
 
 .floating-card-6 {
-    transform: perspective(1500px) rotateY(8deg) rotateX(-2deg) translateZ(35px) scale(0.93);
+    transform: perspective(1500px) rotateY(8deg) rotateX(-2deg) translateZ(35px) scale(0.75);
 }
 
 .floating-card-7 {
-    transform: perspective(1500px) rotateY(-3deg) rotateX(6deg) translateZ(45px) scale(0.91);
+    transform: perspective(1500px) rotateY(-3deg) rotateX(6deg) translateZ(45px) scale(0.75);
 }
 
 /* Enhanced hover effects with depth */
@@ -193,6 +189,7 @@ h1, h2, h3, h4, h5, h6, .text-2xl, .text-3xl, .text-4xl, .text-5xl, .text-6xl {
 /* Hero Section Animations */
 .hero-content {
     animation: heroFadeIn 1.5s ease-out;
+    margin-bottom: 2rem;
 }
 
 /* Ensure CTA button is always visible */
@@ -201,6 +198,26 @@ h1, h2, h3, h4, h5, h6, .text-2xl, .text-3xl, .text-4xl, .text-5xl, .text-6xl {
     z-index: 30;
     visibility: visible !important;
     height: auto;
+}
+
+/* Smooth transition from hero to product cards */
+.hero {
+    position: relative;
+    overflow: visible;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 0;
+}
+
+/* Product cards section with smooth transition */
+.hero + section {
+    margin-top: 8rem;
+    padding-top: 2rem;
+    background: white;
+    position: relative;
+    z-index: 5;
 }
 
 /* Accessibility - Screen reader only content */
@@ -344,4 +361,563 @@ a:focus-visible {
 .component-error small {
     opacity: 0.8;
     font-size: 0.875rem;
+}
+
+/* Animate Borders Examples */
+/* Example 1 - rotating gradient fake border */
+.border-rotating-gradient {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .border-rotating-gradient .inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    margin: 5px;
+  }
+  .border-rotating-gradient::before {
+    content: "";
+    display: block;
+    background: linear-gradient(
+      90deg,
+      hsla(197, 100%, 64%, 1) 0%,
+      hsla(339, 100%, 55%, 1) 100%
+    );
+    height: 500px;
+    width: 500px;
+    position: absolute;
+    animation: rotate 8s linear infinite;
+    z-index: 0;
+  }
+
+  /* Example 2 - glimmer rotating line border */
+  .border-glimmer-rotating-line {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .border-glimmer-rotating-line .inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    margin: 2px;
+  }
+  .border-glimmer-rotating-line::before {
+    content: "";
+    display: block;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(102, 102, 102, 0.75) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    height: 300px;
+    width: 100px;
+    position: absolute;
+    animation: rotate 5s linear forwards infinite;
+    z-index: 0;
+    top: 50%;
+    transform-origin: top center;
+  }
+
+  /* Example 3 - glowing background border */
+  .border-glowing-background {
+    position: relative;
+    border-radius: var(--border-radius);
+    padding: 4px;
+  }
+  .border-glowing-background .inner {
+    border-radius: 4px;
+  }
+  .border-glowing-background::before,
+  .border-glowing-background::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(
+      45deg,
+      #ff595e,
+      #ffca3a,
+      #8ac926,
+      #1982c4,
+      #6a4c93,
+      #ff6700
+    );
+    background-size: 400%;
+    z-index: -1;
+    animation: glow 20s linear infinite;
+    width: 100%;
+    border-radius: var(--border-radius);
+  }
+  .border-glowing-background::after {
+    filter: blur(25px);
+    transform: translate3d(0, 0, 0);
+  }
+
+  /* Example 4 - outline pulse animation */
+  .border-outline-pulse {
+    position: relative;
+    border-radius: var(--border-radius);
+  }
+  .border-outline-pulse::after {
+    content: "";
+    position: absolute;
+    inset: 0;                         /* top:0 right:0 bottom:0 left:0 */
+    border-radius: inherit;
+    box-shadow: 0 0 0 0 rgba(0,130,206,.90);              /* start size */
+    opacity: 1;
+    will-change: transform, opacity;  /* GPU-promote */
+    animation: pulseShadow 2s cubic-bezier(.4,0,.2,1) infinite;
+  }
+  
+  @keyframes pulseShadow {
+    0%   { box-shadow: 0 0 0   0px rgba(0,130,206,.75); opacity:1; }
+    70%  { box-shadow: 0 0 0 12px rgba(0,130,206,0);   opacity:0; }
+    100% { box-shadow: 0 0 0 12px rgba(0,130,206,0);   opacity:0; }
+  }
+
+
+  /* Example 5 - animated SVG stroke border */
+  .border-svg-stroke {
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .border-svg-stroke svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--border-radius);
+  }
+  .border-svg-stroke .line {
+    stroke-dasharray: 260;
+    stroke-width: 1px;
+    fill: transparent;
+    stroke: rgba(78, 255, 13, 0.3);
+    animation: svgAnimation 2.5s linear infinite;
+    stroke-linejoin: round;
+    border-radius: var(--border-radius);
+  }
+
+  /* Animations */
+  @keyframes rotate {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes glow {
+    0% {
+      background-position: 0 0;
+    }
+    50% {
+      background-position: 100% 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
+
+  @keyframes animateOutline {
+    0% {
+      outline-width: 1px;
+      outline-offset: 0;
+      outline-color: rgba(0, 130, 206, 0);
+    }
+    10% {
+      outline-color: rgba(0, 130, 206, 0.75);
+    }
+    50% {
+      outline-width: 7px;
+      outline-offset: 4px;
+      outline-color: rgba(0, 130, 206, 0);
+    }
+    100% {
+      outline-width: 7px;
+      outline-offset: 4px;
+      outline-color: rgba(102, 102, 102, 0);
+    }
+  }
+
+  @keyframes svgAnimation {
+    from {
+      stroke-dashoffset: 0;
+    }
+    to {
+      stroke-dashoffset: 1000;
+    }
+  }
+
+/* Theme-Configurable Hero Background */
+.hero-bg-theme {
+    background: linear-gradient(135deg, hsl(var(--b1)) 0%, hsl(var(--b2)) 50%, hsl(var(--b3)) 100%);
+}
+
+/* SVG Theme Colors */
+.hero-gradient-start {
+    stop-color: hsl(var(--p));
+    stop-opacity: 0.6;
+}
+
+.hero-gradient-end {
+    stop-color: hsl(var(--s));
+    stop-opacity: 0;
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .hero-bg-theme {
+    background: linear-gradient(135deg, hsl(var(--b1)) 0%, hsl(var(--b2)) 50%, hsl(var(--b3)) 100%);
+}
+
+[data-theme="dark"] .hero-gradient-start {
+    stop-color: hsl(var(--p));
+    stop-opacity: 0.4;
+}
+
+[data-theme="dark"] .hero-circles {
+    opacity: 0.6;
+}
+
+/* Creeping Cards Animation Styles - Relative Sizing & Layered Positioning */
+
+
+.creeping-cards-container {
+    position: absolute;
+    bottom: -10%;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    pointer-events: none;
+    padding: 0 2rem;
+    overflow: visible;
+}
+
+.creeping-cards-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 0;
+    transform: translateY(100%);
+    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    height: 450px;
+    padding-bottom: 2rem;
+}
+
+.creeping-cards-wrapper.animate-in {
+    transform: translateY(0);
+}
+
+/* Base creeping card styles */
+.creeping-card {
+    pointer-events: auto;
+    opacity: 0;
+    transform: translateY(60px) scale(0.9);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+    position: absolute;
+    bottom: 0;
+}
+
+.creeping-card.animate-in {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.creeping-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    z-index: 20;
+}
+
+/* Relative sizing based on DaisyUI mockup components */
+/* Browser mockup (largest) - positioned at bottom-left */
+.creeping-card-browser {
+    left: 10%;
+    width: 50%;
+    z-index: 1;
+    bottom: 0;
+}
+
+/* Window mockup (medium) - positioned overlapping browser, angled slightly */
+.creeping-card-window {
+    left: 45%;
+    width: 40%;
+    z-index: 2;
+    bottom: 0;
+    transform: translateY(60px) scale(0.9) rotateY(-5deg);
+}
+
+.creeping-card-window.animate-in {
+    transform: translateY(0) scale(1) rotateY(-5deg);
+}
+
+.creeping-card-window:hover {
+    transform: translateY(-8px) scale(1.02) rotateY(-5deg);
+}
+
+/* Phone mockup (smallest) - positioned in front, overlapping both */
+.creeping-card-phone {
+    left: 35%;
+    width: 16%;
+    z-index: 3;
+    bottom: 0;
+    transform: translateY(60px) scale(0.9) translateX(-20px);
+}
+
+.creeping-card-phone.animate-in {
+    transform: translateY(0) scale(1) translateX(-20px);
+}
+
+.creeping-card-phone:hover {
+    transform: translateY(-8px) scale(1.02) translateX(-20px);
+}
+
+/* Stagger animation delays */
+.creeping-card-browser {
+    transition-delay: 0s;
+}
+
+.creeping-card-window {
+    transition-delay: 0.2s;
+}
+
+.creeping-card-phone {
+    transition-delay: 0.4s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .creeping-cards-wrapper {
+        max-width: 1000px;
+        height: 400px;
+    }
+    
+    .creeping-card-browser {
+        width: 350px;
+        left: 5%;
+        bottom: 0;
+    }
+    
+    .creeping-card-window {
+        width: 240px;
+        left: 40%;
+        bottom: 0;
+    }
+    
+    .creeping-card-phone {
+        width: 140px;
+        left: 60%;
+        bottom: 0;
+    }
+}
+
+@media (max-width: 1024px) {
+    .creeping-cards-wrapper {
+        max-width: 800px;
+        height: 350px;
+    }
+    
+    .creeping-card-browser {
+        width: 300px;
+        left: 0%;
+        bottom: 0;
+    }
+    
+    .creeping-card-window {
+        width: 200px;
+        left: 35%;
+        bottom: 0;
+    }
+    
+    .creeping-card-phone {
+        width: 120px;
+        left: 55%;
+        bottom: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .creeping-cards-container {
+        bottom: -5%;
+        padding: 0 1rem;
+    }
+    
+    .creeping-cards-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        max-width: 400px;
+        height: auto;
+        position: relative;
+        padding-bottom: 1rem;
+    }
+    
+    .creeping-card {
+        position: relative !important;
+        left: auto !important;
+        bottom: auto !important;
+        width: 100% !important;
+        max-width: 320px !important;
+        transform: translateY(40px) scale(0.95) !important;
+        z-index: 1 !important;
+    }
+    
+    .creeping-card.animate-in {
+        transform: translateY(0) scale(1) !important;
+    }
+    
+    .creeping-card-window,
+    .creeping-card-phone {
+        transform: translateY(40px) scale(0.95) !important;
+    }
+    
+    .creeping-card-window.animate-in,
+    .creeping-card-phone.animate-in {
+        transform: translateY(0) scale(1) !important;
+    }
+    
+    .creeping-card:hover {
+        transform: translateY(-4px) scale(1.01) !important;
+    }
+    
+    .hero-bg-svg {
+        opacity: 0.2;
+    }
+}
+
+@media (max-width: 480px) {
+    .creeping-cards-wrapper {
+        max-width: 300px;
+        gap: 0.75rem;
+    }
+    
+    .creeping-card {
+        max-width: 280px !important;
+    }
+}
+
+/* DaisyUI Mockup Component Enhancements */
+/* Ensure proper sizing and display of DaisyUI mockup components */
+
+
+/* Ensure mockup content is properly sized */
+.mockup-browser .mockup-browser-toolbar {
+    min-height: 40px;
+}
+
+.mockup-window > div:first-child {
+    min-height: 200px;
+}
+
+.mockup-phone .mockup-phone-display {
+    min-height: 300px;
+    overflow: hidden;
+}
+
+/* Add subtle shadows and depth to mockups */
+.creeping-card-browser {
+    filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.1));
+}
+
+.creeping-card-window {
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.08));
+}
+
+.creeping-card-phone {
+    filter: drop-shadow(0 6px 15px rgba(0, 0, 0, 0.06));
+}
+
+/* Enhanced hover effects with depth */
+.creeping-card:hover {
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .creeping-cards-wrapper,
+    .creeping-card {
+        transition: opacity 0.3s ease;
+        transform: translateY(0) scale(1) !important;
+    }
+
+    .creeping-cards-wrapper.animate-in,
+    .creeping-card.animate-in {
+        opacity: 1;
+    }
+
+    .hero-circles {
+        animation: none;
+    }
+}
+
+/* Enhanced progress bar styling for DaisyUI */
+.progress {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.progress-value {
+    height: 100%;
+    background: linear-gradient(90deg, currentColor 0%, currentColor 100%);
+    border-radius: inherit;
+    transform-origin: left;
+}
+
+/* Image slide positioning */
+.image-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.image-slide.active {
+    position: relative;
+    opacity: 1;
+}
+
+/* Nested tab enhancements */
+.nested-tabs-container .tab {
+    cursor: pointer;
+}
+
+.nested-tabs-container .tab:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Nested tab panel styling */
+.nested-tab-panel {
+    border-left: 4px solid currentColor !important;
+}
+
+/* Debug indicator (optional) */
+.debug-active::before {
+    content: "🔍 DEBUG MODE";
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: #ff4444;
+    color: white;
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+    z-index: 9999;
 }

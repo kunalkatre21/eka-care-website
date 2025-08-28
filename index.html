@@ -4,896 +4,877 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Stack for Modern Healthcare - Eka Care</title>
-    
-    <!-- 1. Link to Google Fonts -->
+
+    <!-- External Libraries -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- 2. Link to daisyUI + Tailwind CSS -->
+
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.2/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- 3. FontAwesome Premium Kit -->
-    <!-- Replace YOUR_KIT_CODE with your actual FontAwesome Premium kit code -->
     <script src="https://kit.fontawesome.com/e4f2af7764.js" crossorigin="anonymous"></script>
-    
-    <!-- 4. GSAP Library for animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
-    <!-- 5. Custom CSS for overrides -->
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
-        }
-        /* Use Figtree for headings and titles */
-        h1, h2, h3, h4, h5, h6, .text-2xl, .text-3xl, .text-4xl, .text-5xl, .text-6xl {
-            font-family: 'Figtree', sans-serif;
-        }
-        .btn {
-            text-transform: none; /* Keep button text in normal case */
-        }
-        /* Ensure dropdown opens on hover for desktop */
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
 
-        .tabs-boxed .tab {
-        border-radius: 9999px !important;
-        }
-
-        /* Enhanced Floating Cards Styles - Advanced 3D System */
-        .floating-cards-container {
-            perspective: 1500px;
-            perspective-origin: center center;
-            transform-style: preserve-3d;
-            position: relative;
-        }
-
-        .floating-card {
-            transform-style: preserve-3d;
-            backface-visibility: hidden;
-            will-change: transform, filter;
-            transition: transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
-            position: relative;
-        }
-
-        /* Advanced 3D depth layering system */
-        .floating-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: inherit;
-            border-radius: inherit;
-            filter: blur(20px);
-            opacity: 0.1;
-            transform: translateZ(-10px) scale(0.95);
-            z-index: -1;
-            transition: all 0.4s ease;
-        }
-
-        /* Enhanced individual card transforms with advanced depth layering */
-        .floating-card-1 {
-            transform: perspective(1500px) rotateY(-8deg) rotateX(5deg) translateZ(60px) scale(0.95);
-        }
-
-        .floating-card-2 {
-            transform: perspective(1500px) rotateY(12deg) rotateX(-3deg) translateZ(40px) scale(0.92);
-        }
-
-        .floating-card-3 {
-            transform: perspective(1500px) rotateY(-5deg) rotateX(8deg) translateZ(50px) scale(0.94);
-        }
-
-        .floating-card-4 {
-            transform: perspective(1500px) rotateY(15deg) rotateX(-5deg) translateZ(25px) scale(0.90);
-        }
-
-        .floating-card-5 {
-            transform: perspective(1500px) rotateY(-10deg) rotateX(4deg) translateZ(70px) scale(0.96);
-        }
-
-        .floating-card-6 {
-            transform: perspective(1500px) rotateY(8deg) rotateX(-2deg) translateZ(35px) scale(0.93);
-        }
-
-        .floating-card-7 {
-            transform: perspective(1500px) rotateY(-3deg) rotateX(6deg) translateZ(45px) scale(0.91);
-        }
-
-        /* Enhanced hover effects with depth */
-        .floating-card:hover::before {
-            opacity: 0.2;
-            transform: translateZ(-15px) scale(0.92);
-        }
-
-
-
-
-
-        /* Enhanced card transitions for smooth state changes */
-        .floating-card .card {
-            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
-            will-change: transform, box-shadow;
-        }
-
-        .floating-card .card-body {
-            transition: padding 0.3s ease, background-color 0.3s ease;
-        }
-
-        .floating-card .card-title {
-            transition: color 0.3s ease;
-        }
-
-        /* Smooth hover state preparation */
-        .floating-card:hover .card {
-            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
-        }
-
-        /* Background enhancement */
-        .hero.min-h-screen::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        /* Optimized responsive adjustments */
-        @media (max-width: 1024px) {
-            .floating-cards-container {
-                perspective: none;
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                gap: 1.5rem;
-                margin-top: 2rem;
-                max-width: 1100px;
-                margin-left: auto;
-                margin-right: auto;
-                padding: 0 1.5rem;
-                transform-style: flat;
-            }
-
-            .floating-card {
-                position: relative !important;
-                transform: none !important;
-                margin: 0;
-                width: 100% !important;
-                backface-visibility: visible;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-            }
-
-            .floating-card:hover {
-                transform: translateY(-4px) scale(1.02) !important;
-            }
-
-            .floating-card:hover .card {
-                box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .floating-cards-container {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-                padding: 0 1rem;
-                margin-top: 1.5rem;
-            }
-
-            .floating-card {
-                margin: 0.25rem 0;
-            }
-
-            .floating-card:hover {
-                transform: translateY(-2px) scale(1.01) !important;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .floating-cards-container {
-                padding: 0 0.75rem;
-                gap: 0.75rem;
-            }
-
-            .floating-card .card-body {
-                padding: 1rem;
-            }
-        }
-
-        /* Subtle entrance animation for content */
-        .hero-content {
-            animation: heroFadeIn 1.5s ease-out;
-        }
-        
-        /* Ensure CTA button is always visible */
-        .hero-content button {
-            position: relative;
-            z-index: 30;
-            visibility: visible !important;
-            height: auto;
-        }
-
-        /* Accessibility - Screen reader only content */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        .sr-only.focus:not-sr-only {
-            position: static;
-            width: auto;
-            height: auto;
-            padding: inherit;
-            margin: inherit;
-            overflow: visible;
-            clip: auto;
-            white-space: normal;
-        }
-
-        /* Focus indicators for better keyboard navigation */
-        .btn:focus-visible,
-        .card:focus-visible,
-        a:focus-visible {
-            outline: 2px solid #3b82f6;
-            outline-offset: 2px;
-        }
-
-        /* Reduced motion support */
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-                scroll-behavior: auto !important;
-            }
-
-            .floating-card {
-                transform: none !important;
-                transition: none !important;
-            }
-
-            .hero-content {
-                animation: none !important;
-            }
-
-            .logo-track {
-                animation: none !important;
-            }
-
-            /* Disable GSAP animations for reduced motion */
-            .floating-cards-container {
-                perspective: none !important;
-            }
-
-            .floating-card {
-                transform: none !important;
-                animation: none !important;
-            }
-        }
-
-        @keyframes heroFadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Logo scroll container - GSAP controlled */
-        .logo-scroll-container {
-            width: max-content;
-            position: relative;
-        }
-
-        /* Fix tooltip z-index for logo scroller */
-        .logo-scroll-container .tooltip {
-            z-index: 20 !important;
-        }
-        
-        /* Enhanced gradient fade edges */
-        .logo-scroll-container::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 40px;
-            background: linear-gradient(to right, rgba(249, 250, 251, 1) 0%, rgba(249, 250, 251, 0.9) 40%, rgba(249, 250, 251, 0) 100%);
-            z-index: 10;
-            pointer-events: none;
-        }
-        
-        .logo-scroll-container::after {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            width: 40px;
-            background: linear-gradient(to left, rgba(249, 250, 251, 1) 0%, rgba(249, 250, 251, 0.9) 40%, rgba(249, 250, 251, 0) 100%);
-            z-index: 10;
-            pointer-events: none;
-        }
-        
-        /* Responsive gradient edges */
-        @media (max-width: 768px) {
-            .logo-scroll-container::before,
-            .logo-scroll-container::after {
-                width: 20px;
-            }
-        }
-    </style>
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="components/shared-styles.css">
 </head>
 <body>
-    <!-- Skip to main content link for accessibility -->
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded-md z-50" aria-label="Skip to main content">
-        Skip to main content
-    </a>
+    <!-- Header Component Placeholder -->
+    <div id="header-placeholder"></div>
 
-    <!-- Main Wrapper -->
-    <div class="bg-white">
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <!-- Hero Section with SVG Background and Creeping Product Cards -->
+        <section class="hero min-h-screen hero-bg-theme" aria-labelledby="hero-heading" role="banner">
+            <!-- Theme-configurable SVG Background -->
+            <div class="absolute inset-0 hero-bg-svg opacity-30" role="presentation" aria-hidden="true">
+                <svg class="w-full h-full object-cover" viewBox="0 0 1440 943" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_6692_4067)">
+                        <rect width="1440" height="943" class="fill-base-100"/>
+                        <g class="hero-circles">
+                            <circle cx="719.392" cy="844.662" r="717.264" transform="rotate(90.2201 719.392 844.662)" stroke="url(#paint0_linear_6692_4067)" stroke-width="1.22166"/>
+                            <circle cx="719.589" cy="793.386" r="665.987" transform="rotate(90.2201 719.589 793.386)" stroke="url(#paint1_linear_6692_4067)" stroke-width="1.22166"/>
+                            <circle cx="719.984" cy="690.849" r="563.434" transform="rotate(90.2201 719.984 690.849)" stroke="url(#paint2_linear_6692_4067)" stroke-width="1.22166"/>
+                            <circle cx="720.18" cy="639.572" r="512.157" transform="rotate(90.2201 720.18 639.572)" stroke="url(#paint3_linear_6692_4067)" stroke-width="1.22166"/>
+                            <circle cx="720.377" cy="588.295" r="460.88" transform="rotate(90.2201 720.377 588.295)" stroke="url(#paint4_linear_6692_4067)" stroke-width="1.22166"/>
+                            <circle cx="720.577" cy="537.019" r="409.604" transform="rotate(90.2201 720.577 537.019)" stroke="url(#paint5_linear_6692_4067)" stroke-width="1.22166"/>
+                            <circle cx="720.774" cy="485.744" r="358.327" transform="rotate(90.2201 720.774 485.744)" stroke="url(#paint6_linear_6692_4067)" stroke-width="1.22166"/>
+                            <circle cx="719.787" cy="742.125" r="614.711" transform="rotate(90.2201 719.787 742.125)" stroke="url(#paint7_linear_6692_4067)" stroke-width="1.22166"/>
+                        </g>
+                    </g>
+                    <defs>
+                        <linearGradient id="paint0_linear_6692_4067" x1="-10.1599" y1="814.201" x2="1251.96" y2="811.662" gradientUnits="userSpaceOnUse">
+                            <stop class="hero-gradient-start"/>
+                            <stop offset="1" class="hero-gradient-end" stop-opacity="0"/>
+                        </linearGradient>
+                        <linearGradient id="paint1_linear_6692_4067" x1="42.1481" y1="765.101" x2="1214.12" y2="762.744" gradientUnits="userSpaceOnUse">
+                            <stop class="hero-gradient-start"/>
+                            <stop offset="1" class="hero-gradient-end" stop-opacity="0"/>
+                        </linearGradient>
+                        <linearGradient id="paint2_linear_6692_4067" x1="146.765" y1="666.915" x2="1138.43" y2="664.92" gradientUnits="userSpaceOnUse">
+                            <stop class="hero-gradient-start"/>
+                            <stop offset="1" class="hero-gradient-end" stop-opacity="0"/>
+                        </linearGradient>
+                        <linearGradient id="paint3_linear_6692_4067" x1="199.072" y1="617.814" x2="1100.59" y2="616.001" gradientUnits="userSpaceOnUse">
+                            <stop class="hero-gradient-start"/>
+                            <stop offset="1" class="hero-gradient-end" stop-opacity="0"/>
+                        </linearGradient>
+                        <linearGradient id="paint4_linear_6692_4067" x1="251.379" y1="568.713" x2="1062.74" y2="567.081" gradientUnits="userSpaceOnUse">
+                            <stop class="hero-gradient-start"/>
+                            <stop offset="1" class="hero-gradient-end" stop-opacity="0"/>
+                        </linearGradient>
+                        <linearGradient id="paint5_linear_6692_4067" x1="303.69" y1="519.613" x2="1024.9" y2="518.162" gradientUnits="userSpaceOnUse">
+                            <stop class="hero-gradient-start"/>
+                            <stop offset="1" class="hero-gradient-end" stop-opacity="0"/>
+                        </linearGradient>
+                        <linearGradient id="paint6_linear_6692_4067" x1="355.998" y1="470.513" x2="987.058" y2="469.244" gradientUnits="userSpaceOnUse">
+                            <stop class="hero-gradient-start"/>
+                            <stop offset="1" class="hero-gradient-end" stop-opacity="0"/>
+                        </linearGradient>
+                        <linearGradient id="paint7_linear_6692_4067" x1="94.4569" y1="716.016" x2="1176.27" y2="713.84" gradientUnits="userSpaceOnUse">
+                            <stop class="hero-gradient-start"/>
+                            <stop offset="1" class="hero-gradient-end" stop-opacity="0"/>
+                        </linearGradient>
+                        <clipPath id="clip0_6692_4067">
+                            <rect width="1440" height="943" fill="white"/>
+                        </clipPath>
+                    </defs>
+                </svg>
+            </div>
 
-        <!-- Header -->
-        <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50" role="banner">
-            <div class="container mx-auto navbar px-4">
-                <div class="navbar-start">
-                    <!-- Mobile dropdown -->
-                    <div class="dropdown" role="navigation" aria-label="Mobile navigation">
-                        <label tabindex="0" class="btn btn-ghost lg:hidden" aria-label="Open mobile menu" aria-expanded="false" aria-haspopup="true">
-                            <i class="fas fa-bars h-5 w-5" aria-hidden="true"></i>
-                        </label>
-                        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52" role="menu" aria-label="Mobile menu items">
-                            <li>
-                                <details>
-                                    <summary aria-label="Product suite menu" aria-expanded="false">Product suite</summary>
-                                    <ul class="p-2" role="menu">
-                                        <li role="menuitem"><a href="emr.html" aria-label="Electronic Medical Records system">Eka EMR</a></li>
-                                        <li role="menuitem"><a href="scribe.html" aria-label="AI-powered medical scribe">Eka Scribe</a></li>
-                                        <li role="menuitem"><a href="phr.html" aria-label="Personal Health Records platform">Eka PHR</a></li>
-                                    </ul>
-                                </details>
-                            </li>
-                            <li>
-                                <details>
-                                    <summary aria-label="Solutions menu" aria-expanded="false">Solutions</summary>
-                                    <ul class="p-2" role="menu">
-                                        <li role="menuitem"><a href="#" aria-label="Artificial Intelligence healthcare solutions">Health AI</a></li>
-                                        <li role="menuitem"><a href="#" aria-label="Health assessment tools">Assessment</a></li>
-                                        <li role="menuitem"><a href="#" aria-label="Medical documentation assistant">EkaScribe</a></li>
-                                        <li role="menuitem"><a href="#" aria-label="Medical document parsing service">Medical Document Parsing</a></li>
-                                        <li role="menuitem"><a href="#" aria-label="Doctor productivity tools">Doctor Tool</a></li>
-                                        <li role="menuitem"><a href="#" aria-label="Ayushman Bharat Digital Mission integration">ABDM Connect</a></li>
-                                        <li role="menuitem"><a href="#" aria-label="Medical knowledge database">Medical Knowledge Base</a></li>
-                                        <li role="menuitem"><a href="#" aria-label="Medical records management">Medical Records</a></li>
-                                        <li role="menuitem"><a href="#" aria-label="Patient mobile application">User App</a></li>
-                                        <li role="menuitem"><a href="#" aria-label="Health assessment quiz">Health Quiz</a></li>
-                                        <li role="menuitem"><a href="#" aria-label="Medication search and information">Medication Search</a></li>
-                                        <li role="menuitem"><a href="#" aria-label="Appointment scheduling system">Appointments Management</a></li>
-                                        <li role="menuitem"><a href="#" aria-label="Patient management applications">Patient Management Apps</a></li>
-                                    </ul>
-                                </details>
-                            </li>
-                            <li role="menuitem"><a href="#" aria-label="View pricing information">Pricing</a></li>
-                            <li role="menuitem"><a href="#" aria-label="Read our blog posts">Blogs</a></li>
-                            <li role="menuitem"><a href="#" aria-label="Request a product demonstration">Request a demo</a></li>
-                        </ul>
-                    </div>
-                    <!-- Logo -->
-                    <a href="index.html" class="btn btn-ghost text-xl p-0 h-auto" aria-label="Homepage">
-                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68ad4ddd03888c7fc6b9b036_eka-black-logo.svg" alt="Eka.care Prioritize Health" class="h-10">
-                    </a>
-                </div>
-                <nav class="navbar-center hidden lg:flex" role="navigation" aria-label="Main navigation">
-                    <ul class="menu menu-horizontal px-1 font-medium">
-                        <li>
-                            <details role="menu" aria-label="Product suite navigation">
-                                <summary aria-label="Product suite menu" aria-expanded="false" aria-haspopup="true">Product suite</summary>
-                                <ul class="p-2 bg-base-100 shadow rounded-box w-48 z-10" role="menu">
-                                    <li role="menuitem"><a href="emr.html" aria-label="Electronic Medical Records system">Eka EMR</a></li>
-                                    <li role="menuitem"><a href="scribe.html" aria-label="AI-powered medical scribe">Eka Scribe</a></li>
-                                    <li role="menuitem"><a href="phr.html" aria-label="Personal Health Records platform">Eka PHR</a></li>
-                                </ul>
-                            </details>
-                        </li>
-                        <li>
-                             <details role="menu" aria-label="Solutions navigation">
-                                <summary aria-label="Solutions menu" aria-expanded="false" aria-haspopup="true">Solutions</summary>
-                                <ul class="p-2 bg-base-100 shadow rounded-box w-64 z-10 menu" role="menu">
-                                    <li role="presentation"><h2 class="menu-title text-gray-400">Health AI</h2></li>
-                                    <li role="menuitem"><a href="#" aria-label="Health assessment tools">Assessment</a></li>
-                                    <li role="menuitem"><a href="#" aria-label="Medical documentation assistant">EkaScribe</a></li>
-                                    <li class="my-1 h-px bg-gray-100" role="separator" aria-hidden="true"></li>
-                                    <li role="presentation"><h2 class="menu-title text-gray-400">General tools</h2></li>
-                                    <li role="menuitem"><a href="#" aria-label="Medical document parsing service">Medical Document Parsing</a></li>
-                                    <li role="menuitem"><a href="#" aria-label="Doctor productivity tools">Doctor Tool</a></li>
-                                    <li role="menuitem"><a href="#" aria-label="Ayushman Bharat Digital Mission integration">ABDM Connect</a></li>
-                                    <li role="menuitem"><a href="#" aria-label="Medical knowledge database">Medical Knowledge Base</a></li>
-                                    <li role="menuitem"><a href="#" aria-label="Medical records management">Medical Records</a></li>
-                                    <li role="menuitem"><a href="#" aria-label="Patient mobile application">User App</a></li>
-                                    <li class="my-1 h-px bg-gray-100" role="separator" aria-hidden="true"></li>
-                                    <li role="presentation"><h2 class="menu-title text-gray-400">Examples</h2></li>
-                                    <li role="menuitem"><a href="#" aria-label="Health assessment quiz">Health Quiz</a></li>
-                                    <li role="menuitem"><a href="#" aria-label="Medication search and information">Medication Search</a></li>
-                                    <li role="menuitem"><a href="#" aria-label="Appointment scheduling system">Appointments Management</a></li>
-                                    <li role="menuitem"><a href="#" aria-label="Patient management applications">Patient Management Apps</a></li>
-                                </ul>
-                            </details>
-                        </li>
-                        <li role="menuitem"><a href="#" aria-label="View pricing information">Pricing</a></li>
-                        <li role="menuitem"><a href="#" aria-label="Read our blog posts">Blogs</a></li>
-                        <li role="menuitem"><a href="#" aria-label="Request a product demonstration">Request a demo</a></li>
-                    </ul>
-                </nav>
-                <div class="navbar-end space-x-2">
-                                    <a href="#" class="btn btn-outline btn-neutral px-6 hidden sm:inline-flex" aria-label="Log in to your account">Log in</a>
-                <a href="#" class="btn btn-primary px-6" aria-label="Get started with Eka Care">Get started</a>
+            <!-- Hero Content -->
+            <div class="hero-content text-center relative z-20">
+                <div class="max-w-4xl">
+                    <h1 id="hero-heading" class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-gray-500 mb-6">
+                        <span class="text-gray-900">AI Stack</span> for Modern Healthcare
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-12" role="complementary" aria-describedby="hero-description">
+                        Build, scale and personalise <span class="text-gray-900 font-bold">healthcare solutions</span> across apps, clinics, hospitals and systems, on a platform powered end-to-end with Gen-AI and structured health data.
+                    </p>
+                    <button class="btn btn-neutral btn-lg rounded-lg border-outline-pulse px-6" aria-label="Get started with Eka Care platform">
+                        Get started
+                        <i class="fas fa-arrow-right ml-2" aria-hidden="true"></i>
+                    </button>
                 </div>
             </div>
-        </header>
 
-        <main role="main" id="main-content">
-            <!-- Hero Section with Floating UI Cards -->
-            <section class="hero min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden" aria-labelledby="hero-heading" role="banner">
-                <div class="hero-content text-center relative z-20">
-                    <div class="max-w-4xl">
-                        <h1 id="hero-heading" class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-gray-500 mb-6">
-                            <span class="text-gray-900">AI Stack</span> for Modern Healthcare
-                        </h1>
-                        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-12" role="complementary" aria-describedby="hero-description">
-                            Build, scale and personalise <span class="text-gray-900 font-bold">healthcare solutions</span> across apps, clinics, hospitals and systems, on a platform powered end-to-end with Gen-AI and structured health data.
-                        </p>
-                        <button class="btn btn-primary btn-lg shadow-lg hover:shadow-xl transition-all duration-300" aria-label="Get started with Eka Care platform">
-                            Get started
-                            <i class="fas fa-arrow-right ml-2" aria-hidden="true"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Floating UI Cards -->
-                <div class="floating-cards-container absolute inset-0 pointer-events-none z-10" role="presentation" aria-hidden="true">
-                    <!-- Eka PHR Card (Top Right) -->
-                    <div class="floating-card floating-card-1 absolute" style="top: 15%; right: 8%; width: 320px;" tabindex="-1">
-                        <div class="card bg-base-100 shadow-2xl border border-gray-100/50" role="article" aria-label="Personal Health Record Demo - Mike's health data">
-                            <div class="card-body p-6">
-                                <header class="flex items-center justify-between mb-4">
-                                    <div class="flex items-center gap-3">
-                                        <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center" role="img" aria-label="User avatar">
-                                            <i class="fas fa-user text-white text-sm" aria-hidden="true"></i>
+            <!-- Creeping Product Cards from Bottom -->
+            <div class="creeping-cards-container" role="presentation" aria-hidden="true">
+                <div class="creeping-cards-wrapper">
+                    <!-- Eka EMR Card - Browser Mockup (Largest) -->
+                    <div class="mockup-browser border border-base-300 bg-base-300 creeping-card creeping-card-browser">
+                        <div class="mockup-browser-toolbar">
+                            <div class="input border border-base-300">Eka EMR Dashboard</div>
+                        </div>
+                        <div class="flex justify-center bg-base-200 px-4 py-6">
+                            <!-- EMR Interface Preview -->
+                            <div class="w-full max-w-sm">
+                                <!-- Header -->
+                                <div class="navbar bg-blue-600 text-white rounded-t-lg px-4 py-2">
+                                    <div class="navbar-start">
+                                        <i class="fas fa-hospital fa-sm"></i>
+                                        <span class="ml-2 text-sm font-semibold">Patient Dashboard</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Stats -->
+                                <div class="stats stats-horizontal shadow-sm rounded-none border-x border-base-300">
+                                    <div class="stat py-2 px-3">
+                                        <div class="stat-value text-lg text-blue-600">24</div>
+                                        <div class="stat-desc text-xs">Today</div>
+                                    </div>
+                                    <div class="stat py-2 px-3">
+                                        <div class="stat-value text-lg text-green-600">18</div>
+                                        <div class="stat-desc text-xs">Done</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Patient List -->
+                                <div class="bg-base-100 border-x border-b border-base-300 p-3 rounded-b-lg">
+                                    <div class="flex items-center gap-2 p-2 bg-base-200 rounded mb-2">
+                                        <div class="avatar placeholder">
+                                            <div class="bg-blue-500 text-white rounded-full w-6 h-6 text-xs">J</div>
                                         </div>
-                                        <span class="font-semibold text-gray-800">Mike</span>
-                                    </div>
-                                    <div class="text-xs text-gray-500">Eka PHR</div>
-                                </header>
-                                <div class="space-y-3" role="list" aria-label="Health vitals">
-                                    <div class="flex items-center justify-between" role="listitem">
-                                        <span class="text-sm text-gray-600">Heart Rate</span>
-                                        <span class="text-sm font-semibold text-red-600">78 BPM</span>
-                                    </div>
-                                    <div class="flex items-center justify-between" role="listitem">
-                                        <span class="text-sm text-gray-600">Blood Pressure</span>
-                                        <span class="text-sm font-semibold text-green-600">120/80</span>
-                                    </div>
-                                    <div class="flex items-center justify-between" role="listitem">
-                                        <span class="text-sm text-gray-600">Weight</span>
-                                        <span class="text-sm font-semibold text-blue-600">75 kg</span>
-                                    </div>
-                                    <div class="mt-4 p-3 bg-green-50 rounded-xl" role="status" aria-live="polite">
-                                        <div class="text-xs text-green-700 font-medium">Health Score: 85/100</div>
-                                        <div class="text-xs text-green-600 mt-1">All vitals normal</div>
+                                        <div class="flex-1">
+                                            <div class="text-xs font-medium">John Doe</div>
+                                            <div class="text-xs text-base-content/60">10:30 AM</div>
+                                        </div>
+                                        <div class="badge badge-success badge-xs">Active</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Eka EMR Card (Left Side) -->
-                    <div class="floating-card floating-card-2 absolute" style="top: 25%; left: 5%; width: 360px;">
-                        <div class="card bg-base-100 shadow-2xl border border-gray-100/50">
-                            <div class="card-body p-6">
-                                <div class="flex items-center justify-between mb-4">
-                                    <h3 class="card-title text-lg font-bold text-gray-800">Patient Dashboard</h3>
-                                    <div class="text-xs text-blue-600 font-medium">Eka EMR</div>
-                                </div>
-                                <div class="space-y-4">
-                                    <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
-                                        <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
-                                            <i class="fas fa-user-injured text-white"></i>
-                                        </div>
-                                        <div>
-                                            <div class="font-semibold text-gray-800">Sarah Johnson</div>
-                                            <div class="text-xs text-gray-600">Last visit: 2 days ago</div>
-                                        </div>
-                                        <div class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">
-                                            Active
-                                        </div>
-                                    </div>
-                                    <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
-                                        <div class="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center">
-                                            <i class="fas fa-user-injured text-white"></i>
-                                        </div>
-                                        <div>
-                                            <div class="font-semibold text-gray-800">David Chen</div>
-                                            <div class="text-xs text-gray-600">Next appointment: Today 3PM</div>
-                                        </div>
-                                        <div class="ml-auto text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">
-                                            Pending
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Eka Scribe Card (Right Side, Lower) -->
-                    <div class="floating-card floating-card-3 absolute" style="top: 55%; right: 12%; width: 300px;">
-                        <div class="card bg-base-100 shadow-2xl border border-gray-100/50">
-                            <div class="card-body p-6">
-                                <div class="flex items-center justify-between mb-4">
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center animate-pulse">
-                                            <i class="fas fa-microphone text-white text-sm"></i>
-                                        </div>
-                                        <span class="text-sm font-medium text-gray-700">Recording...</span>
-                                    </div>
-                                    <div class="text-xs text-red-600 font-medium">Eka Scribe</div>
-                                </div>
-                                <div class="bg-gray-50 p-4 rounded-xl mb-4">
-                                    <div class="text-sm text-gray-700 mb-2">
-                                        "Patient presents with chronic back pain..."
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <div class="flex gap-1">
-                                            <div class="w-2 h-2 bg-red-500 rounded-full animate-bounce"></div>
-                                            <div class="w-2 h-2 bg-red-500 rounded-full animate-bounce" style="animation-delay: 0.1s;"></div>
-                                            <div class="w-2 h-2 bg-red-500 rounded-full animate-bounce" style="animation-delay: 0.2s;"></div>
-                                        </div>
-                                        <span class="text-xs text-gray-500">Transcribing</span>
-                                    </div>
-                                </div>
-                                <div class="text-xs text-gray-600 flex items-center justify-between">
-                                    <span>00:15</span>
-                                    <span>Auto-generate Rx</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Dev Portal Card (Bottom Left) -->
-                    <div class="floating-card floating-card-4 absolute" style="top: 65%; left: 8%; width: 350px;">
-                        <div class="card bg-base-100 shadow-2xl border border-gray-100/50">
-                            <div class="card-body p-6">
-                                <div class="flex items-center justify-between mb-4">
-                                    <h3 class="card-title text-lg font-bold text-gray-800">Developer Portal</h3>
-                                    <div class="text-xs text-gray-600 font-medium">API Dashboard</div>
-                                </div>
-                                <div class="space-y-3">
-                                    <div class="flex items-center justify-between">
-                                        <span class="text-sm text-gray-600">API Calls Today</span>
-                                        <span class="text-sm font-bold text-blue-600">2.5K</span>
-                                    </div>
-                                    <div class="flex items-center justify-between">
-                                        <span class="text-sm text-gray-600">Response Time</span>
-                                        <span class="text-sm font-bold text-green-600">45ms</span>
-                                    </div>
-                                    <div class="bg-gray-50 p-3 rounded-xl">
-                                        <code class="text-xs text-gray-700">
-                                            GET /api/v1/patients<br>
-                                            <span class="text-green-600">200 OK</span> - 12ms
-                                        </code>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Bank Selection Card (Top Left) -->
-                    <div class="floating-card floating-card-5 absolute" style="top: 8%; left: 15%; width: 280px;">
-                        <div class="card bg-base-100 shadow-2xl border border-gray-100/50">
-                            <div class="card-body p-5">
-                                <div class="text-center mb-4">
-                                    <div class="text-sm text-gray-600 mb-2">Select your bank</div>
-                                    <div class="flex justify-center gap-3">
-                                        <div class="w-12 h-8 bg-blue-600 rounded flex items-center justify-center">
-                                            <span class="text-white text-xs font-bold">R</span>
-                                        </div>
-                                        <div class="w-12 h-8 bg-red-600 rounded flex items-center justify-center">
-                                            <span class="text-white text-xs font-bold">A</span>
-                                        </div>
-                                        <div class="w-12 h-8 bg-blue-800 rounded flex items-center justify-center">
-                                            <span class="text-white text-xs">citi</span>
-                                        </div>
-                                        <div class="w-12 h-8 bg-red-500 rounded flex items-center justify-center">
-                                            <span class="text-white text-xs">XX</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Payment Authorization Card (Bottom Right) -->
-                    <div class="floating-card floating-card-6 absolute" style="bottom: 15%; right: 5%; width: 300px;">
-                        <div class="card bg-base-100 shadow-2xl border border-gray-100/50">
-                            <div class="card-body p-5">
-                                <div class="text-center">
-                                    <div class="text-lg font-bold text-gray-800 mb-2">₹75.00</div>
-                                    <div class="text-sm text-gray-600 mb-4">Authorize payment</div>
-                                    <div class="space-y-2 text-xs text-gray-500">
-                                        <div>Amount: ₹75.00</div>
-                                        <div>Recipient: HealthcareStore</div>
-                                        <div>Sort code: 95-70-41</div>
-                                        <div>Account number: 12566391</div>
-                                    </div>
-                                    <div class="card-actions justify-center mt-4">
-                                        <button class="btn w-full bg-gray-900 text-white rounded-xl text-sm font-medium">
-                                            <i class="fas fa-check"></i>
-                                            CONFIRM
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Success Transaction Card -->
-                    <div class="floating-card floating-card-7 absolute" style="bottom: 25%; right: 25%; width: 200px;">
-                        <div class="card bg-purple-100 shadow-xl border border-purple-200">
-                            <div class="card-body p-4 text-center">
-                                <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-2">
-                                    <i class="fas fa-check text-white"></i>
-                                </div>
-                                <h3 class="card-title text-sm font-bold text-purple-800">Successful</h3>
-                                <p class="text-sm text-purple-700">Transaction</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Trust indicators at bottom -->
-                <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 w-full max-w-6xl">
-                            <p class="text-sm text-gray-500 mb-6 text-center">Trusted by leading healthcare organizations</p>
                     
-                    <!-- Auto-scrolling logos with gradient fade -->
-                    <div class="relative w-full overflow-hidden">
-                        <!-- Gradient fade edges -->
-                        <div class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-gray-50 via-gray-50/80 to-transparent z-10 pointer-events-none"></div>
-                        <div class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-gray-50 via-gray-50/80 to-transparent z-10 pointer-events-none"></div>
-                        
-                        <!-- Scrolling container -->
-                        <div class="logo-scroll-container flex items-center gap-20 py-4">
-                            <!-- First set of logos -->
-                            <div class="flex items-center gap-20 logo-track">
-                                <div class="tooltip tooltip-bottom flex-shrink-0" data-tip="Medanta">
-                                    <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a409a682bd3dc48a9f09_medanta.webp" alt="Medanta" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy">
+                    <!-- Eka Scribe Card - Window Mockup (Medium) -->
+                    <div class="mockup-window border border-base-300 bg-base-300 creeping-card creeping-card-window">
+                        <div class="flex justify-center bg-base-200 px-4 py-6">
+                            <!-- Scribe Interface Preview -->
+                            <div class="w-full max-w-xs">
+                                <!-- Header -->
+                                <div class="navbar bg-red-500 text-white rounded-t-lg px-3 py-2 min-h-0">
+                                    <div class="navbar-start">
+                                        <i class="fas fa-microphone text-sm animate-pulse"></i>
+                                        <span class="ml-2 text-sm font-semibold">Voice Scribe</span>
+                                    </div>
                                 </div>
-                                <div class="tooltip tooltip-bottom flex-shrink-0" data-tip="AWS">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy">
+                                
+                                <!-- Recording Status -->
+                                <div class="bg-red-50 p-3 border-x border-base-300">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <div class="flex items-center gap-1">
+                                            <div class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                                            <span class="text-xs text-red-700 font-medium">Recording</span>
+                                        </div>
+                                        <span class="text-xs font-mono text-red-600">00:42</span>
+                                    </div>
+                                    <progress class="progress progress-error w-full h-1" value="60" max="100"></progress>
                                 </div>
-                                <div class="tooltip tooltip-bottom flex-shrink-0" data-tip="Samsung">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy">
+                                
+                                <!-- Transcription -->
+                                <div class="bg-base-100 border-x border-b border-base-300 rounded-b-lg p-3">
+                                    <div class="chat chat-start">
+                                        <div class="chat-bubble chat-bubble-primary text-xs">
+                                            "Patient presents with chest pain..."
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-1 mt-2">
+                                        <div class="badge badge-info badge-xs">Chest pain</div>
+                                        <div class="badge badge-success badge-xs">ECG</div>
+                                    </div>
                                 </div>
-                                <div class="tooltip tooltip-bottom flex-shrink-0" data-tip="NHA">
-                                    <img src="https://ehealth.eletsonline.com/wp-content/uploads/2021/11/National-Health-Authority-NHA.jpg" alt="NHA" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy">
-                                </div>
-                                <div class="tooltip tooltip-bottom flex-shrink-0" data-tip="HealthLand">
-                                    <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a4094eb16d20c1eb7829_healthland.webp" alt="HealthLand" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy">
-                                </div>
-                                <div class="tooltip tooltip-bottom flex-shrink-0" data-tip="Gynoveda">
-                                    <img src="https://gynoveda-production.s3.ap-south-1.amazonaws.com/logos/logo-black-front.png" alt="Gynoveda" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy">
-                                </div>
-                                <div class="tooltip tooltip-bottom flex-shrink-0" data-tip="Idrishti">
-                                    <img src="https://media.licdn.com/dms/image/v2/C560BAQGko0Gq_cwm9Q/company-logo_200_200/company-logo_200_200/0/1640072327484?e=2147483647&v=beta&t=FrtvNM2dcQwIBC7JgvzsxHRDb7_rtURT3PmVAXx7teE" alt="Idrishti" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy">
-                                </div>
-                                <div class="tooltip tooltip-bottom flex-shrink-0" data-tip="Metropolis">
-                                    <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a4099129dbee28c888a7_metropolis.webp" alt="Metropolis" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy">
                             </div>
                         </div>
-                            
-                            <!-- Duplicate set for seamless loop -->
-                            <div class="flex items-center gap-20 logo-track">
-                                <div class="tooltip tooltip-bottom flex-shrink-0" data-tip="Medanta">
-                                    <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a409a682bd3dc48a9f09_medanta.webp" alt="Medanta" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy">
                     </div>
-                                <div class="tooltip tooltip-bottom flex-shrink-0" data-tip="AWS">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy">
+                    
+                    <!-- Eka PHR Card - Phone Mockup (Smallest) -->
+                    <div class="mockup-phone border-primary creeping-card creeping-card-phone rounded-xl">
+                        <div class="mockup-phone-camera"></div>
+                        <div class="mockup-phone-display rounded-xl">
+                            <!-- PHR App Interface -->
+                            <div class="w-full h-full flex flex-col bg-base-100" style="min-height: inherit;">
+                                <!-- Header -->
+                                <div class="navbar bg-green-500 text-white px-3 py-2 min-h-0">
+                                    <div class="navbar-start">
+                                        <i class="fas fa-heart text-sm"></i>
+                                        <span class="ml-2 text-sm font-semibold">Health Dashboard</span>
+                                    </div>
                                 </div>
-                                <div class="tooltip tooltip-bottom flex-shrink-0" data-tip="Samsung">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy">
+                                
+                                <!-- Health Score -->
+                                <div class="bg-green-50 p-3 flex items-center justify-between">
+                                    <div>
+                                        <div class="text-xs text-green-700">Health Score</div>
+                                        <div class="text-lg font-bold text-green-600">85/100</div>
+                                    </div>
+                                    <div class="radial-progress text-green-500 text-xs" style="--value:85; --size:3rem;">85</div>
                                 </div>
-                                <div class="tooltip tooltip-bottom flex-shrink-0" data-tip="NHA">
-                                    <img src="https://ehealth.eletsonline.com/wp-content/uploads/2021/11/National-Health-Authority-NHA.jpg" alt="NHA" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy">
-                                </div>
-                                <div class="tooltip tooltip-bottom flex-shrink-0" data-tip="HealthLand">
-                                    <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a4094eb16d20c1eb7829_healthland.webp" alt="HealthLand" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy">
-                                </div>
-                                <div class="tooltip tooltip-bottom flex-shrink-0" data-tip="Gynoveda">
-                                    <img src="https://gynoveda-production.s3.ap-south-1.amazonaws.com/logos/logo-black-front.png" alt="Gynoveda" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy">
-                                </div>
-                                <div class="tooltip tooltip-bottom flex-shrink-0" data-tip="Idrishti">
-                                    <img src="https://media.licdn.com/dms/image/v2/C560BAQGko0Gq_cwm9Q/company-logo_200_200/company-logo_200_200/0/1640072327484?e=2147483647&v=beta&t=FrtvNM2dcQwIBC7JgvzsxHRDb7_rtURT3PmVAXx7teE" alt="Idrishti" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy">
-                                </div>
-                                <div class="tooltip tooltip-bottom flex-shrink-0" data-tip="Metropolis">
-                                    <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a4099129dbee28c888a7_metropolis.webp" alt="Metropolis" class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy">
+                                
+                                <!-- Vitals -->
+                                <div class="p-3 space-y-2 flex-1">
+                                    <div class="flex items-center justify-between p-2 bg-base-200 rounded">
+                                        <div class="flex items-center gap-2">
+                                            <i class="fas fa-heartbeat text-red-500 text-xs"></i>
+                                            <span class="text-xs">Heart Rate</span>
+                                        </div>
+                                        <span class="text-xs font-bold text-red-600">72 BPM</span>
+                                    </div>
+                                    <div class="flex items-center justify-between p-2 bg-base-200 rounded">
+                                        <div class="flex items-center gap-2">
+                                            <i class="fas fa-weight text-blue-500 text-xs"></i>
+                                            <span class="text-xs">Weight</span>
+                                        </div>
+                                        <span class="text-xs font-bold text-blue-600">68 kg</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Product Cards Section -->
-            <section class="py-16 bg-white">
-                <div class="container mx-auto px-4">
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div class="bg-gray-50 p-8 rounded-3xl flex flex-col"><div class="flex items-center gap-2 mb-4"><i class="fas fa-hospital-user text-blue-600 text-xl"></i><span class="font-medium text-gray-600">Eka EMR</span></div><h3 class="text-2xl font-bold">The modern clinic OS. Powered by AI</h3><p class="text-gray-500 mt-2 mb-6 flex-grow">For Clinics/Hospitals</p><a class="btn btn-primary self-start">Get started - free for 30 days</a></div>
-                        <div class="bg-gray-50 p-8 rounded-3xl flex flex-col"><div class="flex items-center gap-2 mb-4"><i class="fas fa-user-md text-blue-600 text-xl"></i><span class="font-medium text-gray-600">Eka PHR</span></div><h3 class="text-2xl font-bold">Your health, all in one place.</h3><p class="text-gray-500 mt-2 mb-6 flex-grow">For Patients</p><a class="btn btn-secondary self-start">Learn more</a></div>
-                        <div class="bg-gray-50 p-8 rounded-3xl flex flex-col"><div class="flex items-center gap-2 mb-4"><i class="fas fa-microphone text-blue-600 text-xl"></i><span class="font-medium text-gray-600">Eka Scribe</span></div><h3 class="text-2xl font-bold">From voice to prescription. Instantly.</h3><p class="text-gray-500 mt-2 mb-6 flex-grow">For Doctors</p><a class="btn btn-accent self-start">Get started - free credits</a></div>
+        <!-- Product Cards Section -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Eka EMR Card (already cropped - keeping as is) -->
+                    <div class="card bg-base-100 border border-gray-100">
+                        <div class="card-body pl-8 pt-8 pr-0 pb-0">
+                            <h3 class="card-title text-xl font-bold mb-2">The modern clinic OS. Powered by AI</h3>
+                            <p class="text-gray-600 text-sm mb-4" style="height: 18px;">For Clinics/Hospitals</p>
+                            <div class="card-actions justify-start">
+                                <a class="btn btn-primary bg-blue-600 border-blue-600 hover:bg-blue-700">Get started - free for 30 days</a>
+                            </div>
+                            <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                                <div class="overflow-hidden rounded-md border border-gray-200 h-48 relative">
+                                    <!-- EMR App Header -->
+                                    <div class="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+                                                <i class="fas fa-hospital text-white text-sm" aria-hidden="true"></i>
+                                            </div>
+                                            <div>
+                                                <div class="text-white font-bold text-base">Eka EMR</div>
+                                                <div class="text-white/80 text-xs">Electronic Medical Records</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Cropped Interface Preview -->
+                                    <div class="bg-white">
+                                        <!-- Dashboard Stats - Simplified -->
+                                        <div class="bg-blue-50 px-6 py-3 border-b border-blue-100">
+                                            <div class="grid grid-cols-3 gap-4 text-center">
+                                                <div>
+                                                    <div class="text-xl font-bold text-blue-600">156</div>
+                                                    <div class="text-xs text-blue-600">Patients</div>
+                                                </div>
+                                                <div>
+                                                    <div class="text-xl font-bold text-green-600">24</div>
+                                                    <div class="text-xs text-green-600">Today</div>
+                                                </div>
+                                                <div>
+                                                    <div class="text-xl font-bold text-purple-600">98%</div>
+                                                    <div class="text-xs text-purple-600">Efficiency</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Single Patient Entry - Partially Visible -->
+                                        <div class="p-4">
+                                            <div class="flex items-center gap-3 p-2 bg-white border border-gray-200 rounded-lg">
+                                                <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+                                                    <span class="text-white font-semibold text-xs">JD</span>
+                                                </div>
+                                                <div class="flex-1">
+                                                    <div class="font-semibold text-gray-800 text-sm">John Doe</div>
+                                                    <div class="text-xs text-gray-500">Appointment: 10:30 AM</div>
+                                                </div>
+                                                <div class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">Active</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Fade overlay to indicate more content -->
+                                    <div class="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="bg-gray-50 p-8 rounded-3xl mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between"><div class="flex-grow"> <div class="flex items-center gap-2 mb-2"><i class="fas fa-code text-gray-500 text-xl"></i><span class="font-medium text-gray-600">Developer</span></div><h3 class="text-2xl font-bold">Build AI-powered health apps. Fast.</h3><p class="text-gray-500 mt-1">For Builders</p></div><a class="btn btn-outline btn-info self-start mt-6 sm:mt-0 sm:ml-6 flex-shrink-0">Explore developer portal</a></div>
+                                    
+                    <!-- Eka PHR Card - Now Cropped -->
+                    <div class="card bg-base-100 border border-gray-100">
+                        <div class="card-body pl-8 pt-8 pr-0 pb-0">
+                            <h3 class="card-title text-xl font-bold mb-2">Your health, all in one place.</h3>
+                            <p class="text-gray-600 text-sm mb-4" style="height: 18px;">For Patients</p>
+                            <div class="card-actions justify-start">
+                                <a class="btn btn-primary bg-green-600 border-green-600 hover:bg-green-700">Learn more</a>
+                            </div>
+                            <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                                <div class="overflow-hidden rounded-md border border-gray-200 h-48 relative">
+                                    <!-- PHR App Header -->
+                                    <div class="bg-gradient-to-r from-green-500 to-emerald-500 px-6 py-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+                                                <i class="fas fa-heart text-white text-sm" aria-hidden="true"></i>
+                                            </div>
+                                            <div>
+                                                <div class="text-white font-bold text-base">Eka PHR</div>
+                                                <div class="text-white/80 text-xs">Personal Health Record</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Interface Preview -->
+                                    <div class="bg-white">
+                                        <!-- Health Score -->
+                                        <div class="bg-green-50 px-6 py-3 border-b border-green-100">
+                                            <div class="flex items-center justify-between">
+                                                <div>
+                                                    <div class="text-xs text-green-700 font-medium">Health Score</div>
+                                                    <div class="text-xl font-bold text-green-600">85/100</div>
+                                                </div>
+                                                <div class="w-12 h-12 relative">
+                                                    <svg class="w-12 h-12 transform -rotate-90" viewBox="0 0 36 36">
+                                                        <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e5e7eb" stroke-width="2"></path>
+                                                        <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#10b981" stroke-width="2" stroke-dasharray="85, 100" stroke-linecap="round"></path>
+                                                    </svg>
+                                                    <div class="absolute inset-0 flex items-center justify-center text-green-600 font-bold text-xs">85</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Single Vital Entry -->
+                                        <div class="p-4">
+                                            <div class="flex items-center gap-3 p-2 bg-gray-50 rounded-lg">
+                                                <div class="w-6 h-6 bg-red-100 rounded-lg flex items-center justify-center">
+                                                    <i class="fas fa-heartbeat text-red-500 text-xs" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="flex-1">
+                                                    <div class="text-sm font-medium">Heart Rate</div>
+                                                    <div class="text-xs text-gray-500">Normal range</div>
+                                                </div>
+                                                <div class="text-sm font-bold text-red-600">72 BPM</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Fade overlay to indicate more content -->
+                                    <div class="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                    
+                    <!-- Eka Scribe Card - Now Cropped -->
+                    <div class="card bg-base-100 border border-gray-100">
+                        <div class="card-body pl-8 pt-8 pr-0 pb-0">
+                            <h3 class="card-title text-xl font-bold mb-2">From voice to Rx in seconds.</h3>
+                            <p class="text-gray-600 text-sm mb-4" style="height: 18px;">For Doctors</p>
+                            <div class="card-actions justify-start">
+                                <a class="btn btn-primary bg-red-600 border-red-600 hover:bg-red-700">Get started - free credits</a>
+                            </div>
+                            <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                                <div class="overflow-hidden rounded-md border border-gray-200 h-48 relative">
+                                    <!-- Scribe App Header -->
+                                    <div class="bg-gradient-to-r from-red-500 to-pink-500 px-6 py-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center animate-pulse">
+                                                <i class="fas fa-microphone text-white text-sm" aria-hidden="true"></i>
+                                            </div>
+                                            <div>
+                                                <div class="text-white font-bold text-base">Eka Scribe</div>
+                                                <div class="text-white/80 text-xs">AI Medical Transcription</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Interface Preview -->
+                                    <div class="bg-white">
+                                        <!-- Recording Status -->
+                                        <div class="bg-red-50 px-6 py-3 border-b border-red-100">
+                                            <div class="flex items-center justify-between">
+                                                <div class="flex items-center gap-2">
+                                                    <div class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                                                    <span class="text-xs font-medium text-red-700">Recording</span>
+                                                </div>
+                                                <div class="text-xs font-mono text-red-600">00:42</div>
+                                            </div>
+                                            <div class="mt-2 bg-red-200 rounded-full h-1.5 overflow-hidden">
+                                                <div class="bg-red-500 h-full rounded-full animate-pulse" style="width: 60%"></div>
+                                            </div>
+                                        </div>
+                                        <!-- Simplified Transcription Preview -->
+                                        <div class="p-4">
+                                            <div class="bg-gray-50 border border-gray-200 rounded-lg p-3">
+                                                <div class="text-xs text-gray-500 mb-2 flex items-center gap-2">
+                                                    <i class="fas fa-quote-left" aria-hidden="true"></i>
+                                                    <span>Live Transcription</span>
+                                                </div>
+                                                <div class="text-sm text-gray-800 leading-relaxed">
+                                                    "Patient presents with chest pain..."
+                                                </div>
+                                                <div class="flex items-center gap-2 mt-2">
+                                                    <div class="flex gap-1">
+                                                        <div class="w-1.5 h-1.5 bg-red-500 rounded-full animate-bounce"></div>
+                                                        <div class="w-1.5 h-1.5 bg-red-500 rounded-full animate-bounce" style="animation-delay: 0.1s;"></div>
+                                                        <div class="w-1.5 h-1.5 bg-red-500 rounded-full animate-bounce" style="animation-delay: 0.2s;"></div>
+                                                    </div>
+                                                    <span class="text-xs text-gray-500">Transcribing...</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Fade overlay to indicate more content -->
+                                    <div class="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </section>
-            
-            <!-- Platform Demo Video Section -->
-            <section class="py-16 bg-white"><div class="container mx-auto px-4"><div class="bg-gray-100 aspect-video rounded-3xl flex items-center justify-center"><p class="text-gray-500 font-medium">Platform DEMO VIDEO</p></div></div></section>
-
-            <!-- 'Built for Innovator' Section -->
-            <section class="py-16 bg-transparent">
-                <div class="container mx-auto px-4">
-                    <h2 class="text-4xl md:text-5xl font-bold text-center">Built for Every Healthcare Innovator.</h2>
-                    
-                    <!-- Tabs -->
-                    <div class="flex justify-center mt-12">
-                        <div class="tabs tabs-lift tabs-lg tabs-boxed bg-transparent">
-                            <input type="radio" name="healthcare_tabs" class="tab w-full tabs-lift font-semibold text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-300 rounded-full" aria-label="Doctors" checked="checked" />
-                            <div class="tab-content bg-transparent border-none p-0 mt-8">
-                                <!-- Doctors Tab -->
-                                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 md:p-12 grid md:grid-cols-2 gap-12 items-center shadow-sm border border-blue-100">
-                                    <div class="max-w-md">
-                                        <h3 class="text-xl font-semibold mb-6 text-gray-800">Run your practice with AI-powered tools. Let Eka handle prescriptions, records, appointments, payments, and more, so you can focus on patient care.</h3>
-                                        <div class="space-y-6">
-                                            <div>
-                                                <h4 class="font-bold border-l-4 border-blue-500 pl-4 text-blue-700">Prescribe in seconds, not minutes</h4>
-                                                <p class="text-gray-600 mt-2 pl-4">Use voice or text to generate accurate, shareable prescriptions using Eka Doc and Eka Scribe.</p>
-                                            </div>
-                                            <div>
-                                                <h4 class="font-bold text-gray-500 pl-4 hover:text-gray-700 transition-colors cursor-pointer">Manage patients, track every visit</h4>
-                                            </div>
-                                            <div>
-                                                <h4 class="font-bold text-gray-500 pl-4 hover:text-gray-700 transition-colors cursor-pointer">Bring your patient data with you</h4>
-                                            </div>
-                                            <div>
-                                                <h4 class="font-bold text-gray-500 pl-4 hover:text-gray-700 transition-colors cursor-pointer">Offer better care, beyond the clinic</h4>
-                                            </div>
-                                        </div>
+                
+                
+                <!-- Developer Portal Card -->
+                <div class="card bg-base-100 shadow-xl border border-gray-100 mt-8">
+                    <div class="card-body p-8">
+                        <div class="grid md:grid-cols-2 gap-8 items-center">
+                            <div>
+                                <h3 class="card-title text-xl font-bold mb-2">Build AI-powered health apps. Fast.</h3>
+                                <p class="text-gray-600 text-sm mb-4">For Builders</p>
+                                <div class="space-y-2 mb-6">
+                                    <div class="flex items-center gap-2 text-sm text-gray-600">
+                                        <i class="fas fa-check text-green-500 text-xs"></i>
+                                        <span>Healthcare APIs & SDKs</span>
                                     </div>
-                                    <div class="bg-gradient-to-br from-blue-100 to-indigo-100 h-96 rounded-2xl w-full hidden md:block flex items-center justify-center">
-                                        <i class="fas fa-user-md text-6xl text-blue-400"></i>
+                                    <div class="flex items-center gap-2 text-sm text-gray-600">
+                                        <i class="fas fa-check text-green-500 text-xs"></i>
+                                        <span>AI/ML Model Integration</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 text-sm text-gray-600">
+                                        <i class="fas fa-check text-green-500 text-xs"></i>
+                                        <span>HIPAA Compliant Infrastructure</span>
                                     </div>
                                 </div>
-                            </div>
-
-                            <input type="radio" name="healthcare_tabs" class="tab w-full tabs-lift font-semibold text-gray-600 hover:text-green-600 hover:bg-green-50 transition-all duration-300 rounded-full" aria-label="Clinics/hospitals" />
-                            <div class="tab-content bg-transparent border-none p-0 mt-8">
-                                <!-- Clinics/hospitals Tab -->
-                                <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl p-8 md:p-12 grid md:grid-cols-2 gap-12 items-center shadow-sm border border-green-100">
-                                    <div class="max-w-md">
-                                        <h3 class="text-xl font-semibold mb-6 text-gray-800">Streamline your healthcare facility with comprehensive AI solutions. Manage operations, patient care, and administrative tasks efficiently.</h3>
-                                        <div class="space-y-6">
-                                            <div>
-                                                <h4 class="font-bold border-l-4 border-green-500 pl-4 text-green-700">Centralized patient management</h4>
-                                                <p class="text-gray-600 mt-2 pl-4">Complete EMR system with appointment scheduling, billing, and patient history tracking.</p>
-                                            </div>
-                                            <div>
-                                                <h4 class="font-bold text-gray-500 pl-4 hover:text-gray-700 transition-colors cursor-pointer">Automated administrative workflows</h4>
-                                            </div>
-                                            <div>
-                                                <h4 class="font-bold text-gray-500 pl-4 hover:text-gray-700 transition-colors cursor-pointer">Multi-location support</h4>
-                                            </div>
-                                            <div>
-                                                <h4 class="font-bold text-gray-500 pl-4 hover:text-gray-700 transition-colors cursor-pointer">Integrated payment processing</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="bg-gradient-to-br from-green-100 to-emerald-100 h-96 rounded-2xl w-full hidden md:block flex items-center justify-center">
-                                        <i class="fas fa-hospital text-6xl text-green-400"></i>
-                                    </div>
+                                <div class="card-actions justify-start">
+                                    <a class="btn btn-primary bg-gray-800 border-gray-800 hover:bg-gray-900">Explore developer portal</a>
                                 </div>
                             </div>
-
-                            <input type="radio" name="healthcare_tabs" class="tab w-full tabs-lift font-semibold text-gray-600 hover:text-purple-600 hover:bg-purple-50 transition-all duration-300 rounded-xl rounded-full" aria-label="Labs" />
-                            <div class="tab-content bg-transparent border-none p-0 mt-8">
-                                <!-- Labs Tab -->
-                                <div class="bg-gradient-to-br from-purple-50 to-violet-50 rounded-3xl p-8 md:p-12 grid md:grid-cols-2 gap-12 items-center shadow-sm border border-purple-100">
-                                    <div class="max-w-md">
-                                        <h3 class="text-xl font-semibold mb-6 text-gray-800">Optimize laboratory operations with intelligent sample tracking, result management, and seamless integration with healthcare providers.</h3>
-                                        <div class="space-y-6">
-                                            <div>
-                                                <h4 class="font-bold border-l-4 border-purple-500 pl-4 text-purple-700">Smart sample tracking</h4>
-                                                <p class="text-gray-600 mt-2 pl-4">Automated tracking from collection to result delivery with real-time status updates.</p>
-                                            </div>
-                                            <div>
-                                                <h4 class="font-bold text-gray-500 pl-4 hover:text-gray-700 transition-colors cursor-pointer">Automated result processing</h4>
-                                            </div>
-                                            <div>
-                                                <h4 class="font-bold text-gray-500 pl-4 hover:text-gray-700 transition-colors cursor-pointer">Direct integration with EMR systems</h4>
-                                            </div>
-                                            <div>
-                                                <h4 class="font-bold text-gray-500 pl-4 hover:text-gray-700 transition-colors cursor-pointer">Quality control automation</h4>
+                            <div class="p-4 bg-gray-50 rounded-lg">
+                                <div class="overflow-hidden rounded-md border border-gray-200">
+                                    <!-- Developer Header -->
+                                    <div class="bg-gradient-to-r from-gray-800 to-gray-900 px-6 py-4">
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
+                                                    <i class="fas fa-code text-white text-lg"></i>
+                                                </div>
+                                                <div>
+                                                    <div class="text-white font-bold text-lg">Developer Portal</div>
+                                                    <div class="text-white/80 text-sm">Healthcare API Platform</div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="bg-gradient-to-br from-purple-100 to-violet-100 h-96 rounded-2xl w-full hidden md:block flex items-center justify-center">
-                                        <i class="fas fa-flask text-6xl text-purple-400"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <input type="radio" name="healthcare_tabs" class="tab w-full tabs-lift font-semibold text-gray-600 hover:text-orange-600 hover:bg-orange-50 transition-all duration-300 rounded-xl whitespace-nowrap rounded-full" aria-label="Health start-ups" />
-                            <div class="tab-content bg-transparent border-none p-0 mt-8">
-                                <!-- Health start-ups Tab -->
-                                <div class="bg-gradient-to-br from-orange-50 to-amber-50 rounded-3xl p-8 md:p-12 grid md:grid-cols-2 gap-12 items-center shadow-sm border border-orange-100">
-                                    <div class="max-w-md">
-                                        <h3 class="text-xl font-semibold mb-6 text-gray-800">Accelerate your health tech startup with our comprehensive API platform. Build innovative solutions faster with pre-built healthcare integrations.</h3>
-                                        <div class="space-y-6">
-                                            <div>
-                                                <h4 class="font-bold border-l-4 border-orange-500 pl-4 text-orange-700">Rapid prototyping & development</h4>
-                                                <p class="text-gray-600 mt-2 pl-4">Access to healthcare APIs, AI models, and data infrastructure to build your MVP quickly.</p>
+                                    <!-- Interface Preview -->
+                                    <div class="bg-white p-6">
+                                        <!-- API Stats -->
+                                        <div class="space-y-4">
+                                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                                <div class="flex items-center gap-3">
+                                                    <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                                                        <i class="fas fa-plug text-blue-600 text-sm"></i>
+                                                    </div>
+                                                    <div>
+                                                        <div class="text-sm font-medium">API Calls</div>
+                                                        <div class="text-xs text-gray-500">This month</div>
+                                                    </div>
+                                                </div>
+                                                <div class="text-lg font-bold text-blue-600">2.5M</div>
                                             </div>
-                                            <div>
-                                                <h4 class="font-bold text-gray-500 pl-4 hover:text-gray-700 transition-colors cursor-pointer">Scalable infrastructure</h4>
-                                            </div>
-                                            <div>
-                                                <h4 class="font-bold text-gray-500 pl-4 hover:text-gray-700 transition-colors cursor-pointer">Compliance-ready solutions</h4>
-                                            </div>
-                                            <div>
-                                                <h4 class="font-bold text-gray-500 pl-4 hover:text-gray-700 transition-colors cursor-pointer">Expert support & guidance</h4>
+                                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                                <div class="flex items-center gap-3">
+                                                    <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                                                        <i class="fas fa-clock text-green-600 text-sm"></i>
+                                                    </div>
+                                                    <div>
+                                                        <div class="text-sm font-medium">Response Time</div>
+                                                        <div class="text-xs text-gray-500">Average</div>
+                                                    </div>
+                                                </div>
+                                                <div class="text-lg font-bold text-green-600">45ms</div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="bg-gradient-to-br from-orange-100 to-amber-100 h-96 rounded-2xl w-full hidden md:block flex items-center justify-center">
-                                        <i class="fas fa-rocket text-6xl text-orange-400"></i>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-            
-            <!-- Best Health Outcomes Section -->
-            <section class="py-16 bg-white">
-                <div class="container mx-auto px-4">
-                    <h2 class="text-4xl md:text-5xl font-bold text-center">Best Health Outcomes driven by Eka</h2>
-                    <div class="bg-gray-50 p-8 md:p-12 rounded-3xl mt-12">
+            </div>
+        </section>
+
+        <!-- Platform Demo Video Section -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <div class="mockup-browser border border-base-300 bg-base-300 rounded-3xl overflow-hidden">
+                        <div class="mockup-browser-toolbar">
+                            <div class="input border border-base-300 bg-base-100 text-sm">
+                                https://youtu.be/Dny7QAswcCA
+                            </div>
+                        </div>
+                        <div class="bg-base-100">
+                            <div class="aspect-video w-full">
+                                <iframe
+                                    class="w-full h-full"
+                                    src="https://www.youtube.com/embed/Dny7QAswcCA?si=jT_GEQrbKAURylGq"
+                                    title="Eka Care Platform Demo Video"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin"
+                                    allowfullscreen
+                                    loading="lazy">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 'Built for Innovator' Section -->
+        <section class="py-16 bg-transparent">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl md:text-5xl font-bold text-center">Built for Every Healthcare Innovator.</h2>
+
+                <!-- Auto-rotating Tabs with DaisyUI -->
+                <div class="flex justify-center mt-12">
+                    <div class="tabs tabs-boxed tabs-lg bg-transparent">
+                        <!-- Main Tab 1: Doctors -->
+                        <input type="radio" name="main_healthcare_tabs" id="main_doctors" class="tab rounded-full ml-6" aria-label="Doctors" checked="checked" />
+                        <div class="tab-content bg-transparent p-0">
+                            <div class="card bg-gradient-to-br from-blue-50 to-indigo-50 shadow-sm border border-blue-100">
+                                <div class="card-body p-8 md:p-12">
+                                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                                        <!-- Left Content - Static -->
+                                        <div class="max-w-md">
+                                            <h3 class="card-title text-xl font-semibold mb-6 text-gray-800">Run your practice with AI-powered tools. Let Eka handle prescriptions, records, appointments, payments, and more, so you can focus on patient care.</h3>
+
+                                            <!-- Nested DaisyUI Tabs for Auto-switching -->
+                                            <div class="nested-tabs-container" data-group="doctors">
+                                                <div class="tabs tabs-lifted bg-white/30 rounded-lg">
+                                                    <input type="radio" name="doctors_nested" id="doctors_tab_1" class="tab tab-sm" aria-label="Prescribe" checked />
+                                                    <div class="tab-content bg-base-100/80 border-base-300 rounded-box p-4 nested-tab-panel">
+                                                        <div class="flex items-center gap-3 mb-2">
+                                                            <h4 class="font-bold border-l-4 border-blue-500 pl-4 text-blue-700">Prescribe in seconds, not minutes</h4>
+                                                            <div class="progress w-12 h-1 bg-gray-200">
+                                                                <div class="progress-value h-full bg-blue-500 w-0 transition-all duration-100 ease-out rounded"></div>
+                                                            </div>
+                                                        </div>
+                                                        <p class="text-gray-600 text-sm pl-4">Use voice or text to generate accurate, shareable prescriptions using Eka Doc and Eka Scribe.</p>
+                                                    </div>
+
+                                                    <input type="radio" name="doctors_nested" id="doctors_tab_2" class="tab tab-sm" aria-label="Manage" />
+                                                    <div class="tab-content bg-base-100/80 border-base-300 rounded-box p-4 nested-tab-panel">
+                                                        <div class="flex items-center gap-3 mb-2">
+                                                            <h4 class="font-bold border-l-4 border-blue-500 pl-4 text-blue-700">Manage patients, track every visit</h4>
+                                                            <div class="progress w-12 h-1 bg-gray-200">
+                                                                <div class="progress-value h-full bg-blue-500 w-0 transition-all duration-100 ease-out rounded"></div>
+                                                            </div>
+                                                        </div>
+                                                        <p class="text-gray-600 text-sm pl-4">Comprehensive patient management system with visit tracking and history.</p>
+                                                    </div>
+
+                                                    <input type="radio" name="doctors_nested" id="doctors_tab_3" class="tab tab-sm" aria-label="Data" />
+                                                    <div class="tab-content bg-base-100/80 border-base-300 rounded-box p-4 nested-tab-panel">
+                                                        <div class="flex items-center gap-3 mb-2">
+                                                            <h4 class="font-bold border-l-4 border-blue-500 pl-4 text-blue-700">Bring your patient data with you</h4>
+                                                            <div class="progress w-12 h-1 bg-gray-200">
+                                                                <div class="progress-value h-full bg-blue-500 w-0 transition-all duration-100 ease-out rounded"></div>
+                                                            </div>
+                                                        </div>
+                                                        <p class="text-gray-600 text-sm pl-4">Cloud-based data synchronization across all your devices.</p>
+                                                    </div>
+
+                                                    <input type="radio" name="doctors_nested" id="doctors_tab_4" class="tab tab-sm" aria-label="Care" />
+                                                    <div class="tab-content bg-base-100/80 border-base-300 rounded-box p-4 nested-tab-panel">
+                                                        <div class="flex items-center gap-3 mb-2">
+                                                            <h4 class="font-bold border-l-4 border-blue-500 pl-4 text-blue-700">Offer better care, beyond the clinic</h4>
+                                                            <div class="progress w-12 h-1 bg-gray-200">
+                                                                <div class="progress-value h-full bg-blue-500 w-0 transition-all duration-100 ease-out rounded"></div>
+                                                            </div>
+                                                        </div>
+                                                        <p class="text-gray-600 text-sm pl-4">Telemedicine and remote monitoring capabilities.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Right Content - Dynamic Images -->
+                                        <div class="image-container relative" data-group="doctors">
+                                            <div class="image-slide active w-full h-96 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-2xl hidden md:flex items-center justify-center" data-index="0">
+                                                <div class="text-center">
+                                                    <i class="fas fa-prescription-bottle-alt fa-4x text-blue-400 mb-4"></i>
+                                                    <p class="text-blue-600 font-medium">Smart Prescriptions</p>
+                                                </div>
+                                            </div>
+                                            <div class="image-slide w-full h-96 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-2xl hidden md:flex items-center justify-center" data-index="1">
+                                                <div class="text-center">
+                                                    <i class="fas fa-users fa-4x text-blue-400 mb-4"></i>
+                                                    <p class="text-blue-600 font-medium">Patient Management</p>
+                                                </div>
+                                            </div>
+                                            <div class="image-slide w-full h-96 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-2xl hidden md:flex items-center justify-center" data-index="2">
+                                                <div class="text-center">
+                                                    <i class="fas fa-cloud fa-4x text-blue-400 mb-4"></i>
+                                                    <p class="text-blue-600 font-medium">Cloud Sync</p>
+                                                </div>
+                                            </div>
+                                            <div class="image-slide w-full h-96 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-2xl hidden md:flex items-center justify-center" data-index="3">
+                                                <div class="text-center">
+                                                    <i class="fas fa-video fa-4x text-blue-400 mb-4"></i>
+                                                    <p class="text-blue-600 font-medium">Telemedicine</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Main Tab 2: Clinics/hospitals -->
+                        <input type="radio" name="main_healthcare_tabs" id="main_clinics" class="tab rounded-full ml-2" aria-label="Clinics/hospitals" />
+                        <div class="tab-content bg-transparent p-0">
+                            <div class="card bg-gradient-to-br from-green-50 to-emerald-50 shadow-sm border border-green-100">
+                                <div class="card-body p-8 md:p-12">
+                                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                                        <div class="max-w-md">
+                                            <h3 class="card-title text-xl font-semibold mb-6 text-gray-800">Streamline your healthcare facility with comprehensive AI solutions. Manage operations, patient care, and administrative tasks efficiently.</h3>
+
+                                            <div class="nested-tabs-container" data-group="clinics">
+                                                <div class="tabs tabs-lifted bg-white/30 rounded-lg">
+                                                    <input type="radio" name="clinics_nested" id="clinics_tab_1" class="tab tab-sm" aria-label="EMR" checked />
+                                                    <div class="tab-content bg-base-100/80 border-base-300 rounded-box p-4 nested-tab-panel">
+                                                        <div class="flex items-center gap-3 mb-2">
+                                                            <h4 class="font-bold border-l-4 border-green-500 pl-4 text-green-700">Centralized patient management</h4>
+                                                            <div class="progress w-12 h-1 bg-gray-200">
+                                                                <div class="progress-value h-full bg-green-500 w-0 transition-all duration-100 ease-out rounded"></div>
+                                                            </div>
+                                                        </div>
+                                                        <p class="text-gray-600 text-sm pl-4">Complete EMR system with appointment scheduling, billing, and patient history tracking.</p>
+                                                    </div>
+
+                                                    <input type="radio" name="clinics_nested" id="clinics_tab_2" class="tab tab-sm" aria-label="Workflow" />
+                                                    <div class="tab-content bg-base-100/80 border-base-300 rounded-box p-4 nested-tab-panel">
+                                                        <div class="flex items-center gap-3 mb-2">
+                                                            <h4 class="font-bold border-l-4 border-green-500 pl-4 text-green-700">Automated administrative workflows</h4>
+                                                            <div class="progress w-12 h-1 bg-gray-200">
+                                                                <div class="progress-value h-full bg-green-500 w-0 transition-all duration-100 ease-out rounded"></div>
+                                                            </div>
+                                                        </div>
+                                                        <p class="text-gray-600 text-sm pl-4">Streamline administrative tasks with intelligent automation.</p>
+                                                    </div>
+
+                                                    <input type="radio" name="clinics_nested" id="clinics_tab_3" class="tab tab-sm" aria-label="Multi" />
+                                                    <div class="tab-content bg-base-100/80 border-base-300 rounded-box p-4 nested-tab-panel">
+                                                        <div class="flex items-center gap-3 mb-2">
+                                                            <h4 class="font-bold border-l-4 border-green-500 pl-4 text-green-700">Multi-location support</h4>
+                                                            <div class="progress w-12 h-1 bg-gray-200">
+                                                                <div class="progress-value h-full bg-green-500 w-0 transition-all duration-100 ease-out rounded"></div>
+                                                            </div>
+                                                        </div>
+                                                        <p class="text-gray-600 text-sm pl-4">Manage multiple facilities from a single dashboard.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="image-container relative" data-group="clinics">
+                                            <div class="image-slide active w-full h-96 bg-gradient-to-br from-green-100 to-emerald-100 rounded-2xl hidden md:flex items-center justify-center" data-index="0">
+                                                <div class="text-center">
+                                                    <i class="fas fa-hospital-user fa-4x text-green-400 mb-4"></i>
+                                                    <p class="text-green-600 font-medium">EMR System</p>
+                                                </div>
+                                            </div>
+                                            <div class="image-slide w-full h-96 bg-gradient-to-br from-green-100 to-emerald-100 rounded-2xl hidden md:flex items-center justify-center" data-index="1">
+                                                <div class="text-center">
+                                                    <i class="fas fa-cogs fa-4x text-green-400 mb-4"></i>
+                                                    <p class="text-green-600 font-medium">Automation</p>
+                                                </div>
+                                            </div>
+                                            <div class="image-slide w-full h-96 bg-gradient-to-br from-green-100 to-emerald-100 rounded-2xl hidden md:flex items-center justify-center" data-index="2">
+                                                <div class="text-center">
+                                                    <i class="fas fa-building fa-4x text-green-400 mb-4"></i>
+                                                    <p class="text-green-600 font-medium">Multi-Location</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Main Tab 3: Labs -->
+                        <input type="radio" name="main_healthcare_tabs" id="main_labs" class="tab rounded-full ml-2" aria-label="Labs" />
+                        <div class="tab-content bg-transparent p-0">
+                            <div class="card bg-gradient-to-br from-purple-50 to-violet-50 shadow-sm border border-purple-100">
+                                <div class="card-body p-8 md:p-12">
+                                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                                        <div class="max-w-md">
+                                            <h3 class="card-title text-xl font-semibold mb-6 text-gray-800">Optimize laboratory operations with intelligent sample tracking, result management, and seamless integration with healthcare providers.</h3>
+
+                                            <div class="nested-tabs-container" data-group="labs">
+                                                <div class="tabs tabs-lifted bg-white/30 rounded-lg">
+                                                    <input type="radio" name="labs_nested" id="labs_tab_1" class="tab tab-sm" aria-label="Tracking" checked />
+                                                    <div class="tab-content bg-base-100/80 border-base-300 rounded-box p-4 nested-tab-panel">
+                                                        <div class="flex items-center gap-3 mb-2">
+                                                            <h4 class="font-bold border-l-4 border-purple-500 pl-4 text-purple-700">Smart sample tracking</h4>
+                                                            <div class="progress w-12 h-1 bg-gray-200">
+                                                                <div class="progress-value h-full bg-purple-500 w-0 transition-all duration-100 ease-out rounded"></div>
+                                                            </div>
+                                                        </div>
+                                                        <p class="text-gray-600 text-sm pl-4">Automated tracking from collection to result delivery with real-time status updates.</p>
+                                                    </div>
+
+                                                    <input type="radio" name="labs_nested" id="labs_tab_2" class="tab tab-sm" aria-label="Processing" />
+                                                    <div class="tab-content bg-base-100/80 border-base-300 rounded-box p-4 nested-tab-panel">
+                                                        <div class="flex items-center gap-3 mb-2">
+                                                            <h4 class="font-bold border-l-4 border-purple-500 pl-4 text-purple-700">Automated result processing</h4>
+                                                            <div class="progress w-12 h-1 bg-gray-200">
+                                                                <div class="progress-value h-full bg-purple-500 w-0 transition-all duration-100 ease-out rounded"></div>
+                                                            </div>
+                                                        </div>
+                                                        <p class="text-gray-600 text-sm pl-4">AI-powered result analysis and automated report generation.</p>
+                                                    </div>
+
+                                                    <input type="radio" name="labs_nested" id="labs_tab_3" class="tab tab-sm" aria-label="Integration" />
+                                                    <div class="tab-content bg-base-100/80 border-base-300 rounded-box p-4 nested-tab-panel">
+                                                        <div class="flex items-center gap-3 mb-2">
+                                                            <h4 class="font-bold border-l-4 border-purple-500 pl-4 text-purple-700">Direct EMR integration</h4>
+                                                            <div class="progress w-12 h-1 bg-gray-200">
+                                                                <div class="progress-value h-full bg-purple-500 w-0 transition-all duration-100 ease-out rounded"></div>
+                                                            </div>
+                                                        </div>
+                                                        <p class="text-gray-600 text-sm pl-4">Seamless integration with electronic medical record systems.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="image-container relative" data-group="labs">
+                                            <div class="image-slide active w-full h-96 bg-gradient-to-br from-purple-100 to-violet-100 rounded-2xl hidden md:flex items-center justify-center" data-index="0">
+                                                <div class="text-center">
+                                                    <i class="fas fa-barcode fa-4x text-purple-400 mb-4"></i>
+                                                    <p class="text-purple-600 font-medium">Sample Tracking</p>
+                                                </div>
+                                            </div>
+                                            <div class="image-slide w-full h-96 bg-gradient-to-br from-purple-100 to-violet-100 rounded-2xl hidden md:flex items-center justify-center" data-index="1">
+                                                <div class="text-center">
+                                                    <i class="fas fa-microscope fa-4x text-purple-400 mb-4"></i>
+                                                    <p class="text-purple-600 font-medium">Auto Processing</p>
+                                                </div>
+                                            </div>
+                                            <div class="image-slide w-full h-96 bg-gradient-to-br from-purple-100 to-violet-100 rounded-2xl hidden md:flex items-center justify-center" data-index="2">
+                                                <div class="text-center">
+                                                    <i class="fas fa-link fa-4x text-purple-400 mb-4"></i>
+                                                    <p class="text-purple-600 font-medium">EMR Integration</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Main Tab 4: Health start-ups -->
+                        <input type="radio" name="main_healthcare_tabs" id="main_startups" class="tab rounded-full ml-2 whitespace-nowrap" aria-label="Health start-ups" />
+                        <div class="tab-content bg-transparent p-0">
+                            <div class="card bg-gradient-to-br from-orange-50 to-amber-50 shadow-sm border border-orange-100">
+                                <div class="card-body p-8 md:p-12">
+                                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                                        <div class="max-w-md">
+                                            <h3 class="card-title text-xl font-semibold mb-6 text-gray-800">Accelerate your health tech startup with our comprehensive API platform. Build innovative solutions faster with pre-built healthcare integrations.</h3>
+
+                                            <div class="nested-tabs-container" data-group="startups">
+                                                <div class="tabs tabs-lifted bg-white/30 rounded-lg">
+                                                    <input type="radio" name="startups_nested" id="startups_tab_1" class="tab tab-sm" aria-label="Rapid" checked />
+                                                    <div class="tab-content bg-base-100/80 border-base-300 rounded-box p-4 nested-tab-panel">
+                                                        <div class="flex items-center gap-3 mb-2">
+                                                            <h4 class="font-bold border-l-4 border-orange-500 pl-4 text-orange-700">Rapid prototyping & development</h4>
+                                                            <div class="progress w-12 h-1 bg-gray-200">
+                                                                <div class="progress-value h-full bg-orange-500 w-0 transition-all duration-100 ease-out rounded"></div>
+                                                            </div>
+                                                        </div>
+                                                        <p class="text-gray-600 text-sm pl-4">Access to healthcare APIs, AI models, and data infrastructure to build your MVP quickly.</p>
+                                                    </div>
+
+                                                    <input type="radio" name="startups_nested" id="startups_tab_2" class="tab tab-sm" aria-label="Scale" />
+                                                    <div class="tab-content bg-base-100/80 border-base-300 rounded-box p-4 nested-tab-panel">
+                                                        <div class="flex items-center gap-3 mb-2">
+                                                            <h4 class="font-bold border-l-4 border-orange-500 pl-4 text-orange-700">Scalable infrastructure</h4>
+                                                            <div class="progress w-12 h-1 bg-gray-200">
+                                                                <div class="progress-value h-full bg-orange-500 w-0 transition-all duration-100 ease-out rounded"></div>
+                                                            </div>
+                                                        </div>
+                                                        <p class="text-gray-600 text-sm pl-4">Cloud-native solutions that grow with your business needs.</p>
+                                                    </div>
+
+                                                    <input type="radio" name="startups_nested" id="startups_tab_3" class="tab tab-sm" aria-label="Compliance" />
+                                                    <div class="tab-content bg-base-100/80 border-base-300 rounded-box p-4 nested-tab-panel">
+                                                        <div class="flex items-center gap-3 mb-2">
+                                                            <h4 class="font-bold border-l-4 border-orange-500 pl-4 text-orange-700">Compliance-ready solutions</h4>
+                                                            <div class="progress w-12 h-1 bg-gray-200">
+                                                                <div class="progress-value h-full bg-orange-500 w-0 transition-all duration-100 ease-out rounded"></div>
+                                                            </div>
+                                                        </div>
+                                                        <p class="text-gray-600 text-sm pl-4">HIPAA-compliant infrastructure and security frameworks.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="image-container relative" data-group="startups">
+                                            <div class="image-slide active w-full h-96 bg-gradient-to-br from-orange-100 to-amber-100 rounded-2xl hidden md:flex items-center justify-center" data-index="0">
+                                                <div class="text-center">
+                                                    <i class="fas fa-rocket fa-4x text-orange-400 mb-4"></i>
+                                                    <p class="text-orange-600 font-medium">Rapid Development</p>
+                                                </div>
+                                            </div>
+                                            <div class="image-slide w-full h-96 bg-gradient-to-br from-orange-100 to-amber-100 rounded-2xl hidden md:flex items-center justify-center" data-index="1">
+                                                <div class="text-center">
+                                                    <i class="fas fa-expand-arrows-alt fa-4x text-orange-400 mb-4"></i>
+                                                    <p class="text-orange-600 font-medium">Scalable</p>
+                                                </div>
+                                            </div>
+                                            <div class="image-slide w-full h-96 bg-gradient-to-br from-orange-100 to-amber-100 rounded-2xl hidden md:flex items-center justify-center" data-index="2">
+                                                <div class="text-center">
+                                                    <i class="fas fa-shield-alt fa-4x text-orange-400 mb-4"></i>
+                                                    <p class="text-orange-600 font-medium">Compliant</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>>
+            </div>
+        </section>
+
+        <!-- Best Health Outcomes Section -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl md:text-5xl font-bold text-center">Best Health Outcomes driven by Eka</h2>
+                <div class="card bg-base-100 shadow-xl border border-gray-100 mt-12">
+                    <div class="card-body p-8 md:p-12">
                         <div class="grid md:grid-cols-2 gap-12 items-center">
                             <div>
                                 <h4 class="text-xl font-semibold">Dr. Neelesh Kapoor</h4>
                                 <p class="text-sm text-gray-500 mb-4">Senior Consultant Physician & Diabetologist, Noida, India</p>
                                 <blockquote class="text-2xl md:text-3xl font-medium mb-6">"Eka Doc has transformed my practice, enhancing efficiency, improving patient experience, and enabling research."</blockquote>
-                                <a href="#" class="inline-block font-semibold text-blue-600 hover:underline">Read full story →</a>
+                                <div class="card-actions justify-start">
+                                    <a href="#" class="link link-primary font-semibold">Read full story →</a>
+                                </div>
                             </div>
                             <div class="bg-gray-200 aspect-video rounded-2xl flex items-center justify-center overflow-hidden">
                                 <video class="w-full h-full object-cover" controls poster="https://via.placeholder.com/600x400/2563eb/ffffff?text=Eka+Demo+Video">
@@ -904,208 +885,336 @@
                         </div>
                         <hr class="my-12 border-gray-200">
                         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                            <div class="text-center">
-                                <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a4094eb16d20c1eb7829_healthland.webp" alt="HealthLand" class="h-12 mx-auto mb-4" loading="lazy">
-                                <p class="text-gray-600">Streamlined appointments with 100% increase in follow-up rate and 50% faster retrieval of patient history.</p>
-                                <a href="#" class="inline-block mt-2 font-semibold text-blue-600 hover:underline">Read full story →</a>
+                            <!-- HealthLand Card -->
+                            <div class="card bg-base-100 shadow-sm border border-gray-100">
+                                <div class="card-body p-6 text-center">
+                                    <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a4094eb16d20c1eb7829_healthland.webp" alt="HealthLand" class="h-12 mx-auto mb-4" loading="lazy">
+                                    <p class="text-gray-600">Streamlined appointments with 100% increase in follow-up rate and 50% faster retrieval of patient history.</p>
+                                    <div class="card-actions justify-center mt-4">
+                                        <a href="#" class="link link-primary font-semibold">Read full story →</a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="text-center">
-                                <img src="https://gynoveda-production.s3.ap-south-1.amazonaws.com/logos/logo-black-front.png" alt="Gynoveda" class="h-12 mx-auto mb-4" loading="lazy">
-                                <p class="text-gray-600">Enhanced patient engagement with 75% improvement in appointment adherence and personalized care delivery.</p>
-                                <a href="#" class="inline-block mt-2 font-semibold text-blue-600 hover:underline">Read full story →</a>
+                            
+                            <!-- Gynoveda Card -->
+                            <div class="card bg-base-100 shadow-sm border border-gray-100">
+                                <div class="card-body p-6 text-center">
+                                    <img src="https://gynoveda-production.s3.ap-south-1.amazonaws.com/logos/logo-black-front.png" alt="Gynoveda" class="h-12 mx-auto mb-4" loading="lazy">
+                                    <p class="text-gray-600">Enhanced patient engagement with 75% improvement in appointment adherence and personalized care delivery.</p>
+                                    <div class="card-actions justify-center mt-4">
+                                        <a href="#" class="link link-primary font-semibold">Read full story →</a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="text-center">
-                                <img src="https://media.licdn.com/dms/image/v2/C560BAQGko0Gq_cwm9Q/company-logo_200_200/company-logo_200_200/0/1640072327484?e=2147483647&v=beta&t=FrtvNM2dcQwIBC7JgvzsxHRDb7_rtURT3PmVAXx7teE" alt="Idrishti" class="h-12 mx-auto mb-4" loading="lazy">
-                                <p class="text-gray-600">AI-powered diagnostics with 90% accuracy improvement and 60% reduction in diagnosis time.</p>
-                                <a href="#" class="inline-block mt-2 font-semibold text-blue-600 hover:underline">Read full story →</a>
+                            
+                            <!-- Idrishti Card -->
+                            <div class="card bg-base-100 shadow-sm border border-gray-100">
+                                <div class="card-body p-6 text-center">
+                                    <img src="https://media.licdn.com/dms/image/v2/C560BAQGko0Gq_cwm9Q/company-logo_200_200/company-logo_200_200/0/1640072327484?e=2147483647&v=beta&t=FrtvNM2dcQwIBC7JgvzsxHRDb7_rtURT3PmVAXx7teE" alt="Idrishti" class="h-12 mx-auto mb-4" loading="lazy">
+                                    <p class="text-gray-600">AI-powered diagnostics with 90% accuracy improvement and 60% reduction in diagnosis time.</p>
+                                    <div class="card-actions justify-center mt-4">
+                                        <a href="#" class="link link-primary font-semibold">Read full story →</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Enhanced Stats Bar with GSAP Animations -->
-            <section class="py-16 bg-white" aria-labelledby="stats-heading">
-                <div class="container mx-auto px-4">
-                    <h2 id="stats-heading" class="text-center text-3xl font-bold mb-12 text-gray-800">Trusted by Healthcare Leaders Nationwide</h2>
-                    <div class="stats shadow w-full bg-gradient-to-r from-blue-50 to-indigo-50 rounded-3xl border border-blue-100">
-                        <div class="stat" data-target="30000000">
-                            <div class="stat-figure text-blue-600">
-                                <i class="fas fa-file-medical-alt fa-3x" aria-hidden="true"></i>
-                            </div>
-                            <div class="stat-title text-gray-600 font-medium">Digital Health Records</div>
-                            <div class="stat-value text-blue-700 text-3xl font-bold" data-counter="0">0</div>
-                            <div class="stat-desc text-blue-600">Secure and accessible</div>
-                        </div>
-
-                        <div class="stat" data-target="100000">
-                            <div class="stat-figure text-green-600">
-                                <i class="fas fa-stethoscope fa-3x" aria-hidden="true"></i>
-                            </div>
-                            <div class="stat-title text-gray-600 font-medium">Active Healthcare Providers</div>
-                            <div class="stat-value text-green-700 text-3xl font-bold" data-counter="0">0</div>
-                            <div class="stat-desc text-green-600">Trusted by professionals</div>
-                        </div>
-
-                        <div class="stat" data-target="2500">
-                            <div class="stat-figure text-purple-600">
-                                <i class="fas fa-clinic-medical fa-3x" aria-hidden="true"></i>
-                            </div>
-                            <div class="stat-title text-gray-600 font-medium">Connected Clinics</div>
-                            <div class="stat-value text-purple-700 text-3xl font-bold" data-counter="0">0</div>
-                            <div class="stat-desc text-purple-600">Nationwide network</div>
-                        </div>
-
-                        <div class="stat" data-target="50">
-                            <div class="stat-figure text-orange-600">
-                                <i class="fas fa-network-wired fa-3x" aria-hidden="true"></i>
-                            </div>
-                            <div class="stat-title text-gray-600 font-medium">Enterprise Integrations</div>
-                            <div class="stat-value text-orange-700 text-3xl font-bold" data-counter="0">0</div>
-                            <div class="stat-desc text-orange-600">Seamless connectivity</div>
-                        </div>
-                    </div>
-
-                    <!-- Additional Trust Indicators -->
-                    <div class="grid md:grid-cols-3 gap-8 mt-16">
-                        <div class="text-center p-6 bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl border border-green-100">
-                            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-shield-check text-white fa-2x" aria-hidden="true"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-green-800 mb-2">HIPAA Compliant</h3>
-                            <p class="text-green-700">Fully compliant with healthcare data protection standards</p>
-                        </div>
-
-                        <div class="text-center p-6 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl border border-blue-100">
-                            <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-headset text-white fa-2x" aria-hidden="true"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-blue-800 mb-2">24/7 Support</h3>
-                            <p class="text-blue-700">Round-the-clock technical and medical support available</p>
-                        </div>
-
-                        <div class="text-center p-6 bg-gradient-to-br from-purple-50 to-violet-50 rounded-2xl border border-purple-100">
-                            <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-crown text-white fa-2x" aria-hidden="true"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-purple-800 mb-2">Industry Leader</h3>
-                            <p class="text-purple-700">Recognized as the leading healthcare AI platform in India</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 'One Platform' Section -->
-            <section class="py-16 bg-white"><div class="container mx-auto px-4"><h2 class="text-4xl md:text-5xl font-bold text-center">One Platform,<br>Infinite Healthcare Possibilities</h2><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12"><div class="bg-gray-50 p-8 rounded-3xl flex flex-col"><div class="flex items-center gap-2 mb-4"><i class="fas fa-clipboard-list text-blue-600 text-xl"></i><span class="font-medium text-gray-600">Health Assessment</span></div><h3 class="text-2xl font-bold">Smarter forms. Sharper diagnosis.</h3><p class="text-gray-600 mt-2 mb-6 flex-grow">Automatically adapt questions to patient inputs for more accurate clinical assessments.</p><div class="bg-gray-200 h-40 rounded-2xl w-full mt-auto mb-6"></div><a class="btn btn-outline btn-info self-start">Learn more</a></div><div class="bg-gray-50 p-8 rounded-3xl flex flex-col"><div class="flex items-center gap-2 mb-4"><i class="fas fa-file-medical text-blue-600 text-xl"></i><span class="font-medium text-gray-600">Medical Records</span></div><h3 class="text-2xl font-bold">Organised records. Instant insights.</h3><p class="text-gray-600 mt-2 mb-6 flex-grow">Store, search, and extract insights from records, track trends, history, and vitals with ease.</p><div class="bg-gray-200 h-40 rounded-2xl w-full mt-auto mb-6"></div><a class="btn btn-outline btn-info self-start">Learn more</a></div><div class="bg-gray-50 p-8 rounded-3xl flex flex-col"><div class="flex items-center gap-2 mb-4"><i class="fas fa-microphone-alt text-blue-600 text-xl"></i><span class="font-medium text-gray-600">Eka Scribe</span></div><h3 class="text-2xl font-bold">From voice to Rx in seconds.</h3><p class="text-gray-600 mt-2 mb-6 flex-grow">Dictate, transcribe, and auto-structure prescriptions and clinical notes, hands-free within seconds.</p><div class="bg-gray-200 h-40 rounded-2xl w-full mt-auto mb-6"></div><a class="btn btn-outline btn-info self-start">Learn more</a></div></div><div class="bg-gray-50 p-8 rounded-3xl mt-8 flex flex-col"><div class="flex items-center gap-2 mb-4"><i class="fas fa-link text-green-600 text-xl"></i><span class="font-medium text-gray-600">ABDM Integration</span></div><h3 class="text-2xl font-bold">ABHA built-in. Health records, unified.</h3><p class="text-gray-600 mt-2 mb-6">Create, link, and fetch ABHA records effortlessly, powering continuity of care across India's digital health network.</p><div class="bg-gray-200 h-40 rounded-2xl w-full mt-auto mb-6"></div><a class="btn btn-outline btn-info self-start">Learn more</a></div></div></section>
-
-            <!-- Apps Section -->
-            <section class="py-16 bg-white"><div class="container mx-auto px-4 text-center"><h2 class="text-4xl md:text-5xl font-bold">All the apps that you need,<br>ready to use in Eka</h2><p class="text-lg text-gray-600 max-w-3xl mx-auto mt-4">Explore all integrations and build exactly what you need.</p><a class="btn btn-primary mt-6">Browse integrations</a><div class="mt-12 grid grid-cols-4 sm:grid-cols-5 md:grid-cols-7 gap-4 justify-items-center max-w-3xl mx-auto"><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5c8ed30b96afa399ec_zoom.png" alt="Zoom" class="h-8" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5be3e8c1b73cacb120_gmeet.png" alt="Google Meet" class="h-8" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5b84dde5dad87bc22b_gmb.png" alt="Google My Business" class="h-10" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5c2d2562ae0aba3137_whatsapp.png" alt="WhatsApp" class="h-10" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5cf347b1712ac7fe0d_image%20164.png" alt="Viber" class="h-10" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5cf347b1712ac7fe1a_orange.png" alt="Orange" class="h-10" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5c1e9cb49ecafe99a3_agora.png" alt="Agora" class="h-10" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5c63ed1b9b495bfe95_evital.png" alt="Evital" class="h-9" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5cda2a9c942a39ab4f_100ms.png" alt="100ms" class="h-10" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5b80ba120fb0b8de18_flabs.png" alt="Flabs" class="h-8" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5c9be87076a46923b4_metropolis.png" alt="Metropolis" class="h-8" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68787c20d8904e9eccbe9dea_ABHA.png" alt="ABHA" class="h-8" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a4099129dbee28c888a7_metropolis.webp" alt="Metropolis" class="h-10" loading="lazy"></div><div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center"><img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a409efce973a78422ab4_mittal%20nursing%20home.webp" alt="Mittal Nursing Home" class="h-8" loading="lazy"></div></div></div></section>
-        
-        </main>
-
-        <!-- Footer -->
-        <footer class="bg-gray-900 text-white">
-            <div class="container mx-auto px-4 py-12">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-                    <!-- Product Suite Section -->
-                    <div class="space-y-4">
-                        <h6 class="text-lg font-semibold text-white">Product Suite</h6>
-                        <div class="space-y-2">
-                            <a href="emr.html" class="block text-gray-300 hover:text-white transition-colors">Eka EMR</a>
-                            <a href="scribe.html" class="block text-gray-300 hover:text-white transition-colors">Eka Scribe</a>
-                            <a href="phr.html" class="block text-gray-300 hover:text-white transition-colors">Eka PHR</a>
-                        </div>
-                    </div>
-
-                    <!-- Solutions Section -->
-                    <div class="space-y-4">
-                        <h6 class="text-lg font-semibold text-white">Solutions</h6>
-                        <div class="space-y-2">
-                            <h6 class="text-sm font-medium text-gray-400 uppercase tracking-wide">Health AI</h6>
-                            <a class="block text-gray-300 hover:text-white transition-colors ml-2">Assessment</a>
-                            <a class="block text-gray-300 hover:text-white transition-colors ml-2">EkaScribe</a>
-
-                            <h6 class="text-sm font-medium text-gray-400 uppercase tracking-wide mt-4">General Tools</h6>
-                            <a class="block text-gray-300 hover:text-white transition-colors ml-2">Medical Document Parsing</a>
-                            <a class="block text-gray-300 hover:text-white transition-colors ml-2">Doctor Tool</a>
-                            <a class="block text-gray-300 hover:text-white transition-colors ml-2">ABDM Connect</a>
-                            <a class="block text-gray-300 hover:text-white transition-colors ml-2">Medical Knowledge Base</a>
-                            <a class="block text-gray-300 hover:text-white transition-colors ml-2">Medical Records</a>
-                            <a class="block text-gray-300 hover:text-white transition-colors ml-2">User App</a>
-
-                            <h6 class="text-sm font-medium text-gray-400 uppercase tracking-wide mt-4">Examples</h6>
-                            <a class="block text-gray-300 hover:text-white transition-colors ml-2">Health Quiz</a>
-                            <a class="block text-gray-300 hover:text-white transition-colors ml-2">Medication Search</a>
-                            <a class="block text-gray-300 hover:text-white transition-colors ml-2">Appointments Management</a>
-                            <a class="block text-gray-300 hover:text-white transition-colors ml-2">Patient Management Apps</a>
-                        </div>
-                    </div>
-
-                    <!-- Specialities Section -->
-                    <div class="space-y-4">
-                        <h6 class="text-lg font-semibold text-white">Specialities</h6>
-                        <div class="space-y-2">
-                            <a href="https://www.eka.care/s/for-doctors/neurologists" target="_blank" class="block text-gray-300 hover:text-white transition-colors">Neurologists</a>
-                            <a href="https://www.eka.care/s/for-doctors/dentists" target="_blank" class="block text-gray-300 hover:text-white transition-colors">Dentists</a>
-                            <a href="https://www.eka.care/s/for-doctors/pediatricians" target="_blank" class="block text-gray-300 hover:text-white transition-colors">Pediatricians</a>
-                            <a href="https://www.eka.care/s/for-doctors/ophthalmologists" target="_blank" class="block text-gray-300 hover:text-white transition-colors">Ophthalmologists</a>
-                            <a href="https://www.eka.care/s/for-doctors/cardiologists" target="_blank" class="block text-gray-300 hover:text-white transition-colors">Cardiologists</a>
-                        </div>
-                    </div>
-
-                    <!-- Company Section -->
-                    <div class="space-y-4">
-                        <h6 class="text-lg font-semibold text-white">Company</h6>
-                        <div class="space-y-2">
-                            <a href="index.html" class="block text-gray-300 hover:text-white transition-colors">Home</a>
-                            <a class="block text-gray-300 hover:text-white transition-colors">About</a>
-                            <a class="block text-gray-300 hover:text-white transition-colors">Team</a>
-                            <a class="block text-gray-300 hover:text-white transition-colors">Careers</a>
-                            <a class="block text-gray-300 hover:text-white transition-colors">Blogs</a>
-                            <a class="block text-gray-300 hover:text-white transition-colors">Pricing</a>
-                            <a class="block text-gray-300 hover:text-white transition-colors">Request a demo</a>
-                        </div>
-                    </div>
-
-                    <!-- Support & Legal Section -->
-                    <div class="space-y-4">
-                        <h6 class="text-lg font-semibold text-white">Support & Legal</h6>
-                        <div class="space-y-2">
-                            <a class="block text-gray-300 hover:text-white transition-colors">Terms & Conditions</a>
-                            <a class="block text-gray-300 hover:text-white transition-colors">Privacy Policy</a>
-                            <a class="block text-gray-300 hover:text-white transition-colors">Security</a>
-                            <a class="block text-gray-300 hover:text-white transition-colors">Contact Us</a>
-                            <a class="block text-gray-300 hover:text-white transition-colors">Help Center</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Footer Bottom -->
-                <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-                    <div class="flex items-center space-x-4 mb-4 md:mb-0">
-                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68ad4ddd03888c7fc6b9b036_eka-black-logo.svg" alt="Eka Care" class="h-8 brightness-0 invert">
-                        <p class="text-gray-400">© 2024 Eka Care. All rights reserved.</p>
-                    </div>
-                    <div class="flex space-x-4">
-                        <a href="https://www.instagram.com/ekacarehq/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-instagram w-5 h-5"></i>
-                        </a>
-                        <a href="https://in.linkedin.com/company/ekacare" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-linkedin w-5 h-5"></i>
-                        </a>
-                        <a href="https://www.facebook.com/ekacareHQ" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-facebook w-5 h-5"></i>
-                        </a>
-                        <a href="https://twitter.com/ekacareHQ" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-twitter w-5 h-5"></i>
-                        </a>
                     </div>
                 </div>
             </div>
-        </footer>
-    </div>
+        </section>
 
-    <!-- GSAP Animations Script -->
-    <script src="animations.js"></script>
+        <!-- Stats Section Component Placeholder -->
+        <div id="animated-stats-placeholder"></div>
+
+        <!-- 'One Platform' Section -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl md:text-5xl font-bold text-center">One Platform,<br>Infinite Healthcare Possibilities</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+                    <!-- Health Assessment Card -->
+                    <div class="card bg-base-100 shadow-xl border border-gray-100">
+                        <div class="card-body p-8">
+                            <div class="flex items-center gap-2 mb-4">
+                                <i class="fas fa-clipboard-list text-blue-600 text-xl"></i>
+                                <span class="font-medium text-gray-600">Health Assessment</span>
+                            </div>
+                            <h3 class="card-title text-2xl font-bold">Smarter forms. Sharper diagnosis.</h3>
+                            <p class="text-gray-600 mt-2 mb-6 flex-grow">Automatically adapt questions to patient inputs for more accurate clinical assessments.</p>
+                            <div class="bg-gray-200 h-40 rounded-2xl w-full mt-auto mb-6"></div>
+                            <div class="card-actions justify-start">
+                                <a class="btn btn-soft">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Medical Records Card -->
+                    <div class="card bg-base-100 shadow-xl border border-gray-100">
+                        <div class="card-body p-8">
+                            <div class="flex items-center gap-2 mb-4">
+                                <i class="fas fa-file-medical text-blue-600 text-xl"></i>
+                                <span class="font-medium text-gray-600">Medical Records</span>
+                            </div>
+                            <h3 class="card-title text-2xl font-bold">Organised records. Instant insights.</h3>
+                            <p class="text-gray-600 mt-2 mb-6 flex-grow">Store, search, and extract insights from records, track trends, history, and vitals with ease.</p>
+                            <div class="bg-gray-200 h-40 rounded-2xl w-full mt-auto mb-6"></div>
+                            <div class="card-actions justify-start">
+                                <a class="btn btn-soft">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Eka Scribe Card -->
+                    <div class="card bg-base-100 shadow-xl border border-gray-100">
+                        <div class="card-body p-8">
+                            <div class="flex items-center gap-2 mb-4">
+                                <i class="fas fa-microphone-alt text-blue-600 text-xl"></i>
+                                <span class="font-medium text-gray-600">Eka Scribe</span>
+                            </div>
+                            <h3 class="card-title text-2xl font-bold">From voice to Rx in seconds.</h3>
+                            <p class="text-gray-600 mt-2 mb-6 flex-grow">Dictate, transcribe, and auto-structure prescriptions and clinical notes, hands-free within seconds.</p>
+                            <div class="bg-gray-200 h-40 rounded-2xl w-full mt-auto mb-6"></div>
+                            <div class="card-actions justify-start">
+                                <a class="btn btn-soft">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ABDM Integration Card -->
+                <div class="card bg-base-100 shadow-xl border border-gray-100 mt-8">
+                    <div class="card-body p-8">
+                        <div class="flex items-center gap-2 mb-4">
+                            <i class="fas fa-link text-green-600 text-xl"></i>
+                            <span class="font-medium text-gray-600">ABDM Integration</span>
+                        </div>
+                        <h3 class="card-title text-2xl font-bold">ABHA built-in. Health records, unified.</h3>
+                        <p class="text-gray-600 mt-2 mb-6">Create, link, and fetch ABHA records effortlessly, powering continuity of care across India's digital health network.</p>
+                        <div class="bg-gray-200 h-40 rounded-2xl w-full mt-auto mb-6"></div>
+                        <div class="card-actions justify-start">
+                            <a class="btn btn-soft">Learn more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Apps Section -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold">All the apps that you need,<br>ready to use in Eka</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto mt-4">Explore all integrations and build exactly what you need.</p>
+                <a class="btn btn-neutral rounded-full mt-6">Browse integrations</a>
+                <div class="mt-12 grid grid-cols-4 sm:grid-cols-5 md:grid-cols-7 gap-4 justify-items-center max-w-3xl mx-auto">
+                    <div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5c8ed30b96afa399ec_zoom.png" alt="Zoom" class="h-8" loading="lazy">
+                    </div>
+                    <div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5be3e8c1b73cacb120_gmeet.png" alt="Google Meet" class="h-8" loading="lazy">
+                    </div>
+                    <div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5b84dde5dad87bc22b_gmb.png" alt="Google My Business" class="h-10" loading="lazy">
+                    </div>
+                    <div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5c2d2562ae0aba3137_whatsapp.png" alt="WhatsApp" class="h-10" loading="lazy">
+                    </div>
+                    <div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5cf347b1712ac7fe0d_image%20164.png" alt="Viber" class="h-10" loading="lazy">
+                    </div>
+                    <div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5cf347b1712ac7fe1a_orange.png" alt="Orange" class="h-10" loading="lazy">
+                    </div>
+                    <div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5c1e9cb49ecafe99a3_agora.png" alt="Agora" class="h-10" loading="lazy">
+                    </div>
+                    <div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5c63ed1b9b495bfe95_evital.png" alt="Evital" class="h-9" loading="lazy">
+                    </div>
+                    <div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5cda2a9c942a39ab4f_100ms.png" alt="100ms" class="h-10" loading="lazy">
+                    </div>
+                    <div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5b80ba120fb0b8de18_flabs.png" alt="Flabs" class="h-8" loading="lazy">
+                    </div>
+                    <div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68769c5c9be87076a46923b4_metropolis.png" alt="Metropolis" class="h-8" loading="lazy">
+                    </div>
+                    <div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/68787c20d8904e9eccbe9dea_ABHA.png" alt="ABHA" class="h-8" loading="lazy">
+                    </div>
+                    <div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a4099129dbee28c888a7_metropolis.webp" alt="Metropolis" class="h-10" loading="lazy">
+                    </div>
+                    <div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center">
+                        <img src="https://cdn.prod.website-files.com/64d0bd8b475d468c8b1aa632/6790a409efce973a78422ab4_mittal%20nursing%20home.webp" alt="Mittal Nursing Home" class="h-8" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component Placeholder -->
+    <div id="footer-placeholder"></div>
+
+        <!-- Simple Component Loader System (works with local files) -->
+    <script src="components/simple-loader.js"></script>
+    
+    <!-- Creeping Cards Animation Component -->
+    <script src="components/creeping-cards-animation.js"></script>
+
+    <!-- Page Initialization -->
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            console.log('🚀 Loading homepage components...');
+
+            // Load header, footer, and animated stats components
+            await simpleComponentLoader.loadMultiple([
+                {
+                    name: 'header',
+                    element: document.getElementById('header-placeholder')
+                },
+                {
+                    name: 'footer',
+                    element: document.getElementById('footer-placeholder')
+                },
+                {
+                    name: 'animatedStatsSection',
+                    element: document.getElementById('animated-stats-placeholder')
+                }
+            ]);
+
+            console.log('✅ Page components loaded successfully');
+
+            // Initialize creeping cards animation
+            setTimeout(() => {
+                if (window.creepingCardsAnimation) {
+                    const success = window.creepingCardsAnimation.init();
+                    if (success) {
+                        console.log('🎉 Homepage creeping cards animations ready!');
+                    } else {
+                        console.log('⚠️ Creeping cards animation failed to initialize');
+                    }
+                } else {
+                    console.log('⚠️ Creeping cards animation not loaded');
+                }
+            }, 300);
+
+            // Load page-specific scripts
+            const animationScript = document.createElement('script');
+            animationScript.src = 'animations.js';
+            animationScript.onload = function() {
+                console.log('✅ animations.js loaded successfully');
+            };
+            document.body.appendChild(animationScript);
+
+            // Force reinitialize stats counter after animations are loaded
+            setTimeout(() => {
+                if (typeof gsap !== 'undefined') {
+                    console.log('🔄 Checking for stats counters...');
+
+                    // Check if stats elements exist and reinitialize counter
+                    const counters = document.querySelectorAll('[data-counter]');
+                    if (counters.length > 0) {
+                        console.log(`📊 Found ${counters.length} stat counters, reinitializing...`);
+
+                        // Enhanced counting animation with performance optimizations
+                        const countUp = (element, target, duration = 2000) => {
+                            const start = performance.now();
+                            const startValue = 0;
+
+                            const update = (currentTime) => {
+                                const elapsed = currentTime - start;
+                                const progress = Math.min(elapsed / duration, 1);
+
+                                // Easing function for smooth animation
+                                const easeOut = 1 - Math.pow(1 - progress, 3);
+                                const current = Math.floor(startValue + (target - startValue) * easeOut);
+
+                                element.textContent = current.toLocaleString();
+
+                                if (progress < 1) {
+                                    requestAnimationFrame(update);
+                                }
+                            };
+
+                            requestAnimationFrame(update);
+                        };
+
+                        // Use Intersection Observer for performance
+                        const observer = new IntersectionObserver((entries) => {
+                            entries.forEach((entry) => {
+                                if (entry.isIntersecting) {
+                                    const counter = entry.target;
+                                    const statElement = counter.closest('.stat');
+                                    const target = parseInt(statElement.dataset.target) || 0;
+                                    console.log(`🎯 Animating counter to ${target}`);
+                                    countUp(counter, target);
+                                    observer.unobserve(counter);
+                                }
+                            });
+                        }, {
+                            threshold: 0.5,
+                            rootMargin: '0px 0px -50px 0px'
+                        });
+
+                        counters.forEach(counter => observer.observe(counter));
+                        console.log('✅ Stats counter reinitialized successfully');
+                    } else {
+                        console.log('⚠️ No stat counters found to reinitialize');
+                    }
+                } else {
+                    console.log('❌ GSAP not loaded yet');
+                }
+            }, 1500);
+
+            // Add a manual test function for debugging
+            window.testStatsCounter = function() {
+                console.log('🧪 Manual stats counter test...');
+                const counters = document.querySelectorAll('[data-counter]');
+                console.log(`Found ${counters.length} counters:`, counters);
+
+                counters.forEach((counter, index) => {
+                    const statElement = counter.closest('.stat');
+                    const target = parseInt(statElement.dataset.target) || 0;
+                    console.log(`Counter ${index}: target=${target}, current=${counter.textContent}`);
+
+                    // Manually trigger animation
+                    const start = performance.now();
+                    const startValue = 0;
+                    const duration = 2000;
+
+                    const update = (currentTime) => {
+                        const elapsed = currentTime - start;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const easeOut = 1 - Math.pow(1 - progress, 3);
+                        const current = Math.floor(startValue + (target - startValue) * easeOut);
+
+                        counter.textContent = current.toLocaleString();
+
+                        if (progress < 1) {
+                            requestAnimationFrame(update);
+                        } else {
+                            console.log(`✅ Counter ${index} animation complete: ${counter.textContent}`);
+                        }
+                    };
+
+                    requestAnimationFrame(update);
+                });
+            };
+
+            console.log('🎯 Homepage initialization complete');
+            console.log('💡 To test stats counter manually, run: testStatsCounter() in console');
+        });
+    </script>
+
+    <!-- FontAwesome Connection Check -->
+    <script>
+        setTimeout(() => {
+            if (typeof FontAwesome !== 'undefined') {
+                console.log('✅ FontAwesome connected');
+            } else {
+                console.log('❌ FontAwesome not loaded');
+            }
+        }, 1500);
+    </script>
 </body>
 </html>

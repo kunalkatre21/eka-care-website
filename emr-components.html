@@ -268,6 +268,9 @@
 
     <!-- Simple Component Loader -->
     <script src="components/simple-loader.js"></script>
+    
+    <!-- Floating Cards Animation Component -->
+    <script src="components/floating-cards-animation.js"></script>
 
     <!-- Page Initialization -->
     <script>
@@ -288,9 +291,23 @@
 
             console.log('✅ EMR page components loaded successfully');
 
+            // Initialize EMR-specific floating cards animation
+            setTimeout(async () => {
+                const success = await window.initFloatingCardsAnimation(document, {
+                    enableHover: true,
+                    enableScrollTrigger: true
+                });
+                if (success) {
+                    console.log('🎉 EMR floating cards animations ready!');
+                }
+            }, 300);
+
             // Load page-specific scripts
             const animationScript = document.createElement('script');
             animationScript.src = 'animations.js';
+            animationScript.onload = function() {
+                console.log('✅ animations.js loaded for EMR page');
+            };
             document.body.appendChild(animationScript);
 
             console.log('🎯 EMR page initialization complete');

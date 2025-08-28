@@ -242,6 +242,80 @@ const COMPONENTS = {
 </div>
     `,
 
+    animatedStatsSection: `
+<!-- Enhanced Stats Bar with GSAP Animations -->
+<section class="py-16 bg-white" aria-labelledby="stats-heading">
+    <div class="container mx-auto px-4">
+        <h2 id="stats-heading" class="text-center text-3xl font-bold mb-12 text-gray-800">Trusted by Healthcare Leaders Nationwide</h2>
+        <div class="stats shadow w-full bg-gradient-to-r from-blue-50 to-indigo-50 rounded-3xl border border-blue-100">
+            <div class="stat" data-target="30000000">
+                <div class="stat-figure text-blue-600">
+                    <i class="fas fa-file-medical-alt fa-3x" aria-hidden="true"></i>
+                </div>
+                <div class="stat-title text-gray-600 font-medium">Digital Health Records</div>
+                <div class="stat-value text-blue-700 text-3xl font-bold" data-counter="0">0</div>
+                <div class="stat-desc text-blue-600">Secure and accessible</div>
+            </div>
+
+            <div class="stat" data-target="100000">
+                <div class="stat-figure text-green-600">
+                    <i class="fas fa-stethoscope fa-3x" aria-hidden="true"></i>
+                </div>
+                <div class="stat-title text-gray-600 font-medium">Active Healthcare Providers</div>
+                <div class="stat-value text-green-700 text-3xl font-bold" data-counter="0">0</div>
+                <div class="stat-desc text-green-600">Trusted by professionals</div>
+            </div>
+
+            <div class="stat" data-target="2500">
+                <div class="stat-figure text-purple-600">
+                    <i class="fas fa-clinic-medical fa-3x" aria-hidden="true"></i>
+                </div>
+                <div class="stat-title text-gray-600 font-medium">Connected Clinics</div>
+                <div class="stat-value text-purple-700 text-3xl font-bold" data-counter="0">0</div>
+                <div class="stat-desc text-purple-600">Nationwide network</div>
+            </div>
+
+            <div class="stat" data-target="50">
+                <div class="stat-figure text-orange-600">
+                    <i class="fas fa-network-wired fa-3x" aria-hidden="true"></i>
+                </div>
+                <div class="stat-title text-gray-600 font-medium">Enterprise Integrations</div>
+                <div class="stat-value text-orange-700 text-3xl font-bold" data-counter="0">0</div>
+                <div class="stat-desc text-orange-600">Seamless connectivity</div>
+            </div>
+        </div>
+
+        <!-- Additional Trust Indicators -->
+        <div class="grid md:grid-cols-3 gap-8 mt-16">
+            <div class="text-center p-6 bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl border border-green-100">
+                <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-shield-check text-white fa-2x" aria-hidden="true"></i>
+                </div>
+                <h3 class="text-xl font-bold text-green-800 mb-2">HIPAA Compliant</h3>
+                <p class="text-green-700">Fully compliant with healthcare data protection standards</p>
+            </div>
+
+            <div class="text-center p-6 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl border border-blue-100">
+                <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-headset text-white fa-2x" aria-hidden="true"></i>
+                </div>
+                <h3 class="text-xl font-bold text-blue-800 mb-2">24/7 Support</h3>
+                <p class="text-blue-700">Round-the-clock technical and medical support available</p>
+            </div>
+
+            <div class="text-center p-6 bg-gradient-to-br from-purple-50 to-violet-50 rounded-2xl border border-purple-100">
+                <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-crown text-white fa-2x" aria-hidden="true"></i>
+                </div>
+                <h3 class="text-xl font-bold text-purple-800 mb-2">Industry Leader</h3>
+                <p class="text-purple-700">Recognized as the leading healthcare AI platform in India</p>
+            </div>
+        </div>
+    </div>
+</section>
+    `,
+
+    // Keep the original static version for backward compatibility
     statsSection: `
 <!-- Stats Section Component -->
 <section class="stats-section py-20 bg-white" role="region" aria-labelledby="stats-heading">
@@ -394,7 +468,7 @@ const COMPONENTS = {
             </nav>
             <div class="navbar-end space-x-2">
                 <a href="#" class="btn btn-soft px-6 hidden sm:inline-flex" aria-label="Log in to your account">Log in</a>
-                <a href="#" class="btn btn-primary px-6" aria-label="Get started with Eka Care">Get started</a>
+                <a href="#" class="btn btn-neutral px-6 border-outline-pulse rounded-lg" aria-label="Get started with Eka Care">Get started</a>
             </div>
         </div>
     </header>

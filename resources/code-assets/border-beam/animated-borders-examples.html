@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Borders Examples - Practical Usage</title>
+
+    <!-- DaisyUI + Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Premium -->
+    <script src="https://kit.fontawesome.com/e4f2af7764.js" crossorigin="anonymous"></script>
+
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="shared-styles.css">
+</head>
+<body class="bg-base-100">
+    <div class="container mx-auto px-4 py-8">
+
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-3xl font-bold mb-4" style="font-family: 'Figtree', sans-serif;">
+                Animated Borders in Healthcare Components
+            </h1>
+            <p class="text-lg text-base-content/70">
+                Practical examples of animated borders applied to real healthcare UI components
+            </p>
+        </div>
+
+        <!-- Feature Cards with Animated Borders -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+
+            <!-- Telemedicine Card -->
+            <div class="animated-border-gradient">
+                <div class="card bg-base-100 shadow-lg">
+                    <div class="card-body">
+                        <div class="flex items-center gap-3 mb-4">
+                            <i class="fas fa-video fa-lg text-blue-500"></i>
+                            <h3 class="card-title">Telemedicine</h3>
+                        </div>
+                        <p class="text-base-content/70 mb-4">
+                            Connect with healthcare professionals remotely through secure video consultations.
+                        </p>
+                        <div class="card-actions">
+                            <button class="btn btn-primary btn-sm">Start Consultation</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Health Records Card -->
+            <div class="animated-border-glow">
+                <div class="card bg-base-100 shadow-lg">
+                    <div class="card-body">
+                        <div class="flex items-center gap-3 mb-4">
+                            <i class="fas fa-file-medical fa-lg text-green-500"></i>
+                            <h3 class="card-title">Health Records</h3>
+                        </div>
+                        <p class="text-base-content/70 mb-4">
+                            Access your complete medical history securely and instantly.
+                        </p>
+                        <div class="card-actions">
+                            <button class="btn btn-secondary btn-sm">View Records</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Appointments Card -->
+            <div class="animated-border-pulse">
+                <div class="card bg-base-100 shadow-lg">
+                    <div class="card-body">
+                        <div class="flex items-center gap-3 mb-4">
+                            <i class="fas fa-calendar-check fa-lg text-purple-500"></i>
+                            <h3 class="card-title">Appointments</h3>
+                        </div>
+                        <p class="text-base-content/70 mb-4">
+                            Schedule and manage your healthcare appointments with ease.
+                        </p>
+                        <div class="card-actions">
+                            <button class="btn btn-accent btn-sm">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Stats Section with Borders -->
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold text-center mb-8">Healthcare Statistics</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+
+                <div class="animated-border-glimmer text-center p-6 bg-base-100 rounded-lg">
+                    <div class="text-3xl font-bold text-blue-500 mb-2">10K+</div>
+                    <div class="text-base-content/70">Patients Served</div>
+                </div>
+
+                <div class="animated-border-svg text-center p-6 bg-base-100 rounded-lg relative">
+                    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                        <rect rx="12" ry="12" class="border-path" width="100%" height="100%" />
+                    </svg>
+                    <div class="relative z-10">
+                        <div class="text-3xl font-bold text-green-500 mb-2">500+</div>
+                        <div class="text-base-content/70">Doctors</div>
+                    </div>
+                </div>
+
+                <div class="animated-border-rotating text-center p-6 bg-base-100 rounded-lg">
+                    <div class="text-3xl font-bold text-purple-500 mb-2">24/7</div>
+                    <div class="text-base-content/70">Support</div>
+                </div>
+
+                <div class="animated-border-gradient text-center p-6 bg-base-100 rounded-lg">
+                    <div class="text-3xl font-bold text-cyan-500 mb-2">99.9%</div>
+                    <div class="text-base-content/70">Uptime</div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="text-center mb-12">
+            <div class="animated-border-glow max-w-2xl mx-auto">
+                <div class="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 p-8 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-4">Ready to Get Started?</h3>
+                    <p class="text-base-content/70 mb-6">
+                        Join thousands of patients who trust Eka for their healthcare needs.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button class="btn btn-primary">Sign Up Free</button>
+                        <button class="btn btn-outline">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Code Examples -->
+        <div class="bg-base-200 rounded-lg p-8">
+            <h3 class="text-xl font-bold mb-6 text-center">Quick Implementation</h3>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+                <!-- Basic Usage -->
+                <div>
+                    <h4 class="font-semibold mb-3">Basic Card with Animated Border</h4>
+                    <div class="bg-base-100 rounded p-4 text-sm font-mono overflow-x-auto">
+                        <pre><code>&lt;div class="animated-border-gradient"&gt;
+    &lt;div class="card bg-base-100 shadow-lg"&gt;
+        &lt;div class="card-body"&gt;
+            &lt;h3 class="card-title"&gt;Healthcare Feature&lt;/h3&gt;
+            &lt;p&gt;Description here...&lt;/p&gt;
+            &lt;button class="btn btn-primary"&gt;Action&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Advanced Usage -->
+                <div>
+                    <h4 class="font-semibold mb-3">Stats with SVG Border</h4>
+                    <div class="bg-base-100 rounded p-4 text-sm font-mono overflow-x-auto">
+                        <pre><code>&lt;div class="animated-border-svg relative"&gt;
+    &lt;svg width="100%" height="100%"&gt;
+        &lt;rect rx="12" ry="12" class="border-path"
+              width="100%" height="100%"/&gt;
+    &lt;/svg&gt;
+    &lt;div class="relative z-10 p-6 text-center"&gt;
+        &lt;div class="text-3xl font-bold"&gt;99.9%&lt;/div&gt;
+        &lt;div&gt;Success Rate&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Available Classes Reference -->
+            <div class="mt-8">
+                <h4 class="font-semibold mb-3">Available Animated Border Classes</h4>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm">
+                    <code class="bg-base-100 p-2 rounded block">.animated-border-gradient</code>
+                    <code class="bg-base-100 p-2 rounded block">.animated-border-glow</code>
+                    <code class="bg-base-100 p-2 rounded block">.animated-border-pulse</code>
+                    <code class="bg-base-100 p-2 rounded block">.animated-border-glimmer</code>
+                    <code class="bg-base-100 p-2 rounded block">.animated-border-svg</code>
+                    <code class="bg-base-100 p-2 rounded block">.animated-border-rotating</code>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('✅ Animated Borders Examples loaded');
+        });
+    </script>
+</body>
+</html>

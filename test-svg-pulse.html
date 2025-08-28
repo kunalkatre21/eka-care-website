@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Pulse Animation Test</title>
+
+    <!-- DaisyUI + Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- GSAP Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Inter', sans-serif;
+            background: hsl(var(--b1));
+        }
+
+        .hero-bg-svg {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            opacity: 0.3;
+        }
+
+        .hero-circles {
+            stroke: url(#paint0_linear);
+        }
+
+        .hero-gradient-start {
+            stop-color: hsl(var(--p));
+            stop-opacity: 0.6;
+        }
+
+        .hero-gradient-end {
+            stop-color: hsl(var(--s));
+            stop-opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto">
+        <h1 class="text-3xl font-bold mb-8 text-center">SVG Pulse Animation Test</h1>
+
+        <section class="hero min-h-[500px] flex items-center justify-center relative">
+            <div class="hero-content text-center z-10">
+                <h1 id="hero-heading" class="text-5xl font-bold mb-6">Healthcare AI Platform</h1>
+                <p class="text-xl mb-8 opacity-90">Transforming healthcare with intelligent automation</p>
+                <button class="btn btn-primary btn-lg">Get Started</button>
+            </div>
+            <div class="absolute inset-0 hero-bg-svg opacity-30" role="presentation" aria-hidden="true">
+                <svg class="w-full h-full object-cover" viewBox="0 0 1440 943" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_6692_4067)">
+                        <rect width="1440" height="943" class="fill-base-100"/>
+                        <g class="hero-circles">
+                            <circle cx="719.392" cy="844.662" r="717.264" transform="rotate(90.2201 719.392 844.662)" stroke="url(#paint0_linear_6692_4067)" stroke-width="1.22166"/>
+                            <circle cx="719.589" cy="793.386" r="665.987" transform="rotate(90.2201 719.589 793.386)" stroke="url(#paint1_linear_6692_4067)" stroke-width="1.22166"/>
+                            <circle cx="719.984" cy="690.849" r="563.434" transform="rotate(90.2201 719.984 690.849)" stroke="url(#paint2_linear_6692_4067)" stroke-width="1.22166"/>
+                            <circle cx="720.18" cy="639.572" r="512.157" transform="rotate(90.2201 720.18 639.572)" stroke="url(#paint3_linear_6692_4067)" stroke-width="1.22166"/>
+                            <circle cx="720.377" cy="588.295" r="460.88" transform="rotate(90.2201 720.377 588.295)" stroke="url(#paint4_linear_6692_4067)" stroke-width="1.22166"/>
+                            <circle cx="720.577" cy="537.019" r="409.604" transform="rotate(90.2201 720.577 537.019)" stroke="url(#paint5_linear_6692_4067)" stroke-width="1.22166"/>
+                            <circle cx="720.774" cy="485.744" r="358.327" transform="rotate(90.2201 720.774 485.744)" stroke="url(#paint6_linear_6692_4067)" stroke-width="1.22166"/>
+                            <circle cx="719.787" cy="742.125" r="614.711" transform="rotate(90.2201 719.787 742.125)" stroke="url(#paint7_linear_6692_4067)" stroke-width="1.22166"/>
+                        </g>
+                    </g>
+                    <defs>
+                        <linearGradient id="paint0_linear_6692_4067" x1="-10.1599" y1="814.201" x2="1251.96" y2="811.662" gradientUnits="userSpaceOnUse">
+                            <stop class="hero-gradient-start"/>
+                            <stop offset="1" class="hero-gradient-end" stop-opacity="0"/>
+                        </linearGradient>
+                        <linearGradient id="paint1_linear_6692_4067" x1="42.1481" y1="765.101" x2="1214.12" y2="762.744" gradientUnits="userSpaceOnUse">
+                            <stop class="hero-gradient-start"/>
+                            <stop offset="1" class="hero-gradient-end" stop-opacity="0"/>
+                        </linearGradient>
+                        <linearGradient id="paint2_linear_6692_4067" x1="146.765" y1="666.915" x2="1138.43" y2="664.92" gradientUnits="userSpaceOnUse">
+                            <stop class="hero-gradient-start"/>
+                            <stop offset="1" class="hero-gradient-end" stop-opacity="0"/>
+                        </linearGradient>
+                        <linearGradient id="paint3_linear_6692_4067" x1="199.072" y1="617.814" x2="1100.59" y2="616.001" gradientUnits="userSpaceOnUse">
+                            <stop class="hero-gradient-start"/>
+                            <stop offset="1" class="hero-gradient-end" stop-opacity="0"/>
+                        </linearGradient>
+                        <linearGradient id="paint4_linear_6692_4067" x1="251.379" y1="568.713" x2="1062.74" y2="567.081" gradientUnits="userSpaceOnUse">
+                            <stop class="hero-gradient-start"/>
+                            <stop offset="1" class="hero-gradient-end" stop-opacity="0"/>
+                        </linearGradient>
+                        <linearGradient id="paint5_linear_6692_4067" x1="303.69" y1="519.613" x2="1024.9" y2="518.162" gradientUnits="userSpaceOnUse">
+                            <stop class="hero-gradient-start"/>
+                            <stop offset="1" class="hero-gradient-end" stop-opacity="0"/>
+                        </linearGradient>
+                        <linearGradient id="paint6_linear_6692_4067" x1="355.998" y1="470.513" x2="987.058" y2="469.244" gradientUnits="userSpaceOnUse">
+                            <stop class="hero-gradient-start"/>
+                            <stop offset="1" class="hero-gradient-end" stop-opacity="0"/>
+                        </linearGradient>
+                        <linearGradient id="paint7_linear_6692_4067" x1="94.4569" y1="716.016" x2="1176.27" y2="713.84" gradientUnits="userSpaceOnUse">
+                            <stop class="hero-gradient-start"/>
+                            <stop offset="1" class="hero-gradient-end" stop-opacity="0"/>
+                        </linearGradient>
+                        <clipPath id="clip0_6692_4067">
+                            <rect width="1440" height="943" fill="white"/>
+                        </clipPath>
+                    </defs>
+                </svg>
+            </div>
+        </section>
+
+        <div class="text-center mt-8">
+            <button onclick="toggleAnimation()" class="btn btn-primary">Toggle Pulse Animation</button>
+            <div id="status" class="mt-4 text-sm opacity-75">Animation: Running</div>
+
+            <div class="mt-4 flex gap-2 justify-center flex-wrap">
+                <button onclick="movePulsesToCenter()" class="btn btn-secondary btn-sm">Move to Center</button>
+                <button onclick="repositionPulsesForVisibility()" class="btn btn-info btn-sm">Visible Circles</button>
+                <button onclick="showDebugMarkers()" class="btn btn-accent btn-sm">Show Centers</button>
+                <button onclick="resetPulsePositions()" class="btn btn-warning btn-sm">Reset</button>
+            </div>
+
+            <div class="mt-3 flex gap-2 justify-center flex-wrap">
+                <button onclick="toggleDebugLogging()" class="btn btn-success btn-xs" id="debugToggle">🔇 Disable Debug</button>
+                <button onclick="clearConsole()" class="btn btn-neutral btn-xs">🧹 Clear Console</button>
+                <button onclick="logCurrentPositions()" class="btn btn-primary btn-xs">📍 Log Positions</button>
+            </div>
+
+            <div class="mt-6 p-4 bg-base-200 rounded-lg">
+                <h3 class="font-semibold mb-2">Debug Info:</h3>
+                <div id="debug-info" class="text-sm space-y-1">
+                    <div>🔄 Checking animation status...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include our animation system -->
+    <script src="animations.js"></script>
+
+    <script>
+        let animationRunning = true;
+
+        function toggleAnimation() {
+            const status = document.getElementById('status');
+            if (animationRunning) {
+                // Pause all GSAP animations
+                gsap.globalTimeline.pause();
+
+                // Also pause CSS animations
+                document.querySelectorAll('.svg-pulse').forEach(pulse => {
+                    pulse.style.animationPlayState = 'paused';
+                });
+                status.textContent = 'Animation: Paused';
+            } else {
+                // Resume all GSAP animations
+                gsap.globalTimeline.resume();
+
+                // Also resume CSS animations
+                document.querySelectorAll('.svg-pulse').forEach(pulse => {
+                    pulse.style.animationPlayState = 'running';
+                });
+                status.textContent = 'Animation: Running';
+            }
+            animationRunning = !animationRunning;
+        }
+
+        function movePulsesToCenter() {
+            const pulses = document.querySelectorAll('.svg-pulse');
+            const svg = document.querySelector('.hero-bg-svg svg');
+            if (!svg || pulses.length === 0) return;
+
+            // Move all pulses to center of SVG viewBox (720, 471.5)
+            const centerX = 720;
+            const centerY = 471.5;
+
+            pulses.forEach((pulse, index) => {
+                const offsetX = (index - 3) * 50; // Spread them out a bit
+                const offsetY = (index - 3) * 30;
+
+                pulse.setAttribute('cx', centerX + offsetX);
+                pulse.setAttribute('cy', centerY + offsetY);
+                console.log(`Moved pulse ${index} to center: ${centerX + offsetX}, ${centerY + offsetY}`);
+            });
+        }
+
+        function showDebugMarkers() {
+            const svg = document.querySelector('.hero-bg-svg svg');
+            const circles = document.querySelectorAll('.hero-circles circle');
+
+            if (!svg || circles.length === 0) {
+                console.warn('SVG or circles not found');
+                return;
+            }
+
+            // Remove existing debug markers
+            const existingMarkers = document.querySelector('.debug-markers');
+            if (existingMarkers) {
+                existingMarkers.remove();
+            }
+
+            // Add new debug markers
+            const debugGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+            debugGroup.setAttribute('class', 'debug-markers');
+
+            circles.forEach((circle, index) => {
+                const cx = parseFloat(circle.getAttribute('cx'));
+                const cy = parseFloat(circle.getAttribute('cy'));
+
+                // Add a red dot at the center of each original circle
+                const marker = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                marker.setAttribute('cx', cx);
+                marker.setAttribute('cy', cy);
+                marker.setAttribute('r', '8');
+                marker.setAttribute('fill', 'red');
+                marker.setAttribute('stroke', 'white');
+                marker.setAttribute('stroke-width', '2');
+                marker.setAttribute('opacity', '1');
+                debugGroup.appendChild(marker);
+
+                console.log(`Added debug marker ${index} at: ${cx}, ${cy}`);
+            });
+
+            svg.appendChild(debugGroup);
+            console.log('Added red debug markers at circle centers');
+        }
+
+        function resetPulsePositions() {
+            const pulses = document.querySelectorAll('.svg-pulse');
+            const circles = document.querySelectorAll('.hero-circles circle');
+
+            pulses.forEach((pulse, index) => {
+                // Use the available circles (indices 0-6) which are the only ones that exist
+                const circleIndex = index;
+                if (circles[circleIndex]) {
+                    const cx = parseFloat(circles[circleIndex].getAttribute('cx'));
+                    const cy = parseFloat(circles[circleIndex].getAttribute('cy'));
+
+                    pulse.setAttribute('cx', cx);
+                    pulse.setAttribute('cy', cy);
+                    console.log(`Reset pulse ${index} to circle ${circleIndex}: ${cx}, ${cy}`);
+                }
+            });
+        }
+
+        function repositionPulsesForVisibility() {
+            const pulses = document.querySelectorAll('.svg-pulse');
+            const svg = document.querySelector('.hero-bg-svg svg');
+
+            if (!svg || pulses.length === 0) return;
+
+            // Position pulses in a visible pattern around the center
+            const centerX = 720;
+            const centerY = 471.5;
+            const radius = 80; // Small radius for good visibility
+
+            pulses.forEach((pulse, index) => {
+                const angle = (index / pulses.length) * Math.PI * 2;
+                const x = centerX + Math.cos(angle) * radius;
+                const y = centerY + Math.sin(angle) * radius;
+
+                pulse.setAttribute('cx', x);
+                pulse.setAttribute('cy', y);
+                console.log(`Repositioned pulse ${index} to visible position: ${x.toFixed(1)}, ${y.toFixed(1)}`);
+            });
+        }
+
+        function toggleDebugLogging() {
+            // Access the animation system instance (assuming it's global)
+            if (window.animationSystem && window.animationSystem.debugMode !== undefined) {
+                window.animationSystem.debugMode = !window.animationSystem.debugMode;
+                const button = document.getElementById('debugToggle');
+                button.textContent = window.animationSystem.debugMode ? '🔇 Disable Debug' : '🔊 Enable Debug';
+                button.className = window.animationSystem.debugMode ? 'btn btn-success btn-xs' : 'btn btn-error btn-xs';
+                console.log(`🔧 Debug logging ${window.animationSystem.debugMode ? 'ENABLED' : 'DISABLED'}`);
+            } else {
+                console.warn('Animation system not accessible for debug toggle');
+            }
+        }
+
+        function clearConsole() {
+            console.clear();
+            console.log('🧹 Console cleared');
+            console.log('💡 Try these commands:');
+            console.log('   - toggleDebugLogging() - Toggle movement logging');
+            console.log('   - logCurrentPositions() - Log all pulse positions');
+            console.log('   - repositionPulsesForVisibility() - Move pulses to visible circles');
+        }
+
+        function logCurrentPositions() {
+            const pulses = document.querySelectorAll('.svg-pulse');
+            const circles = document.querySelectorAll('.hero-circles circle');
+
+            console.log('📍 Current Pulse Positions:');
+            console.log('='.repeat(50));
+
+            pulses.forEach((pulse, index) => {
+                const cx = parseFloat(pulse.getAttribute('cx'));
+                const cy = parseFloat(pulse.getAttribute('cy'));
+                const fill = pulse.getAttribute('fill');
+
+                // Calculate distance from center of SVG
+                const distanceFromCenter = Math.sqrt(
+                    Math.pow(cx - 720, 2) + Math.pow(cy - 471.5, 2)
+                );
+
+                console.log(`Pulse ${index}:`, {
+                    position: `(${cx.toFixed(1)}, ${cy.toFixed(1)})`,
+                    color: fill,
+                    distanceFromCenter: `${distanceFromCenter.toFixed(1)}px`,
+                    visible: pulse.style.display !== 'none'
+                });
+            });
+
+            console.log('');
+            console.log('🎯 Original Circle Centers:');
+            circles.forEach((circle, index) => {
+                const cx = parseFloat(circle.getAttribute('cx'));
+                const cy = parseFloat(circle.getAttribute('cy'));
+                const r = parseFloat(circle.getAttribute('r'));
+                console.log(`Circle ${index}: center=(${cx}, ${cy}), radius=${r}px`);
+            });
+        }
+
+        // Add some debug info
+        console.log('🎯 SVG Pulse Test Page Loaded');
+        console.log('🔧 GSAP Version:', gsap.version);
+        console.log('🔌 MotionPathPlugin Available:', typeof MotionPathPlugin !== 'undefined');
+        console.log('');
+        console.log('📊 Available Debug Commands:');
+        console.log('   • toggleDebugLogging() - Toggle live movement logging');
+        console.log('   • logCurrentPositions() - Log all current pulse positions');
+        console.log('   • clearConsole() - Clear console and show help');
+        console.log('   • repositionPulsesForVisibility() - Move pulses to visible circles');
+        console.log('');
+        console.log('📈 Movement logging shows: progress %, position, angle, distance, scale, speed');
+        console.log('🎮 Use the debug buttons to control logging and test different layouts!');
+
+        // Debug: Check if SVG elements exist and update debug panel
+        function updateDebugInfo() {
+            const debugInfo = document.getElementById('debug-info');
+            const heroCircles = document.querySelector('.hero-circles');
+            const pulses = document.querySelectorAll('.svg-pulse');
+            const pulseContainer = document.querySelector('.svg-pulse-container');
+
+            const circles = document.querySelectorAll('.hero-circles circle');
+            const info = [
+                `🎯 Hero circles: ${heroCircles ? '✅ Found' : '❌ Missing'}`,
+                `🔢 Total circles: ${circles.length} (indices 0-${circles.length - 1})`,
+                `⚡ Pulse container: ${pulseContainer ? '✅ Found' : '❌ Missing'}`,
+                `🌟 Pulse elements: ${pulses.length} found`,
+                `🎨 GSAP: ${typeof gsap !== 'undefined' ? '✅ Loaded' : '❌ Missing'}`,
+                `🔌 MotionPath: ${typeof MotionPathPlugin !== 'undefined' ? '✅ Available' : '❌ Missing'}`
+            ];
+
+            debugInfo.innerHTML = info.map(item => `<div>${item}</div>`).join('');
+
+            console.log('Hero circles found:', !!heroCircles);
+            console.log('Pulse elements found:', pulses.length);
+            console.log('Pulse elements:', pulses);
+
+            if (pulses.length === 0) {
+                console.warn('No pulse elements found - animation may not have initialized');
+                debugInfo.innerHTML += '<div class="text-red-500 font-semibold">⚠️ No pulse elements - check console for errors</div>';
+            } else {
+                pulses.forEach((pulse, index) => {
+                    console.log(`Pulse ${index}:`, {
+                        cx: pulse.getAttribute('cx'),
+                        cy: pulse.getAttribute('cy'),
+                        r: pulse.getAttribute('r'),
+                        fill: pulse.getAttribute('fill'),
+                        class: pulse.getAttribute('class')
+                    });
+                });
+            }
+        }
+
+        setTimeout(updateDebugInfo, 2000);
+    </script>
+</body>
+</html>
